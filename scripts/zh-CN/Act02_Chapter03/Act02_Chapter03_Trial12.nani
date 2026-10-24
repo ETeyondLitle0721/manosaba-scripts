@@ -1,0 +1,729 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook Version:5
+
+@BeginIf Expression:isDebugDirectJump
+    @Gosub Path:Act02_Chapter03/Act02_Chapter03_TrialInit
+    @HidePerspectiveStageScreen Index:1 Duration:0 Reset:true
+    @ModifyBackgroundExtended TintColor:#000000 Duration:0 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+
+@SetTrialTimer Time:900
+@HideUI UINames:ControlPanel AllowToggle:false
+@ShowUI UINames:DebateUI
+
+; ==============================================================================
+; MARK: 8-12: 💬 ノアの嘘
+; ==============================================================================
+; ＠ト書き▼議論シーン8-12 ノアの嘘
+; 議論開始エフェクト
+; BGM変更：Guil-me N'o sinruits-Vocal無-
+@PlayBgm BgmPath:Bgm_37_1_Loop IntroBgmPath:Bgm_37_1_Intro Volume:1 Loop:true FadeInDuration:0
+
+# Judge8-12-1
+
+@Gosub Path:System/System_Subroutine.BeginDebate-First
+@Gosub Path:System/System_Subroutine.BeginDebate-Effect
+@Gosub Path:System/System_Subroutine.BeginDebate-Last
+@ChangeTrialPauseMode Enable:false ProcessTimer:true
+
+@HidePerspectiveStageScreen Index:1 Reset:true
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open1,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:安安故意从<br>阳台坠落的<br>时候，<br>就着手把自己伪装成<br>已经死去的模样。|#0203Trial12_Hiro001| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open1,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:她会这样做<br>有可能是出于<br>恶作剧的想法。<br>……可是<br>有人利用了她这个<br>准备周详的计划。|#0203Trial12_Hiro002| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open3,Mouth2_Surprised_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:这个人先把铁栅栏的铁栅<br>弄断备好，<br>等安安掉下来时<br>把她刺死……|#0203Trial12_Hiro003| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open3,Mouth2_Determined_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:然后<br>让中庭下一场雨，<br>把自己犯案的痕迹<br>冲洗干净。|#0203Trial12_Hiro004| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Closed1,Mouth2_Surprised_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:能做到这件事的，<br>就只有能够使用操控液体<br>这一魔法的人……|#0203Trial12_Hiro005| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL3,Eyes2_Angry_Open1,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:城崎诺亚……<br>凶手就是你。|#0203Trial12_Hiro006| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Smile_Closed01,Angle01/Facial/Mouth>Mouth_Smile_Open02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:那只是希罗你<br>单方面的臆测<br>而已吧？|#0203Trial12_Noah001| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Surprised_Open01,Angle01/Facial/Mouth>Mouth_Surprised_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:因为希罗刚才<br>不也说了嘛。<br>【犯案的痕迹已经冲洗干净】。|#0203Trial12_Noah002| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Smile_Closed01,Angle01/Facial/Mouth>Mouth_Smile_Open02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:"既然现场没有<br>留下任何证据，<br>那就什么都<br><link=\"Objection_02_03_12_01\">证明不了</link>，<br>没错吧。|#0203Trial12_Noah003|" RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Uncomfortable_Open,Angle01/Facial/Mouth>Mouth_Smile_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:说不定这一切<br>全都是希罗<br>幻想出来的，<br>其实安安<br>坠下中庭时<br>就已经死了。|#0203Trial12_Noah004| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR8,ArmL2,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:可、<br>可希罗已经证明了<br>血迹是伪造的啊……！|#0203Trial12_Ema001| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR3,ArmL3,Angle01/Facial/Eyes>Eyes_Normal_Open02,Angle01/Facial/Mouth>Mouth_Smile_Open02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:"诺亚觉得<br>这证明不了什么吧……<br>而且就算是假血，<br>应该<link=\"Objection_02_03_12_02\">谁都能</link><br>弄到吧。|#0203Trial12_Noah005|" RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR2,ArmL4,Angle01/Facial/Eyes>Eyes_Pensive_Open_1,Angle01/Facial/Mouth>Mouth_Smile_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:"说不定那场雨<br>只是<link=\"Objection_02_03_12_03\">碰巧</link>下的，<br>再说，<br>要往中庭里洒水，<br>办法不是<br>要多少有多少吗？|#0203Trial12_Noah006|" RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR2,ArmL4,Angle01/Facial/Eyes>Eyes_Smile_Closed01,Angle01/Facial/Mouth>Mouth_Smile_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:然后呢，除了诺亚以外，<br>其他人不也<br>没有不在场证明嘛？|#0203Trial12_Noah007| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,Arms3,Eyes2_Angry_Open1,Mouth2_Determined_Open2,Sweat2-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:……即便如此，<br>也推翻不了<br>只有诺亚<br>能清除脚印的事实。|#0203Trial12_Hiro007| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Uncomfortable_Open,Angle01/Facial/Mouth>Mouth_Flushed_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:真的吗？确定吗？|#0203Trial12_Noah008| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR4,ArmL2,Angle01/Facial/Eyes>Eyes_Uncomfortable_Open,Angle01/Facial/Mouth>Mouth_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:"比如说，<link=\"Objection_02_03_12_04\">蕾雅</link>是第一个<br>踏进中庭的人，<br>那她就<br>没有必要在<br>犯案后清除脚印了。|#0203Trial12_Noah009|" RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR2,ArmL3,Angle01/Facial/Eyes>Eyes_Smile_Closed01,Angle01/Facial/Mouth>Mouth_Smile_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:既然是第一发现人，<br>留了脚印也很正常啊。<br>|#0203Trial12_Noah010| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR5,ArmL7,Angle01/Facial/Eyes>Eyes_Normal_Open02,Angle01/Facial/Mouth>Mouth_Angry_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:……说得对。<br>所以现场确实<br>留下了我的脚印。|#0203Trial12_Leia001| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR3,ArmL2,Angle01/Facial/Eyes>Eyes_Uncomfortable_Open,Angle01/Facial/Mouth>Mouth_Smile_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:……你看吧？|#0203Trial12_Noah011| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Pensive_Open_1,Angle01/Facial/Mouth>Mouth_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:希罗的推理<br>都很反常，<br>构图简直一团糟……|#0203Trial12_Noah012| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+; ＠備考◆笑顔
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR5,ArmL2,Angle01/Facial/Eyes>Eyes_Smile_Closed01,Angle01/Facial/Mouth>Mouth_Smile_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:在诺亚看来，<br>不管是透视还是焦点……<br>全都不对劲哦？|#0203Trial12_Noah013| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+@Gosub Path:System/System_Subroutine.EndDebate-Effect
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+; 
+; 議論終了
+; ------------------------------------------------------------------------------
+
+@ResetText
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Angle01/Head01/Facial01/Mouth01>Mouth01_Pensive_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center ZoomLevel:2
+@Wait WaitMode:0.2
+
+; ==============================================================================
+; 8-12議論後独白
+; ==============================================================================
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL9,Eyes2_Normal_Closed1,Mouth2_Angry_Closed1,Sweat2-1
+[PrintTextModified Text:"（继续穷追不舍下去<br>　也只会被她轻飘飘搪塞过去）|#0203Trial12_Hiro008|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR12,ArmL12,Eyes2_Serious_Open1,Mouth2_Angry_Closed1
+[PrintTextModified Text:"（可这起案件很明显就是<br>　诺亚利用安安的计划来诬陷我跟艾玛）|#0203Trial12_Hiro009|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR12,ArmL12,Eyes2_Angry_Open1,Mouth2_Cry_Closed1
+[PrintTextModified Text:"（虽然不知道她是出于什么理由……<br>　可不管怎样，我也不能放过她！）|#0203Trial12_Hiro010|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 2話のアンアンの洗脳が残ってる
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR12,ArmL12,Eyes2_Serious_Open1,Mouth2_Angry_Closed1
+[PrintTextModified Text:"（无论用什么手段我也要揭穿她……<br>　揭穿【真凶】的谎言！）|#0203Trial12_Hiro011|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge8-12-1
+
+; 
+; 反論1
+; ------------------------------------------------------------------------------
+
+# Objection_02_03_12_01
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:有办法证明|#0203Trial12_Choice001| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge8-12-3
+
+@AddChoice ChoiceSummary:返回|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; 
+; 反論2
+; ------------------------------------------------------------------------------
+
+# Objection_02_03_12_02
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:只有诺亚能准备血浆|#0203Trial12_Choice002| Lock:false ButtonPath:ChoiceButtons/Trial/Perjury HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge8-12-2
+
+
+@AddChoice ChoiceSummary:返回|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; 
+; 反論3
+; ------------------------------------------------------------------------------
+
+# Objection_02_03_12_03
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:下雨的可能性很低|#0203Trial12_Choice003| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge8-12-4
+
+@AddChoice ChoiceSummary:返回|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; 
+; 反論4
+; ------------------------------------------------------------------------------
+
+# Objection_02_03_12_04
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:证明蕾雅不可能杀人|#0203Trial12_Choice004| Lock:false ButtonPath:ChoiceButtons/Trial/Perjury HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge8-12-5
+
+
+@AddChoice ChoiceSummary:返回|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; ==============================================================================
+; MARK: 8-12: ❌ 議論ミス選択肢
+; ==============================================================================
+; MARK: 8-12-3: ❌ 反論・証明できる
+
+# Judge8-12-3
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open1,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:不，可以证明。|#0203Trial12_Hiro012| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Pensive1,ArmR2,ArmL2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right
+[PrintTextModified Text:……哦～，要怎样证明呢？|#0203Trial12_Noah014| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open1,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:就算用水冲刷多少次，<br>总会有无法抹去的痕迹残留。|#0203Trial12_Hiro013| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open3,Mouth2_Surprised_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:例如头发……<br>或者衣服纤维之类的。|#0203Trial12_Hiro014| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Pensive1,ArmR2,ArmL2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right
+[PrintTextModified Text:…………|#0203Trial12_Noah015| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open02,Angle01/Facial/Mouth>Mouth_Smile_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right
+[PrintTextModified Text:然后呢，你说的这些【证据】在哪里啊？|#0203Trial12_Noah016| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR12,ArmL12,Eyes2_Serious_Open1,Mouth2_Angry_Closed1,Sweat2-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……唔！<br>这……！|#0203Trial12_Hiro015| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR17,ArmL1,Angle01/Facial/Eyes>Eyes_Normal_Open04,Angle01/Facial/Mouth>Mouth_Normal_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left
+[PrintTextModified Text:……案发后在场的各位应该都<br>进入过中庭。|#0203Trial12_Sherry001| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR17,ArmL12,Angle01/Facial/Eyes>Eyes_Normal_Open04,Angle01/Facial/Mouth>Mouth_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left
+[PrintTextModified Text:如果单论痕迹的话，<br>在现场找到诺亚或者谁的痕迹应该不是<br>什么特别值得起疑的事情吧。|#0203Trial12_Sherry002| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Smile_Closed02,Angle01/Facial/Mouth>Mouth_Smile_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right
+[PrintTextModified Text:……怎样，希罗？|#0203Trial12_Noah017| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open02,Angle01/Facial/Mouth>Mouth_Angry_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right
+[PrintTextModified Text:果然还是……无法证明哦。|#0203Trial12_Noah018| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL9,Eyes2_Normal_Closed1,Mouth2_Angry_Closed1,Sweat2-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（只要没有证据，就无法让她屈服吗）|#0203Trial12_Hiro016| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL9,Eyes2_Angry_Open2,Mouth2_Angry_Closed1,Sweat2-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（不管是说谎还是用其他什么办法，<br>　我也要把诺亚逼到无路可退才行……）|#0203Trial12_Hiro017|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL9,Eyes2_Angry_Open2,Mouth2_Cry_Closed1,Sweat2-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（但不够彻底的谎言只会被她戳破）|#0203Trial12_Hiro018| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR4,ArmL2,Eyes1_Normal_Open5,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（有没有什么可以利用的东西呢）|#0203Trial12_Hiro019| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR4,ArmL2,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（……再次仔细审视一下手上的信息吧）|#0203Trial12_Hiro020| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge8-12-1
+
+; MARK: 8-12-4: ❌ 反論・雨が降る可能性は低い
+
+# Judge8-12-4
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open1,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:现场碰巧下了雨，<br>这个可能性无限接近于零。|#0203Trial12_Hiro021| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR8,ArmL4,Eyes1_Angry_Open1,Mouth1_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:要说理由的话，当时天上一片云都没有……|#0203Trial12_Hiro022| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL3,Eyes2_Angry_Open1,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:米莉亚，对吗？|#0203Trial12_Hiro023| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Miria.Default,ArmR3,ArmL4,Angle01/Facial/Eyes>Eyes_Normal_Open04,Angle01/Facial/Mouth>Mouth_Smile_Open01,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Miria Composition:Left
+[PrintTextModified Text:……啊、啊啊，嗯！这一点绝对没错！|#0203Trial12_Miria001| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Miria.Default,ArmR3,ArmL4,Angle01/Facial/Eyes>Eyes_Normal_Open04,Angle01/Facial/Mouth>Mouth_Smile_Open01,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Miria Composition:Left
+[PrintTextModified Text:那时天上没有一片云，星星都看得很清楚，很漂亮哦。|#0203Trial12_Miria002| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR1,ArmL4,Eyes1_Normal_Open1,Mouth1_Determined_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……就是这么一回事。|#0203Trial12_Hiro024| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR1,ArmL4,Eyes1_Normal_Closed1,Mouth1_Determined_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:既然是这样，<br>那就自然会认为那场雨是有人故意为之。|#0203Trial12_Hiro025| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open02,Angle01/Facial/Mouth>Mouth_Angry_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right
+[PrintTextModified Text:唔……|#0203Trial12_Noah019| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open02,Angle01/Facial/Mouth>Mouth_Angry_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right
+[PrintTextModified Text:可是没有人能断言【绝对不是自然降雨】吧？|#0203Trial12_Noah020| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Pensive1,ArmR2,ArmL2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right
+[PrintTextModified Text:不管是什么样的天气也会有突然下雨的时候，<br>这不是很正常嘛？|#0203Trial12_Noah021| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR1,ArmL1,Angle01/Facial/Eyes>Eyes_Smile_Closed01,Angle01/Facial/Mouth>Mouth_Smile_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right
+[PrintTextModified Text:这种雨还有个说法叫【晴天雨】。|#0203Trial12_Noah022| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hanna.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open,Angle01/Head01/Facial01/Mouth01>Mouth01_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hanna Composition:Left
+[PrintTextModified Text:我也赞同诺亚说的！|#0203Trial12_Hanna001| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hanna.Fearful1,ArmR3,ArmL1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hanna Composition:Left
+[PrintTextModified Text:曾经有好几次我相信了天气预报说不会下雨，<br>结果洗好晾到外面的衣服全都给糟蹋了……|#0203Trial12_Hanna002| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆力強く
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hanna.Default,ArmR3,ArmL2,Angle01/Head01/Facial01/Eyes01>Eyes01_Angry_Closed,Angle01/Head01/Facial01/Mouth01>Mouth01_Cry_Open,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hanna Composition:Left
+[PrintTextModified Text:碰巧下雨这种情况是有可能发生的！|#0203Trial12_Hanna003| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL9,Eyes2_Normal_Closed1,Mouth2_Angry_Closed1,Sweat2-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（自然现象当不了依据吗）|#0203Trial12_Hiro026| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 別選択肢共通
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL9,Eyes2_Angry_Open2,Mouth2_Angry_Closed1,Sweat2-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（不管是说谎还是用其他什么办法，<br>　我也要把诺亚逼到无路可退才行……）|#0203Trial12_Hiro027|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL9,Eyes2_Angry_Open2,Mouth2_Cry_Closed1,Sweat2-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（但不够彻底的谎言只会被她戳破）|#0203Trial12_Hiro028| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR4,ArmL2,Eyes1_Normal_Open5,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（有没有什么可以利用的东西呢）|#0203Trial12_Hiro029| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR4,ArmL2,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（再次仔细审视一下手上的信息吧）|#0203Trial12_Hiro030| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+
+@GotoModified Path:.Judge8-12-1
+
+; MARK: 8-12-5: ❌ 偽証・レイアは殺せないと証明する
+
+# Judge8-12-5
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open3,Mouth2_Surprised_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……不，蕾雅没有接近过中庭。<br>最起码在安安的推定死亡时间之内是这样。|#0203Trial12_Hiro031| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open1,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:这一点我可以保证。|#0203Trial12_Hiro032| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Pensive1,ArmR2,ArmL2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right
+[PrintTextModified Text:……唔。|#0203Trial12_Noah023| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Smile_Closed02,Angle01/Facial/Mouth>Mouth_Smile_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right
+[PrintTextModified Text:可是保证也是骗人的吧？|#0203Trial12_Noah024| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Pensive_Open,Angle01/Facial/Mouth>Mouth_Surprised_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right
+[PrintTextModified Text:希罗只是在包庇蕾雅而已……|#0203Trial12_Noah025| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Smile_Closed02,Angle01/Facial/Mouth>Mouth_Smile_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right
+[PrintTextModified Text:没说错吧？|#0203Trial12_Noah026| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Angry_Open1,Mouth1_Angry_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……！|#0203Trial12_Hiro033| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open02,Angle01/Facial/Mouth>Mouth_Angry_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right
+[PrintTextModified Text:说到底，调查推定死亡时间的人就是蕾雅哦？|#0203Trial12_Noah027| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Pensive_Open_1,Angle01/Facial/Mouth>Mouth_Angry_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right
+[PrintTextModified Text:那蕾雅就有可能<br>谎报安安的死亡时间了。|#0203Trial12_Noah028| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Uncomfortable_Open,Angle01/Facial/Mouth>Mouth_Angry_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right
+[PrintTextModified Text:蕾雅跟希罗那时候真的见面了吗？|#0203Trial12_Noah029| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Uncomfortable_Open,Angle01/Facial/Mouth>Mouth_Angry_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right
+[PrintTextModified Text:蕾雅也来说明一下嘛？|#0203Trial12_Noah030| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR5,ArmL7,Angle01/Facial/Eyes>Eyes_Normal_Open02,Angle01/Facial/Mouth>Mouth_Angry_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Left
+[PrintTextModified Text:……不。|#0203Trial12_Leia002| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.ArmR5,ArmL7,Angle01/Facial/Eyes>Eyes_Normal_Open02,Angle01/Facial/Mouth>Mouth_Angry_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Left
+[PrintTextModified Text:希罗有没有看到我，这我不清楚，<br>但我没有看到她。|#0203Trial12_Leia003| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR5,ArmL7,Angle01/Facial/Eyes>Eyes_Pensive_Closed,Angle01/Facial/Mouth>Mouth_Normal_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Left
+[PrintTextModified Text:所以我无法就这一点给出任何证词。|#0203Trial12_Leia004| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR5,ArmL7,Angle01/Facial/Eyes>Eyes_Normal_Open02,Angle01/Facial/Mouth>Mouth_Angry_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Left
+[PrintTextModified Text:……反过来说，也无法确定我有不在场证明。|#0203Trial12_Leia005| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Pensive1,ArmR2,ArmL2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right
+[PrintTextModified Text:唔……|#0203Trial12_Noah031| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Smile1,ArmR2,ArmL2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right
+[PrintTextModified Text:蕾雅真是一名优秀的演员啊。|#0203Trial12_Noah032| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Smile1,ArmR2,ArmL2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right
+[PrintTextModified Text:不过说到底，希罗说的话还是不太可信吧？|#0203Trial12_Noah033| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open01,Angle01/Facial/Mouth>Mouth_Smile_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right
+[PrintTextModified Text:也没有任何证据……<br>感觉根本没意义呢？|#0203Trial12_Noah034| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR12,ArmL5,Eyes1_Normal_Closed1,Mouth1_Angry_Open1,Sweat1-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（唔……！靠这个谎言发起的攻击无法对诺亚造成伤害吗）|#0203Trial12_Hiro034| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 別選択肢共通
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL9,Eyes2_Angry_Open2,Mouth2_Angry_Closed1,Sweat2-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（不管是说谎还是用其他什么办法，<br>　我也要把诺亚逼到无路可退才行……）|#0203Trial12_Hiro035|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL9,Eyes2_Angry_Open2,Mouth2_Cry_Closed1,Sweat2-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（但不够彻底的谎言只会被她戳破）|#0203Trial12_Hiro036| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR4,ArmL2,Eyes1_Normal_Open5,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（有没有什么可以利用的东西呢）|#0203Trial12_Hiro037| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR4,ArmL2,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（再次仔细审视一下手上的信息吧）|#0203Trial12_Hiro038| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge8-12-1
+
+; ==============================================================================
+; MARK: 8-12-2: ⭕ 偽証・血糊はノアにしか用意できない
+; ==============================================================================
+
+# Judge8-12-2
+
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@HideUI UINames:DebateUI AllowToggle:false
+@ShowUI UINames:ControlPanel
+
+@StopBgm
+@GosubToObjectionCutIn CutInKind:Hiro Index:1 VoicePath:CommonTrial_Hiro00032 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open1,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……不。<br>能提前准备好那些血浆的人，就只有诺亚你。|#0203Trial12_Hiro039| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR4,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open02,Angle01/Facial/Mouth>Mouth_Smile_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right
+[PrintTextModified Text:只有诺亚……？|#0203Trial12_Noah035| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open3,Mouth2_Surprised_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:没错。|#0203Trial12_Hiro040| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open1,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:有人调查过二楼诺亚的画室吗？|#0203Trial12_Hiro041| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open1,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:诺亚的画室里本来就放了油漆……|#0203Trial12_Hiro042| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; BGM変更：HirO（Voなし）
+@PlayBgm BgmPath:Bgm_37_1_Loop IntroBgmPath:Bgm_37_1_Intro Volume:1 Loop:true FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open1,Mouth2_Smile_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:——在发生案件之前，<br>我发现那堆油漆里唯独红色的少了很多。|#0203Trial12_Hiro043| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Surprised_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Confused_Open,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Left
+[PrintTextModified Text:………！|#0203Trial12_Ema002| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:这就表明有人在作案时<br>使用了这些消失了的油漆。|#0203Trial12_Hiro044| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR12,ArmL5,Eyes1_Normal_Closed1,Mouth1_Determined_Closed1,Sweat1-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（……那是案件发生以后，<br>　艾玛弄洒了的油漆）|#0203Trial12_Hiro045|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR12,ArmL5,Eyes1_Normal_Open1,Mouth1_Determined_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（不过艾玛早就把油漆清理干净了。<br>　所以这是只有我跟她才知道的信息）|#0203Trial12_Hiro046|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open1,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:放置在画室里的油漆……<br>一直都是诺亚在管理。|#0203Trial12_Hiro047| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Miria.Default,ArmR4,ArmL3,Angle01/Facial/Eyes>Eyes_Surprised_Open,Angle01/Facial/Mouth>Mouth_Surprised_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Miria Composition:Left
+[PrintTextModified Text:确、确实是这样……！|#0203Trial12_Miria003| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Miria.Default,ArmR4,ArmL3,Angle01/Facial/Eyes>Eyes_Surprised_Open,Angle01/Facial/Mouth>Mouth_Surprised_Open01,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Miria Composition:Left
+[PrintTextModified Text:堆放在画室里的油漆<br>唯独红色的少了，<br>这一点大叔我也确认过哦……！|#0203Trial12_Miria004| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:可我并没有<br>在画室里看到需要大量使用<br>红色油漆的画作……|#0203Trial12_Hiro048| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL3,Eyes2_Angry_Open1,Mouth2_Smile_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:你到底用它做了什么？<br>诺亚。|#0203Trial12_Hiro049| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@StopBgm
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+; ＠備考◆驚き
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR4,ArmL2,Angle01/Facial/Eyes>Eyes_Uncomfortable_Open,Angle01/Facial/Mouth>Mouth_Smile_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right
+[PrintTextModified Text:……你是用这种方式来战斗的啊。|#0203Trial12_Noah036| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Angry_Open1,Mouth1_Determined_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:抱歉……我并没有打算对你手下留情。|#0203Trial12_Hiro050| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:这也是为了安安。<br>只要能找出真凶，<br>我不会有一丝犹豫。|#0203Trial12_Hiro051| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR2,ArmL1,Angle01/Facial/Eyes>Eyes_Smile_Closed01,Angle01/Facial/Mouth>Mouth_Smile_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right
+[PrintTextModified Text:……嗯，诺亚知道了！|#0203Trial12_Noah037| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・明るい音
+@PlaySfxModified SfxPath:Sfx_Common_2 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR2,ArmL4,Angle01/Facial/Eyes>Eyes_Pensive_Open_1,Angle01/Facial/Mouth>Mouth_Smile_Open02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right
+[PrintTextModified Text:那……诺亚也会努力哦？|#0203Trial12_Noah038| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆警戒
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Angry_Open1,Mouth1_Angry_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……！|#0203Trial12_Hiro052| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@PlayBgm BgmPath:Bgm_34_1 Volume:1 Loop:true FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR1,ArmL1,Angle01/Facial/Eyes>Eyes_Smile_Closed01,Angle01/Facial/Mouth>Mouth_Smile_Open02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right
+[PrintTextModified Text:首先呢，画室里的油漆是水性油漆。|#0203Trial12_Noah039| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR1,ArmL5,Angle01/Facial/Eyes>Eyes_Normal_Open01,Angle01/Facial/Mouth>Mouth_Surprised_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right
+[PrintTextModified Text:所以案发现场的不是画室里的油漆哦？<br>水性油漆如果在干透前湿水，就无法定型，<br>正常会直接被水冲走。|#0203Trial12_Noah040| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR2,ArmL4,Angle01/Facial/Eyes>Eyes_Uncomfortable_Open,Angle01/Facial/Mouth>Mouth_Surprised_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right
+[PrintTextModified Text:这种事只要调查一下马上就能知道……<br>可就算是这样，<br>希罗也要说诺亚是凶手吗？|#0203Trial12_Noah041| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・軽い衝撃音
+@PlaySfxModified SfxPath:Sfx_Common_4 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR12,ArmL12,Eyes2_Serious_Open1,Mouth2_Angry_Closed1,Sweat2-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……唔……！|#0203Trial12_Hiro053| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆冷たく
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR4,ArmL2,Angle01/Facial/Eyes>Eyes_Smile_Closed01,Angle01/Facial/Mouth>Mouth_Angry_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right
+[PrintTextModified Text:……不过其实诺亚知道哦，<br>知道希罗会这样做的理由。|#0203Trial12_Noah042| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@StopBgm
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR1,ArmL2,Angle01/Facial/Eyes>Eyes_Pensive_Open_1,Angle01/Facial/Mouth>Mouth_Smile_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right
+[PrintTextModified Text:谁叫希罗就是<br>把安安推下阳台的凶手嘛……|#0203Trial12_Noah043| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR12,ArmL12,Eyes2_Angry_Open2,Mouth2_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……你说什么？|#0203Trial12_Hiro054| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@PlayBgm BgmPath:Bgm_34_2 Volume:1 Loop:true FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR3,ArmL3,Angle01/Facial/Eyes>Eyes_Smile_Closed01,Angle01/Facial/Mouth>Mouth_Surprised_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right
+[PrintTextModified Text:诺亚看到了<br>希罗把安安推下楼的一幕。|#0203Trial12_Noah044| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・軽い衝撃音
+@PlaySfxModified SfxPath:Sfx_Common_4 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR12,ArmL12,Eyes2_Serious_Open1,Mouth2_Angry_Closed1,Sweat2-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……！|#0203Trial12_Hiro055| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆笑顔
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR1,ArmL2,Angle01/Facial/Eyes>Eyes_Smile_Closed01,Angle01/Facial/Mouth>Mouth_Smile_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right
+[PrintTextModified Text:杀死安安的人，是希罗。|#0203Trial12_Noah045| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR1,ArmL2,Angle01/Facial/Eyes>Eyes_Uncomfortable_Open,Angle01/Facial/Mouth>Mouth_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right
+[PrintTextModified Text:艾玛只是在包庇希罗而已。|#0203Trial12_Noah046| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR5,ArmL2,Angle01/Facial/Eyes>Eyes_Uncomfortable_Open,Angle01/Facial/Mouth>Mouth_Surprised_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right
+[PrintTextModified Text:诺亚要指控希罗……希罗就是杀人凶手。|#0203Trial12_Noah047| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Angry_Open1,Mouth1_Angry_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（可恶的诺亚……<br>　竟然跟我正面交锋）|#0203Trial12_Hiro056|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@StopBgm
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……好啊。|#0203Trial12_Hiro057| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Angry_Open1,Mouth1_Determined_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……我会堂堂正正地把你的指控<br>回敬给你。|#0203Trial12_Hiro058| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+@AutoSave
+
+
+@GotoModified Path:Act02_Chapter03/Act02_Chapter03_Trial13 ResetState:-
+

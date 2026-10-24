@@ -1,0 +1,1107 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook IsDebugDirectJump:{isDebugDirectJump}
+@Gosub Path:System/System_Subroutine.BeginAdv
+
+# Scene1-0-4
+
+; ========================================
+; ●シーン1‐0-4
+; [back 4]
+; ========================================
+
+; ========================================
+; [bgm Bgm_026_001_Loop]
+; ========================================
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false AppearanceAndTransition:4_1
+@ModifyBackgroundExtended DissolveTexturePath:VerticalBlindGradually TintColor:#000000 Duration:0.99 Lazy:false AppearanceAndTransition:Transparent.Custom SubId:Overlay
+@Wait WaitMode:0.9
+
+@PlayBgm BgmPath:Bgm_26_1 Volume:1 Loop:true FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Surprised1
+@AutoSave
+[PrintTextModified Text:うわぁ……広い。|#0101Adv04_Ema001| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:エマたちが捕らえられていた牢屋は、<br>地下にあったらしい。|#0101Adv04_Narrative001| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"長い階段を上っていくと、<ruby=\"ごうしゃ\">豪奢</ruby>な洋館のような、<br>ひろびろとした玄関ホールに出た。|#0101Adv04_Narrative002|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:いくつもの扉や、長く伸びる通路は先が見えない。<br>上階へと続く大階段は、首が痛くなるほど天井が高い。|#0101Adv04_Narrative003| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"あちこちが老朽化しており、不気味な雰囲気を<ruby=\"かも\">醸</ruby>しているが、<br>この建物がとても大きいというのがわかる。|#0101Adv04_Narrative004|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@ModifyBackgroundExtended DissolveTexturePath:VerticalBlindGradually TintColor:#000000 Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:1.5
+
+; ========================================
+; [back 5]
+; ========================================
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Lazy:false AppearanceAndTransition:5_1
+@ModifyBackgroundExtended DissolveTexturePath:VerticalBlindGradually TintColor:#000000 Duration:0.99 Lazy:false AppearanceAndTransition:Transparent.Custom SubId:Overlay
+@Wait WaitMode:0.9
+
+[PrintTextModified Text:近くの部屋に看守が入っていったので、<br>エマもそこへと入った。|#0101Adv04_Narrative005| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:どうやらラウンジのようだ。|#0101Adv04_Narrative006| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"寒々しく圧迫感のある地下とうってかわり、<br>ラウンジは、毒々しさを<ruby=\"はら\">孕</ruby>む華美な空間だった。|#0101Adv04_Narrative007|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"高い天井に据え付けられたシャンデリア。<br>床には古びた<ruby=\"じゅうたん\">絨毯</ruby>。ソファや暖炉もある。|#0101Adv04_Narrative008|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:飾られているものがやたらと趣味が悪く、<br>エマが特に注視したものは――|#0101Adv04_Narrative009| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Fearful1
+
+[PrintTextModified Text:これって本物……？|#0101Adv04_Ema002| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ResetText
+@ModifyCamera Offset:8,0 Zoom:0.6 EasingTypeName:SmoothStep Duration:0.9 Lazy:false
+@Wait WaitMode:0.9
+
+[PrintTextModified Text:壁に大きなボウガンが飾ってあることだった。<br>エマはその存在感に、ぞくりと背筋を凍らせる。|#0101Adv04_Narrative010| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@ModifyCamera Offset:0,0 Zoom:0 EasingTypeName:SmoothStep Duration:0.9 Lazy:false
+@Wait WaitMode:0.9
+
+[PrintTextModified Text:通路に繋がる入口前には<br>見張るように、黒衣の看守が立っていた。|#0101Adv04_Narrative011| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:入口が塞がれたということは、<br>全員がラウンジに入ったらしい。|#0101Adv04_Narrative012| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@HideAllCharacters Lazy:false
+@HideActors ActorIds:MainBackground-Middle Lazy:false
+
+[PrintTextModified Text:広いラウンジ内に集められた少女たちは、<br>１３人もいた。|#0101Adv04_Narrative013| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Rotation:,,0 Scale:"{g_backgroundDefaultScale * 2}" Lazy:false ScenePosition:50,50 AppearanceAndTransition:5_1 SubId:Middle
+@SpawnBlur ActorId:MainBackground-Middle FadeDuration:0
+@ModifyCharacterExtended Scale:1.25 Lazy:false ScenePosition:30,30 IdAndAppearance:AnAn.Normal1,Angle01/Option_Arms- SubId:Middle
+
+; ＠※夏目アンアン
+
+[PrintTextModified Text:…………。|#0101Adv04_Unknown001| AuthorId:Unknown RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:部屋の隅で亀のようにうずくまっている<br>いかにもコミュ障少女もいれば。|#0101Adv04_Narrative014| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Scale:1.25 Lazy:false ScenePosition:70,30 IdAndAppearance:Noah.Smile1 SubId:Middle
+
+; 童謡『ちょうちょ』の鼻歌
+; ＠城ケ崎ノア
+
+[PrintTextModified Text:ふんふふ～ん♪|#0101Adv04_Unknown002| AuthorId:Unknown RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:鼻歌を歌いながら、<br>勝手に室内の配置を変えている自由きままな少女もいる。|#0101Adv04_Narrative015| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Scale:1.25 Lazy:false ScenePosition:30,30 IdAndAppearance:Alisa.Angry1,Option-ArmL-Off SubId:Middle
+
+; ＠紫藤アリサ
+
+[PrintTextModified Text:"っざけんじゃねえぞ！ ぶっ殺してやる！|#0101Adv04_Unknown003|" AuthorId:Unknown RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:無意味にキレ散らかしている<br>マスクのヤンキー少女もいる。|#0101Adv04_Narrative016| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Scale:1.25 Lazy:false ScenePosition:70,30 IdAndAppearance:Coco.Angry1 SubId:Middle
+
+; ＠沢渡ココ
+
+[PrintTextModified Text:ここくさくね？|#0101Adv04_Unknown004| AuthorId:Unknown RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:嫌悪感を露わに、鼻をつまんでいる猫耳少女や、|#0101Adv04_Narrative017| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Scale:1.25 Lazy:false ScenePosition:30,30 IdAndAppearance:Miria.Pensive1 SubId:Middle
+
+; ＠佐伯ミリア
+
+[PrintTextModified Text:……やれやれ。|#0101Adv04_Unknown005| AuthorId:Unknown RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:アンニュイなため息を漏らす露出度が高い少女や、|#0101Adv04_Narrative018| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Scale:1.25 Lazy:false ScenePosition:70,30 IdAndAppearance:Margo.Smile1 SubId:Middle
+
+; ＠宝生マーゴ
+
+[PrintTextModified Text:ウフフ。|#0101Adv04_Unknown006| AuthorId:Unknown RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"傍観者めいて笑っている<ruby=\"ようえん\">妖艶</ruby>な少女もいた。|#0101Adv04_Narrative019|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:壁際で全員を観察している人物はもうひとり。|#0101Adv04_Narrative020| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Scale:1.25 Lazy:false ScenePosition:50,30 IdAndAppearance:Nanoka SubId:Middle
+
+; ＠※黒部ナノカ
+
+[PrintTextModified Text:…………。|#0101Adv04_Unknown007| AuthorId:Unknown RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:――とても、とても、暗い瞳をした少女。|#0101Adv04_Narrative021| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:彼女のもっとも注目すべき点は<br>本物か定かではないが、大きな銃を背負っていることだった。|#0101Adv04_Narrative022| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; [stopBgm]
+; ========================================
+
+@StopBgm
+@HideAllCharacters Lazy:false
+@HideActors ActorIds:MainBackground-Middle Duration:0 Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Sherry.Smile1 SubId:Middle
+
+; ＠橘シェリー
+
+[PrintTextModified Text:いやぁ～すごいですねっ|#0101Adv04_Unknown008| AuthorId:Unknown RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:そんな中、水色髪の少女が大きな声をあげた。<br>場にそぐわないほど明るく、楽しそうな笑顔だ。|#0101Adv04_Narrative023| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; [bgm Bgm_011_001_Loop]
+; ========================================
+
+@PlayBgm BgmPath:Bgm_11_1 Volume:1 Loop:true FadeInDuration:0
+
+; ＠橘シェリー
+
+[PrintTextModified Text:"突然牢屋で目覚め！ 化け物に見張られていて！|#0101Adv04_Unknown009|" AuthorId:Unknown RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠橘シェリー
+
+[PrintTextModified Text:なんかすごいことが起こっているのを感じます！<br>高まっちゃいますよね～！|#0101Adv04_Unknown010| AuthorId:Unknown RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:40 IdAndAppearance:Sherry.Smile1
+@ModifyCharacterExtended Lazy:false ScenePosition:60 IdAndAppearance:Ema.Surprised1
+
+[PrintTextModified Text:え、う、うん……？|#0101Adv04_Ema003| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:40 IdAndAppearance:Sherry.Smile1,ArmR11,ArmL10
+@ModifyCharacterExtended Lazy:false ScenePosition:60 IdAndAppearance:Ema.Surprised1,ArmR6,ArmL6
+
+[PrintTextModified Text:水色髪の少女は好奇心で瞳を輝かせながら、<br>エマの両手を握ってきた。|#0101Adv04_Narrative024| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@EmoteJumpDouble ActorIds:Sherry,Ema Loop:false Speed:1
+
+[PrintTextModified Text:そして上下にぶんぶんと強く振る。<br>握力が強いのか、エマは痛そうに眉を下げた。|#0101Adv04_Narrative025| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideActors ActorIds:MainBackground-Middle Lazy:false
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Hanna.Angry1,ArmL2
+
+; ＠遠野ハンナ
+
+[PrintTextModified Text:なあにが、高まっちゃいますよね～、ですわ！|#0101Adv04_Unknown011| AuthorId:Unknown RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠遠野ハンナ
+
+[PrintTextModified Text:やべーことになってるんですわ！<br>もっと危機感を持った方が良いんじゃないかしら！？|#0101Adv04_Unknown012| AuthorId:Unknown RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:口を挟んできた少女の声は、<br>先ほど牢屋にいた時に聞いたかん高い声だった。|#0101Adv04_Narrative026| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:お人形のように可愛らしい小柄な少女だが、<br>どこか口調が不自然だ。|#0101Adv04_Narrative027| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:室内には、多くの少女たちがいる。<br>その中の誰かが、くすっと笑い声を漏らした。|#0101Adv04_Narrative028| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Hanna.Flushed1,ArmL1
+
+[PrintTextModified Text:途端、小柄な少女の頬が<br>かぁっと真っ赤に染まっていく。|#0101Adv04_Narrative029| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠遠野ハンナ
+
+[PrintTextModified Text:今笑ったのは誰でやがりますの！？|#0101Adv04_Unknown013| AuthorId:Unknown RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠蓮見レイア
+
+[PrintTextModified Text:――いや、すまない。<br>少し変わった喋り方だなと思ってね。|#0101Adv04_Unknown014| AuthorId:Unknown RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Leia.Smile1,ArmR3,ArmL2
+
+[PrintTextModified Text:一歩前に出てきたのは、<br>中性的な見た目の少女。|#0101Adv04_Narrative030| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"すらりと背が高く、<br>まるで騎士のような<ruby=\"りり\">凛々</ruby>しさがある。|#0101Adv04_Narrative031|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"その<ruby=\"せいかん\">精悍</ruby>な<ruby=\"ふうぼう\">風貌</ruby>に華を添えるが<ruby=\"ごと\">如</ruby>く、<br>レイピアを腰に<ruby=\"たずさ\">携</ruby>えていた。|#0101Adv04_Narrative032|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:彼女のカリスマ性によるものなのか、<br>全員が息を呑み、彼女から目が離せない。|#0101Adv04_Narrative033| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠蓮見レイア
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Leia.Smile1,ArmR3,ArmL3
+
+[PrintTextModified Text:みんな初対面だと思うから、<br>良かったら自己紹介をしていかないか？|#0101Adv04_Unknown015| AuthorId:Unknown RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Rotation:,,0 Scale:"{g_backgroundDefaultScale * 2}" Lazy:false ScenePosition:50,50 AppearanceAndTransition:5_1 SubId:Middle
+@SpawnBlur ActorId:MainBackground-Middle FadeDuration:0
+@ModifyCharacterExtended Scale:1.25 Lazy:false ScenePosition:50,30 IdAndAppearance:Leia.Smile1,ArmR3,ArmL3 SubId:Middle
+
+[PrintTextModified Text:"先に名乗らせてもらうよ。<br>私の名前は<ruby=\"はすみ\">蓮見</ruby>レイア。|#0101Adv04_Leia001|" AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 演出：『囚人番号662 蓮見レイア』の立ち絵と、キャッチコピー
+; 『舞台上の偶像《アイドル》』を入れる。
+; ========================================
+
+@HideAllCharacters Lazy:false
+@SpawnBlur ActorId:MainBackground-Middle FadeDuration:0
+@ModifyCharacterExtended Scale:1.25 Lazy:false ScenePosition:50,30 IdAndAppearance:Hanna.Angry1,ArmL2 SubId:Middle
+
+[PrintTextModified Text:"……ふんっ、<ruby=\"とおの\">遠野</ruby>ハンナですわ。<br>お見知りおきあそばっ……お見知りおきあそばせせ？|#0101Adv04_Hanna001|" AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 演出：『囚人番号668 遠野ハンナ』の立ち絵と、キャッチコピー
+; 『空想令嬢』を入れる。
+; ========================================
+
+@HideAllCharacters Lazy:false
+@HideActors ActorIds:MainBackground-Middle Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Hanna.Angry1,ArmL2
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Leia.Smile1,ArmR5,ArmL1
+
+[PrintTextModified Text:ちょっとお先によろしいかしら？<br>あなた、レイアさんと言ったわね。<br>いきなり人のことを笑うのは失礼じゃなくて？|#0101Adv04_Hanna002| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:す、すまない。そんなに気にしてるなんて思わなかったんだ。<br>お手柔らかに頼むよ。|#0101Adv04_Leia002| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Hanna.Flushed1,ArmL1
+
+[PrintTextModified Text:きっ、気にしてないし……っ|#0101Adv04_Hanna003| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:その話し方は、ご両親に教わったのかい？|#0101Adv04_Leia003| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Hanna.Angry1
+
+[PrintTextModified Text:"もう突っ込まないでいいから！<br>ほっとけ～～っ！！ ですわ！！|#0101Adv04_Hanna004|" AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"拳をふるふると震わせており、<br>彼女のプライドがひどく傷つけられたのが<ruby=\"うかが\">窺</ruby>える。|#0101Adv04_Narrative034|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:滑り出しからひりついたムードになってしまったが、<br>空気を読めない少女が元気よく手を挙げた。|#0101Adv04_Narrative035| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Rotation:,,0 Scale:"{g_backgroundDefaultScale * 2}" Lazy:false ScenePosition:50,50 AppearanceAndTransition:5_1 SubId:Middle
+@SpawnBlur ActorId:MainBackground-Middle FadeDuration:0
+@ModifyCharacterExtended Scale:1.25 Lazy:false ScenePosition:50,30 IdAndAppearance:Sherry.Normal1,ArmL6,ArmR1 SubId:Middle
+@EmoteJumpDouble ActorIds:Sherry-Middle Loop:false Speed:1
+
+[PrintTextModified Text:"はいはーい！ 私は<ruby=\"たちばな\">橘</ruby>シェリーっていいますっ。<br>事件があるところに私あり！<br>この名探偵にお任せください！|#0101Adv04_Sherry001|" AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 演出：『囚人番号667 橘シェリー』の立ち絵とキャッチコピー
+; 『破壊探偵《クラッシャー》』を入れる。
+; ========================================
+
+@HideAllCharacters Lazy:false
+@HideActors ActorIds:MainBackground-Middle Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Hanna.Angry1
+
+[PrintTextModified Text:"名探偵ぃ？？ あなたが？？|#0101Adv04_Hanna005|" AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Sherry.Smile1,ArmR1,ArmL1
+
+[PrintTextModified Text:"そうですよ！ えっへん！<br>何せミステリマニアですからね！|#0101Adv04_Sherry002|" AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Leia.Normal1,ArmR5
+
+[PrintTextModified Text:実際に何か事件を解決した経験があるのかい？|#0101Adv04_Leia004| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Sherry.Normal1
+
+[PrintTextModified Text:それはまだありませんね！|#0101Adv04_Sherry003| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Leia.Pensive1,ArmR8
+
+[PrintTextModified Text:……そ、そうかい。少し頭が痛くなってきたな……。<br>次に行こうか。キミの名前を教えてくれないか？|#0101Adv04_Leia005| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Surprised1,ArmR6,ArmL6
+
+[PrintTextModified Text:"エマは<ruby=\"うなが\">促</ruby>されて、ハッと姿勢を正す。|#0101Adv04_Narrative036|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（さ、最初が肝心……！<br>　自己紹介でボクの第一印象が決まるんだから、気合……！）|#0101Adv04_Ema004|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Rotation:,,0 Scale:"{g_backgroundDefaultScale * 2}" Lazy:false ScenePosition:50,50 AppearanceAndTransition:5_1 SubId:Middle
+@SpawnBlur ActorId:MainBackground-Middle FadeDuration:0
+@ModifyCharacterExtended Scale:1.25 Lazy:false ScenePosition:50,30 IdAndAppearance:Ema.Normal1,ArmR1,ArmL16 SubId:Middle
+
+[PrintTextModified Text:ボ、ボクは、桜羽エマ！|#0101Adv04_Ema005| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 演出：『囚人番号658 桜羽エマ』の立ち絵と、キャッチコピー
+; 『忌み嫌われるもの』を入れる。
+; ========================================
+
+@HideAllCharacters Lazy:false
+@HideActors ActorIds:MainBackground-Middle Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Ema.Surprised1,ArmR1,ArmL1
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Meruru
+
+[PrintTextModified Text:"名乗ったと同時、<br>エマの<ruby=\"かたわ\">傍</ruby>らにひとりの少女が駆け寄ってきた。|#0101Adv04_Narrative037|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyBackgroundExtended Rotation:,,0 Scale:"{g_backgroundDefaultScale * 2}" Lazy:false ScenePosition:50,50 AppearanceAndTransition:5_1 SubId:Middle
+@SpawnBlur ActorId:MainBackground-Middle FadeDuration:0
+@ModifyCharacterExtended Scale:1.25 Lazy:false ScenePosition:50,30 IdAndAppearance:Meruru.Default SubId:Middle
+
+[PrintTextModified Text:"わわわ、私の名前は、ひっ、ひっ、ひ……<br><ruby=\"ひかみ\">氷上</ruby>、メルル、です……っ|#0101Adv04_Meruru001|" AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 演出：『囚人番号670 氷上メルル』の立ち絵と、キャッチコピー
+; 『怯える天使』を入れる。
+; ========================================
+
+@HideAllCharacters Lazy:false
+@HideActors ActorIds:MainBackground-Middle Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Ema.Normal1
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Meruru.Default
+
+[PrintTextModified Text:そ、それで、エマさん、<br>あ、あの、あのあのあの……っ<br>けっ、けっ、けっ……。|#0101Adv04_Meruru002| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:え、えーと、なんだろう？|#0101Adv04_Ema006| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:怪我、しちゃってます……っ|#0101Adv04_Meruru003| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:つっかえつっかえになりながら、<br>メルルはようやく言い切った。|#0101Adv04_Narrative038| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"エマは自身の膝を見下ろし、<br>血が<ruby=\"にじ\">滲</ruby>んで流れていることに気付く。|#0101Adv04_Narrative039|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（さっき、ヒロちゃんに突き飛ばされた時か……）|#0101Adv04_Ema007| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:大したことないよ、大丈夫！|#0101Adv04_Ema008| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:大したこと、あります…っ|#0101Adv04_Meruru004| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Meruru.Default
+@AnimateActorExtended ActorIds:Meruru Loop:false ScenePositionY:30 Duration:1.2
+
+[PrintTextModified Text:メルルは今にも泣き出しそうになりながら、膝立ちになった。<br>そして、エマの膝に手を当てる。|#0101Adv04_Narrative040| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:――すると、エマにとって驚くべきことが起きた。|#0101Adv04_Narrative041| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Ema.Surprised1
+
+[PrintTextModified Text:え……？|#0101Adv04_Ema009| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"メルルの手先が光り、<br>エマの膝の傷口が、みるみると<ruby=\"ふさ\">塞</ruby>がっていく。|#0101Adv04_Narrative042|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:この場の全員が測り合うように観察しあっている状態で、<br>メルルの不思議な力に注目が集まる。|#0101Adv04_Narrative043| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@AnimateActorExtended ActorIds:Meruru Loop:false ScenePositionY:50 Duration:1.2
+[PrintTextModified Text:"痛くないですか？ 大丈夫ですか？|#0101Adv04_Meruru005|" AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:あ、ありがとう。|#0101Adv04_Ema010| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Duration:1.2 Lazy:false ScenePosition:70 IdAndAppearance:Meruru.Default
+
+[PrintTextModified Text:"メルルは、エマと目を合わさず、<br>もじもじと<ruby=\"うつむ\">俯</ruby>いている。|#0101Adv04_Narrative044|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Leia.Normal1,ArmR9
+
+[PrintTextModified Text:レイアが場を仕切り直すように、咳払いをした。|#0101Adv04_Narrative045| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:……その不思議な力について詳しく聞きたいところだけど、<br>まだ他の子も残っているよね。<br>お互いの自己紹介を優先しようか。次、キミ、いいかな？|#0101Adv04_Leia006| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyBackgroundExtended Rotation:,,0 Scale:"{g_backgroundDefaultScale * 2}" Lazy:false ScenePosition:50,50 AppearanceAndTransition:5_1 SubId:Middle
+@SpawnBlur ActorId:MainBackground-Middle FadeDuration:0
+@ModifyCharacterExtended Scale:1.25 Lazy:false ScenePosition:50,30 IdAndAppearance:Coco.Normal1 SubId:Middle
+
+[PrintTextModified Text:"あー、あてぃし？<br>あてぃしの名前は<ruby=\"さわたり\">沢渡</ruby>ココね。|#0101Adv04_Coco001|" AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 演出：『囚人番号669 沢渡ココ』の立ち絵と、キャッチコピー
+; 『孤独な配信者《ソロ・ストリーマー》』を入れる。
+; ========================================
+
+[PrintTextModified Text:んで、あんさぁ、ちょっといい？<br>あてぃし、あんたのことテレビで見たことある気がして。|#0101Adv04_Coco002| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyBackgroundExtended Rotation:,,0 Scale:"{g_backgroundDefaultScale * 2}" Lazy:false ScenePosition:50,50 AppearanceAndTransition:5_1 SubId:Middle
+@HideActors ActorIds:MainBackground-Middle Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Coco.Normal1
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Leia.Normal1
+
+[PrintTextModified Text:"ココと名乗った少女は、<br>レイアに歩み寄り、間近から<ruby=\"ぶえんりょ\">無遠慮</ruby>な視線を向ける。|#0101Adv04_Narrative046|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Sherry.Surprised1,ArmR7
+
+[PrintTextModified Text:あっ、それ、私も思いました！<br>有名人の方でしょうか！？|#0101Adv04_Sherry004| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Pensive1
+
+[PrintTextModified Text:言われてみれば……ボクも見たような。|#0101Adv04_Ema011| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+; ========================================
+; [still illust 20-1]
+; ========================================
+
+@ModifyBackgroundExtended Id:Stills Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false AppearanceAndTransition:200_3
+
+[PrintTextModified Text:"（舞台やテレビや映画でも活躍してる女優さんで……<br>　すごく恰好良い子だなぁって……まさか、本人？）|#0101Adv04_Ema012|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:芸能事務所に所属しているからね。色々活動はしているよ。<br>舞台が一番多いけど、テレビもよく出るかな。|#0101Adv04_Leia007| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"やっぱりー！ すごい、生芸能人、初めて見ましたっっ<br>サインください！！|#0101Adv04_Sherry005|" AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"ちょ、ウゼーなおめえ！ あてぃしが先に見つけたっつの！<br>あてぃし配信しててさ、とりあえずコラボして！！|#0101Adv04_Coco003|" AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; [hideStill]
+; ========================================
+
+; ========================================
+; [back 5]
+; ========================================
+
+@HideActors ActorIds:Stills Lazy:false
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false AppearanceAndTransition:5_1
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Leia.Smile1,ArmR9
+
+[PrintTextModified Text:はは、今は自己紹介の途中だし、その話は後でまた。<br>キミたち、次いいかな？|#0101Adv04_Leia008| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:"レイアは慣れているのか軽く受け流し、<br>まだ自己紹介していない少女らを<ruby=\"うなが\">促</ruby>す。|#0101Adv04_Narrative047|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Rotation:,,0 Scale:"{g_backgroundDefaultScale * 2}" Lazy:false ScenePosition:50,50 AppearanceAndTransition:5_1 SubId:Middle
+@SpawnBlur ActorId:MainBackground-Middle FadeDuration:0
+@ModifyCharacterExtended Scale:1.25 Lazy:false ScenePosition:50,30 IdAndAppearance:Miria.Flushed1,ArmR9,ArmL4 SubId:Middle
+
+[PrintTextModified Text:"ええと……やりづらいな……<ruby=\"さえき\">佐伯</ruby>ミリアだよ～？<br>よろしくね～、あはは～……はぁ。|#0101Adv04_Miria001|" AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 演出：『囚人番号663 佐伯ミリア』の立ち絵と、キャッチコピー
+; 『高校デビューギャル』を入れる。
+; ========================================
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Scale:1.25 Lazy:false ScenePosition:50,30 IdAndAppearance:Margo.Smile1 SubId:Middle
+
+[PrintTextModified Text:"私は<ruby=\"ほうしょう\">宝生</ruby>マーゴよ。<br>可愛い子がいっぱいで、舌なめずりしちゃいそう。ウフフ。|#0101Adv04_Margo001|" AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 演出：『囚人番号664 宝生マーゴ』の立ち絵と、キャッチコピー
+; 『愛を知る人』を入れる。
+; ========================================
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Scale:1.25 Lazy:false ScenePosition:50,30 IdAndAppearance:Alisa.Normal1,Option-ArmL-Off SubId:Middle
+
+[PrintTextModified Text:"チッ……<ruby=\"しとう\">紫藤</ruby>アリサ。<br>おめーらと慣れ合うつもりはねーから。|#0101Adv04_Alisa001|" AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 演出：『囚人番号666 紫藤アリサ』の立ち絵と、キャッチコピー
+; 『自罰中毒』を入れる。
+; ========================================
+
+[PrintTextModified Text:アリサと名乗った少女は、<br>マスクをしていて顔がはっきりわからない。|#0101Adv04_Narrative048| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@HideActors ActorIds:MainBackground-Middle Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Alisa.Angry1,Option-ArmL-Off
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Sherry.Smile1,ArmR1
+
+[PrintTextModified Text:"アリサさん、ですよね。<br>どうしてマスクを？ 顔を見られるとマズいんですか？|#0101Adv04_Sherry006|" AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:うっせえな。おめえに関係ねーだろ。|#0101Adv04_Alisa002| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:えぇー、とっても気になります！<br>名探偵の血が騒ぐんです！|#0101Adv04_Sherry007| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:それ以上絡みやがったら殴るぞてめえ！！|#0101Adv04_Alisa003| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Leia.Normal1,ArmR4,ArmL6
+
+[PrintTextModified Text:"キミたち、<ruby=\"いさか\">諍</ruby>いはよそう！|#0101Adv04_Leia009|" AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:シェリーくんに苛立つ気持ちはわかるが、<br>まずはお互いのことを知らないと。|#0101Adv04_Leia010| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Sherry.Normal1,ArmL11
+
+[PrintTextModified Text:私のことさりげなくディスってません？|#0101Adv04_Sherry008| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Leia.Smile1,ArmR3,ArmL1
+
+[PrintTextModified Text:そんなことはないさ。少し黙っててほしいとは思うけれど。|#0101Adv04_Leia011| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Sherry.Smile1,ArmR7,ArmL1
+
+[PrintTextModified Text:"てへっ☆ りょーかいしましたー。|#0101Adv04_Sherry009|" AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Leia.Normal1,ArmR3,ArmL1
+
+[PrintTextModified Text:ええと、あと、残っているのは……。|#0101Adv04_Leia012| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyBackgroundExtended Rotation:,,0 Scale:"{g_backgroundDefaultScale * 2}" Lazy:false ScenePosition:50,50 AppearanceAndTransition:5_1 SubId:Middle
+@SpawnBlur ActorId:MainBackground-Middle FadeDuration:0
+@ModifyCharacterExtended Scale:1.25 Lazy:false ScenePosition:50,30 IdAndAppearance:AnAn.Normal1,Angle01/Option_Arms- SubId:Middle
+
+[PrintTextModified Text:壁隅で亀のように丸まっていた少女が、<br>さっとスケッチブックを取り出した。|#0101Adv04_Narrative049| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Scale:1.25 Lazy:false ScenePosition:50,30 IdAndAppearance:AnAn.Normal1,Arms2,Angle01/Option_Arms>Option_Arms01_05,Angle01/Option_ArmR/Option_ArmR01_01- SubId:Middle
+
+[PrintTextModified Text:口がきけないのか、それとも別の理由があるのか、<br>スケッチブックに書いた字を見せる。|#0101Adv04_Narrative050| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"『わがはいは<ruby=\"なつめ\">夏目</ruby>アンアンである。<br>　以降、どうか話しかけないでいただきたい』|#0101Adv04_AnAn001|" AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 演出：『囚人番号660 夏目アンアン』の立ち絵と、キャッチコピー
+; 『虚言《ソラゴト》の眠り姫』を入れる。
+; ========================================
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Scale:1.25 Lazy:false ScenePosition:50,30 IdAndAppearance:Nanoka SubId:Middle
+
+[PrintTextModified Text:"……<ruby=\"くろべ\">黒部</ruby>ナノカ。|#0101Adv04_Nanoka001|" AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 演出：『囚人番号665 黒部ナノカ』の立ち絵と、キャッチコピー
+; 『過去からの狙撃手《スナイパー》』を入れる。
+; ========================================
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Scale:1.25 Lazy:false ScenePosition:50,30 IdAndAppearance:Hiro.Normal1 SubId:Middle
+
+[PrintTextModified Text:"私の名前は<ruby=\"にかいどう\">二階堂</ruby>ヒロだ。|#0101Adv04_Hiro001|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 演出：『囚人番号659 二階堂ヒロ』の立ち絵と、キャッチコピー
+; 『正義の執行者』を入れる。
+; ========================================
+
+[PrintTextModified Text:（ヒロちゃん……）|#0101Adv04_Ema013| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@HideActors ActorIds:MainBackground-Middle Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Noah.Normal1
+
+[PrintTextModified Text:全員の自己紹介が終わったかと思ったが、<br>ひとり、まるで輪に加わっていない少女がいた。|#0101Adv04_Narrative051| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"先ほどから勝手に室内の配置換えをしたり、<br><ruby=\"ぶっしょく\">物色</ruby>をしている少女だ。|#0101Adv04_Narrative052|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Leia.Normal1
+
+[PrintTextModified Text:キミ、キミだけまだ名乗っていないんだが。<br>名前を教えてくれないか？|#0101Adv04_Leia013| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyBackgroundExtended Rotation:,,0 Scale:"{g_backgroundDefaultScale * 2}" Lazy:false ScenePosition:50,50 AppearanceAndTransition:5_1 SubId:Middle
+@SpawnBlur ActorId:MainBackground-Middle FadeDuration:0
+@ModifyCharacterExtended Scale:1.25 Lazy:false ScenePosition:50,30 IdAndAppearance:Noah.Normal1 SubId:Middle
+
+[PrintTextModified Text:"ん～？ なまえ？ のあはのあだよ？<br>んーと、<ruby=\"じょうがさき\">城ケ崎</ruby>ノア。|#0101Adv04_Noah001|" AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 演出：『囚人番号661 城ケ崎ノア』の立ち絵と、キャッチコピー
+; 『偽りの芸術家《アーティスト》』を入れる。
+; ========================================
+
+@HideAllCharacters Lazy:false
+@HideActors ActorIds:MainBackground-Middle Lazy:false
+
+[PrintTextModified Text:"ノアと名乗った少女は、<br>すぐにまた室内の<ruby=\"ぶっしょく\">物色</ruby>へと戻っていった。|#0101Adv04_Narrative053|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Leia.Smile1,ArmR9,ArmL3
+
+[PrintTextModified Text:全員の名前が知れて何よりだよ。|#0101Adv04_Leia014| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:ここにいる意味は、私にもわからない。<br>けれど、冷静に行動するべきだと思っている。|#0101Adv04_Leia015| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:とにかく騒がず、<br>落ち着いて説明を待とうじゃないか。|#0101Adv04_Leia016| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:レイアが言い放った直後だった。|#0101Adv04_Narrative054| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; [stopBgm]
+; ========================================
+
+@StopBgm
+@HideAllCharacters Lazy:false
+
+; ========================================
+; [sfx 8：フクロウの羽ばたき音]
+; ========================================
+
+@PlaySfxModified SfxPath:Sfx_8 Volume:1 Loop:false FadeInDuration:0
+
+[PrintTextModified Text:"天井付近にある<ruby=\"つうきこう\">通気口</ruby>から化け物フクロウが飛んできて、<br>少女たちの視線が集う。|#0101Adv04_Narrative055|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; [still illust50]
+; ========================================
+
+; ========================================
+; [bgm Bgm_010_001_Loop]
+; ========================================
+
+@ResetText
+@PlayBgm BgmPath:Bgm_10_1 Volume:1 Loop:true FadeInDuration:0
+@ModifyBackgroundExtended Id:Stills Rotation:,,0 Scale:{g_backgroundDefaultScale} Duration:0.6 Lazy:false ScenePosition:50,50 AppearanceAndTransition:500_1 SubId:Middle
+@Wait WaitMode:0.8
+
+[PrintTextModified Text:あっ……人がいっぱい……。<br>えっと、改めまして……この屋敷で管理を任されている<br>かわいいフクロウ、ゴクチョーと申します……。|#0101Adv04_Warden001| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（このフクロウ、さっきモニターで見た……！）|#0101Adv04_Ema014| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:……定時とかもあるので……<br>さっさと説明をしていきますね……。|#0101Adv04_Warden002| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:あっと……すごく申し上げにくいんですが……<br>皆さんは【魔女】になる因子を持っています。|#0101Adv04_Warden003| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:ざわ、と不穏な空気がひろがる。|#0101Adv04_Narrative056| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（魔女……？ 魔女って、なに……？）|#0101Adv04_Ema015|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:エマは困惑したように頭を振る。|#0101Adv04_Narrative057| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:彼女たちにとって、<br>魔女とは、アニメや漫画に登場する架空の存在。|#0101Adv04_Narrative058| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:それが現実に存在すると知らされ、<br>受け入れきれていない様子だった。|#0101Adv04_Narrative059| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:エラい人が決めた話では【魔女】はこの国にとって、<br>災厄をもたらす悪らしいんです。|#0101Adv04_Warden004| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:わが国の法に基づいた全国検査によって、<br>皆さんはその因子が大きく検出された存在。|#0101Adv04_Warden005| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:この国にとってあまりに危険であると判断され、<br>この牢屋敷への収容が決まったんですね。|#0101Adv04_Warden006| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:いずれ【魔女】になる可能性があるとなると、<br>野放しにはできませんので……。|#0101Adv04_Warden007| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@HideActors ActorIds:MainBackground Duration:0 Lazy:false
+@ModifyBackgroundExtended Id:Stills Rotation:,,0 Scale:"{g_backgroundDefaultScale * 1.5}" Duration:0 Lazy:false ScenePosition:50,60 AppearanceAndTransition:500_1
+@HideActors ActorIds:Stills-Middle Duration:0.6 Lazy:false
+@Wait WaitMode:0.8
+
+[PrintTextModified Text:つまり皆さん、この世界に害をなす<br>悪者ってことで……ご納得ください。|#0101Adv04_Warden008| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"はぁっ！？ なんなんお前キモ！！<br>そんな検査やった覚えないんですけどぉ～？|#0101Adv04_Coco004|" AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:私に文句言われましても……<br>私はただのかわいいフクロウなので……。|#0101Adv04_Warden009| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:皆さんにはこの春から<br>囚人として生活してもらいます。|#0101Adv04_Warden010| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:救済がなくもないのですが……<br>【大魔女】さえ見つかれば皆さんの呪いを……。|#0101Adv04_Warden011| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:あ、でも、期待とか持たせても良くないですよね……。<br>忘れてください。|#0101Adv04_Warden012| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:シャワーも娯楽室もあるので、<br>ここで余生を楽しく過ごすとか……どうですかね？|#0101Adv04_Warden013| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（囚人……？）|#0101Adv04_Ema016| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"理解が追いつかない様子のエマは、<br><ruby=\"どうき\">動悸</ruby>を抑え込むように、手で胸を押さえた。|#0101Adv04_Narrative060|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@AnimateActorExtended ActorIds:Stills Loop:false ScenePositionX:55 ScenePositionY:30 EasingTypeName:EaseOutQuad Duration:0.9
+@Wait WaitMode:0.6
+
+[PrintTextModified Text:あっ、ちなみに看守はかつてここに収容された者が<br>魔女になってしまった姿です。|#0101Adv04_Warden014| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:【なれはて】と呼ばれています。|#0101Adv04_Warden015| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:多くの魔女になった者は処刑されますが、<br>与しやすい者を、マインドコントロールしてます。|#0101Adv04_Warden016| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:逆らったら殺すように洗脳してしまったので……<br>ほんとすみません、逆らったら死んでください。|#0101Adv04_Warden017| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:出入口を見張る黒衣の化け物に、<br>少女たちの視線が集う。|#0101Adv04_Narrative061| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:かつて、人間だった者。<br>そして、魔女になってしまった、なれのはて。|#0101Adv04_Narrative062| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:少女たちの表情がもの語っている。<br>――やすやすと信じられるわけがない。|#0101Adv04_Narrative063| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; [hideStill]
+; ========================================
+; ========================================
+; [stopBgm]
+; ========================================
+
+@HideActors ActorIds:Stills Lazy:false
+@StopBgm
+
+@ResetText
+@ModifyBackgroundExtended Rotation:,,0 Scale:"{g_backgroundDefaultScale * 1.5}" Duration:0.6 Lazy:false ScenePosition:52,50 AppearanceAndTransition:5_1
+@AnimateActorExtended ActorIds:MainBackground Loop:false ScenePositionX:48 EasingTypeName:Linear Duration:3
+@Wait WaitMode:i2.4
+
+@ModifyBackgroundExtended Rotation:,,0 Scale:"{g_backgroundDefaultScale * 2}" Duration:0.6 Lazy:false ScenePosition:30,60 AppearanceAndTransition:5_1 SubId:Middle
+@ModifyCharacterExtended Scale:1.5 Duration:0.9 Lazy:false ScenePosition:50,27 IdAndAppearance:Hiro.Normal1 SubId:Middle
+@AnimateActorExtended ActorIds:MainBackground-Middle Loop:false ScenePositionY:56 EasingTypeName:EaseOutQuad Duration:0.6
+@AnimateActorExtended ActorIds:Hiro-Middle Loop:false ScenePositionY:32 EasingTypeName:EaseOutQuad Duration:0.6
+
+[PrintTextModified Text:重々しい沈黙の中、<br>最初に一歩前に出たのは、二階堂ヒロだった。|#0101Adv04_Narrative064| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"清楚な少女は、<ruby=\"りん\">凛</ruby>とした声をあげる。|#0101Adv04_Narrative065|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:間違いです。<br>私は悪ではない。|#0101Adv04_Hiro002| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; [bgm Bgm_025_001_Loop]
+; ========================================
+
+@PlayBgm BgmPath:Bgm_25_1 Volume:1 Loop:true FadeInDuration:0
+
+[PrintTextModified Text:絶対的な自信を持っているのか、<br>ヒロの声には一切の迷いがない。そして、|#0101Adv04_Narrative066| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Hiro.Angry1 SubId:Middle
+
+[PrintTextModified Text:この国に災厄をもたらす<br>危険因子はこの子の方だ。|#0101Adv04_Hiro003| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:びしり、と、エマを指さしてきた。|#0101Adv04_Narrative067| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆傷ついて言葉に詰まる
+
+@HideAllCharacters Lazy:false
+@HideActors ActorIds:MainBackground-Middle Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:40 IdAndAppearance:Ema.Fearful1
+
+[PrintTextModified Text:……っ|#0101Adv04_Ema017| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:40 IdAndAppearance:Ema.Fearful1
+@ModifyCharacterExtended Lazy:false ScenePosition:60 IdAndAppearance:Meruru.Default
+
+[PrintTextModified Text:そばにいたメルルが、そっとエマの二の腕に触れた。<br>目を合わせこそしないものの、本気で心配しているようだった。|#0101Adv04_Narrative068| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:エマさん……。|#0101Adv04_Meruru006| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:40 IdAndAppearance:Ema.Normal1
+
+[PrintTextModified Text:"メルルの優しさに、エマは<ruby=\"ほほえ\">微笑</ruby>みを浮かべた。|#0101Adv04_Narrative069|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆強がりなので少し震え声で
+
+[PrintTextModified Text:えへへ、へーきへーき。|#0101Adv04_Ema018| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Warden.1
+
+[PrintTextModified Text:ヒロの訴えに、<br>ゴクチョーは心底面倒そうなため息をつく。|#0101Adv04_Narrative070| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:はぁ～～……、あの、頼みます。悪者を受け入れてください。<br>私は残業したくないですし<br>みんな平和に楽しくがいいので……。|#0101Adv04_Warden018| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyBackgroundExtended Rotation:,,0 Scale:"{g_backgroundDefaultScale * 2}" Duration:0.6 Lazy:false ScenePosition:30,60 AppearanceAndTransition:5_1 SubId:Middle
+@ModifyCharacterExtended Scale:1.2 Duration:0.9 Lazy:false ScenePosition:50,40 IdAndAppearance:Hiro.Angry1 SubId:Middle
+
+[PrintTextModified Text:間違っている。私は悪じゃない。|#0101Adv04_Hiro004| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:ヒロは迷いなく歩き出した。|#0101Adv04_Narrative071| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@AnimateActorExtended ActorIds:Hiro-Middle Loop:false ScenePositionY:35 Scale:1.3
+
+[PrintTextModified Text:この世界を正すことができるのは、私だけだ。|#0101Adv04_Hiro005| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@AnimateActorExtended ActorIds:Hiro-Middle Loop:false ScenePositionY:30 Scale:1.4
+
+[PrintTextModified Text:私はこの世の悪を排す。<br>まずは――。|#0101Adv04_Hiro006| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@AnimateActorExtended ActorIds:Hiro-Middle Loop:false ScenePositionY:30 Scale:1.4
+
+[PrintTextModified Text:ヒロは暖炉脇に立てかけられていた、<br>火かき棒を手に取った。|#0101Adv04_Narrative072| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"その濁った瞳は、エマを真っすぐに見据えていた。<br>エマは<ruby=\"おび\">怯</ruby>えた表情となって、後ずさっていく。|#0101Adv04_Narrative073|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@AnimateActorExtended ActorIds:MainBackground-Middle Loop:false ScenePositionY:86 EasingTypeName:EaseOutQuad Duration:0.6
+@AnimateActorExtended ActorIds:Hiro-Middle Loop:false ScenePositionY:70 EasingTypeName:EaseOutQuad Duration:0.6
+
+[PrintTextModified Text:"（まさか、違うよね……？<br>　嫌ってるからって、さすがに殺そうとなんて）|#0101Adv04_Ema019|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:ヒロが凶器を手に取ったことで、<br>少女たちの間に緊迫した空気が張りつめる。|#0101Adv04_Narrative074| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@AnimateActorExtended ActorIds:MainBackground-Middle Loop:false ScenePositionY:56 EasingTypeName:EaseOutQuad Duration:0.6
+@AnimateActorExtended ActorIds:Hiro-Middle Loop:false ScenePositionY:80 Scale:1.5 Duration:0.9
+
+[PrintTextModified Text:"貴様だ！ 化け物！|#0101Adv04_Hiro007|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:――ダッ、と、ヒロが地を蹴った。|#0101Adv04_Narrative075| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+@PlaySfxModified SfxPath:Sfx_9 Volume:1 Loop:false FadeInDuration:0
+
+[PrintTextModified Text:"<ruby=\"かば\">庇</ruby>うようにメルルがエマを抱きしめる。<br>エマはぎゅっと目を<ruby=\"つむ\">瞑</ruby>った。|#0101Adv04_Narrative076|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended TintColor:#000000 Lazy:false SubId:Middle
+
+@PlaySfxModified SfxPath:Sfx_10 Volume:1 Loop:false FadeInDuration:0
+
+[PrintTextModified Text:しかし、凶器は、エマに振り下ろされなかった。<br>エマがおそるおそる目を開けてみれば。|#0101Adv04_Narrative077| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended TintColor:white Lazy:false SubId:Middle
+@HideActors ActorIds:MainBackground-Middle Lazy:false
+@ModifyBackgroundExtended Id:Stills Rotation:,,0 Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false ScenePosition:50,50 AppearanceAndTransition:10_1
+@StopBgm
+@PlayBgm BgmPath:Bgm_12_1_Loop IntroBgmPath:Bgm_12_1_Intro Volume:1 Loop:true FadeInDuration:0
+
+[PrintTextModified Text:ヒロの殺意は、看守へと向けられていた。|#0101Adv04_Narrative078| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（ああそうだ、ヒロちゃんは……そういう子だった）|#0101Adv04_Ema020| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"この場で、確定して【間違っているもの】は、<br>魔女の【なれはて】として、化け物の姿を<ruby=\"かたど\">象</ruby>っている看守だ。|#0101Adv04_Narrative079|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:そして、二階堂ヒロは【間違っているもの】を<br>この世界から消すことを、自身の使命と課している。|#0101Adv04_Narrative080| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@PlaySfxModified SfxPath:Sfx_10 Volume:1 Loop:false FadeInDuration:0
+
+[PrintTextModified Text:"悪は死ね！ 死ね死ね死ね！|#0101Adv04_Hiro008|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@PlaySfxModified SfxPath:Sfx_10 Volume:1 Loop:false FadeInDuration:0
+@ModifyBackgroundExtended Id:Stills Scale:{g_backgroundDefaultScale} Lazy:false AppearanceAndTransition:10_2
+
+[PrintTextModified Text:ヒロは何度も何度も火かき棒を振り下ろしていく。|#0101Adv04_Narrative081| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@PlaySfxModified SfxPath:Sfx_10 Volume:1 Loop:false FadeInDuration:0
+
+[PrintTextModified Text:血や肉がびしゃびしゃと飛び散り、<br>みるみる顔が赤く染まっていた。|#0101Adv04_Narrative082| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@PlaySfxModified SfxPath:Sfx_10 Volume:1 Loop:false FadeInDuration:0
+
+[PrintTextModified Text:"看守の体は<ruby=\"めちゃくちゃ\">滅茶苦茶</ruby>に崩れていく。<br>普通の人間なら、一撃で死に至るほどの残虐な攻撃。|#0101Adv04_Narrative083|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@PlaySfxModified SfxPath:Sfx_10 Volume:1 Loop:false FadeInDuration:0
+
+[PrintTextModified Text:"それに一切の<ruby=\"しゅんじゅん\">逡巡</ruby>もなく、<br>ヒロは看守を徹底的に潰していく。|#0101Adv04_Narrative084|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Id:Stills Scale:{g_backgroundDefaultScale} Lazy:false AppearanceAndTransition:10_3
+
+[PrintTextModified Text:あまりに壮絶な光景に、<br>全員がただ見ていることしかできなかった。|#0101Adv04_Narrative085| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"重い火かき棒を軽々と振り回して<ruby=\"なお\">尚</ruby>、<br>彼女は素早く動きまわる。|#0101Adv04_Narrative086|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Id:Stills Scale:{g_backgroundDefaultScale} Lazy:false AppearanceAndTransition:10_4
+
+[PrintTextModified Text:――それでも。|#0101Adv04_Narrative087| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; [sfx 9：ぶんっと武器が振り下ろされる音]
+; ========================================
+
+@PlaySfxModified SfxPath:Sfx_9 Volume:1 Loop:false FadeInDuration:0
+
+[PrintTextModified Text:看守はどれだけ攻撃されても、死んでいなかった。|#0101Adv04_Narrative088| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"明らかに人外の素早さと力により、<br><ruby=\"せつな\">刹那</ruby>で反撃に振られた鎌は、|#0101Adv04_Narrative089|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; [stopBgm]
+; ========================================
+
+@StopBgm
+
+; ========================================
+; [sfx 12：ざんっと肉が切れる音]
+; ========================================
+
+@PlaySfxModified SfxPath:Sfx_12 Volume:1 Loop:false FadeInDuration:0
+@ModifyBackgroundExtended Id:Stills Scale:{g_backgroundDefaultScale} Lazy:false AppearanceAndTransition:10_5
+
+[PrintTextModified Text:"――ヒロの首を、<ruby=\"は\">刎</ruby>ね飛ばした。|#0101Adv04_Narrative090|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; [hideStill]
+; ========================================
+
+@HideActors ActorIds:Stills Lazy:false
+
+; ========================================
+; [back 5]
+; ========================================
+
+; ========================================
+; [sfx 13：どんっと物が落ちる音]
+; ========================================
+
+@PlaySfxModified SfxPath:Sfx_13 Volume:1 Loop:false FadeInDuration:0
+[PrintTextModified Text:ヒロの首は、<br>エマの目の前に落ちてきた。|#0101Adv04_Narrative091| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Fearful1
+
+[PrintTextModified Text:え……？|#0101Adv04_Ema021| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; [bgm Bgm_020_001_Loop]
+; ========================================
+
+@HideAllCharacters Lazy:false
+@PlayBgm BgmPath:Bgm_20_1 Volume:1 Loop:true FadeInDuration:0
+
+[PrintTextModified Text:残された胴体は、まだ火かき棒を固く握りしめ。|#0101Adv04_Narrative092| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"しばらくふらふらと<ruby=\"さまよ\">彷徨</ruby> ってから、<br>ドサッと倒れる。|#0101Adv04_Narrative093|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Hanna.Fearful1,ArmR4
+
+[PrintTextModified Text:キャアアアーッ！！|#0101Adv04_Hanna006| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:ヒロの生首は、<br>目を見開き、驚いたような顔をしていた。|#0101Adv04_Narrative094| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"エマに<ruby=\"けんお\">嫌悪</ruby>の<ruby=\"まなざ\">眼差</ruby>しを向けていた眼は、<br>もはや光を失っていた。|#0101Adv04_Narrative095|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Fearful1,ArmR3,ArmL7
+
+[PrintTextModified Text:ヒロちゃん……？|#0101Adv04_Ema022| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（また友だちになれるって……やり直せるって思った、のに）|#0101Adv04_Ema023| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:二階堂ヒロは、死んでいた。|#0101Adv04_Narrative096| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"エマは<ruby=\"ぼうぜん\">呆然</ruby>としたまま、<br>ふらふらとヒロの首へと近付き、手を伸ばす。|#0101Adv04_Narrative097|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"その血に濡れた<ruby=\"ほお\">頬</ruby>へと触れる。|#0101Adv04_Narrative098|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Cry1,ArmR5,ArmL7
+
+[PrintTextModified Text:ウソだよね、ヒロちゃん……？<br>やだ、やだ、やだ。|#0101Adv04_Ema024| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"エマの瞳にみるみる涙が<ruby=\"あふ\">溢</ruby>れ、<br>ぽろぽろと<ruby=\"ほお\">頬</ruby>を伝っていく。|#0101Adv04_Narrative099|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:視界の端、切り離された胴体の近くに、<br>きらりと光るものがあることに気付く。|#0101Adv04_Narrative100| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:どうやらヒロが倒れた拍子に、<br>ポケットからこぼれ落ちた物らしい。|#0101Adv04_Narrative101| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"手の届く範囲にあったそれを、<br>エマは<ruby=\"とっさ\">咄嗟</ruby>に拾い上げた。|#0101Adv04_Narrative102|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 証拠品：『ヒロの万年筆』入手
+; ========================================
+
+[PrintTextModified Text:（これ……って）|#0101Adv04_Ema025| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:エマの手の中にあるのは、<br>万年筆だった。|#0101Adv04_Narrative103| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:それはエマにとっても、大切な――。|#0101Adv04_Narrative104| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Cry1,ArmR3,ArmL7
+
+[PrintTextModified Text:（ヒロちゃん……もう、手離さないよ）|#0101Adv04_Ema026| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:エマは万年筆を、自身のポケットにしまった。|#0101Adv04_Narrative105| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; [char ゴクチョー.差分なしCenter,]
+; ========================================
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Warden.1
+
+[PrintTextModified Text:うわ～……死んじゃいましたね……<br>掃除しなきゃ……。|#0101Adv04_Warden019| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:ああでも魔女はこんなことじゃ死なないので、<br>彼女は魔女じゃないと証明されたことになりますね。|#0101Adv04_Warden020| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:やれやれ……良かったですね。|#0101Adv04_Warden021| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Cry1,ArmR3,ArmL7
+
+[PrintTextModified Text:"（良かった……？<br>　ヒロちゃんは死んだのに、そんなわけ……！）|#0101Adv04_Ema027|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"エマは涙を拭い、<br>ゴクチョーを強く<ruby=\"にら\">睨</ruby>む。|#0101Adv04_Narrative106|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Determined2,ArmR3,ArmL7
+
+[PrintTextModified Text:"その瞳を意に介さず、<br>ゴクチョーは<ruby=\"しゅくしゅく\">粛々</ruby>と語り続ける。|#0101Adv04_Narrative107|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Warden.1
+
+[PrintTextModified Text:――あっ、あと何個もすみません。<br>最後に。みなさんに、<br>もっとも大切なことを伝えておきます。|#0101Adv04_Warden022| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:魔女になりつつある者は、<br>抑えきれない殺意や妄想につかれてしまいます。|#0101Adv04_Warden023| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:面倒なことに、いずれ囚人間で<br>殺人事件が起こるんですよ。|#0101Adv04_Warden024| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Sherry.Smile1,ArmR1,ArmL1,Pale-Off,Sweat-Off,Cheeks-Normal,Angle01/Facial/Eyes>Eyes_Sparkle_Open01,Angle01/Facial/Mouth>Mouth_Normal_Open
+
+[PrintTextModified Text:殺人事件っ！？|#0101Adv04_Sherry010| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:シェリーはこの状況下で、<br>不謹慎に目を輝かせた。|#0101Adv04_Narrative108| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Warden.1
+
+[PrintTextModified Text:そうなんですよ……毎度のことなんですよねぇ……<br>さすがにそんな危険人物とは一緒に生活できませんよねぇ。|#0101Adv04_Warden025| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:というわけで殺人事件が起こり次第、<br>【魔女裁判】を開廷します。|#0101Adv04_Warden026| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:【魔女】になった囚人は……あのー……<br>……処刑しますので……。|#0101Adv04_Warden027| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:詳しくは【魔女図鑑】をご覧ください。<br>では私はこれにて……。|#0101Adv04_Warden028| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+; ========================================
+; [sfx 8：フクロウの羽ばたき音]
+; ========================================
+
+@PlaySfxModified SfxPath:Sfx_8 Volume:1 Loop:false FadeInDuration:0
+[PrintTextModified Text:"ゴクチョーが羽ばたき、<br><ruby=\"つうきこう\">通気口</ruby>の中へと姿を消していく。|#0101Adv04_Narrative109|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:エマは自身の手を見下ろす。<br>ヒロの血で、両の手のひらは真っ赤に染まっていた。|#0101Adv04_Narrative110| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; [stopBgm]
+; ========================================
+
+; ========================================
+; 演出：BGM切る・黒画面・UIも消す・ささやきのみ
+; ========================================
+
+@StopBgm
+@ModifyBackgroundExtended TintColor:#000000 Lazy:false
+
+; 立ち絵・話者名の表示なし
+; @月代ユキ
+
+@PrintTextModified Text:――よくできましたね。|#0101Adv04_Narrative111| RevealSpeed:0.05 WaitForInput:true Wait:true
+
+; ========================================
+; 演出ここまで
+; ========================================
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} TintColor:white Lazy:false AppearanceAndTransition:5_1
+
+[PrintTextModified Text:聞こえた声に驚いたエマは、<br>確かめるように周囲を見渡す。|#0101Adv04_Narrative112| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"当然、エマの<ruby=\"そば\">傍</ruby>には誰もいない。|#0101Adv04_Narrative113|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（そうだよね、いるわけなんか、ない……）|#0101Adv04_Ema028| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:こうして、エマたちの獄中生活がはじまった。|#0101Adv04_Narrative114| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:足元から音もなく崩れ始めているような、<br>不気味な感覚と共に。|#0101Adv04_Narrative115| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Gosub Path:System/System_Subroutine.EndAdv
+
+@BeginIf Expression:!enableDebugSkip
+    @ProcessInput InputEnabled:true SetEnabled:"Continue.false,Pause.false,Skip.false,ToggleSkip.false,AutoPlay.false,ToggleUI.false,ShowBacklog.false,Rollback.false,SkipMovie.{g_moviePlayed >= 1}"
+    @PlayMovie MovieName:Act01_Opening Wait:true
+
+@SetCustomVariable Expression:"g_moviePlayed = max(1, g_moviePlayed)"
+@GotoModified Path:Act01_Chapter01/Act01_Chapter01_Adv05 SoftReset:true
+

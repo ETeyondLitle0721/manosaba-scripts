@@ -1,0 +1,434 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook Version:5
+
+@BeginIf Expression:isDebugDirectJump
+    @Gosub Path:Act02_Chapter03/Act02_Chapter03_TrialInit
+    @HidePerspectiveStageScreen Index:1 Duration:0 Reset:true
+    @ModifyBackgroundExtended TintColor:#000000 Duration:0 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+
+@SetTrialTimer Time:900
+@HideUI UINames:ControlPanel AllowToggle:false
+@ShowUI UINames:DebateUI
+
+; ==============================================================================
+; MARK: 8-5: 💬 狙った場所に落とす方法
+; ==============================================================================
+; ＠ト書き▼議論シーン8-5 狙った場所に落とす方法
+; 議論開始エフェクト
+; BGM変更：rAwTell Owk...
+@PlayBgm BgmPath:Bgm_7_1 Volume:1 Loop:true FadeInDuration:0
+
+# Judge8-5-1
+
+@Gosub Path:System/System_Subroutine.BeginDebate-First
+@Gosub Path:System/System_Subroutine.BeginDebate-Effect
+@Gosub Path:System/System_Subroutine.BeginDebate-Last
+@ChangeTrialPauseMode Enable:false ProcessTimer:true
+
+@HidePerspectiveStageScreen Index:1 Reset:true
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR1,ArmL3,Angle01/Facial/Eyes>Eyes_Smile_Closed01,Angle01/Facial/Mouth>Mouth_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:当然ですが、<br>スマホは液晶画面が光ります。<br>それにこの機種は<br>ライト機能もあります。|#0203Trial05_Sherry001| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR17,ArmL4,Angle01/Facial/Eyes>Eyes_Normal_Open04,Angle01/Facial/Mouth>Mouth_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:犯人はあらかじめ、<br>現場に光らせたスマホを<br>置いておいたんですよ。|#0203Trial05_Sherry002| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR3,ArmL4,Angle01/Facial/Eyes>Eyes_Normal_Closed02,Angle01/Facial/Mouth>Mouth_Normal_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:現場は犯行当時<br>暗かった……。|#0203Trial05_Sherry003| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR3,ArmL12,Angle01/Facial/Eyes>Eyes_Normal_Open01,Angle01/Facial/Mouth>Mouth_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:"それなら、<br>スマホのほのかな光であっても<br><link=\"Objection_02_03_05_01\">目印</link>として<br>わかりやすかった<br>はずです！|#0203Trial05_Sherry004|" RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR13,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open04,Angle01/Facial/Mouth>Mouth_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:"そこに目掛けて突き落とせば、<br>グッサリ串刺しにして<br><link=\"Objection_02_03_05_02\">殺せます</link>よね！|#0203Trial05_Sherry005|" RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Miria.Default,ArmR3,ArmL8,Angle01/Facial/Eyes>Eyes_Glare_Open04,Angle01/Facial/Mouth>Mouth_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Miria Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:"たしかに<br><link=\"Objection_02_03_05_03\">スマホぐらいの光</link><br>だったら、<br>おじさんも見逃してて<br>おかしくないかも……。|#0203Trial05_Miria001|" RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR11,ArmL10,Angle01/Facial/Eyes>Eyes_Smile_Closed02,Angle01/Facial/Mouth>Mouth_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:どうですか、<br>この推理は！|#0203Trial05_Sherry006| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR13,ArmL1,Angle01/Facial/Eyes>Eyes_Normal_Open01,Angle01/Facial/Mouth>Mouth_Normal_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:このトリックを使えば、<br>アンアンさんを<br>鉄柵で殺害するのは<br>簡単なはずです！|#0203Trial05_Sherry007| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+
+; ==============================================================================
+; 8-5議論後独白
+; ==============================================================================
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+@Gosub Path:System/System_Subroutine.EndDebate-Effect
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+; 
+; 議論終了
+; ------------------------------------------------------------------------------
+
+@ResetText
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Determined_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center ZoomLevel:2
+@Wait WaitMode:0.2
+
+[PrintTextModified Text:（シェリーは他殺だと信じている）|#0203Trial05_Hiro001| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR4,ArmL2,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+[PrintTextModified Text:"（しかし運が良いのか悪いのか、<br>　今の推理には説明しきれない矛盾が残っているな）|#0203Trial05_Hiro002|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR4,ArmL2,Eyes1_Angry_Open1,Mouth1_Angry_Open1
+[PrintTextModified Text:（その隙……利用させてもらおう）|#0203Trial05_Hiro003| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge8-5-1
+; 
+; 反論1
+; ------------------------------------------------------------------------------
+
+# Objection_02_03_05_01
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:他に光があった|#0203Trial05_Choice001| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge8-5-3
+
+
+@AddChoice ChoiceSummary:戻る|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; 
+; 反論2
+; ------------------------------------------------------------------------------
+
+# Objection_02_03_05_02
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:他殺ではなく自殺だった|#0203Trial05_Choice002| Lock:false ButtonPath:ChoiceButtons/Trial/Perjury HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge8-5-2
+
+
+@AddChoice ChoiceSummary:戻る|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; 
+; 反論3
+; ------------------------------------------------------------------------------
+
+# Objection_02_03_05_03
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:スマホの光は目立つ|#0203Trial05_Choice003| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge8-5-4
+
+
+@AddChoice ChoiceSummary:戻る|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; ==============================================================================
+; MARK: 8-5: ❌ 議論ミス選択肢
+; ==============================================================================
+; MARK: 8-5-3: ❌ 反論・他に光があった
+
+# Judge8-5-3
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR1,ArmL4,Eyes1_Normal_Open1,Mouth1_Determined_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……他にもいくつか光があったとしたら、どうかな？|#0203Trial05_Hiro004| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open03,Angle01/Facial/Mouth>Mouth_Surprised_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left
+[PrintTextModified Text:他の光ですか？|#0203Trial05_Sherry008| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR1,ArmL4,Eyes1_Normal_Closed1,Mouth1_Determined_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:現場に複数の光があったのなら、<br>スマホのほのかな光じゃ周りに埋もれてしまって<br>目印として機能しないと思うよ。|#0203Trial05_Hiro005| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Pensive_Open,Angle01/Facial/Mouth>Mouth_Angry_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right
+[PrintTextModified Text:他の光って、例えばどんなのー？|#0203Trial05_Noah001| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR1,ArmL4,Eyes1_Normal_Open1,Mouth1_Determined_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……廊下の照明が点いていたとか、<br>様々な可能性があるよ。|#0203Trial05_Hiro006| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Miria.Default,ArmR3,ArmL1,Angle01/Facial/Eyes>Eyes_Normal_Open04,Angle01/Facial/Mouth>Mouth_Smile_Open02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Miria Composition:Left
+[PrintTextModified Text:でもおじさんが中庭を見たときは、<br>特に目立った明かりはなかったと思うけどなぁ。|#0203Trial05_Miria002| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,ArmR4,ArmL6,Angle01/Facial/Eyes>Eyes_Angry_Open03
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right
+[PrintTextModified Text:……ていうか、そもそもおめえが<br>中庭は暗かったって言ったんだろ。|#0203Trial05_Alisa001| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,ArmR4,ArmL6,Angle01/Facial/Eyes>Eyes_Angry_Open03
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right
+[PrintTextModified Text:なかったことにしてんじゃねーぞ。|#0203Trial05_Alisa002| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL9,Eyes2_Normal_Closed1,Mouth2_Angry_Closed1,Sweat2-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（もっともだな……）|#0203Trial05_Hiro007| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（シェリーの推理の根拠は、<br>　【現場にスマホが残されていたから】）|#0203Trial05_Hiro008|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Angry_Open1,Mouth1_Angry_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（……しかしその推理自体が間違いなのは、<br>　私自らが知っている）|#0203Trial05_Hiro009|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（なら、そのシェリーの推理を利用して、<br>　みんなが納得できるストーリーを語ってみせよう）|#0203Trial05_Hiro010|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Angry_Open1,Mouth1_Angry_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（……たとえそれが捏造であったとしても）|#0203Trial05_Hiro011| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+
+@GotoModified Path:.Judge8-5-1
+
+; 8-5-4：反論・スマホの光は目立つ|#0203Trial05_Narrative001|
+
+# Judge8-5-4
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open3,Mouth2_Surprised_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:忘れているかもしれないが、<br>中庭は光の少ない暗闇だったんだ。|#0203Trial05_Hiro012| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open1,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:いくら【スマホぐらいの光】といっても、<br>流石にその中では目立つんじゃないかな？|#0203Trial05_Hiro013| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR17,ArmL1,Angle01/Facial/Eyes>Eyes_Normal_Open04,Angle01/Facial/Mouth>Mouth_Normal_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left
+[PrintTextModified Text:ですが、液晶画面の光量なら調節が出来ます！|#0203Trial05_Sherry009| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR3,ArmL3,Angle01/Facial/Eyes>Eyes_Smile_Closed01,Angle01/Facial/Mouth>Mouth_Normal_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left
+[PrintTextModified Text:きっと光の設定をいじって弱くしてたんですよ！|#0203Trial05_Sherry010| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR3,ArmL1,Angle01/Facial/Eyes>Eyes_Normal_Closed02,Angle01/Facial/Mouth>Mouth_Normal_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left
+[PrintTextModified Text:犯人にさえ光が見えていればいいわけですからね！|#0203Trial05_Sherry011| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR4,ArmL2,Angle01/Facial/Eyes>Eyes_Pensive_Open,Angle01/Facial/Mouth>Mouth_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right
+[PrintTextModified Text:ならスマホがそこにあってもおかしくはなさそうだねー。|#0203Trial05_Noah002| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR13,ArmL4,Angle01/Facial/Eyes>Eyes_Smile_Closed01,Angle01/Facial/Mouth>Mouth_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left
+[PrintTextModified Text:そうです！<br>おかしいのはヒロさんの推理の方ですね！|#0203Trial05_Sherry012| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL9,Eyes2_Normal_Closed1,Mouth2_Angry_Closed1,Sweat2-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（たしかに光量を調整すれば不可能ではないか……）|#0203Trial05_Hiro014| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 別選択肢共通
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（シェリーの推理の根拠は、<br>　【現場にスマホが残されていたから】）|#0203Trial05_Hiro015|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Angry_Open1,Mouth1_Angry_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（……しかしその推理自体が間違いなのは、<br>　私自らが知っている）|#0203Trial05_Hiro016|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（なら、そのシェリーの推理を利用して、<br>　みんなが納得できるストーリーを語ってみせよう）|#0203Trial05_Hiro017|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Angry_Open1,Mouth1_Angry_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（……たとえそれが捏造であったとしても）|#0203Trial05_Hiro018| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+
+@GotoModified Path:.Judge8-5-1
+; ==============================================================================
+; MARK: 8-5-2: ⭕ 偽証・他殺ではなく自殺だった
+; ==============================================================================
+
+# Judge8-5-2
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@HideUI UINames:DebateUI AllowToggle:false
+@ShowUI UINames:ControlPanel
+@StopBgm
+@GosubToObjectionCutIn CutInKind:Hiro Index:1 VoicePath:CommonTrial_Hiro00032 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR1,ArmL4,Eyes1_Normal_Open1,Mouth1_Determined_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……なるほど。<br>たしかにその通りかもしれないね。|#0203Trial05_Hiro019| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR1,ArmL4,Eyes1_Normal_Closed1,Mouth1_Determined_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:その推理なら全ての辻褄が合う……完璧にね。|#0203Trial05_Hiro020| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Smile1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left
+[PrintTextModified Text:そうですよね！|#0203Trial05_Sherry013| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,Arms3,Eyes2_Normal_Open3,Mouth2_Determined_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:ああ。<br>……ただし、１つだけ条件があるけれど。|#0203Trial05_Hiro021| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open03,Angle01/Facial/Mouth>Mouth_Surprised_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left
+[PrintTextModified Text:条件……ですか？|#0203Trial05_Sherry014| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+; BGM変更：Sen-Choose N'o SurC
+@PlayBgm BgmPath:Bgm_38_1_Loop IntroBgmPath:Bgm_38_1_Intro Volume:1 Loop:true FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Angry_Open1,Mouth1_Determined_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:【中庭に置かれたスマホを目掛けて落下した】<br>という推理に異論はないよ。|#0203Trial05_Hiro022| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:でもそれは……【アンアン自ら】でないとおかしいんだ。|#0203Trial05_Hiro023| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Angry_Open1,Mouth1_Determined_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:なぜなら、スマホはアンアンのものだったんだからね。|#0203Trial05_Hiro024| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・軽い衝撃音
+@PlaySfxModified SfxPath:Sfx_Common_4 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR4,ArmL5,Angle01/Facial/Eyes>Eyes_Surprised_Open01,Angle01/Facial/Mouth>Mouth_Surprised_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left
+[PrintTextModified Text:……あっ！|#0203Trial05_Sherry015| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Closed1,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:【現場にあったスマホは犯人が事前に置いた】<br>【アンアンはベランダから落下した】。|#0203Trial05_Hiro025| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Closed1,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:その２つの条件を満たす一番簡単な解答……<br>それは１つしかない。|#0203Trial05_Hiro026| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open1,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:【アンアン自身が犯人だった】……<br>ということだよ。|#0203Trial05_Hiro027| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open1,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:でなければ、犯人はどうにかして<br>アンアンのスマホを手に入れる必要があった。|#0203Trial05_Hiro028| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open1,Mouth2_Determined_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:わざわざ犯行の前にアンアンのスマホを盗んだりするかな？<br>警戒されるだけなのに。|#0203Trial05_Hiro029| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,Angle01/Arms>Arms01,Angle01/ArmL-,Angle01/ArmR-,Angle01/Facial/Eyes>Eyes_Serious_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right
+[PrintTextModified Text:……でもよ。<br>その推理はおかしいだろ……！|#0203Trial05_Alisa003| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Serious_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right
+[PrintTextModified Text:夏目が自分から落ちたってことは、<br>【自殺】だったってことだ。|#0203Trial05_Alisa004| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,ArmR2,ArmL1,Angle01/Facial/Eyes>Eyes_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right
+[PrintTextModified Text:夏目が自殺する動機も予兆もなかったってのに、<br>突然んなことするわけねーと思うけどな……！|#0203Trial05_Alisa005| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Angry_Open1,Mouth1_Determined_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:もちろん私だってアンアンが自殺したと<br>決めつけているわけじゃない。|#0203Trial05_Hiro030| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:でもシェリーの推理が正しいとするなら、<br>そうなってしまうと言ってるんだ。|#0203Trial05_Hiro031| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,ArmR1,ArmL3,Angle01/Facial/Eyes>Eyes_Surprised_Open01,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right
+[PrintTextModified Text:ぐっ……！|#0203Trial05_Alisa006| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR2,ArmL4,Eyes1_Normal_Open3,Mouth1_Surprised_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:もしくは……<br>現場にあったスマホなんて、<br>ただ単に落下したときの衝撃で落ちただけかもしれないよ。|#0203Trial05_Hiro032| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR2,ArmL4,Eyes1_Normal_Open3,Mouth1_Determined_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:どちらにせよ、<br>シェリーの推理は納得できるものではない……。|#0203Trial05_Hiro033| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR2,ArmL4,Eyes1_Angry_Open1,Mouth1_Smile_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:違うかな？|#0203Trial05_Hiro034| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open03,Angle01/Facial/Mouth>Mouth_Surprised_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left
+[PrintTextModified Text:なるほど……。<br>たしかに現場にあったのはアンアンさんのスマホでしたね。|#0203Trial05_Sherry016| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR17,ArmL1,Angle01/Facial/Eyes>Eyes_Normal_Open04,Angle01/Facial/Mouth>Mouth_Normal_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left
+[PrintTextModified Text:でもヒロさんが指摘した部分を修正しちゃえば、<br>話は通じるはずだと思います。|#0203Trial05_Sherry017| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR15,ArmL4,Angle01/Facial/Eyes>Eyes_Wink_Open01,Angle01/Facial/Mouth>Mouth_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left
+[PrintTextModified Text:もう一度、この殺人事件を検証してみます！|#0203Trial05_Sherry018| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@StopBgm
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR1,ArmL4,Eyes1_Angry_Open3,Mouth1_Determined_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（シェリーは何があっても<br>　殺人事件ということにしたいようだ）|#0203Trial05_Hiro035|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR1,ArmL4,Eyes1_Normal_Closed1,Mouth1_Determined_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（けれど……<br>　間違った理屈の上にさらに仮説を重ねても、<br>　再び矛盾が生まれるだけ……）|#0203Trial05_Hiro036|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR13,ArmL13,Eyes2_Normal_Open3,Mouth2_Angry_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（崩してみせよう……<br>　シェリーの紡ぐ間違ったストーリーを！）|#0203Trial05_Hiro037|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+@AutoSave
+
+@GotoModified Path:Act02_Chapter03/Act02_Chapter03_Trial06 ResetState:-
+

@@ -1,0 +1,271 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook IsDebugDirectJump:{isDebugDirectJump}
+@Gosub Path:System/System_Subroutine.BeginAdv
+
+# Scene1-4-13
+
+; ========================================
+; ●シーン1‐4-13
+; ========================================
+
+@PlayBgm BgmPath:Bgm_31_1 Volume:1 Loop:true FadeInDuration:0
+
+@ModifyBackgroundExtended Rotation:,,-5 Scale:2.2 Lazy:false ScenePosition:52,28 AppearanceAndTransition:14_1
+@ModifyBackgroundExtended TintColor:#000000 Duration:1.2 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@ModifyCharacterExtended Rotation:,,-5 Scale:1.6 Lazy:false ScenePosition:50,55 IdAndAppearance:Ema.Fearful1,ArmR3,ArmL7
+@Wait WaitMode:0.3
+@AutoSave
+[PrintTextModified Text:投票によって【魔女】に選出されたのは、<br>エマだった。|#0104Adv13_Narrative001| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:エマの耳元で、どくどくどく、と<br>激しく鼓動が脈打っている。|#0104Adv13_Narrative002| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（そんな、そんな、ボクがアリサちゃんを、殺した――？）|#0104Adv13_Ema001| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（ボクが、処刑される……？）|#0104Adv13_Ema002| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆泣きながら
+
+[PrintTextModified Text:エマさん、うぅ……。|#0104Adv13_Meruru001| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（どうしよう、どうしよう、どうしよう……！）|#0104Adv13_Ema003| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"目の前がぐるぐるまわって、視界が<ruby=\"ゆが\">歪</ruby>む。<br>あまりのことに、<br>足ががくがくと震えだす。|#0104Adv13_Narrative003|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ProcessInput InputEnabled:false
+@StopBgm
+@HidePrinter
+@HideUI UINames:ControlPanel,AutoToggle,WitchBookButtonUI AllowToggle:false
+@ShowUI UINames:ExecutionButton
+
+@BeginIf Expression:!enableDebugSkip
+    @Skip Enable:false
+    @Stop
+
+# ExecutionConfirmed
+
+@PlayBgm BgmPath:Bgm_31_1 Volume:1 Loop:true FadeInDuration:1
+@HideUI UINames:ExecutionButton AllowToggle:false Duration:0.6
+@HideActors ActorIds:Stills-Middle Duration:0.6 Lazy:false
+@Wait WaitMode:0.9
+
+@ProcessInput InputEnabled:true
+@ShowUI UINames:ControlPanel,AutoToggle,WitchBookButtonUI
+[PrintTextModified Text:はい、処刑ボタンも皆さん押されましたね！<br>これより、魔女の処刑を執行します～！|#0104Adv13_Warden001| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:0.9
+@HideAllCharacters Lazy:false
+@ModifyBackgroundExtended Rotation:,,0 Scale:2 Duration:0 Lazy:false ScenePosition:75,60 AppearanceAndTransition:13_1
+@ModifyBackgroundExtended TintColor:#000000 Duration:1.2 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+
+@AnimateActorExtended ActorIds:MainBackground Loop:false ScenePositionX:25 Duration:20
+@Wait WaitMode:0.9
+
+[PrintTextModified Text:恐怖で立っていられなくなったエマを支えるかのように、<br>看守がエマの体を抱えた。|#0104Adv13_Narrative004| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:やめ、やめてよ……っ|#0104Adv13_Ema004| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:看守の力に抗えず、<br>エマは処刑台の方へと引きずられていく。|#0104Adv13_Narrative005| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:少女たちを見回すも、<br>誰も目を合わせてくれない。|#0104Adv13_Narrative006| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:やだぁ……っ|#0104Adv13_Ema005| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:ええと、どの処刑台にしますかね……。<br>桜羽エマさん、桜羽エマさん……。|#0104Adv13_Warden002| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:ちょっと忘れてしまったので、<br>この処刑台にしますか――えいっと。|#0104Adv13_Warden003| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 歯車がまわる音
+@PlaySfxModified SfxPath:Sfx_36 Volume:1 Loop:false FadeInDuration:0
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:歯車の回転がはじまり、<br>中央の台座が入れ替えられていく。|#0104Adv13_Narrative007| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:じたばたもがいても、恐怖で泣き喚いても、<br>死にたくない、魔女じゃないと叫んでも<br>看守は離してくれない。|#0104Adv13_Narrative008| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（もうおしまいだ）|#0104Adv13_Ema006| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:どくん、とひときわ大きく鼓動が鳴った。|#0104Adv13_Narrative009| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@StopBgm
+
+; ========================================
+; 演出：BGM切る・黒画面・UIも消す・ささやきのみ
+; ========================================
+
+; 立ち絵・話者名の表示なし
+@ResetText
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+@ModifyTextPrinter Lazy:false IdAndAppearance:Normal.Simple MakeDefault:true HideOther:true
+
+[PrintTextModified Text:――本当にそれでいいんですか。|#0104Adv13_Yuki001| AuthorId:Unknown RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:――あなたならできるはずなのに。|#0104Adv13_Yuki002| AuthorId:Unknown RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 演出ここまで
+; ========================================
+
+@HidePrinter
+@ModifyBackgroundExtended Rotation:,,0 Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false ScenePosition:50,50 AppearanceAndTransition:13_1
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:0.9
+
+@ModifyTextPrinter Lazy:false IdAndAppearance:Normal.Default MakeDefault:true HideOther:true
+
+@PlayBgm BgmPath:Bgm_13_1_Loop IntroBgmPath:Bgm_13_1_Intro Volume:1 Loop:true FadeInDuration:0
+
+[PrintTextModified Text:"エマは、ずっと耳元で<ruby=\"ささや\">囁</ruby>かれている。<br>今も、聞こえているはずだ。|#0104Adv13_Narrative010|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:この場にいない者の声なのに、<br>声はどんどん大きくなり続けている。|#0104Adv13_Narrative011| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:それはエマにとって不思議な感覚だった。|#0104Adv13_Narrative012| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:指先や顔がむずむずとし、<br>奥底に閉じ込めていた闇が、<br>内部から生じて、割れて、飛び出しそうな――|#0104Adv13_Narrative013| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"ハッとして指先をみると、<br>爪が<ruby=\"とが\">尖</ruby>って伸び、指先がほんの少し変形していた。|#0104Adv13_Narrative014|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（魔女化――）|#0104Adv13_Ema007| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（そんな、そんな、ボクもとうとう魔女に……）|#0104Adv13_Ema008| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:震えが止まらず、<br>足元から崩れていきそうになる。|#0104Adv13_Narrative015| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"全てを諦め、<br>聞こえる<ruby=\"ささや\">囁</ruby>きを、受け入れてしまいそうになる。|#0104Adv13_Narrative016|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:絶望したエマの眼前に、<br>ゆっくりと処刑台がせりあがってきた。|#0104Adv13_Narrative017| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+
+[PrintTextModified Text:"目の前が真っ暗だった。<br>もう何も見たくないと、目すら<ruby=\"つむ\">瞑</ruby>った。|#0104Adv13_Narrative018|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:そのエマの耳に。|#0104Adv13_Narrative019| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:少女たちの悲鳴が届く。|#0104Adv13_Narrative020| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆驚愕
+
+[PrintTextModified Text:ぎゃああああああっ|#0104Adv13_Coco001| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆驚愕
+
+[PrintTextModified Text:これは一体どういうことなの！？|#0104Adv13_Margo001| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆驚愕
+
+[PrintTextModified Text:あ、あ、ああああぁっ|#0104Adv13_Meruru002| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（一体何が――）|#0104Adv13_Ema009| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:エマは戸惑い、目を開く。|#0104Adv13_Narrative021| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HidePrinter
+
+@AnimateActorExtended ActorIds:Stills Loop:false
+@ModifyBackgroundExtended Id:Stills Scale:2.5 Duration:0 Lazy:false ScenePosition:60,75 AppearanceAndTransition:310_1
+@AnimateActorExtended ActorIds:Stills Loop:false ScenePositionX:80 EasingTypeName:EaseOutQuad Duration:1.5
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:2.4
+
+@ModifyBackgroundExtended Id:Stills Scale:3 Duration:0 Lazy:false ScenePosition:70,-5 AppearanceAndTransition:310_1 SubId:Middle
+@AnimateActorExtended ActorIds:Stills-Middle Loop:false ScenePositionX:45 EasingTypeName:EaseOutQuad Duration:1.5
+@ModifyBackgroundExtended Duration:1.2 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:2.4
+
+@AnimateActorExtended ActorIds:Stills-Middle Loop:false
+@ModifyBackgroundExtended Id:Stills Rotation:,,0 Scale:1.5 Duration:0 Lazy:false ScenePosition:50,50 AppearanceAndTransition:310_1
+@SpawnBlur ActorId:Stills FadeDuration:0
+@AnimateActorExtended ActorIds:Stills Loop:false Scale:1.15 EasingTypeName:EaseOutQuad Duration:2.4
+@SpawnBlur ActorId:Stills Intensity:0 FadeDuration:1.8
+@HideActors ActorIds:Stills-Middle Duration:0.6 Lazy:false
+@Wait WaitMode:3
+
+[PrintTextModified Text:エマの目の前に現れたのは――<br>ナノカの死体だった。|#0104Adv13_Narrative022| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:ナノカ、ちゃん……？|#0104Adv13_Ema010| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"エマは<ruby=\"ぼうぜん\">呆然</ruby>と、<br>処刑台の上で死んでいるナノカを見つめる。|#0104Adv13_Narrative023|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@StopBgm
+
+[PrintTextModified Text:頭は追いつかないが、<br>ナノカの言葉が脳裏を過った。|#0104Adv13_Narrative024| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; ◎シーン1-4‐6の回想シーン（流用）
+; ========================================
+
+@ResetText
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+
+@ModifyBackgroundExtended Rotation:,,0 Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false ScenePosition:50,50 AppearanceAndTransition:22_4 SubId:Middle
+@SpawnBlur ActorId:MainBackground-Middle FadeDuration:0
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:0.9
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Ema.Smile1,ArmR3 SubId:Middle
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Nanoka.Default SubId:Middle
+
+@PlayBgm BgmPath:Bgm_41_1 Volume:1 Loop:true FadeInDuration:0
+
+[PrintTextModified Text:……桜羽エマ。あなたはお人好しね。|#0104Adv13_Nanoka001| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:わかった。あなたに背中を預けるわ。<br>ただ勘違いしないでほしい。これは取引。|#0104Adv13_Nanoka002| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Ema.Pensive1,ArmR3 SubId:Middle
+
+[PrintTextModified Text:取引……？|#0104Adv13_Ema011| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:私はあなたを利用する。<br>だから何かあったらあなたも私を利用して。|#0104Adv13_Nanoka003| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+; ========================================
+; 回想ここまで
+; ========================================
+
+@ResetText
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+@SpawnBlur ActorId:MainBackground-Middle Intensity:0 FadeDuration:0
+@ModifyBackgroundExtended Rotation:,,0 Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false ScenePosition:50,50 AppearanceAndTransition:13_1 SubId:Middle
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:0.9
+
+[PrintTextModified Text:"ナノカを想い、<ruby=\"ほほ\">頬</ruby>を伝う涙が、熱い。|#0104Adv13_Narrative025|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（ナノカちゃんは殺された）|#0104Adv13_Ema012| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（ここでボクが処刑されるわけにはいかない……！）|#0104Adv13_Ema013| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（ボクは、魔女にならない！！<br>　今度こそ、本物の魔女を見つけるんだ！！）|#0104Adv13_Ema014|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"エマはキッとゴクチョーを<ruby=\"にら\">睨</ruby>んだ。|#0104Adv13_Narrative026|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Angry1,ArmR3,ArmL7 SubId:Middle
+
+[PrintTextModified Text:ゴクチョー！<br>裁判の申請をします！！|#0104Adv13_Ema015| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:ナノカちゃんは殺されている！<br>これは殺人事件だ！<br>その裁判を執り行わないといけない！|#0104Adv13_Ema016| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 次話への引継ぎアイテム：『万年筆』、『牢屋敷設計図』
+; 『過去からの囚人の手紙』、『アリサの死体現場写真』
+; 『処刑台』、『冷凍室』
+; ========================================
+; 5話であらためて追加するので、万年筆以外は一括で伏せ
+@UpdateWitchBook Id:Nanoka Category:Profile Version:3
+
+; ========================================
+; ＞魔法少女ノ魔女裁判 1章5話へ
+; ========================================
+
+@SetCustomVariable Expression:"g_gameProgress = max(5, g_gameProgress)"
+@Gosub Path:System/System_Subroutine.EndAdv
+
+@GotoModified Path:Act01_Chapter05/Act01_Chapter05_Adv01 SoftReset:true
+

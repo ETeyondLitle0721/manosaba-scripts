@@ -1,0 +1,634 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook Version:4
+
+@BeginIf Expression:isDebugDirectJump
+    @Gosub Path:Act02_Chapter02/Act02_Chapter02_TrialInit
+    @HidePerspectiveStageScreen Index:1 Duration:0 Reset:true
+    @ModifyBackgroundExtended TintColor:#000000 Duration:0 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+
+@SetTrialTimer Time:1500
+@HideUI UINames:ControlPanel AllowToggle:false
+@ShowUI UINames:DebateUI
+
+; ==============================================================================
+; MARK: 7-5: 💬 犯人の可能性
+; ==============================================================================
+; ＠ト書き▼議論シーン7-5
+; 議論開始エフェクト
+; BGM変更：rAwTell Owk...
+@PlayBgm BgmPath:Bgm_7_1 Volume:1 Loop:true FadeInDuration:0
+
+# Judge7-5-1
+
+@Gosub Path:System/System_Subroutine.BeginDebate-First
+@Gosub Path:System/System_Subroutine.BeginDebate-Effect
+@Gosub Path:System/System_Subroutine.BeginDebate-Last
+@ChangeTrialPauseMode Enable:false ProcessTimer:true
+
+@HidePerspectiveStageScreen Index:1 Reset:true
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR8,ArmL2,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:でもそもそも<br>今回の事件には<br>ボクとヒロちゃんしか<br>関われないんだ。|#0202Trial05_Ema001| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Angry_Open1,Mouth1_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:……エマの言葉は正しい。|#0202Trial05_Hiro001| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:死体は<br>私が中庭を通ったあとに<br>発見された。|#0202Trial05_Hiro002| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL3,Eyes2_Angry_Open1,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:だからエマが<br>犯人だと言っているんだ。<br>……私が死体を<br>見逃したのでもなければね。|#0202Trial05_Hiro003| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Smile_Open,Angle01/Facial/Mouth>Mouth_Surprised_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:あれ？<br>ならヒロちゃんが<br>見逃した可能性は<br>あるってこと？|#0202Trial05_Noah001| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR4,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open02,Angle01/Facial/Mouth>Mouth_Smile_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:ヒロちゃんって、<br>配信でココちゃんが<br>死んだのを見て<br>ココちゃんを<br>探してたんだよね。|#0202Trial05_Noah002| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Pensive1,ArmR1,ArmL2,
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:だったら急いで<br>探してたって<br>ことだし……。|#0202Trial05_Noah003| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Smile_Closed02,Angle01/Facial/Mouth>Mouth_Smile_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:"中庭にあった死体を<br>見逃して通り過ぎても、<br><link=\"Objection_02_02_05_01\">おかしくない</link>んじゃ<br>ないかなー？|#0202Trial05_Noah004|" RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR1,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open02,Angle01/Facial/Mouth>Mouth_Smile_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:とはいえ、<br>ヒロくんの視認を疑う前に<br>他にも疑問は<br>残っていると思うよ。|#0202Trial05_Leia001| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR4,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open02,Angle01/Facial/Mouth>Mouth_Smile_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:疑問って？|#0202Trial05_Noah005| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR6,ArmL5,Angle01/Facial/Eyes>Eyes_Normal_Closed02,Angle01/Facial/Mouth>Mouth_Smile_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:たとえば……。|#0202Trial05_Leia002| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR3,ArmL2,Angle01/Facial/Eyes>Eyes_Smile_Open,Angle01/Facial/Mouth>Mouth_Smile_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:ヒロくんはさっき、<br>ココくんが死んだ場所は<br>地下の焼却炉室の<br>可能性が高いと<br>示していたよね。|#0202Trial05_Leia003| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR8,ArmL5,Angle01/Facial/Eyes>Eyes_Smile_Open,Angle01/Facial/Mouth>Mouth_Smile_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:"けれど、<br>死体は中庭で見つかっている。<br>この<link=\"Objection_02_02_05_02\">矛盾の説明</link>が<br>できていないよ。|#0202Trial05_Leia004|" RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Miria.Default,ArmR4,ArmL3,Angle01/Facial/Eyes>Eyes_Surprised_Open,Angle01/Facial/Mouth>Mouth_Surprised_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Miria Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:たしかにそうかも……！|#0202Trial05_Miria001| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Miria.Default,ArmR3,ArmL8,Angle01/Facial/Eyes>Eyes_Glare_Open04,Angle01/Facial/Mouth>Mouth_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Miria Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:もし誰かが<br>地下から<br>中庭に運んだなら……。|#0202Trial05_Miria002| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Miria.Default,ArmR8,ArmL7,Angle01/Facial/Eyes>Eyes_Surprised_Lifeless01,Angle01/Facial/Mouth>Mouth_Pensive_Open,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Miria Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:それって、<br>ヒロちゃんと<br>エマちゃんの間に<br>タイミング良く<br>滑り込んだって<br>ことだよね。|#0202Trial05_Miria003| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Normal1,Angle01/Option_Arms-,ArmR-Option-Off,Angle01/Arms>Arms01,Angle01/Option_Arms>Option_Arms01_02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:『それはそもそも<br>不可能だ』|#0202Trial05_AnAn001| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,Arms,Angle01/Facial/Eyes>Eyes_Normal_Open03,Angle01/Facial/Mouth>Mouth_Surprised_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:"ラウンジには<br><link=\"Objection_02_02_05_03\">私とアンアンくん</link>が<br>いた……。|#0202Trial05_Leia005|" RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Miria.Default,ArmR3,ArmL8,Angle01/Facial/Eyes>Eyes_Glare_Open04,Angle01/Facial/Mouth>Mouth_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Miria Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:地下の焼却炉室から<br>中庭に行くには、<br>ラウンジを<br>通らなきゃだよね。|#0202Trial05_Miria004| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,ArmR5,ArmL2,Angle01/Facial/Eyes>Eyes_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:"たしかに<br>ラウンジを通らねーと<br>死体を中庭に<br>運ぶことは<br><link=\"Objection_02_02_05_04\">不可能</link>だ。|#0202Trial05_Alisa001|" RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR4,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open02,Angle01/Facial/Mouth>Mouth_Smile_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:遠回りしても、<br>誰かしらに<br>会っちゃいそうだよね。|#0202Trial05_Noah006| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR13,ArmL4,Angle01/Facial/Eyes>Eyes_Smile_Closed01,Angle01/Facial/Mouth>Mouth_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:ということはやっぱり、<br>エマさんとヒロさんの<br>どちらかが犯人って<br>ことですね！|#0202Trial05_Sherry001| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Normal1,Angle01/Option_Arms-,ArmR-Option-Off,Angle01/Arms>Arms01,Angle01/Option_Arms>Option_Arms01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:『そういうことになる』|#0202Trial05_AnAn002| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,Angle01/Option_Arms-,ArmR-Option-Off,ArmR2,ArmL6,Angle01/Head/Facial/Eyes>Eyes_Normal_Closed,Angle01/Head/Facial/Mouth>Mouth_Surprised_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:……何か反論はあるか？|#0202Trial05_AnAn003| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+@Gosub Path:System/System_Subroutine.EndDebate-Effect
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+; 
+; 議論終了
+; ------------------------------------------------------------------------------
+
+@ResetText
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center ZoomLevel:2
+@Wait WaitMode:0.2
+
+; ==============================================================================
+; 7-5議論後独白
+; ==============================================================================
+
+[PrintTextModified Text:（第三者の可能性……か）|#0202Trial05_Hiro004| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（仮にエマが犯人なら、<br>　第三者の可能性がないことを<br>　証明してやればいい）|#0202Trial05_Hiro005|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（逆に、そうでないのなら……）|#0202Trial05_Hiro006| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR1,ArmL4,Eyes1_Normal_Open1,Mouth1_Angry_Open1
+[PrintTextModified Text:（【第三者が介入した可能性】を指摘する必要がある）|#0202Trial05_Hiro007| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR4,ArmL2,Eyes1_Normal_Open5,Mouth1_Angry_Closed1
+[PrintTextModified Text:（もしも本当にエマが犯人でないなら……だが）|#0202Trial05_Hiro008| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge7-5-1
+
+; 
+; 反論1
+; ------------------------------------------------------------------------------
+
+# Objection_02_02_05_01
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:私が見逃すはずがない|#0202Trial05_Choice001| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge7-5-3
+
+
+@AddChoice ChoiceSummary:戻る|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; 
+; 反論2
+; ------------------------------------------------------------------------------
+
+# Objection_02_02_05_02
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:殺害現場は中庭だった|#0202Trial05_Choice002| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge7-5-4
+
+
+@AddChoice ChoiceSummary:戻る|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; 
+; 反論3
+; ------------------------------------------------------------------------------
+
+# Objection_02_02_05_03
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:レイアたちが見落とした|#0202Trial05_Choice003| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge7-5-5
+
+
+@AddChoice ChoiceSummary:戻る|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; 
+; 反論4
+; ------------------------------------------------------------------------------
+
+# Objection_02_02_05_04
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:中庭に入る方法があった|#0202Trial05_Choice004| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge7-5-2
+
+
+@AddChoice ChoiceSummary:戻る|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; ==============================================================================
+; MARK: 7-5: ❌ 議論選択肢分岐
+; ==============================================================================
+; MARK: 7-5-3: ❌ 反論・私が見逃すはずがない
+
+# Judge7-5-3
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL4,Eyes2_Normal_Open3,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:私が見逃すはずはない。|#0202Trial05_Hiro009| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL4,Eyes2_Normal_Open3,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:中庭だってちゃんと見ていた。|#0202Trial05_Hiro010| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hanna.Angry1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hanna Composition:Left
+[PrintTextModified Text:ウソおっしゃいませですわーッ！！|#0202Trial05_Hanna001| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR12,ArmL12,Eyes2_Serious_Open1,Mouth2_Angry_Closed1,Sweat2-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:な、なにを根拠に――！|#0202Trial05_Hiro011| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hanna.Angry1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hanna Composition:Left
+[PrintTextModified Text:死体発見直前……２階に上がる階段で<br>ヒロさんはわたくしに激突してきましたの！|#0202Trial05_Hanna002| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hanna.Default,ArmR3,ArmL2,Angle01/Head01/Facial01/Eyes01>Eyes01_Angry_Closed,Angle01/Head01/Facial01/Mouth01>Mouth01_Cry_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hanna Composition:Left
+[PrintTextModified Text:前方不注意！！<br>ヒロさんが周囲をちゃんと見ていたとは言い切れませんわー！！|#0202Trial05_Hanna003| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL9,Eyes2_Normal_Closed1,Mouth2_Angry_Closed1,Sweat2-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（……そういえばそうだった）|#0202Trial05_Hiro012| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL9,Eyes2_Normal_Closed1,Mouth2_Angry_Closed1,Sweat2-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（……ぶつかったという事実がある以上、説得力がないか……）|#0202Trial05_Hiro013| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL9,Eyes2_Normal_Closed1,Mouth2_Angry_Closed1,Sweat2-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（ひとまずは何が真実で、何が錯覚なのかを見極めよう）|#0202Trial05_Hiro014| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR1,ArmL4,Eyes1_Normal_Open1,Mouth2_Determined_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（可能性を潰した先に、真実はある……）|#0202Trial05_Hiro015| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR1,ArmL4,Eyes1_Normal_Open1,Mouth2_Determined_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（……殺害現場が焼却炉室だと仮定したら、<br>　【中庭に死体がある状況】は成立するのか……？）|#0202Trial05_Hiro016|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge7-5-1
+
+; MARK: 7-5-4: ❌ 反論・殺害現場は中庭だった
+
+# Judge7-5-4
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open3,Mouth2_Surprised_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……とすると、<br>ココはやはり中庭で殺されたんだ。|#0202Trial05_Hiro017| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Normal1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Left
+[PrintTextModified Text:"え？ なんで？|#0202Trial05_Noah007|" AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.ArmR1,ArmL10,Eyes1_Normal_Open1,Mouth1_Normal_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right
+[PrintTextModified Text:じゃあ地下の血痕はなんだったのかしら。|#0202Trial05_Nanoka001| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Normal1,Angle01/Option_Arms-,ArmR-Option-Off,Angle01/Arms>Arms01,Angle01/Option_Arms>Option_Arms01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Left
+[PrintTextModified Text:『話をひっくり返すな』|#0202Trial05_AnAn004| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL9,Eyes2_Normal_Closed1,Mouth2_Angry_Closed1,Sweat2-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（……矛盾が説明できないか）|#0202Trial05_Hiro018| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆別選択肢共通
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL9,Eyes2_Normal_Closed1,Mouth2_Angry_Closed1,Sweat2-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（ひとまずは何が真実で、何が錯覚なのかを見極めよう）|#0202Trial05_Hiro019| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR1,ArmL4,Eyes1_Normal_Open1,Mouth2_Determined_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（可能性を潰した先に、真実はある……）|#0202Trial05_Hiro020| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR1,ArmL4,Eyes1_Normal_Open1,Mouth2_Determined_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（……殺害現場が焼却炉室だと仮定したら、<br>　【中庭に死体がある状況】は成立するのか……？）|#0202Trial05_Hiro021|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge7-5-1
+
+; MARK: 7-5-5: ❌ 反論・レイアたちが見落とした
+
+# Judge7-5-5
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,Arms3,Eyes2_Angry_Open1,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:なら、可能性は１つ。|#0202Trial05_Hiro022| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,Arms3,Eyes2_Angry_Open1,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:レイアたちは雑談に夢中で<br>犯人を見落としたに違いない。|#0202Trial05_Hiro023| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Surprised1,ArmR4,ArmL6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Left
+[PrintTextModified Text:ちょ、ちょっと待ってくれたまえ。|#0202Trial05_Leia006| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Surprised1,ArmR4,ArmL6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Left
+[PrintTextModified Text:死体を担いだ犯人がラウンジを横切ったら、<br>さすがに私たちだって気付くはずさ。|#0202Trial05_Leia007| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Miria.Default,ArmR3,ArmL4,Angle01/Facial/Eyes>Eyes_Normal_Open04,Angle01/Facial/Mouth>Mouth_Smile_Open01,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Miria Composition:Right
+[PrintTextModified Text:何か理由があったっていうなら別だけど……。|#0202Trial05_Miria005| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Angry1,Angle01/Option_Arms-,ArmR-Option-Off,Angle01/Arms>Arms01,Angle01/Option_Arms>Option_Arms01_03
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Left
+[PrintTextModified Text:"『透明にでもなっていない限り<br>　気付くだろうな』|#0202Trial05_AnAn005|" AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR10,ArmL1,Angle01/Facial/Eyes>Eyes_Angry_Open02,Angle01/Facial/Mouth>Mouth_Yell_Open02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:私たちの視認に文句をつけるなら、<br>その根拠を示してもらおう！|#0202Trial05_Leia008| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL9,Eyes2_Normal_Closed1,Mouth2_Angry_Closed1,Sweat2-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（……たしかに根拠になるものは何もないか）|#0202Trial05_Hiro024| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆別選択肢共通
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL9,Eyes2_Normal_Closed1,Mouth2_Angry_Closed1,Sweat2-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（ひとまずは何が真実で、何が錯覚なのかを見極めよう）|#0202Trial05_Hiro025| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR1,ArmL4,Eyes1_Normal_Open1,Mouth2_Determined_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（可能性を潰した先に、真実はある……）|#0202Trial05_Hiro026| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR1,ArmL4,Eyes1_Normal_Open1,Mouth2_Determined_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（……殺害現場が焼却炉室だと仮定したら、<br>　【中庭に死体がある状況】は成立するのか……？）|#0202Trial05_Hiro027|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge7-5-1
+
+; ==============================================================================
+; MARK: 7-5-2: ⭕ 反論・中庭に入る方法があった
+; ==============================================================================
+
+# Judge7-5-2
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@GosubToObjectionCutIn CutInKind:Hiro Index:3 VoicePath:CommonTrial_Hiro00024 Volume:1
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+@HideUI UINames:DebateUI AllowToggle:false
+@ShowUI UINames:ControlPanel
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:【中庭に入れない】……？<br>いや、そんなことはないよ。|#0202Trial05_Hiro028| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Angry_Open1,Mouth1_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:中庭に入る方法は他にもある。|#0202Trial05_Hiro029| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Angry_Open02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left
+[PrintTextModified Text:んだと？<br>じゃあどっから入ったんだ。|#0202Trial05_Alisa002| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,Arms,Angle01/Facial/Eyes>Eyes_Normal_Open03,Angle01/Facial/Mouth>Mouth_Surprised_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:中庭は三方が壁に囲まれていて、<br>正面の廊下からしか入ることはできない……。|#0202Trial05_Leia009| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR5,ArmL7,Angle01/Facial/Eyes>Eyes_Normal_Open02,Angle01/Facial/Mouth>Mouth_Angry_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:にも関わらず、ヒロくんは【入れた】と言うんだね。|#0202Trial05_Leia010| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR8,ArmL4,Eyes1_Normal_Open3,Mouth1_Determined_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:やれやれ。<br>ここまで説明してもわからないのか？|#0202Trial05_Hiro030| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+# Judge7-5-6
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:犯人はある場所から中庭に侵入したんだ。<br>その場所とは……。|#0202Trial05_Hiro031| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@AddChoice ChoiceSummary:壁|#0202Trial05_Choice005| Lock:false AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @GotoModified Path:.Judge7-5-8
+
+@AddChoice ChoiceSummary:土|#0202Trial05_Choice006| Lock:false AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @GotoModified Path:.Judge7-5-9
+
+@AddChoice ChoiceSummary:空|#0202Trial05_Choice007| Lock:false AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @GotoModified Path:.Judge7-5-7
+
+@StopForChoice Clear:false
+
+; MARK: 7-5-8: ❌ 選択・壁
+
+# Judge7-5-8
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Angry_Open1,Mouth1_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……壁だ。|#0202Trial05_Hiro032| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:中庭の壁に隠し扉があったんだよ。|#0202Trial05_Hiro033| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.ArmR2,ArmL9,Eyes1_Normal_Open2,Mouth1_Surprised_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:……何を根拠にそんなことを？|#0202Trial05_Nanoka002| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,Angle01/Option_Arms-,ArmR-Option-Off,Angle01/Arms>Arms01,Angle01/Option_Arms>Option_Arms01_03,Angle01/Head/Facial/Eyes>Eyes_Uncomfortable_Open02,Angle01/Head/Facial/Mouth>Mouth_Angry_Closed01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Right
+[PrintTextModified Text:『わがはいたちも現場検証を徹底したがなかったぞ』|#0202Trial05_AnAn006| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR4,ArmL2,Angle01/Facial/Eyes>Eyes_Pensive_Open,Angle01/Facial/Mouth>Mouth_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Left
+[PrintTextModified Text:もしかして……<br>ヒロちゃん、隠し通路の証拠とか見つけた？|#0202Trial05_Noah008| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open3,Mouth2_Surprised_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:いや……特に証拠はないが。|#0202Trial05_Hiro034| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,ArmR2,ArmL1,Angle01/Facial/Eyes>Eyes_Angry_Open02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right
+[PrintTextModified Text:なんとなくで推理してんじゃねーぞ。|#0202Trial05_Alisa003| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR4,ArmL2,Eyes1_Normal_Open5,Mouth1_Angry_Closed1,Sweat1-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（……そんな便利な抜け道はないか）|#0202Trial05_Hiro035| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR1,ArmL4,Eyes1_Normal_Open1,Mouth1_Determined_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（だが中庭は完全な密室ではない……）|#0202Trial05_Hiro036| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR1,ArmL4,Eyes1_Normal_Open1,Mouth1_Determined_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（行き来ができる場所があるとしたら――）|#0202Trial05_Hiro037| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge7-5-6
+
+; MARK: 7-5-9: ❌ 選択・土
+
+# Judge7-5-9
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Angry_Open1,Mouth1_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:土の中だ。|#0202Trial05_Hiro038| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:犯人はあらかじめ外から地面を掘って<br>中庭に通じる抜け穴を作っていたんだよ。|#0202Trial05_Hiro039| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Miria.Default,ArmR9,ArmL1,Angle01/Facial/Eyes>Eyes_Normal_Open04,Angle01/Facial/Mouth>Mouth_Smile_Open02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Miria Composition:Left
+[PrintTextModified Text:……で、でも死体を持って<br>中庭に入らなきゃならないんだよね……？|#0202Trial05_Miria006| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Miria.Default,ArmR4,ArmL3,Angle01/Facial/Eyes>Eyes_Pensive_Open01,Angle01/Facial/Mouth>Mouth_Pensive_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Miria Composition:Left
+[PrintTextModified Text:ふたりも人間が通り抜けられるような穴なんてあったら<br>すぐにわかりそうなものだけど……。|#0202Trial05_Miria007| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR4,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open02,Angle01/Facial/Mouth>Mouth_Smile_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right
+[PrintTextModified Text:そんな穴なかったよー？|#0202Trial05_Noah009| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.ArmL5,Angle01/ArmR-,Eyes1_Flushed_Open1,Mouth1_Pensive_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:……死体に土がついていたわけでもないのだしね。|#0202Trial05_Nanoka003| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.ArmR1,ArmL10,Eyes1_Normal_Open1,Mouth1_Normal_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:その可能性は、検討する必要があるのかしら。|#0202Trial05_Nanoka004| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR4,ArmL2,Eyes1_Normal_Open5,Mouth1_Angry_Closed1,Sweat1-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（……地中からの侵入を示す痕跡はないか）|#0202Trial05_Hiro040| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆別選択肢共通
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR1,ArmL4,Eyes1_Normal_Open1,Mouth1_Determined_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（だが中庭は完全な密室ではない……）|#0202Trial05_Hiro041| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR1,ArmL4,Eyes1_Normal_Open1,Mouth1_Determined_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（行き来ができる場所があるとしたら――）|#0202Trial05_Hiro042| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge7-5-6
+
+; ==============================================================================
+; MARK: 7-5-7: ⭕ 選択・空
+; ==============================================================================
+
+# Judge7-5-7
+
+; カットイン
+
+@StopBgm
+
+@GosubToObjectionCutIn CutInKind:Hiro Index:2 VoicePath:CommonTrial_Hiro00027 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:それはもちろん、【空】だ。|#0202Trial05_Hiro043| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:庭園に植物はつきもの。<br>そしてそれは【日光】を必要とする。|#0202Trial05_Hiro044| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Angry_Open1,Mouth1_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:当然、中庭は吹き抜け……<br>直接空と繋がっているんだ。|#0202Trial05_Hiro045| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL4,Eyes2_Normal_Open3,Mouth2_Smile_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:屋根がない空間は、密室とは言えないんだよ。|#0202Trial05_Hiro046| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Surprised1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:なるほど……！<br>ココくんは空を飛んで中庭に……！|#0202Trial05_Leia011| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open01,Angle01/Facial/Mouth>Mouth_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left
+[PrintTextModified Text:つまり犯人は空中を浮いて<br>ココさんの死体を運んだということですね！|#0202Trial05_Sherry002| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Closed01,Angle01/Facial/Mouth>Mouth_Normal_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left
+[PrintTextModified Text:そんなことができたのは――。|#0202Trial05_Sherry003| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・軽い衝撃音
+@PlaySfxModified SfxPath:Sfx_Common_4 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR13,ArmL4,Angle01/Facial/Eyes>Eyes_Smile_Closed01,Angle01/Facial/Mouth>Mouth_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left ZoomLevel:3
+[PrintTextModified Text:――空を飛ぶ魔法が使えるハンナさん！<br>あなたが犯人だったんですねー！|#0202Trial05_Sherry004| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・決め音
+@PlaySfxModified SfxPath:Sfx_Common_3 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hanna.Surprised1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hanna Composition:Right
+[PrintTextModified Text:なっ……！？|#0202Trial05_Hanna004| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・ガーン
+@PlaySfxModified SfxPath:Sfx_Common_6 Volume:1 Loop:false FadeInDuration:0
+
+; ＠備考◆イントネーションおかしくてもいいかも
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hanna.Default,ArmR3,ArmL2,Angle01/Head01/Facial01/Eyes01>Eyes01_Angry_Closed,Angle01/Head01/Facial01/Mouth01>Mouth01_Cry_Open,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hanna Composition:Right ZoomLevel:4
+[PrintTextModified Text:なんですってのーー！？|#0202Trial05_Hanna005| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+@AutoSave
+
+@GotoModified Path:Act02_Chapter02/Act02_Chapter02_Trial06 ResetState:-
+

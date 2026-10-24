@@ -1,0 +1,711 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook Version:5
+
+@BeginIf Expression:isDebugDirectJump
+    @Gosub Path:Act02_Chapter01/Act02_Chapter01_TrialInit
+    @HidePerspectiveStageScreen Index:1 Duration:0 Reset:true
+    @ModifyBackgroundExtended TintColor:#000000 Duration:0 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+
+@SetTrialTimer Time:900
+@HideUI UINames:ControlPanel AllowToggle:false
+@ShowUI UINames:DebateUI
+
+@ModifyCharacterExtended Position:,{hiddenCharacterPositionY} Duration:0 Lazy:false IdAndAppearance:Warden
+; ==============================================================================
+; MARK: 6-7: 💬 エマの告白
+; ==============================================================================
+; ＠ト書き▼議論6-7 エマの告白
+@SetCustomVariable Expression:Skip6_7_3flag1=false
+@SetCustomVariable Expression:Skip6_7_3flag2=false
+
+# Judge6-7-1
+
+; BGM変更：rAwTell Owk...
+@PlayBgm BgmPath:Bgm_7_1 Volume:1 Loop:true FadeInDuration:0
+
+@Gosub Path:System/System_Subroutine.BeginDebate-First
+@Gosub Path:System/System_Subroutine.BeginDebate-Effect
+@Gosub Path:System/System_Subroutine.BeginDebate-Last
+@ChangeTrialPauseMode Enable:false ProcessTimer:true
+
+@HidePerspectiveStageScreen Index:1 Reset:true
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR8,ArmL2,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:ボクは死体発見の<br>３０分前に、<br>メルルちゃんから<br>かかってきた<br>電話を取ったんだ。|#0201Trial07_Ema001| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR8,ArmL2,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:"そしたらメルルちゃん、<br>【ヒロちゃんに<link=\"Objection_02_01_07_01\">襲われた</link>】<br>って言ってて……。|#0201Trial07_Ema002|" RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Closed04,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:"そのあとすぐに<br><link=\"Objection_02_01_07_02\">電話</link>は<br>切れちゃったんだけど、<br>ボク、<br>気になっちゃって……。|#0201Trial07_Ema003|" RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR8,ArmL2,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:だからそのあとラウンジで、<br>シェリーちゃんたちに<br>メルルちゃんを見てないか<br>聞いたんだ。|#0201Trial07_Ema004| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR2,ArmL4,Angle01/Facial/Eyes>Eyes_Normal_Open04,Angle01/Facial/Mouth>Mouth_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:そういえば、<br>そんなこと<br>聞かれましたね～。|#0201Trial07_Sherry001| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR8,ArmL2,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:誰も見てないって<br>言ったから……<br>ヒロちゃんが何かして<br>しまったんじゃないかって、<br>怖くなっちゃって……。|#0201Trial07_Ema005| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR8,ArmL2,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:"だからメルルちゃんを<br>探すために、<br><link=\"Objection_02_01_07_03\">外に出た</link>んだよ。|#0201Trial07_Ema006|" RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR8,ArmL2,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:ゴクチョーからの<br>死体発見の通知が入ったのは、<br>それからすぐだったんだ。<br>そして、ボクは戻って……。|#0201Trial07_Ema007| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+; IF条件・6-7-3未通過
+
+@BeginIf Expression:Skip6_7_3flag1
+    @GotoModified Path:.Judge_6-7-3_skip1
+
+; @備考◆ルートA
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,Angle01/Arms>Arms01,Angle01/ArmL-,Angle01/ArmR-,Angle01/Facial/Eyes>Eyes_Serious_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:桜羽の証言が正しけりゃ、<br>犯人は二階堂しか<br>いねーじゃねーか。|#0201Trial07_Alisa001| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@GotoModified Path:.Judge_6-7-3_skip2
+
+; ELSE条件・6-7-3通過済み
+
+# Judge_6-7-3_skip1
+
+; @備考◆ルートB
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,Angle01/Arms>Arms01,Angle01/ArmL-,Angle01/ArmR-,Angle01/Facial/Eyes>Eyes_Serious_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:"桜羽の証言が正しけりゃ、<br><link=\"Objection_02_01_07_04\">医務室</link>で二階堂が<br>氷上を襲ったってことだろ。<br>……犯人は二階堂しか<br>いねーじゃねーか。|#0201Trial07_Alisa002|" RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+
+# Judge_6-7-3_skip2
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+@Gosub Path:System/System_Subroutine.EndDebate-Effect
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+; 
+; 議論終了
+; ------------------------------------------------------------------------------
+
+@ResetText
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Angry_Open1,Mouth1_Angry_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center ZoomLevel:2
+@Wait WaitMode:0.2
+
+; ==============================================================================
+; 6-7議論後独白
+; ==============================================================================
+
+[PrintTextModified Text:"（エマ……。<br>　そんな嘘をついてまで私を犯人に<br>　仕立て上げようというのか）|#0201Trial07_Hiro001|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+[PrintTextModified Text:"（……落ち着け。<br>　仮にそうだとして、どうして今このタイミングで<br>　攻めてきたのか……）|#0201Trial07_Hiro002|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+[PrintTextModified Text:"（何か暴かれるとまずいことがあるのか……<br>　それとも……）|#0201Trial07_Hiro003|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR1,ArmL4,Eyes1_Normal_Open1,Mouth1_Angry_Open1
+[PrintTextModified Text:"（……仮に真実だとしたら、<br>　なぜここまで隠そうとしていた？<br>　私が不利になるような情報を……？）|#0201Trial07_Hiro004|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR1,ArmL4,Eyes1_Normal_Open1,Mouth1_Angry_Open1
+[PrintTextModified Text:（……詳しく聞いてみる必要があるかもしれない）|#0201Trial07_Hiro005| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge6-7-1
+
+; 
+; 反論1
+; ------------------------------------------------------------------------------
+
+# Objection_02_01_07_01
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:私は襲っていない|#0201Trial07_Choice001| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge6-7-4
+
+
+@AddChoice ChoiceSummary:戻る|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; 
+; 反論2
+; ------------------------------------------------------------------------------
+
+# Objection_02_01_07_02
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:他に何も話していないのか|#0201Trial07_Choice002| Lock:false ButtonPath:ChoiceButtons/Trial/Question HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge6-7-3
+
+
+@AddChoice ChoiceSummary:戻る|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; 
+; 反論3
+; ------------------------------------------------------------------------------
+
+# Objection_02_01_07_03
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:外に出るのはおかしい|#0201Trial07_Choice003| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge6-7-5
+
+
+@AddChoice ChoiceSummary:戻る|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; 
+; 反論4
+; ------------------------------------------------------------------------------
+
+# Objection_02_01_07_04
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:医務室では襲えない|#0201Trial07_Choice004| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge6-7-2
+
+
+@AddChoice ChoiceSummary:戻る|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; ==============================================================================
+; MARK: 6-7: ❌ 議論選択肢
+; ==============================================================================
+; MARK: 6-7-4: ❌ 反論・私は襲っていない
+
+# Judge6-7-4
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR8,ArmL4,Eyes1_Angry_Open1,Mouth1_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:それは嘘だ。<br>私はメルルを襲ってなどいない。|#0201Trial07_Hiro006| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR8,ArmL4,Eyes1_Angry_Open1,Mouth1_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:仮に私が襲うとしたら、<br>電話をかける暇など与えるわけがない。|#0201Trial07_Hiro007| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Default,ArmR13,ArmL10,Angle01/Facial/Eyes>Eyes_Surprised_Open,Angle01/Facial/Mouth>Mouth_Surprised_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Right
+[PrintTextModified Text:こわ～……。|#0201Trial07_Coco001| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,ArmR7,ArmL5,Angle01/Facial/Eyes>Eyes_Normal_Closed,Angle01/Facial/Mouth>Mouth_Neutral_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Left
+[PrintTextModified Text:でも、メルルちゃんのスマホを持っていたのは<br>ヒロちゃんよね？|#0201Trial07_Margo001| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,ArmR7,ArmL5,Angle01/Facial/Eyes>Eyes_Angry_Middle,Angle01/Facial/Mouth>Mouth_Neutral_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Left
+[PrintTextModified Text:そうなると、<br>メルルちゃんとエマちゃんの通話履歴を隠すために<br>ヒロちゃんがスマホを奪い取った……。|#0201Trial07_Margo002| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,ArmR2,ArmL5,Angle01/Facial/Eyes>Eyes_Normal_Open,Angle01/Facial/Mouth>Mouth_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Left
+[PrintTextModified Text:……なんて説を考えちゃうわ？|#0201Trial07_Margo003| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR2,ArmL4,Angle01/Facial/Eyes>Eyes_Normal_Open04,Angle01/Facial/Mouth>Mouth_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right
+[PrintTextModified Text:たしかに、【一度襲った後だった】と考えると<br>すっきりしますね！|#0201Trial07_Sherry002| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Miria.Default,ArmR4,ArmL3,Angle01/Facial/Eyes>Eyes_Pensive_Open01,Angle01/Facial/Mouth>Mouth_Pensive_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Miria Composition:Left
+[PrintTextModified Text:そ、そんな強盗殺人だなんて……！|#0201Trial07_Miria001| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,Angle01/Option_Arms-,ArmR-Option-Off,Angle01/Arms>Arms01,Angle01/Option_Arms>Option_Arms01_03,Angle01/Head/Facial/Eyes>Eyes_Angry_Open02,Angle01/Head/Facial/Mouth>Mouth_Angry_Closed01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Right
+[PrintTextModified Text:……死刑。<br>もしくは無期懲役。|#0201Trial07_AnAn001| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR12,ArmL5,Eyes1_Normal_Closed1,Mouth1_Angry_Open1,Sweat1-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（罪状が殺人から強盗殺人に悪化してしまった……）|#0201Trial07_Hiro008| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR12,ArmL5,Eyes1_Normal_Closed1,Mouth1_Angry_Open1,Sweat1-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（……事実を語っても<br>　証拠がなければ信じてもらえないか）|#0201Trial07_Hiro009|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL9,Eyes2_Normal_Closed1,Mouth2_Angry_Closed1,Sweat2-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（【私がメルルに襲われた】、<br>　などと言っても信じてもらえるわけがない）|#0201Trial07_Hiro010|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL9,Eyes2_Normal_Closed1,Mouth2_Angry_Closed1,Sweat2-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（だが私が犯人ではない以上、<br>　エマが嘘をついているに違いない）|#0201Trial07_Hiro011|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（メルルとエマが電話で話した内容を<br>　追求したうえで――）|#0201Trial07_Hiro012|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Angry_Open1,Mouth1_Angry_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（時系列を洗うんだ……！<br>　エマの証言が抱えている矛盾を突きつけてやろう）|#0201Trial07_Hiro013|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+
+@GotoModified Path:.Judge6-7-1
+; MARK: 6-7-5: ❌ 反論・外に出るのはおかしい
+
+# Judge6-7-5
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open3,Mouth2_Surprised_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……エマ。<br>どうして君は外へ出たのかな。|#0201Trial07_Hiro014| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR12,ArmL16,Angle01/Head01/Facial01/Eyes01>Eyes01_Fearful_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Cry_Open,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Right
+[PrintTextModified Text:"え？ どうしてって……？|#0201Trial07_Ema008|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open1,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:ラウンジにいる人間が誰も<br>【メルルが通ったのを見ていない】と言った――。|#0201Trial07_Hiro015| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open1,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:メルルが逃げるとしたら、<br>人が多いであろうラウンジに向かうことが推測される。|#0201Trial07_Hiro016| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open3,Mouth2_Surprised_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:なら、メルルが外に行った可能性は<br>低いと考えるべきじゃないかな。|#0201Trial07_Hiro017| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR8,ArmL2,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Right
+[PrintTextModified Text:誰も見てないからだよ。|#0201Trial07_Ema009| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR8,ArmL2,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Right
+[PrintTextModified Text:メルルちゃんがラウンジの方に来てないなら、<br>別の経路から外に逃げたと思ったんだ。|#0201Trial07_Ema010| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR8,ArmL2,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Right
+[PrintTextModified Text:逃げるなら屋内より外だと思ったし、<br>外に繋がる入口も別にあるし……。|#0201Trial07_Ema011| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open1,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:けれどメルルの死体は地下で見つかった……。|#0201Trial07_Hiro018| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL3,Eyes2_Angry_Open1,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:エマの証言とは矛盾している！|#0201Trial07_Hiro019| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR8,ArmL2,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Right
+[PrintTextModified Text:それは結果論だよ、ヒロちゃん！|#0201Trial07_Ema012| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Miria.Default,ArmR3,ArmL4,Angle01/Facial/Eyes>Eyes_Normal_Open04,Angle01/Facial/Mouth>Mouth_Smile_Open01,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Miria Composition:Left
+[PrintTextModified Text:ま、まあまあ２人とも……！<br>それじゃあ水掛け論だよ！|#0201Trial07_Miria002| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,Angle01/Option_Arms-,ArmR-Option-Off,Angle01/Arms>Arms01,Angle01/Option_Arms>Option_Arms01_01,Angle01/Head/Facial/Eyes>Eyes_Uncomfortable_Open02,Angle01/Head/Facial/Mouth>Mouth_Angry_Closed01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Right
+[PrintTextModified Text:『野次禁止』|#0201Trial07_AnAn002| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR12,ArmL5,Eyes1_Normal_Closed1,Mouth1_Angry_Open1,Sweat1-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（たしなめられてしまった……！）|#0201Trial07_Hiro020| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL9,Eyes2_Normal_Closed1,Mouth2_Angry_Closed1,Sweat2-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（だが私が犯人ではない以上、<br>　エマが嘘をついているに違いない）|#0201Trial07_Hiro021|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（メルルとエマが電話で話した内容を<br>　追求したうえで――）|#0201Trial07_Hiro022|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Angry_Open1,Mouth1_Angry_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（時系列を洗うんだ……！<br>　エマの証言が抱えている矛盾を突きつけてやろう）|#0201Trial07_Hiro023|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+
+@GotoModified Path:.Judge6-7-1
+
+; ==============================================================================
+; MARK: 6-7-3: ❌ 追求・他に何も話してないのか
+; ==============================================================================
+
+# Judge6-7-3
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open3,Mouth2_Surprised_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……それで？<br>他にはどんなことを話したのかな。|#0201Trial07_Hiro024| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Closed04,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Right
+[PrintTextModified Text:と、特に重要なことはなにも……<br>すぐ切れちゃったし……。|#0201Trial07_Ema013| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR2,ArmL4,Eyes1_Normal_Open3,Mouth1_Determined_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:具体性がないな。本当にメルルと喋ったのか？|#0201Trial07_Hiro025| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR2,ArmL4,Eyes1_Angry_Open1,Mouth1_Smile_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:君の発言に信憑性があるとは思えない。|#0201Trial07_Hiro026| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Surprised1,ArmR3,ArmL1,Angle01/Head01/Facial01/Mouth01>Mouth01_Confused_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Right
+[PrintTextModified Text:ほ、本当だよ！|#0201Trial07_Ema014| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR8,ArmL2,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Right
+[PrintTextModified Text:……メルルちゃんは怯えた様子で、<br>【医務室でヒロちゃんに襲われた】って<br>言ってて……。|#0201Trial07_Ema015| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR8,ArmL2,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Right
+[PrintTextModified Text:だから早く逃げなきゃって<br>言ってたんだ。|#0201Trial07_Ema016| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR8,ArmL2,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Right
+[PrintTextModified Text:ボクにも、逃げた方がいいって<br>忠告してくれて……。|#0201Trial07_Ema017| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Determined2,ArmR7,ArmL7,Angle01/Head02/Facial02/Mouth02>Mouth02_Angry_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Right
+[PrintTextModified Text:う、嘘じゃないよ！|#0201Trial07_Ema018| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@BeginIf Expression:Skip6_7_3flag1
+    @GotoModified Path:.Judge_6-7-3_skip3
+
+; ★アイテム情報追記
+; 【メルルとの通話】
+; メルルは医務室でヒロに襲われ、エマに逃げるよう忠告した。
+; その時、「ヒロに襲われた」とメルルが言っていた。
+; それを聞いて、エマは外にメルルを探しに行った。
+
+@ResetText
+@SpawnExtended Path:Clue Params:6-8
+@ShowToastUI Text:"魔女図鑑 更新…|#Toast_001|"
+@UpdateWitchBook Id:6-8 Category:Clue Version:2
+@Wait WaitMode:i1.2
+@DestroySpawnedExtended Path:Clue LogWarning:true
+@SetCustomVariable Expression:Skip6_7_3flag1=true
+
+# Judge_6-7-3_skip3
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Determined2,ArmR7,ArmL7,Angle01/Head02/Facial02/Mouth02>Mouth02_Angry_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Right
+[PrintTextModified Text:だからボク……<br>メルルちゃんを探して……！|#0201Trial07_Ema019| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@BeginIf Expression:Skip6_7_3flag2
+    @GotoModified Path:.Judge_6-7-3_skip4
+
+@ShowToastUI Text:議論発展…|#Toast_002|
+@SetCustomVariable Expression:Skip6_7_3flag2=true
+
+# Judge_6-7-3_skip4
+
+@GotoModified Path:.Judge6-7-1
+
+; ==============================================================================
+; MARK: 6-7-2: ⭕ 反論・医務室では襲えない
+; ==============================================================================
+
+# Judge6-7-2
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@HideUI UINames:DebateUI AllowToggle:false
+@ShowUI UINames:ControlPanel
+
+@StopBgm
+@GosubToObjectionCutIn CutInKind:Hiro Index:3 VoicePath:CommonTrial_Hiro00024 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Angry_Open1,Mouth1_Angry_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……そのぐらいにしてもらおうか。<br>いわれのない中傷は。|#0201Trial07_Hiro027| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,ArmR2,ArmL7,Angle01/Facial/Eyes>Eyes_Angry_Open02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left
+[PrintTextModified Text:……あ？|#0201Trial07_Alisa003| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+; BGM変更：Sen-Choose N'o SurC
+@PlayBgm BgmPath:Bgm_38_1_Loop IntroBgmPath:Bgm_38_1_Intro Volume:1 Loop:true FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Angry_Open1,Mouth1_Angry_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:考えてもみてくれ。<br>エマの証言には矛盾がある。|#0201Trial07_Hiro028| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hanna.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open,Angle01/Head01/Facial01/Mouth01>Mouth01_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hanna Composition:Right
+[PrintTextModified Text:矛盾って……なんですの？|#0201Trial07_Hanna001| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Angry_Open1,Mouth1_Angry_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:メルルが私に【医務室で襲われた】……？|#0201Trial07_Hiro029| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Angry_Open1,Mouth1_Angry_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:いやいや、そんなことは絶対にあり得ない。|#0201Trial07_Hiro030| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR8,ArmL4,Eyes1_Angry_Open1,Mouth1_Smile_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:――いいかい、絶対にだ。|#0201Trial07_Hiro031| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR3,ArmL3,Eyes1_Angry_Open1,Mouth1_Smile_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:なぜならそのとき……<br>医務室には、【ナノカがいた】んだよ。|#0201Trial07_Hiro032| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Surprised1,ArmR13,ArmL16
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Right
+[PrintTextModified Text:……あっ！|#0201Trial07_Ema020| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,Arms3,Eyes2_Angry_Open1,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:それはさきほどアンアンがまとめてくれた、<br>アリバイにも記載されている……。|#0201Trial07_Hiro033| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,Arms3,Eyes2_Angry_Open1,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"違うかい？ ナノカ。|#0201Trial07_Hiro034|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.ArmL5,Angle01/ArmR-,Eyes1_Normal_Open2,Mouth1_Surprised_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:……そうね。<br>その点は気になってはいたわ。|#0201Trial07_Nanoka001| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL4,Eyes2_Normal_Open3,Mouth2_Smile_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:エマの話によれば、<br>メルルと電話したあとに<br>ラウンジでナノカと会ったそうじゃないか。|#0201Trial07_Hiro035| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR6,Arms3,Eyes1_Angry_Open1,Mouth1_Smile_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:だがそのナノカは、<br>医務室で薬を探していたんだろう？|#0201Trial07_Hiro036| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.ArmL5,Angle01/ArmR-,Eyes1_Normal_Open2,Mouth1_Surprised_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:ええ、間違いないわ。<br>私はしばらく医務室にいたの。|#0201Trial07_Nanoka002| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.ArmL5,Angle01/ArmR-,Eyes1_Normal_Open2,Mouth1_Surprised_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:だから桜羽エマが、<br>【氷上メルルは医務室で二階堂ヒロに襲われた】と<br>証言するなら……。|#0201Trial07_Nanoka003| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.ArmR1,ArmL10,Eyes1_Angry_Open1,Mouth1_Normal_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:それは私から否定させてもらうわ。|#0201Trial07_Nanoka004| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.ArmR1,ArmL10,Eyes1_Angry_Open1,Mouth1_Normal_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:間違いなく……【氷上メルルは医務室にいなかった】。|#0201Trial07_Nanoka005| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Surprised1,ArmR3,ArmL1,Angle01/Head01/Facial01/Mouth01>Mouth01_Confused_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Right
+[PrintTextModified Text:そ、そんな……！<br>でも、メルルちゃんは電話で<br>たしかに医務室にいたって……！|#0201Trial07_Ema021| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.ArmL5,Angle01/ArmR-,Eyes1_Flushed_Open1,Mouth1_Pensive_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:……なら、私が氷上メルルを襲ったということに<br>なるのかしら？|#0201Trial07_Nanoka006| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Closed04,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Right
+[PrintTextModified Text:そ、それは……！|#0201Trial07_Ema022| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Angry_Open1,Mouth1_Angry_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:エマ、君は嘘をついて私を犯人にしようとしたんだ。|#0201Trial07_Hiro037| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Angry_Open1,Mouth1_Angry_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:そうでなければ、こんな矛盾は起こるはずがない……！|#0201Trial07_Hiro038| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Surprised1,ArmR3,ArmL1,Angle01/Head01/Facial01/Mouth01>Mouth01_Confused_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Right
+[PrintTextModified Text:"そんなことないよ……！ ボクは……！|#0201Trial07_Ema023|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・話の転換音
+@PlaySfxModified SfxPath:Sfx_Common_5 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Miria.Default,ArmR3,ArmL4,Angle01/Facial/Eyes>Eyes_Normal_Open04,Angle01/Facial/Mouth>Mouth_Smile_Open01,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Miria Composition:Left
+[PrintTextModified Text:……ま、まあまあ……！<br>２人とも、落ち着いて……！|#0201Trial07_Miria003| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Miria.Default,ArmR3,ArmL4,Angle01/Facial/Eyes>Eyes_Normal_Open04,Angle01/Facial/Mouth>Mouth_Smile_Open01,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Miria Composition:Left
+[PrintTextModified Text:ほ、ほらレイアちゃんも！<br>リーダーなんでしょ！<br>このままじゃ話がどこまでも平行線だよ……！|#0201Trial07_Miria004| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR4,ArmL6,Angle01/Facial/Eyes>Eyes_Normal_Open03,Angle01/Facial/Mouth>Mouth_Smile_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:……たしかに、そうだね。<br>ここは穏便に話し合いで解決しよう！|#0201Trial07_Leia001| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・ネガティブ音
+@PlaySfxModified SfxPath:Sfx_Common_7 Volume:1 Loop:false FadeInDuration:0
+
+; ＠備考◆呆れ
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Pensive_Open02,Angle01/Facial/Mouth>Mouth_Gross_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Left
+[PrintTextModified Text:いや今まさに【話し合い】をしてる最中っしょ……。|#0201Trial07_Coco002| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open03,Angle01/Facial/Mouth>Mouth_Surprised_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right
+[PrintTextModified Text:そうは言っても、<br>どちらの主張を裏付けるようなものも<br>ありませんし……。|#0201Trial07_Sherry003| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Pensive_Open,Angle01/Facial/Mouth>Mouth_Angry_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Left
+[PrintTextModified Text:……んー。<br>のあ、なんか変だと思うな。<br>エマちゃんの言ってること。|#0201Trial07_Noah001| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,ArmR5,ArmL2,Angle01/Facial/Eyes>Eyes_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right
+[PrintTextModified Text:……まあそりゃ、黒部の話と食い違ってるしな。|#0201Trial07_Alisa004| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Pensive_Open,Angle01/Facial/Mouth>Mouth_Surprised_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Left
+[PrintTextModified Text:そういうことじゃなくて……。|#0201Trial07_Noah002| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Pensive_Open,Angle01/Facial/Mouth>Mouth_Surprised_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Left
+[PrintTextModified Text:……エマちゃんはヒロちゃんみたく、<br>嘘をつく意味ってないよねー？|#0201Trial07_Noah003| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・軽い衝撃音
+@PlaySfxModified SfxPath:Sfx_Common_4 Volume:1 Loop:false FadeInDuration:0
+
+; ＠備考◆息を呑む
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL6,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Flushed_Middle,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Right
+[PrintTextModified Text:……っ！|#0201Trial07_Ema024| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR12,ArmL12,Eyes2_Serious_Open1,Mouth2_Angry_Closed1,Sweat2-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（……嘘？）|#0201Trial07_Hiro039| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Pensive_Open,Angle01/Facial/Mouth>Mouth_Angry_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Left
+[PrintTextModified Text:ヒロちゃんは疑われてるから、嘘つくのもわかるよ？|#0201Trial07_Noah004| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR4,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open02,Angle01/Facial/Mouth>Mouth_Smile_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Left
+[PrintTextModified Text:でもエマちゃんはなんでそのこと、<br>【隠してた】のかな……。<br>ん～……。|#0201Trial07_Noah005| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・明るい音
+@PlaySfxModified SfxPath:Sfx_Common_2 Volume:1 Loop:false FadeInDuration:0
+
+; ＠備考◆笑顔
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Smile_Closed01,Angle01/Facial/Mouth>Mouth_Smile_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Left
+[PrintTextModified Text:……難しいね。のあにはわかんないや。|#0201Trial07_Noah006| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Closed04,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Right
+[PrintTextModified Text:それ……は……。|#0201Trial07_Ema025| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（……あの口ぶりからして、<br>　ノアは私が嘘をついたのだと<br>　気付いていたのか）|#0201Trial07_Hiro040|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（何を考えているかわからないが……鋭い子だ。<br>　敵に回したくはないな）|#0201Trial07_Hiro041|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR1,ArmL4,Eyes1_Normal_Open1,Mouth1_Angry_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（……それはともかく、<br>　エマの隠し事……？）|#0201Trial07_Hiro042|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR1,ArmL4,Eyes1_Normal_Open1,Mouth1_Angry_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（何か、まだ隠していることがあるのか？）|#0201Trial07_Hiro043| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR8,ArmL4,Eyes1_Angry_Open1,Mouth1_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……ノア。<br>私は何も嘘なんて付いていないよ。|#0201Trial07_Hiro044| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Pensive_Open,Angle01/Facial/Mouth>Mouth_Angry_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Left
+[PrintTextModified Text:ふーん？|#0201Trial07_Noah007| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open1,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……しかし、エマ。<br>君が何か隠していたというなら、<br>今のうちに言っておいた方がいいんじゃないかな。|#0201Trial07_Hiro045| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,Arms3,Eyes2_Angry_Open1,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……処刑されたらもう言えないのだからね。|#0201Trial07_Hiro046| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・軽い衝撃音
+@PlaySfxModified SfxPath:Sfx_Common_4 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL6,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Flushed_Middle,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Right
+[PrintTextModified Text:う……！|#0201Trial07_Ema026| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@StopBgm
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Closed04,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Right
+[PrintTextModified Text:……わかった。言うよ。|#0201Trial07_Ema027| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL6,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Flushed_Middle,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Right
+[PrintTextModified Text:でも……事件に関係あることじゃないんだ。<br>先に謝っておくよ……ごめん。|#0201Trial07_Ema028| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+@AutoSave
+
+@GotoModified Path:Act02_Chapter01/Act02_Chapter01_Trial08 ResetState:-
+

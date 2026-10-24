@@ -1,0 +1,303 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook Version:1
+@Gosub Path:Act02_Chapter05/Act02_Chapter05_TrialInit
+
+; 議論パート2章5話
+
+@SetBadId CommonBadEndId:10
+
+# Judge10-1-0
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Angry1,Option-ArmL-Off
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,ArmR6
+@HideActors ActorIds:Hiro Lazy:false
+@ModifyCharacterExtended Position:{hiroPositionX},{characterPositionY},{hiroPositionZ} Rotation:,{hiroRotationY} Scale:{characterScale},{characterScale},1 Duration:0 Lazy:false IdAndAppearance:CreatureHiro.17
+@ModifyCharacterExtended Duration:0 Lazy:false IdAndAppearance:AnAn.Default,ArmR2,ArmL6,Angle01/Head/Facial/Eyes>Eyes_Normal_Closed,Angle01/Head/Facial/Mouth>Mouth_Surprised_Open,Angle01/Option_Arms-,ArmR-Option-Off
+@ModifyPerspectiveStageCamera Index:0 Height:5 Distance:7 Duration:0
+@ModifyPerspectiveStageCamera Index:1 Height:3 Rotation:"-2,{ (7.7 / courtStandCount * 360)},-2" Distance:4 Duration:0
+@WaitForNextFrame
+
+@ModifyPerspectiveStageCamera Index:1 Height:4 Rotation:"-1,{ (12.2 / courtStandCount * 360)}" Duration:40
+@ModifyBackgroundExtended TintColor:#000000 Duration:0.9 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:0.6
+
+@ProcessInput InputEnabled:true
+
+; BGM変更：鐘楼の鐘
+@PlayBgm BgmPath:Bgm_39_2 Volume:1 Loop:true FadeInDuration:0
+@AutoSave
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.17
+[PrintTextModified Text:（……魔女审判要开始了）|#0205Trial00_Hiro001| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（就算幕后黑手梅露露被杀，<br>　这座监牢对我们的囚禁也并未结束。<br>　而且——）|#0205Trial00_Hiro002|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ==============================================================================
+; ◎回想シーン（流用） ●シーン2‐3‐1
+; ==============================================================================
+; 配信フレームIN
+@ResetText
+@PlayBgm BgmPath:Bgm_39_2 Volume:0.4 Loop:true FadeInDuration:0
+@ModifyBackgroundExtended TintColor:#00000000 Duration:0 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@ModifyBackgroundExtended TintColor:#000000FF Duration:0.5 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:0.5
+@HidePerspectiveStageScreen Index:1 Reset:true
+@ModifyTextPrinter Lazy:false IdAndAppearance:Normal.Stream MakeDefault:true HideOther:true
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false AppearanceAndTransition:24_1 SubId:Flashback
+@ModifyCharacterExtended Duration:0 Lazy:false ScenePosition:50 IdAndAppearance:Nanoka.ArmR2,ArmL3,Eyes1_Pensive_Open1,Mouth1_Angry_Open1 SubId:Flashback
+@ModifyBackgroundExtended TintColor:#00000000 Duration:0.5 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:0.5
+; ＠備考◆配信中
+[PrintTextModified Text:本来按规定，<br>国家机关会在我们完全变成魔女前把我们全部诛杀。|#0205Trial00_Nanoka001| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆配信中
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.ArmR4,ArmL2 SubId:Flashback
+[PrintTextModified Text:可讽刺的是，<br>正因为冰上梅露露想利用我们找到大魔女，<br>我们才得以在夹缝中生存下来。|#0205Trial00_Nanoka002| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@ModifyBackgroundExtended TintColor:#000000FF Duration:0.5 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:0.5
+@HideActors ActorIds:MainBackground-Flashback,Nanoka-Flashback Duration:0 Lazy:false
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.17
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+@ModifyTextPrinter Lazy:false IdAndAppearance:Normal.Default MakeDefault:true HideOther:true
+@ModifyBackgroundExtended TintColor:#00000000 Duration:0.5 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:0.5
+@PlayBgm BgmPath:Bgm_39_2 Volume:1 Loop:true FadeInDuration:0
+; ==============================================================================
+; 回想ここまで
+; ==============================================================================
+
+[PrintTextModified Text:"（结合之前奈叶香所说的，<br>　靠梅露露的做法，<br>　是不可能找出大魔女的——）|#0205Trial00_Hiro003|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.17
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（所以，就由我来代替梅露露，<br>　召唤大魔女……！）|#0205Trial00_Hiro004|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（虽然我不完全了解，召唤后会引发怎样的情况……）|#0205Trial00_Hiro005| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（但只要解决了万恶之源的大魔女，<br>　或许就能消除我们这些<br>　预备魔女身上的魔女因子）|#0205Trial00_Hiro006|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（这样一来，我们就不会变成魔女，<br>　这群少女也没有理由再遭囚禁了）|#0205Trial00_Hiro007|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.3
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（能够拯救在场所有人的人<br>　——只有我！）|#0205Trial00_Hiro008|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Default,ArmR10,ArmL8,Angle01/Facial/Eyes>Eyes_Gross_Open,Angle01/Facial/Mouth>Mouth_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Right
+[PrintTextModified Text:……我说啊，你把我们召集来这种地方，<br>到底要我们干嘛？|#0205Trial00_Coco001| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・軽い衝撃音
+@PlaySfxModified SfxPath:Sfx_Common_4 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR10,ArmL3,Angle01/Facial/Eyes>Eyes_Angry_Open01,Angle01/Facial/Mouth>Mouth_Yell_Open02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Left
+[PrintTextModified Text:没错！<br>你到底打算让我们做什么！|#0205Trial00_Leia001| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（……要召唤大魔女，<br>　就需要令在场所有人完成魔女化）|#0205Trial00_Hiro009|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（魔女化是通过施加过度的心理压力<br>　引发的……）|#0205Trial00_Hiro010|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（但是……<br>　如果为了施加巨大的心理压力而诉诸暴力，<br>　恐怕只会招致反抗）|#0205Trial00_Hiro011|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（有没有什么可利用的情报呢……<br>　试着回想一下吧）|#0205Trial00_Hiro012|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 議論に必要な証拠情報を追加。
+; ヒロの記憶という扱い。
+@ResetText
+@Wait WaitMode:0.5
+; SE・軽い衝撃音
+@PlaySfxModified SfxPath:Sfx_Common_4 Volume:1 Loop:false FadeInDuration:0
+
+; ＠備考◆狂信者
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Meruru.Head2,ArmR1_2,Eyes2_Smile_Closed1,Mouth2_Smile_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Right
+[PrintTextModified Text:……来吧！希罗小姐！<br>我们把大魔女大人……召唤出来吧！|#0205Trial00_Meruru001| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.10
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……好啊。|#0205Trial00_Hiro013| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.10
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:只不过，我们得按步骤来。|#0205Trial00_Hiro014| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.3
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……你会协助我的，对吧？|#0205Trial00_Hiro015| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・明るい音
+@PlaySfxModified SfxPath:Sfx_Common_2 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Meruru.Head2,ArmR1_2,Eyes2_Smile_Closed1,Mouth2_Smile_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Right
+[PrintTextModified Text:是、是的！<br>要做什么我都愿意帮忙……！|#0205Trial00_Meruru002| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left
+[PrintTextModified Text:……魔女审判——是叫这个吧？|#0205Trial00_Alisa001| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left
+[PrintTextModified Text:你是想从我们之中找出魔女吗？|#0205Trial00_Alisa002| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Smile1,ArmR2,ArmL5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right
+[PrintTextModified Text:如果真是这样，<br>那么大家眼前不就有一个非常显眼的【魔女】吗？|#0205Trial00_Margo001| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Smile1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Left
+[PrintTextModified Text:那就是希罗呢！|#0205Trial00_Noah001| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.25
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:事到如今……你们要这么想也无妨。|#0205Trial00_Hiro016| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.20
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:但是，除了我之外，<br>我也要把你们之中的魔女找出来。|#0205Trial00_Hiro017| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+; ＠備考◆動揺／困惑／不安
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Surprised_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Nervous_Closed,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Right
+[PrintTextModified Text:………|#0205Trial00_Ema001| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（……我必须找出【魔女】）|#0205Trial00_Hiro018| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（我要将潜藏在她们内心的……【魔女因子】——）|#0205Trial00_Hiro019| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（将那堪称遭囚禁原因的<br>　【原罪】公之于众……）|#0205Trial00_Hiro020|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.12
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（这正是我在这场【魔女审判】中要达成的目标——！）|#0205Trial00_Hiro021| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@StopBgm
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.3
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:我要揭发——|#0205Trial00_Hiro022| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; BGM変更：rAwTell Owk...
+@PlayBgm BgmPath:Bgm_7_1 Volume:1 Loop:true FadeInDuration:0
+
+; SE・決め音
+@PlaySfxModified SfxPath:Sfx_Common_3 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.3
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:在我们之中，除了我以外，还有别的魔女！|#0205Trial00_Hiro023| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+; ＠備考◆ムッ…！と睨む感じの息を呑む
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.ArmL5,Angle01/ArmR-,Eyes1_Flushed_Open1,Mouth1_Pensive_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:…………|#0205Trial00_Nanoka003| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hanna.Surprised1,ArmR3,ArmL1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hanna Composition:Right
+[PrintTextModified Text:魔、魔女……！<br>究竟谁是魔女！？|#0205Trial00_Hanna001| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Pensive_Open02,Angle01/Facial/Mouth>Mouth_Gross_Open,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Left
+[PrintTextModified Text:……话说刚才，<br>你不是跟什么怪物叽里咕噜说了一通吗。|#0205Trial00_Coco002| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Pensive_Open02,Angle01/Facial/Mouth>Mouth_Gross_Open,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Left
+[PrintTextModified Text:那边的梅露亲才可疑吧！|#0205Trial00_Coco003| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・明るい音
+@PlaySfxModified SfxPath:Sfx_Common_2 Volume:1 Loop:false FadeInDuration:0
+
+; ＠備考◆怯え
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Meruru.Head2,ArmR12_2,ArmL13,Eyes2_Surprised_Open1,Mouth2_Normal_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Right
+[PrintTextModified Text:欸！？啊、这、这个嘛……！|#0205Trial00_Meruru003| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・明るい音
+@PlaySfxModified SfxPath:Sfx_Common_2 Volume:1 Loop:false FadeInDuration:0
+
+; ＠備考◆笑顔
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Meruru.Head2,ArmR8_2,ArmL8,Eyes2_Normal_Open3,Mouth2_Angry_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Right
+[PrintTextModified Text:……你说得没错。<br>事到如今好像也没必要隐瞒了……|#0205Trial00_Meruru004| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Meruru.Head2,Eyes2_Smile_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Right
+[PrintTextModified Text:我……是魔女。<br>我一直在这座监牢里等待各位的到来。|#0205Trial00_Meruru005| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Meruru.Head2,Eyes2_Normal_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Right
+[PrintTextModified Text:简单来说……<br>算是，【幕后黑手】……吧……？|#0205Trial00_Meruru006| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・ガーン
+@PlaySfxModified SfxPath:Sfx_Common_6 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Fearful_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Fearful_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Left
+[PrintTextModified Text:幕、幕后黑手……！？|#0205Trial00_Ema002| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……不好意思，我有一个问题想问你一下。|#0205Trial00_Hiro024| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:你明明是魔女，外形却和普通人没什么两样。|#0205Trial00_Hiro025| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.9
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……难道你没有像我一样产生【魔女化】吗？|#0205Trial00_Hiro026| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@StopBgm
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Meruru.Head1,ArmR1_1,Eyes1_Smile_Closed1,Mouth1_Smile_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Right
+[PrintTextModified Text:……那就请允许我稍微说明一下……|#0205Trial00_Meruru007| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Meruru.Head1,ArmR1_1,Eyes1_Normal_Open1,Mouth1_Angry_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Right
+[PrintTextModified Text:——有关魔女化的详情。|#0205Trial00_Meruru008| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+@AutoSave
+
+
+@GotoModified Path:Act02_Chapter05/Act02_Chapter05_Trial01 ResetState:-
+

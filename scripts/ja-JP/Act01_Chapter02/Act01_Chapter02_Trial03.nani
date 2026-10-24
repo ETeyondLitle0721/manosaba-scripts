@@ -1,0 +1,716 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook Version:3
+
+@BeginIf Expression:isDebugDirectJump
+    @Gosub Path:Act01_Chapter02/Act01_Chapter02_TrialInit
+    @HidePerspectiveStageScreen Index:1 Duration:0 Reset:true
+    @ModifyBackgroundExtended TintColor:#000000 Duration:0 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+
+@SetTrialTimer Time:900
+@HideUI UINames:ControlPanel AllowToggle:false
+@ShowUI UINames:DebateUI
+
+; 冒頭非表示処理
+@ModifyCharacterExtended Position:,{hiddenCharacterPositionY} Duration:0 Lazy:false IdAndAppearance:Warden.1
+@ModifyCharacterExtended Position:,{hiddenCharacterPositionY} Duration:0 Lazy:false IdAndAppearance:Jailer.1
+; ==============================================================================
+; MARK: 3: 💬 ゴクチョーが犯人の理由
+; ==============================================================================
+; ＠ト書き▼議論2-3 ゴクチョーが犯人の理由
+; BGM変更：rAwTell Owk...
+@PlayBgm BgmPath:Bgm_7_1 Volume:1 Loop:true FadeInDuration:0
+
+@SetBadId CommonBadEndId:3
+
+# Judge2-3-1
+
+@Gosub Path:System/System_Subroutine.BeginDebate-First
+@Gosub Path:System/System_Subroutine.BeginDebate-Effect
+@Gosub Path:System/System_Subroutine.BeginDebate-Last
+@ChangeTrialPauseMode Enable:false ProcessTimer:true
+
+@HidePerspectiveStageScreen Index:1 Reset:true
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmL5,Angle01/ArmR-,Eyes1_Angry_Closed1,Mouth1_Pensive_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:遠野ハンナと<br>沢渡ココの証言によれば、<br>死体を発見した当時<br>あの部屋は密室だった<br>という事よ。|#0102Trial03_Nanoka001| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmL5,Angle01/ArmR-,Eyes1_Flushed_Open1,Mouth1_Pensive_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:ここにいる私たちには<br>鍵を開けることはおろか、<br>鍵をかけることすら<br>できなかった……。|#0102Trial03_Nanoka002| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmR1,ArmL10,Eyes1_Angry_Open1,Mouth1_Normal_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:……なら、<br>誰にも犯行は<br>不可能だったことになる。<br>そうでしょう？|#0102Trial03_Nanoka003| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Default,ArmR2,ArmL2,Angle01/Facial/Mouth>Mouth_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:誰にも犯行が不可能って……<br>ならアイツは<br>どうやって死んだんだよ！|#0102Trial03_Coco001| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Default,ArmR3,ArmL2,Angle01/Facial/Eyes>Eyes_Angry_Open,Angle01/Facial/Mouth>Mouth_Gross_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:"<link=\"Objection_01_02_03_01\">自殺</link>か！？<br><link=\"Objection_01_02_03_02\">事故</link>か！？<br>それとも<link=\"Objection_01_02_03_03\">病死</link>とか言う気！？<br>そんなんありえねーだろ！|#0102Trial03_Coco002|" RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Default,ArmR3,ArmL2,Angle01/Facial/Eyes>Eyes_Pensive_Open01,Angle01/Facial/Mouth>Mouth_Gross_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:……さっきと言ってること、<br>違うんじゃねーの～！？|#0102Trial03_Coco003| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmL5,Angle01/ArmR-,Eyes1_Normal_Closed2,Mouth1_Pensive_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:いいえ。<br>他殺だった事は<br>否定しないわ。|#0102Trial03_Nanoka004| RevealSpeed:1 ScenePosition:65,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmL5,Angle01/ArmR-,Eyes1_Normal_Open1,Mouth1_Pensive_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:私の主張は<br>【犯人は私たちの中にいない】<br>というだけよ。|#0102Trial03_Nanoka005| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Eyes1_Angry_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:だって鍵を開けるなんて……<br>この施設の管理者にしか<br>できないはずだもの。|#0102Trial03_Nanoka006| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,Angle01/Arms>Arms01,Angle01/ArmL-,Angle01/ArmR-
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:……それで<br>ゴクチョーが殺したって<br>言いたいのか？|#0102Trial03_Alisa001| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmR1,ArmL10,Eyes1_Normal_Open1,Mouth1_Normal_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:ええ。<br>懲罰房の鍵を<br>自由に開ける事ができた<br>運営が犯人よ。|#0102Trial03_Nanoka007| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmR2,ArmL9,Eyes1_Normal_Open3,Mouth1_Normal_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:"私たちにはできない。<br>なぜなら<br><link=\"Objection_01_02_03_04\">鍵が閉まっていた</link>の<br>だから……。|#0102Trial03_Nanoka008|" RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmL5,Angle01/ArmR-,Eyes1_Normal_Closed1,Mouth1_Surprised_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:拷問中に殺してしまったか……<br>もしくは最初から<br>口封じが目的だったのか。|#0102Trial03_Nanoka009| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Eyes1_Angry_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:なんにせよ、<br>運営側が私たちに<br>佐伯ミリアを殺した罪を<br>なすりつけようと<br>しているだけ……。|#0102Trial03_Nanoka010| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmR3,ArmL6,Eyes1_Angry_Open1,Mouth1_Normal_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:それがこの事件の真相よ。|#0102Trial03_Nanoka011| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+
+; ==============================================================================
+; ADVシーン
+; ==============================================================================
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+@Gosub Path:System/System_Subroutine.EndDebate-Effect
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+; 
+; 議論終了
+; ------------------------------------------------------------------------------
+
+@ResetText
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Pensive1,ArmR3,ArmL1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center ZoomLevel:2
+@Wait WaitMode:0.2
+
+[PrintTextModified Text:"（運営が犯人……？<br>　たしかにボクたちの中に<br>　犯人がいないとは信じたいけど……！）|#0102Trial03_Ema001|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Nervous_Closed
+
+[PrintTextModified Text:"（そのためにも、ナノカちゃんの推理が<br>　間違ってないか検証してみよう……！）|#0102Trial03_Ema002|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge2-3-1
+
+; 
+; 反論1
+; ------------------------------------------------------------------------------
+
+# Objection_01_02_03_01
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:自殺だった|#0102Trial03_Choice001| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:Trial AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge2-3-3
+
+
+@AddChoice ChoiceSummary:戻る|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:Trial AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; 
+; 反論2
+; ------------------------------------------------------------------------------
+
+# Objection_01_02_03_02
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:事故死だった|#0102Trial03_Choice002| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:Trial AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge2-3-4
+
+
+@AddChoice ChoiceSummary:戻る|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:Trial AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; 
+; 反論3
+; ------------------------------------------------------------------------------
+
+# Objection_01_02_03_03
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:病死だった|#0102Trial03_Choice003| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:Trial AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge2-3-5
+
+
+@AddChoice ChoiceSummary:戻る|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:Trial AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; 
+; 反論4
+; ------------------------------------------------------------------------------
+
+# Objection_01_02_03_04
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:誰でも鍵は開けられた|#0102Trial03_Choice004| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:Trial AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge2-3-6
+
+@AddChoice ChoiceSummary:元から開いてたのかも|#0102Trial03_Choice005| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:Trial AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge2-3-2
+
+@AddChoice ChoiceSummary:鍵がかかっていても殺せる|#0102Trial03_Choice006| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:Trial AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge2-3-7
+
+
+@AddChoice ChoiceSummary:戻る|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:Trial AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; ==============================================================================
+; ミス選択肢
+; ==============================================================================
+
+; MARK: 2-3-3: ❌ 自殺だった
+
+# Judge2-3-3
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:いや、やっぱりミリアちゃんは<br>自殺だったんじゃないかな……！|#0102Trial03_Ema003| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,ArmR2,ArmL5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Left
+[PrintTextModified Text:でもミリアちゃんは拘束された状態で<br>胸を突かれて死亡……。<br>自殺だとするには、無理があるんじゃないかしら？|#0102Trial03_Margo001| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hanna.Default
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hanna Composition:Right
+[PrintTextModified Text:エマさん……？<br>もしや、どうしても自殺と思い込ませたい<br>理由でもありますの……！？|#0102Trial03_Hanna001| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Pensive_Open01,Angle01/Facial/Mouth>Mouth_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Left
+[PrintTextModified Text:あやし～！|#0102Trial03_Coco004| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL6,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Flushed_Middle,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（そんなことないのに……！）|#0102Trial03_Ema004| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL6,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Flushed_Middle,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（変な疑いをかけられちゃった……！<br>　みんなからの心証が悪くなったかも……！）|#0102Trial03_Ema005|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Closed04,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（そうだよね、現場の状況から考えて<br>　無理がある主張は議論を混乱させるだけ……）|#0102Trial03_Ema006|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Nervous_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（もう一度、ナノカちゃんの言葉を聞いてみよう）|#0102Trial03_Ema007| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Nervous_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（ゴクチョーを疑うのは簡単だけど、<br>　他の可能性もあるかもしれない……！）|#0102Trial03_Ema008|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge2-3-1
+
+; MARK: 2-3-4: ❌ 事故死だった
+
+# Judge2-3-4
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:いや、やっぱりミリアちゃんは<br>事故死だったんだよ……！|#0102Trial03_Ema009| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Normal_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:ナイフがうっかり刺さっちゃったとか……！|#0102Trial03_Ema010| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hanna.Default,ArmR2,ArmL2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hanna Composition:Right
+[PrintTextModified Text:腹にも胸にもグッサリ刺しておいて<br>うっかりは……ありえないと思いますわ！|#0102Trial03_Hanna002| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left
+[PrintTextModified Text:殺意ありすぎだろ。|#0102Trial03_Alisa002| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Default,ArmR3,ArmL2,Angle01/Facial/Eyes>Eyes_Gross_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Right
+[PrintTextModified Text:エマっち、一回黙っててくんない！？|#0102Trial03_Coco005| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL6,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Flushed_Middle,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（い、一回黙ろう……！）|#0102Trial03_Ema011| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Meruru.Default,ArmR1_1,ArmL5,Eyes1_Normal_Open2,Mouth1_Normal_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Left
+[PrintTextModified Text:エ、エマさん……<br>もしかしたらナノカさんは、<br>憎悪のせいで視野が狭まっているのかも……。|#0102Trial03_Meruru001| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Meruru.Default,ArmR1_1,ArmL1,Eyes1_Normal_Open2,Mouth1_Flushed_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Left
+[PrintTextModified Text:みなさんの話、注意して聞いてみてください……！|#0102Trial03_Meruru002| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Nervous_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（もう一度、ナノカちゃんの言葉を聞いてみよう）|#0102Trial03_Ema012| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+
+@GotoModified Path:.Judge2-3-1
+
+; MARK: 2-3-5: ❌ 病死だった
+
+# Judge2-3-5
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"そうか！ ミリアちゃんは病死だったんだよ！|#0102Trial03_Ema013|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right
+[PrintTextModified Text:刺されて死んだって話になったろ、さっき！！|#0102Trial03_Alisa003| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,Angle01/Option_Arms-,ArmR-Option-Off,Angle01/Arms>Arms01,Angle01/Option_Arms>Option_Arms01_02,Angle01/Head/Facial/Eyes>Eyes_Uncomfortable_Open02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Left
+[PrintTextModified Text:『さすがにテキトーすぎるな』|#0102Trial03_AnAn001| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL6,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Flushed_Middle,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（テキトーって言われちゃった……！）|#0102Trial03_Ema014| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Closed04,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（そうだよね、現場の状況から考えて<br>　無理がある主張は議論を混乱させるだけ……）|#0102Trial03_Ema015|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Nervous_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（もう一度、ナノカちゃんの言葉を聞いてみよう）|#0102Trial03_Ema016| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Nervous_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（ゴクチョーを疑うのは簡単だけど、<br>　他の可能性もあるかもしれない……！）|#0102Trial03_Ema017|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+
+@GotoModified Path:.Judge2-3-1
+
+; MARK: 2-3-6: ❌ 誰でも鍵は開けられた
+
+# Judge2-3-6
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:ちょっと待って、ナノカちゃん……。<br>懲罰房の鍵は誰でも開けられたんじゃないかな……？|#0102Trial03_Ema018| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmL5,Angle01/ArmR-,Eyes1_Flushed_Open1,Mouth1_Pensive_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:"どういうこと？ 桜羽エマ。|#0102Trial03_Nanoka012|" AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Normal_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:たとえば、ピッキングとか……！|#0102Trial03_Ema019| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,ArmR2,ArmL5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right
+[PrintTextModified Text:ピッキングが得意な人がいるなら名乗り出て欲しいわね？<br>ここから脱出するためにも。|#0102Trial03_Margo002| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Meruru.Default,ArmR1_1,ArmL8,Eyes1_Pensive_Open2,Mouth1_Normal_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Left
+[PrintTextModified Text:そ、そもそもゴクチョーさんたちが<br>簡単に開くような鍵をつけているでしょうか……？|#0102Trial03_Meruru003| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Normal_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:じゃ、じゃあ、あの……<br>怪力とかで……！|#0102Trial03_Ema020| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR15,ArmL8,Angle01/Facial/Eyes>Eyes_Wink_Open01,Angle01/Facial/Mouth>Mouth_Normal_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right
+[PrintTextModified Text:バコーン☆<br>そうなると私が犯人ですか！|#0102Trial03_Sherry001| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Default,ArmR3,ArmL2,Angle01/Facial/Eyes>Eyes_Pensive_Open02,Angle01/Facial/Mouth>Mouth_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Left
+[PrintTextModified Text:いや、現場についたとき、<br>鍵は閉まってたし、壊れてもなかったじゃん。|#0102Trial03_Coco006| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmL5,Angle01/ArmR-,Eyes1_Normal_Open4,Mouth1_Pensive_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right
+[PrintTextModified Text:桜羽エマ。<br>それは誰もが把握していることよ。|#0102Trial03_Nanoka013| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Eyes1_Uncomfortable_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right
+[PrintTextModified Text:意味のない反論をしないで。|#0102Trial03_Nanoka014| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL6,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Flushed_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（怒られちゃった……）|#0102Trial03_Ema021| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Closed04,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（でも、本当に運営が犯人なのかな……？）|#0102Trial03_Ema022| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Nervous_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（あまり考えたくはないけど、<br>　他の可能性についても考えてみよう……！）|#0102Trial03_Ema023|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+
+@GotoModified Path:.Judge2-3-1
+
+; MARK: 2-3-7: ❌ 密室でも犯行できた
+
+# Judge2-3-7
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Nervous_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:ナノカちゃん、<br>密室だと本当に犯行はできなかったのかな……？|#0102Trial03_Ema024| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:ボクたちはもう、<br>部屋に入らずに殺人を犯す方法を知ってるよね……？|#0102Trial03_Ema025| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmR3,ArmL1,Eyes1_Uncomfortable_Open1,Mouth1_Surprised_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:城ケ崎ノアの事件のことを<br>言ってるのかしら。|#0102Trial03_Nanoka015| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Normal_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:そう、長槍を作って――。|#0102Trial03_Ema026| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,ArmR2,ArmL5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right
+[PrintTextModified Text:エマちゃん……。<br>監房と懲罰房では、条件が違うでしょう？|#0102Trial03_Margo003| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Default,ArmR3,ArmL2,Angle01/Facial/Eyes>Eyes_Pensive_Open01,Angle01/Facial/Mouth>Mouth_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Left
+[PrintTextModified Text:懲罰房の扉から槍は入んないっしょ。|#0102Trial03_Coco007| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Cry_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:あっ、そっか……。|#0102Trial03_Ema027| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hanna.Default,ArmR2,ArmL2,Angle01/Head01/Facial01/Eyes01>Eyes01_Angry_Closed,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hanna Composition:Right
+[PrintTextModified Text:現場をよく見て話してくださいまし！|#0102Trial03_Hanna003| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL6,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Flushed_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（お説教されちゃったぁ……！）|#0102Trial03_Ema028| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Closed04,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（そうだよね、現場の状況から考えて<br>　無理がある主張は議論を混乱させるだけ……）|#0102Trial03_Ema029|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Nervous_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（もう一度、ナノカちゃんの言葉を聞いてみよう）|#0102Trial03_Ema030| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Nervous_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（ゴクチョーを疑うのは簡単だけど、<br>　他の可能性もあるかもしれない……！）|#0102Trial03_Ema031|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+
+@GotoModified Path:.Judge2-3-1
+
+; ==============================================================================
+; MARK: 2-3-2: ⭕ 元から開いてたかも
+; ==============================================================================
+
+# Judge2-3-2
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@HideUI UINames:DebateUI AllowToggle:false
+@ShowUI UINames:ControlPanel
+
+@StopBgm
+@GosubToObjectionCutIn CutInKind:Ema Index:1 VoicePath:CommonTrial_Ema05117 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:……たしかに<br>ナノカちゃんの言う事はもっともだけど……。|#0102Trial03_Ema032| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:でも、最初から鍵が開いてた可能性も<br>あるんじゃないかな。|#0102Trial03_Ema033| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmL5,Angle01/ArmR-,Eyes1_Flushed_Open1,Mouth1_Pensive_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:……どういうことかしら。|#0102Trial03_Nanoka016| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@PlayBgm BgmPath:Bgm_45_1 Volume:1 Loop:true FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Normal_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:もしもの話だけど……。|#0102Trial03_Ema034| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL12,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Normal_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:犯行前から鍵が開いていたとしたら、<br>誰でも中に入れるんじゃないかな……？|#0102Trial03_Ema035| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmL5,Angle01/ArmR-,Eyes1_Flushed_Open1,Mouth1_Pensive_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:鍵が開いていた……？<br>そんなわけないでしょう。|#0102Trial03_Nanoka017| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmL5,Angle01/ArmR-,Eyes1_Angry_Closed1,Mouth1_Pensive_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:懲罰房は運営に反抗した<br>囚人を捕らえる為のもの……。|#0102Trial03_Nanoka018| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@PlaySfxModified SfxPath:Sfx_Common_4 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Eyes1_Flushed_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:鍵がかかっていないなら、<br>この部屋の意味がないじゃない……！|#0102Trial03_Nanoka019| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL12,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Normal_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:でも、ミリアちゃんは拘束されたんだ。<br>懲罰房の扉が開いてたとしても、<br>逃げることはできないはずだよ。|#0102Trial03_Ema036| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Pensive_Open01,Angle01/Facial/Mouth>Mouth_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Right
+[PrintTextModified Text:つーかさ。<br>あいつら拷問ショーしようとしてたんだろ？|#0102Trial03_Coco008| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Default,ArmR3,ArmL2,Angle01/Facial/Eyes>Eyes_Pensive_Open01,Angle01/Facial/Mouth>Mouth_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Right
+[PrintTextModified Text:だったら鍵が開いてたって、<br>なーんもおかしくないんじゃねーの？|#0102Trial03_Coco009| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Sweat1_1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:……そんなわけない。<br>佐伯ミリアを隔離する為に、<br>奴らは誰も入れないよう鍵をかけていたはず……！|#0102Trial03_Nanoka020| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Mouth1_Angry_Closed2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:【鍵はかかっていた】……！<br>懲罰房の鍵を持っていない私たちに<br>犯行は不可能よ……！|#0102Trial03_Nanoka021| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Nervous_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（懲罰房の鍵……？<br>　それって……）|#0102Trial03_Ema037|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR3,ArmL3
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right
+[PrintTextModified Text:……それなら、説明できるかもしれませんよ！|#0102Trial03_Sherry002| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Eyes1_Confused_Open1,Mouth1_Normal_Open2,ArmL5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:えっ……？|#0102Trial03_Nanoka022| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 小さな鍵アイテム表示
+@SpawnExtended Path:Clue Params:2-3
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR17,ArmL4,Angle01/Facial/Eyes>Eyes_Normal_Closed01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right
+[PrintTextModified Text:私たちは、この鍵を<br>とある場所で見つけました。|#0102Trial03_Sherry003| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@DestroySpawnedExtended Path:Clue LogWarning:true
+@Wait WaitMode:0.5
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Angry1,Angle01/Option_Arms-,ArmR-Option-Off,ArmR5,ArmL1,Angle01/Head/Facial/Eyes>Eyes_Surprised_Open,Angle01/Head/Facial/Mouth>Mouth_Uncomfortable_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Left
+[PrintTextModified Text:……その鍵は……！|#0102Trial03_AnAn002| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR17,ArmL4,Angle01/Facial/Eyes>Eyes_Normal_Open03
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right
+[PrintTextModified Text:ミリアさんの死体から発見されました。|#0102Trial03_Sherry004| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR3,ArmL4,Angle01/Facial/Eyes>Eyes_Smile_Closed01,Angle01/Facial/Mouth>Mouth_Normal_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right
+[PrintTextModified Text:つまり、これを使えば扉の鍵を自由に<br>開け締めできるはずです！<br>ナノカさんの推理は間違いですね！|#0102Trial03_Sherry005| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@PlaySfxModified SfxPath:Sfx_Common_6 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmR2,ArmL9,Eyes1_Confused_Open1,Mouth1_Angry_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:そんな……！？|#0102Trial03_Nanoka023| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR3,ArmL4,Angle01/Facial/Eyes>Eyes_Normal_Open04,Angle01/Facial/Mouth>Mouth_Normal_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right
+[PrintTextModified Text:まあどうやって中から鍵をかけたのかは<br>わかりませんけどね～……。|#0102Trial03_Sherry006| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR3,ArmL3,Angle01/Facial/Eyes>Eyes_Normal_Open04,Angle01/Facial/Mouth>Mouth_Normal_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right
+[PrintTextModified Text:でも、鍵をミリアさんが<br>持っていたのは間違いありません。|#0102Trial03_Sherry007| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR3,ArmL3,Angle01/Facial/Eyes>Eyes_Normal_Open04,Angle01/Facial/Mouth>Mouth_Normal_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right
+[PrintTextModified Text:これで懲罰房に入るのは<br>誰でもできたって事ですね！|#0102Trial03_Sherry008| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Eyes1_Confused_Open1,Mouth1_Angry_Closed2,Sweat1_1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:……それは懲罰房の鍵じゃないわ。<br>そんなはずない……！|#0102Trial03_Nanoka024| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Surprised_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Cry_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:……え？|#0102Trial03_Ema038| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,ArmR2,ArmL5,Angle01/Facial/Mouth>Mouth_Smile_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right
+[PrintTextModified Text:"あら？ どうしてそんなことが言い切れるのかしら？|#0102Trial03_Margo004|" AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,ArmR2,ArmL5,Angle01/Facial/Mouth>Mouth_Smile_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right
+[PrintTextModified Text:材質は似ているみたいだし……<br>懲罰房の鍵だとしても<br>不自然ではないと思うけど？|#0102Trial03_Margo005| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmL5,Angle01/ArmR-,Eyes1_Flushed_Open1,Mouth1_Angry_Closed1,Sweat1_1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:……でも、本当のはずよ。<br>その鍵は懲罰房の扉についていた<br>錠前には合わないはず……！|#0102Trial03_Nanoka025| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR17,ArmL4,Angle01/Facial/Eyes>Eyes_Normal_Open04
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right
+[PrintTextModified Text:でも錠前の方は私が壊してしまいましたし<br>確認は取れませんね。|#0102Trial03_Sherry009| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR3,ArmL4,Angle01/Facial/Eyes>Eyes_Normal_Open01,Angle01/Facial/Mouth>Mouth_Neutral_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right
+[PrintTextModified Text:それにしてもナノカさん、<br>どうしてこれが懲罰房の鍵じゃないって<br>思ったんですか？|#0102Trial03_Sherry010| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Eyes1_Pensive_Open1,Mouth1_Cry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:……それは。|#0102Trial03_Nanoka026| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Surprised_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Cry_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:ナノカちゃん……？|#0102Trial03_Ema039| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@StopBgm
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Eyes1_Flushed_Open1,Mouth1_Flushed_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:…………。|#0102Trial03_Nanoka027| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Eyes1_Angry_Closed1,Mouth1_Normal_Open1,ArmR5,ArmL8
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:……なれない事はするものではないわね。|#0102Trial03_Nanoka028| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 気任せの蝶［チェロ有り］
+@PlayBgm BgmPath:Bgm_45_2 Volume:1 Loop:true FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmL6,Eyes1_Pensive_Open1,ArmR2,Mouth1_Normal_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:新しい証拠を提出するわ。<br>……みんなで好きに見てちょうだい。|#0102Trial03_Nanoka029| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+; アイテム表示・懲罰房の鍵
+@SpawnExtended Path:Clue Params:2-4
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Surprised1,ArmR3,ArmL1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:これって……！|#0102Trial03_Ema040| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@PlaySfxModified SfxPath:Sfx_Common_3 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hanna.Surprised1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hanna Composition:Right
+[PrintTextModified Text:鍵ですわ！！|#0102Trial03_Hanna004| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@DestroySpawnedExtended Path:Clue Wait:true LogWarning:true
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmL5,Angle01/ArmR-,Eyes1_Uncomfortable_Open1,Mouth1_Pensive_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:……この鍵は、懲罰房の中で拾ったのよ。|#0102Trial03_Nanoka030| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ☆証拠追加：懲罰房の鍵
+; 【懲罰房の鍵】
+; ナノカの持っていた鍵。
+; 懲罰房の扉を開く鍵らしい。
+; 懲罰房の中に落ちていたのを、ナノカが拾った。
+@SpawnExtended Path:Clue Params:2-4 Wait:true
+@UpdateWitchBook Id:2-4 Category:Clue Version:1
+@ShowToastUI Text:"魔女図鑑 更新…|#Toast_001|"
+@Wait WaitMode:i1.2
+@DestroySpawnedExtended Path:Clue Wait:true LogWarning:true
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:懲罰房の中って……どういうこと？|#0102Trial03_Ema041| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Eyes1_Pensive_Open1,Mouth1_Surprised_Open1,ArmR2,ArmL9
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:……私の見たことを、正直に証言するわ。|#0102Trial03_Nanoka031| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.ArmL3
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:信じるかどうかは……あなたたちに任せるけれど。|#0102Trial03_Nanoka032| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+@AutoSave
+@StopBgm
+
+@GotoModified Path:Act01_Chapter02/Act01_Chapter02_Trial04 ResetState:-
+

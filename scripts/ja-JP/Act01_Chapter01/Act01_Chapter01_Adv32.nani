@@ -1,0 +1,179 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook IsDebugDirectJump:{isDebugDirectJump}
+@Gosub Path:System/System_Subroutine.BeginAdv
+
+# Scene1-1-28
+
+; ========================================
+; ●シーン1-1‐28
+; [back 11]
+; ========================================
+
+; ========================================
+; ＞『娯楽室』を選択
+; ========================================
+
+; ========================================
+; [bgm Bgm_005_001_Loop]
+; ========================================
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false AppearanceAndTransition:11_1
+@ModifyBackgroundExtended TintColor:#000000 Duration:1.2 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:1.8
+@PlayBgm BgmPath:Bgm_5_1 Volume:1 Loop:true FadeInDuration:0
+@AutoSave
+[PrintTextModified Text:エマたちが娯楽室に行ってみると、<br>ソファーでくつろいでいるココがいた。|#0101Adv32_Narrative001| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Normal1,ArmR9
+
+[PrintTextModified Text:ココはあくびをしながら、スマホを眺めている。|#0101Adv32_Narrative002| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hanna.Angry1
+
+[PrintTextModified Text:ちょっとあなた、<br>みんなが必死に調査してる時に何を遊んでいますの？|#0101Adv32_Hanna001| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Angry1,ArmR2
+
+[PrintTextModified Text:"はぁ？ ウッザ。<br>あてぃし今忙しいんだけど。ほっとけよ。|#0101Adv32_Coco001|" AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:その言いぐさに<br>エマも少しカチンとした。|#0101Adv32_Narrative003| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Ema.Angry1
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Coco.Angry1,ArmR2
+
+[PrintTextModified Text:人が死んでるんだよ？|#0101Adv32_Ema001| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:知らないヤツ死んで、メソメソしてろって？<br>あームリ。そういうのキモイから。|#0101Adv32_Coco002| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:あてぃしと推し以外、<br>この世界の奴らは全部死ねばいいと思ってんの。|#0101Adv32_Coco003| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:勝手に調査でもなんでもやってろっつーの。|#0101Adv32_Coco004| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:"（なんかちょっと……嫌な子だな……。<br>　話が合いそうにない）|#0101Adv32_Ema002|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Sherry.Smile1
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Coco.Angry1
+
+[PrintTextModified Text:忙しいって、ココさんは何をしているんです？|#0101Adv32_Sherry001| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:シェリーは特にココの態度に動じる様子もなく、<br>にこにこと問いかけた。|#0101Adv32_Narrative004| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Coco.Normal1,ArmR2,ArmL1
+
+[PrintTextModified Text:昨日の配信アーカイブの確認。|#0101Adv32_Coco005| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（そういえば、昨夜はココちゃんたち配信してたっけ）|#0101Adv32_Ema003| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Sherry.Surprised1
+
+[PrintTextModified Text:"へえ！ アーカイブが残せるんですね。<br>やたらと凝ってるんですねぇ。|#0101Adv32_Sherry002|" AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 証拠品：『配信アーカイブ』入手
+; ========================================
+
+@ResetText
+@SpawnExtended Path:Clue Params:1-7
+@ShowToastUI Text:"魔女図鑑 更新…|#Toast_001|"
+@UpdateWitchBook Id:1-7 Category:Clue Version:1
+@Wait WaitMode:i1.2
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Sherry.Normal1
+
+[PrintTextModified Text:配信しても我々しか見れないのに、<br>その機能に意味なんてあるんですかね。|#0101Adv32_Sherry003| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:あてぃしには意味があんの。<br>いいからこれからも配信見てって。|#0101Adv32_Coco006| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@DestroySpawnedExtended Path:Clue LogWarning:true
+@Wait WaitMode:0.6
+
+[PrintTextModified Text:"（ココちゃんの魔法って、<br>　配信することと関係あるのかな……？）|#0101Adv32_Ema004|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:シェリーも同じことを思ったらしい。|#0101Adv32_Narrative005| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:ココさんの魔法は、<br>配信に関係しているんですか？|#0101Adv32_Sherry004| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Coco.Angry1,ArmR2,ArmL1
+
+[PrintTextModified Text:キモ。なんであんたらに<br>あてぃしの魔法教えなきゃいけないワケ？|#0101Adv32_Coco007| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Pensive1
+
+[PrintTextModified Text:配信で自分語りはするのに……？|#0101Adv32_Ema005| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Coco.Angry1,ArmR2,ArmL2
+
+[PrintTextModified Text:それとこれとは別なんだって。<br>あーもーうっさいなああ！|#0101Adv32_Coco008| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; [sfx 32：テーブルを叩く音]
+; ========================================
+
+@PlaySfxModified SfxPath:Sfx_32 Volume:1 Loop:false FadeInDuration:0
+
+[PrintTextModified Text:"バンッと、<br>ココはテーブルを叩いて<ruby=\"いらだ\">苛立</ruby>ちを<ruby=\"あら\">露</ruby>わにしてくる。|#0101Adv32_Narrative006|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:あてぃし１人で配信しても、<br>同接ほぼゼロとか終わってねえ？|#0101Adv32_Coco009| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:レイアとコラボしたらみんな見たくせにさぁ！|#0101Adv32_Coco010| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:あてぃしってレイア以下？<br>なんなのあいつウゼエ。死んでくんないかな。|#0101Adv32_Coco011| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Coco.Angry1
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Hanna.Angry1
+
+[PrintTextModified Text:コラボしてもらっておいて<br>それはないんじゃないかしら！？|#0101Adv32_Hanna002| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"あてぃし頼んでねーし！ あっちが誘ったんだし！|#0101Adv32_Coco012|" AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"あなたお話になりませんわ！ きいぃ！|#0101Adv32_Hanna003|" AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Sherry.Smile1,ArmR18,ArmL13
+
+[PrintTextModified Text:まあまあ。|#0101Adv32_Sherry005| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"真っ<ruby=\"か\">赤</ruby>になって怒り出したハンナを、<br>シェリーが引きずる。|#0101Adv32_Narrative007|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:"これ以上娯楽室にいたら、<br><ruby=\"けんか\">喧嘩</ruby>がヒートアップするのは目に見えた。|#0101Adv32_Narrative008|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Normal1,ArmR1,ArmL1
+
+[PrintTextModified Text:ここには何も手がかりはなさそうですし、<br>出ましょうか。|#0101Adv32_Sherry006| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Pensive1,ArmR3
+
+[PrintTextModified Text:そうだね……。|#0101Adv32_Ema006| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Normal1
+
+[PrintTextModified Text:わかったのは、ココさんが<br>邪悪ってことくらいですかね。|#0101Adv32_Sherry007| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Pensive1
+
+[PrintTextModified Text:うん。|#0101Adv32_Ema007| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"エマも思わずといった風に<ruby=\"うなず\">頷</ruby>いた。|#0101Adv32_Narrative009|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 消化していないイベントがある＞シーン1‐1‐21
+; 全てのイベントを消化している＞シーン1‐1‐30
+; ========================================
+
+@Gosub Path:System/System_Subroutine.EndAdv
+
+@GotoModified Path:Act01_Chapter01/Act01_Chapter01_Adv25 SoftReset:true
+

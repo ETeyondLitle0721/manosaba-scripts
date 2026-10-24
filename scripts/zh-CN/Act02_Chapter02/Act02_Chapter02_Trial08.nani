@@ -1,0 +1,1105 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook Version:4
+
+@BeginIf Expression:isDebugDirectJump
+    @Gosub Path:Act02_Chapter02/Act02_Chapter02_TrialInit
+    @HidePerspectiveStageScreen Index:1 Duration:0 Reset:true
+    @ModifyBackgroundExtended TintColor:#000000 Duration:0 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+
+@SetTrialTimer Time:900
+@HideUI UINames:ControlPanel AllowToggle:false
+@ShowUI UINames:DebateUI
+
+; ==============================================================================
+; MARK: 7-8: 💬 死体の落とされた場所
+; ==============================================================================
+; ＠ト書き▼議論シーン7-8 死体の落とされた場所
+; 議論開始エフェクト
+; BGM変更：AccUhEarts(Vocal無)
+@PlayBgm BgmPath:Bgm_15_1 Volume:1 Loop:true FadeInDuration:0
+
+# Judge7-8-1
+
+@Gosub Path:System/System_Subroutine.BeginDebate-First
+@Gosub Path:System/System_Subroutine.BeginDebate-Effect
+@Gosub Path:System/System_Subroutine.BeginDebate-Last
+@ChangeTrialPauseMode Enable:false ProcessTimer:true
+
+@HidePerspectiveStageScreen Index:1 Reset:true
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR7,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:我还是觉得，<br>想要抓准我和希罗<br>之间的窗口期行动，<br>只能选将尸体<br>从空中抛下的办法了。|#0202Trial08_Ema001| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,Angle01/Arms>Arms01,Angle01/ArmL-,Angle01/ArmR-,Angle01/Facial/Eyes>Eyes_Serious_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:虽然理论上<br>只有远野她能做到，<br>可是她的衣服<br>都没湿，不是吗。|#0202Trial08_Alisa001| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,Angle01/Arms>Arms01,Angle01/ArmL-,Angle01/ArmR-,Angle01/Facial/Eyes>Eyes_Serious_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:也就是说<br>她没去过外面。|#0202Trial08_Alisa002| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,ArmR2,ArmL1,Angle01/Facial/Eyes>Eyes_Normal_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:这可就<br>说不通了吧。|#0202Trial08_Alisa003| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Determined2,ArmR7,ArmL7,Angle01/Head02/Facial02/Mouth02>Mouth02_Angry_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:就算她<br>不在外面，<br>也可以抛下尸体吧。|#0202Trial08_Ema002| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL12,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Normal_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:"中庭四周<br><link=\"Objection_02_02_08_01\">都有墙壁包围</link>，<br>不是吗。<br>|#0202Trial08_Ema003|" RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR8,ArmL2,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:反过来说，<br>那应该存在<br>某个地方<br>能把尸体<br>搬进中庭，<br>同时不弄湿<br>自己的衣服。|#0202Trial08_Ema004| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR1,ArmL10,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:……比如说阳台。|#0202Trial08_Ema005| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open03,Angle01/Facial/Mouth>Mouth_Surprised_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:但是呢，艾玛。<br>可可是在地下的焚烧炉室<br>被杀的吧？|#0202Trial08_Sherry001| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open03,Angle01/Facial/Mouth>Mouth_Surprised_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:这样一来，<br>凶手就要把尸体从地下<br>搬到二楼了哦？|#0202Trial08_Sherry002| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,Arms,Angle01/Facial/Eyes>Eyes_Normal_Open03,Angle01/Facial/Mouth>Mouth_Surprised_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:"竟然能一路搬上楼<br>还<link=\"Objection_02_02_08_02\">全程不被人发现</link>，<br>这实在<br>不太可能吧？|#0202Trial08_Leia001|" RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Surprised_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Flushed_Middle,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:这……<br>可能有什么<br>移动尸体的办法吧……|#0202Trial08_Ema006| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Smile1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:你是说<br>有秘密通道吗！|#0202Trial08_Sherry003| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR4,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open02,Angle01/Facial/Mouth>Mouth_Smile_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:可是你有证据<br>能证明吗？|#0202Trial08_Noah001| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Surprised_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Confused_Open,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:"一、一定有的……！<br>肯定<link=\"Objection_02_02_08_03\">有条路</link><br>能从地下<br>悄悄移动到二楼……！|#0202Trial08_Ema007|" RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Miria.Default,ArmR9,ArmL1,Angle01/Facial/Eyes>Eyes_Normal_Open04,Angle01/Facial/Mouth>Mouth_Smile_Open02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Miria Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:"嗯……<br>可是如果不<link=\"Objection_02_02_08_04\">瞬间移动</link>的话，<br>只以物理方式移动<br>应该很难<br>不被发现吧……|#0202Trial08_Miria001|" RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR6,ArmL5,Angle01/Facial/Eyes>Eyes_Normal_Closed02,Angle01/Facial/Mouth>Mouth_Smile_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:"这样一来就只有一种可能了，<br>【通过某人的<link=\"Objection_02_02_08_05\">魔法</link>实现移动】，<br>会不会是这样呢。|#0202Trial08_Leia002|" RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR3,ArmL2,Angle01/Facial/Eyes>Eyes_Smile_Open,Angle01/Facial/Mouth>Mouth_Smile_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:不过，要想肯定<br>这个论点，<br>还需要一些<br>依据才行。|#0202Trial08_Leia003| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Pensive1,ArmR4,ArmL5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:呜呜……|#0202Trial08_Ema008| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+@Gosub Path:System/System_Subroutine.EndDebate-Effect
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+; 
+; 議論終了
+; ------------------------------------------------------------------------------
+
+@ResetText
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR1,ArmL4,Eyes1_Normal_Open1,Mouth1_Determined_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center ZoomLevel:2
+@Wait WaitMode:0.2
+
+; ==============================================================================
+; 7-8議論後独白
+; ==============================================================================
+
+[PrintTextModified Text:（艾玛的假设还不够有力）|#0202Trial08_Hiro001| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR4,ArmL2,Eyes1_Normal_Open5,Mouth1_Angry_Closed1
+[PrintTextModified Text:（但她的假设……真的能轻易忽视吗）|#0202Trial08_Hiro002| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR4,ArmL2,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+[PrintTextModified Text:（要不要……打开魔女图鉴确认一下呢）|#0202Trial08_Hiro003| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge7-8-1
+
+; 
+; 反論1
+; ------------------------------------------------------------------------------
+
+# Objection_02_02_08_01
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:与哪些房间邻接？|#0202Trial08_Choice001| Lock:false ButtonPath:ChoiceButtons/Trial/Question HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge7-8-3
+
+
+@AddChoice ChoiceSummary:返回|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; 
+; 反論2
+; ------------------------------------------------------------------------------
+
+# Objection_02_02_08_02
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:碰巧没人看见|#0202Trial08_Choice002| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge7-8-4
+
+@AddChoice ChoiceSummary:凶手用了某种手段避免被人发现|#0202Trial08_Choice003| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge7-8-5
+
+
+@AddChoice ChoiceSummary:返回|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; 
+; 反論3
+; ------------------------------------------------------------------------------
+
+# Objection_02_02_08_03
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:有秘密通道|#0202Trial08_Choice004| Lock:false ButtonPath:ChoiceButtons/Trial/Approval HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge7-8-2
+
+
+@AddChoice ChoiceSummary:返回|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; 
+; 反論4
+; ------------------------------------------------------------------------------
+
+# Objection_02_02_08_04
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:有瞬间移动的方法|#0202Trial08_Choice005| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge7-8-6
+
+
+@AddChoice ChoiceSummary:返回|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; 
+; 反論5
+; ------------------------------------------------------------------------------
+
+# Objection_02_02_08_05
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:使用了魔法|#0202Trial08_Choice006| Lock:false ButtonPath:ChoiceButtons/Trial/Approval HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge7-8-7
+
+
+@AddChoice ChoiceSummary:返回|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; ==============================================================================
+; MARK: 7-8: ❌ 議論選択肢分岐
+; ==============================================================================
+; MARK: 7-8-4: ❌ 反論・たまたま視認されなかった
+
+# Judge7-8-4
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open1,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:只是碰巧没人看见罢了。|#0202Trial08_Hiro004| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open1,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:凶手恰好在没人注意的时候<br>把尸体搬到了二楼。|#0202Trial08_Hiro005| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hanna.Surprised1,ArmR3,ArmL1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hanna Composition:Left
+[PrintTextModified Text:但、但是我撞到你的时候<br>衣服掉到了楼梯上，<br>还花了一些时间收拾——|#0202Trial08_Hanna001| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hanna.Surprised1,ArmR3,ArmL1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hanna Composition:Left
+[PrintTextModified Text:可我并没有看到可疑人物呀？|#0202Trial08_Hanna002| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hanna.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Pensive_Open,Angle01/Head01/Facial01/Mouth01>Mouth01_Surprised_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hanna Composition:Left
+[PrintTextModified Text:所以说，碰巧没人看到凶手的假设<br>有些牵强了吧？|#0202Trial08_Hanna003| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,ArmR2,ArmL1,Angle01/Facial/Eyes>Eyes_Angry_Open02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right
+[PrintTextModified Text:要是这也能用碰巧解释，那谁都说不过你了。|#0202Trial08_Alisa004| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL9,Eyes2_Normal_Closed1,Mouth2_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（……再整理下思路仔细想想吧）|#0202Trial08_Hiro006| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL9,Eyes2_Normal_Closed1,Mouth2_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（可可是在焚烧炉室遭杀害的……<br>　……之后，她的尸体在中庭被发现）|#0202Trial08_Hiro007|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR4,ArmL2,Eyes1_Normal_Open5,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（有没有什么线索……<br>　能串起这两点呢）|#0202Trial08_Hiro008|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR4,ArmL2,Eyes1_Normal_Open5,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（……在已有的证物里，<br>　是否存在与现场格格不入的东西）|#0202Trial08_Hiro009|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge7-8-1
+
+; MARK: 7-8-5: ❌ 反論・人に見られないよう仕向けていた
+
+# Judge7-8-5
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Mouth1_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:这并非没有可能。|#0202Trial08_Hiro010| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL4,Eyes2_Normal_Open3,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:凶手只要在搬运尸体的那一刻<br>让所有人都不要注意到楼梯就好。|#0202Trial08_Hiro011| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL4,Eyes2_Normal_Closed1,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……为此，凶手开了直播。|#0202Trial08_Hiro012| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL4,Eyes2_Normal_Open3,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:她通过直播<br>【让大家误以为犯罪现场是淋浴房】<br>把人们的注意力都集中到了那边。|#0202Trial08_Hiro013| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL6,Eyes2_Normal_Open3,Mouth2_Determined_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:结果，我直接被引到了淋浴房——|#0202Trial08_Hiro014| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL6,Eyes2_Normal_Closed1,Mouth2_Determined_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:而凶手则在偷偷走楼梯搬运尸体上楼。|#0202Trial08_Hiro015| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Miria.Default,ArmR3,ArmL8,Angle01/Facial/Eyes>Eyes_Glare_Open04,Angle01/Facial/Mouth>Mouth_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Miria Composition:Left
+[PrintTextModified Text:……但是那场直播是小可自己开的吧？|#0202Trial08_Miria002| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Miria.Default,ArmR3,ArmL8,Angle01/Facial/Eyes>Eyes_Pensive_Closed,Angle01/Facial/Mouth>Mouth_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Miria Composition:Left
+[PrintTextModified Text:虽说她状态有点不自然，<br>可是看起来也不像<br>有人强迫她……|#0202Trial08_Miria003| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Miria.Default,ArmR3,ArmL4,Angle01/Facial/Eyes>Eyes_Normal_Open04,Angle01/Facial/Mouth>Mouth_Smile_Open01,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Miria Composition:Left
+[PrintTextModified Text:而且不一定所有人都会看她的直播。|#0202Trial08_Miria004| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open03,Angle01/Facial/Mouth>Mouth_Surprised_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right
+[PrintTextModified Text:就算看了她的直播，在二楼的人还是会下楼的，<br>这个思路很奇怪啊～|#0202Trial08_Sherry004| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+; ＠備考◆別選択肢共通
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL9,Eyes2_Normal_Closed1,Mouth2_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（……再整理下思路仔细想想吧）|#0202Trial08_Hiro016| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL9,Eyes2_Normal_Closed1,Mouth2_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（可可是在焚烧炉室遭杀害的……<br>　……之后，她的尸体在中庭被发现）|#0202Trial08_Hiro017|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR4,ArmL2,Eyes1_Normal_Open5,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（有没有什么线索……<br>　能串起这两点呢）|#0202Trial08_Hiro018|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR4,ArmL2,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（……在已有的证物里，<br>　是否存在与现场格格不入的东西）|#0202Trial08_Hiro019|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+
+@GotoModified Path:.Judge7-8-1
+
+; MARK: 7-8-6: ❌ 反論・瞬時に移動する方法があった
+
+# Judge7-8-6
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR1,ArmL4,Eyes1_Normal_Open1,Mouth1_Determined_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:这么说来，<br>应该有办法在监牢里瞬间移动。|#0202Trial08_Hiro020| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL4,Eyes2_Normal_Open3,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:这里是【魔女栖息的洋馆】……<br>有几个具备传送功能的虫洞<br>也不奇怪。|#0202Trial08_Hiro021| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR4,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open02,Angle01/Facial/Mouth>Mouth_Smile_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Left
+[PrintTextModified Text:真的有这种东西吗～？|#0202Trial08_Noah002| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR5,ArmL7,Angle01/Facial/Eyes>Eyes_Normal_Open02,Angle01/Facial/Mouth>Mouth_Angry_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:我大致调查过现场，<br>但并没有发现这样的东西。|#0202Trial08_Leia004| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Smile_Closed02,Angle01/Facial/Mouth>Mouth_Smile_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Left
+[PrintTextModified Text:她说没有哦！希罗！|#0202Trial08_Noah003| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR4,ArmL2,Eyes1_Normal_Open5,Mouth1_Angry_Closed1,Sweat1-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（……看来也不是万事皆有可能啊）|#0202Trial08_Hiro022| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆別選択肢共通
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL9,Eyes2_Normal_Closed1,Mouth2_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（……再整理下思路仔细想想吧）|#0202Trial08_Hiro023| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL9,Eyes2_Normal_Closed1,Mouth2_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（可可是在焚烧炉室遭杀害的……<br>　……之后，她的尸体在中庭被发现）|#0202Trial08_Hiro024|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR4,ArmL2,Eyes1_Normal_Open5,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（有没有什么线索……<br>　能串起这两点呢）|#0202Trial08_Hiro025|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR4,ArmL2,Eyes1_Normal_Open5,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（……在已有的证物里，<br>　是否存在与现场格格不入的东西）|#0202Trial08_Hiro026|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+
+@GotoModified Path:.Judge7-8-1
+
+; MARK: 7-8-7: ❌ 反論・魔法が使用された
+
+# Judge7-8-7
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR1,ArmL4,Eyes1_Normal_Open1,Mouth1_Determined_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:不，凶手确实使用了魔法。|#0202Trial08_Hiro027| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR1,ArmL4,Eyes1_Normal_Open1,Mouth1_Determined_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:不是跟移动有关的魔法也没关系，<br>其他魔法也能派上用场。|#0202Trial08_Hiro028| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR6,ArmL3,Eyes1_Angry_Open1,Mouth1_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:比如说……【视线诱导】。|#0202Trial08_Hiro029| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆意味深に
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR8,ArmL5,Angle01/Facial/Eyes>Eyes_Smile_Open,Angle01/Facial/Mouth>Mouth_Smile_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:呵…………你是说我的魔法？|#0202Trial08_Leia005| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL4,Eyes2_Normal_Open3,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:是的……<br>只要通过【视线诱导】<br>岔开楼梯附近人们的视线——|#0202Trial08_Hiro030| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL4,Eyes2_Normal_Open3,Mouth2_Smile_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:就可以在不被发现的情况下<br>顺利上二楼了吧。|#0202Trial08_Hiro031| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Normal1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left
+[PrintTextModified Text:这样一来，莲见就是共犯了……|#0202Trial08_Alisa005| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Miria.Surprised1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Miria Composition:Right
+[PrintTextModified Text:真、真的吗，小蕾……！？|#0202Trial08_Miria005| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,Angle01/Option_Arms-,ArmR-Option-Off,ArmR3,ArmL1,Angle01/Head/Facial/Eyes>Eyes_Normal_Closed,Angle01/Head/Facial/Mouth>Mouth_Surprised_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Left
+[PrintTextModified Text:……不，这不可能。|#0202Trial08_AnAn001| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Angry1,Angle01/Arms>Arms01,Angle01/Option_Arms>Option_Arms01_02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Left
+[PrintTextModified Text:『当时，蕾雅在会客厅里』|#0202Trial08_AnAn002| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hanna.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open,Angle01/Head01/Facial01/Mouth01>Mouth01_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hanna Composition:Right
+[PrintTextModified Text:我当时也在楼梯附近，<br>但我可不记得被蕾雅施过魔法欸～？|#0202Trial08_Hanna004| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR8,ArmL5,Angle01/Facial/Eyes>Eyes_Smile_Open,Angle01/Facial/Mouth>Mouth_Smile_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Left
+[PrintTextModified Text:呵呵……我也不记得有用过魔法。|#0202Trial08_Leia006| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR10,ArmL1,Angle01/Facial/Eyes>Eyes_Angry_Open02,Angle01/Facial/Mouth>Mouth_Yell_Open02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Left
+[PrintTextModified Text:还是说你有中魔法的印象吗……<br>毕竟你也下过楼，希罗！！|#0202Trial08_Leia007| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR1,ArmL4,Eyes1_Normal_Open1,Mouth1_Determined_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（……大概，没有吧）|#0202Trial08_Hiro032| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆別選択肢共通
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL9,Eyes2_Normal_Closed1,Mouth2_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（……再整理下思路仔细想想吧）|#0202Trial08_Hiro033| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL9,Eyes2_Normal_Closed1,Mouth2_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（可可是在焚烧炉室遭杀害的……<br>　……之后，她的尸体在中庭被发现）|#0202Trial08_Hiro034|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR4,ArmL2,Eyes1_Normal_Open5,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（有没有什么线索……<br>　能串起这两点呢）|#0202Trial08_Hiro035|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR4,ArmL2,Eyes1_Normal_Open5,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（……在已有的证物里，<br>　是否存在与现场格格不入的东西）|#0202Trial08_Hiro036|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge7-8-1
+
+; ==============================================================================
+; MARK: 7-8-3: ❌ 追求・接している部屋は？
+; ==============================================================================
+
+# Judge7-8-3
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open3,Mouth2_Surprised_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:为了统一认识，我想先确认一下……|#0202Trial08_Hiro037| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open3,Mouth2_Surprised_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:与中庭相连的有这些地点，<br>一楼是大厅、走廊、淋浴房、仓库，<br>没错吧。|#0202Trial08_Hiro038| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Nervous_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Left
+[PrintTextModified Text:嗯。|#0202Trial08_Ema009| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Nervous_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Left
+[PrintTextModified Text:然后二楼是娱乐室、走廊<br>还有诺亚的画室。|#0202Trial08_Ema010| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR1,ArmL4,Eyes1_Normal_Open1,Mouth1_Determined_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……这样啊。|#0202Trial08_Hiro039| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR1,ArmL4,Eyes1_Normal_Open1,Mouth1_Determined_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（位置和构造的情报没有问题。<br>　可是……）|#0202Trial08_Hiro040|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR1,ArmL4,Eyes1_Normal_Open1,Mouth1_Determined_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（这座监牢的构造……）|#0202Trial08_Hiro041| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（有没有哪里不自然……？）|#0202Trial08_Hiro042| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge7-8-1
+
+; ==============================================================================
+; MARK: 7-8-2: ⭕ 同意・隠し通路があった
+; ==============================================================================
+
+# Judge7-8-2
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@HideUI UINames:DebateUI AllowToggle:false
+@ShowUI UINames:ControlPanel
+
+@StopBgm
+
+@GosubToObjectionCutIn CutInKind:Hiro Index:3 VoicePath:CommonTrial_Hiro00028 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open1,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……我明白了。<br>秘密通道是【存在的】……|#0202Trial08_Hiro043| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR8,ArmL4,Eyes1_Angry_Open1,Mouth1_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:能证明这点的证据就是——！|#0202Trial08_Hiro044| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+# Judge7-8-8
+
+@ChoiceEvidence CategoryNames:Clue Back:false Global:false CorrectEvidenceId:7-9
+
+; 【紙】
+@BeginIf Expression:"chosenEvidenceId==\"7-9\""
+    @GotoModified Path:.Judge7-8-9
+
+; 【焼却炉室】or【ダストシュート】or【シャワールーム】
+@BeginIf Expression:"chosenEvidenceId==\"7-5\"||chosenEvidenceId==\"7-11\"||chosenEvidenceId==\"7-4\""
+    @GotoModified Path:.Judge7-8-10
+
+; 【ロープ】
+@BeginIf Expression:"chosenEvidenceId==\"7-10\""
+    @GotoModified Path:.Judge7-8-11
+
+; 汎用選択ミス
+@GotoModified Path:.Judge7-8-12
+
+; MARK: 7-8-10: ❌ 【焼却炉室】or【ダストシュート】or【シャワールーム】
+
+# Judge7-8-10
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open1,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:淋浴房和凶杀现场——焚烧炉室……|#0202Trial08_Hiro045| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open1,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:这两个房间<br>是通过垃圾滑槽连接在一起的。|#0202Trial08_Hiro046| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,Arms,Angle01/Facial/Eyes>Eyes_Normal_Open03,Angle01/Facial/Mouth>Mouth_Surprised_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:……你的意思是，<br>那里就是秘密通道……？|#0202Trial08_Leia008| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hanna.Normal1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hanna Composition:Left
+[PrintTextModified Text:可是……如果凶手从焚烧炉室走那个通道的话，<br>也只能到一楼的淋浴房哦？|#0202Trial08_Hanna005| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,Angle01/Arms>Arms01,Angle01/ArmL-,Angle01/ArmR-,Angle01/Facial/Eyes>Eyes_Serious_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right
+[PrintTextModified Text:那不就没意义了？<br>不是说凶手是从【二楼】抛下尸体吗？|#0202Trial08_Alisa006| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR4,ArmL2,Eyes1_Normal_Open5,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:没错……这条通道<br>必须通往【二楼】。|#0202Trial08_Hiro047| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR4,ArmL2,Eyes1_Normal_Open5,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（……思路应该是对的）|#0202Trial08_Hiro048| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（……回想一下监牢的地图吧。<br>　焚烧炉室和淋浴房的上面到底有什么）|#0202Trial08_Hiro049|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL3,Eyes2_Angry_Open1,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:证据就是这个！|#0202Trial08_Hiro050| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge7-8-8
+
+; MARK: 7-8-11: ❌ 【ロープ】
+
+# Judge7-8-11
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL4,Eyes2_Normal_Open3,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:掉在焚烧炉室的绳子。|#0202Trial08_Hiro051| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL4,Eyes2_Normal_Open3,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:凶手一定是用这根绳子<br>爬上了通往二楼的秘密通道。|#0202Trial08_Hiro052| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Miria.Default,ArmR9,ArmL1,Angle01/Facial/Eyes>Eyes_Normal_Open04,Angle01/Facial/Mouth>Mouth_Smile_Open02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Miria Composition:Right
+[PrintTextModified Text:……呃，所以说……<br>那条秘密通道到底在哪里？|#0202Trial08_Miria006| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR4,ArmL2,Angle01/Facial/Eyes>Eyes_Pensive_Open,Angle01/Facial/Mouth>Mouth_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Left
+[PrintTextModified Text:就是垃圾滑槽吧？|#0202Trial08_Noah004| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open03,Angle01/Facial/Mouth>Mouth_Surprised_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right
+[PrintTextModified Text:可是，走垃圾滑槽的话<br>只能爬到一楼的淋浴房，不是吗？|#0202Trial08_Sherry005| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆別選択肢共通
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,Angle01/Arms>Arms01,Angle01/ArmL-,Angle01/ArmR-,Angle01/Facial/Eyes>Eyes_Serious_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left
+[PrintTextModified Text:那不就没意义了？<br>不是说凶手是从【二楼】抛下尸体吗？|#0202Trial08_Alisa007| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR4,ArmL2,Eyes1_Normal_Open5,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:没错……这条通道<br>必须通往【二楼】。|#0202Trial08_Hiro053| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR4,ArmL2,Eyes1_Normal_Open5,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（……思路应该是对的）|#0202Trial08_Hiro054| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（……回想一下监牢的地图吧。<br>　焚烧炉室和淋浴房的上面到底有什么）|#0202Trial08_Hiro055|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL3,Eyes2_Angry_Open1,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:证据就是这个！|#0202Trial08_Hiro056| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge7-8-8
+
+; MARK: 7-8-12: ❌ 汎用選択ミス
+
+# Judge7-8-12
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Pensive1,ArmR4,ArmL5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Right
+[PrintTextModified Text:希罗……<br>这东西应该证明不了有秘密通道吧……？|#0202Trial08_Ema011| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL9,Eyes2_Normal_Closed1,Mouth2_Angry_Closed1,Sweat2-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（重新想想吧……）|#0202Trial08_Hiro057| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR1,ArmL4,Eyes1_Normal_Open1,Mouth1_Determined_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（……从焚烧炉室爬到楼上<br>　应该只有垃圾滑槽这一条路）|#0202Trial08_Hiro058|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR1,ArmL4,Eyes1_Normal_Open1,Mouth1_Determined_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（而垃圾滑槽与淋浴房相连这点<br>　也已经明确）|#0202Trial08_Hiro059|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR1,ArmL4,Eyes1_Normal_Open1,Mouth1_Determined_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（……然而，焚烧炉里却找到了<br>　不可能从淋浴房丢进去的东西……）|#0202Trial08_Hiro060|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（这个东西一定就是秘密通道的线索……！）|#0202Trial08_Hiro061| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge7-8-8
+
+; ==============================================================================
+; MARK: 7-8-9: ⭕ 選択・【紙】
+; ==============================================================================
+
+# Judge7-8-9
+
+; ヒロカットイン
+@GosubToObjectionCutIn CutInKind:Hiro Index:2 VoicePath:CommonTrial_Hiro06081 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Surprised1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Right
+[PrintTextModified Text:……希罗——！|#0202Trial08_Ema012| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR4,ArmL2,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（……这说不上是多么确凿的证据）|#0202Trial08_Hiro062| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; BGM変更：HirO（Voなし）
+@PlayBgm BgmPath:Bgm_37_1_Loop IntroBgmPath:Bgm_37_1_Intro Volume:1 Loop:true FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open1,Mouth2_Determined_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（但这条路……<br>　的确通往真相！）|#0202Trial08_Hiro063|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Angry_Open2,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……证据就是，这一大堆纸。|#0202Trial08_Hiro064| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Pensive1,ArmR4,ArmL5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Right
+[PrintTextModified Text:这些纸<br>是在焚烧炉里找到的吧？|#0202Trial08_Ema013| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open3,Mouth2_Surprised_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:嗯。|#0202Trial08_Hiro065| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Closed1,Mouth2_Surprised_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:淋浴房的垃圾滑槽<br>通往焚烧炉……|#0202Trial08_Hiro066| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL6,Eyes2_Normal_Open3,Mouth2_Determined_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:所以，炉子里找到与案件相关的东西和衣服<br>并不奇怪。|#0202Trial08_Hiro067| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR8,ArmL4,Eyes1_Angry_Open1,Mouth1_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:但是……这些纸呢？|#0202Trial08_Hiro068| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Painful_Open1,Mouth1_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:这些纸不可能是从淋浴房<br>丢进去的。|#0202Trial08_Hiro069| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR6,ArmL3,Eyes1_Angry_Open1,Mouth1_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……至于从哪里丢进去的，<br>还是直接问丢掉纸的当事人更简单吧。|#0202Trial08_Hiro070| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+# Judge7-8-13
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:这些纸的主人……<br>应该就是——|#0202Trial08_Hiro071| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ChoiceEvidence CategoryNames:Profile Back:false Global:false CorrectEvidenceId:Noah
+
+; 城ケ崎ノア
+@BeginIf Expression:"chosenEvidenceId==\"Noah\""
+    @GotoModified Path:.Judge7-8-14
+
+; 夏目アンアン
+@BeginIf Expression:"chosenEvidenceId==\"AnAn\""
+    @GotoModified Path:.Judge7-8-15
+
+; 遠野ハンナ
+@BeginIf Expression:"chosenEvidenceId==\"Hanna\""
+    @GotoModified Path:.Judge7-8-16
+
+; 二階堂ヒロ
+@BeginIf Expression:"chosenEvidenceId==\"Hiro\""
+    @GotoModified Path:.Judge7-8-17
+
+; 汎用選択ミス
+@GotoModified Path:.Judge7-8-18
+
+; MARK: 7-8-15: ❌ 人物・夏目アンアン
+
+# Judge7-8-15
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL3,Eyes2_Angry_Open1,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:安安，就是你。|#0202Trial08_Hiro072| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR6,ArmL3,Eyes1_Angry_Open1,Mouth1_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:这些纸是你平时用的素描本里的。|#0202Trial08_Hiro073| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Pensive1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Right
+[PrintTextModified Text:并不是。|#0202Trial08_AnAn003| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,Angle01/Arms>Arms01,Angle01/ArmL-,Angle01/ArmR-,Angle01/Facial/Eyes>Eyes_Serious_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left
+[PrintTextModified Text:她说不是。|#0202Trial08_Alisa008| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL9,Eyes2_Normal_Closed1,Mouth2_Angry_Closed1,Sweat2-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（看来我搞错了……）|#0202Trial08_Hiro074| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR4,ArmL2,Eyes1_Normal_Open5,Mouth1_Angry_Closed1,Sweat1-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（……对了，纸上画了【画】。<br>　说起与【画】有关的人——）|#0202Trial08_Hiro075|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge7-8-13
+
+; MARK: 7-8-16: ❌ 人物・遠野ハンナ
+
+# Judge7-8-16
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL3,Eyes2_Angry_Open1,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:是你，汉娜。|#0202Trial08_Hiro076| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hanna.Normal1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hanna Composition:Right
+[PrintTextModified Text:才不是我。|#0202Trial08_Hanna006| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR6,ArmL3,Eyes1_Angry_Open1,Mouth1_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……你不是在设计舞台剧的服装吗？<br>说不定你把想法画了下来——|#0202Trial08_Hiro077| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hanna.Angry1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hanna Composition:Right
+[PrintTextModified Text:我是在纸上做过笔记，<br>但我可没有随便扔掉！|#0202Trial08_Hanna007| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hanna.Default,ArmR3,ArmL2,Angle01/Head01/Facial01/Eyes01>Eyes01_Angry_Closed,Angle01/Head01/Facial01/Mouth01>Mouth01_Cry_Open,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hanna Composition:Right
+[PrintTextModified Text:根本冤枉呀！|#0202Trial08_Hanna008| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+; ＠備考◆別選択肢共通
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL9,Eyes2_Normal_Closed1,Mouth2_Angry_Closed1,Sweat2-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（看来我搞错了……）|#0202Trial08_Hiro078| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR4,ArmL2,Eyes1_Normal_Open5,Mouth1_Angry_Closed1,Sweat1-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（……对了，纸上画了【画】。<br>　说起与【画】有关的人——）|#0202Trial08_Hiro079|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge7-8-13
+
+; MARK: 7-8-17: ❌ 人物・二階堂ヒロ
+
+# Judge7-8-17
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR2,ArmL4,Eyes1_Angry_Open1,Mouth1_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:我。|#0202Trial08_Hiro080| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR2,ArmL4,Eyes1_Normal_Open3,Mouth1_Determined_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:…………的话，<br>为什么要把纸丢到这里呢，<br>我正在这么思考着。|#0202Trial08_Hiro081| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR15,ArmL4,Angle01/Facial/Eyes>Eyes_Wink_Open01,Angle01/Facial/Mouth>Mouth_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right
+[PrintTextModified Text:能站在对方立场上思考问题，<br>真的很了不起！|#0202Trial08_Sherry006| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,ArmR3,ArmL4,Angle01/Facial/Eyes>Eyes_Angry_Open04
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left
+[PrintTextModified Text:好了你快说结论吧。|#0202Trial08_Alisa009| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+; ＠備考◆別選択肢共通
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL9,Eyes2_Normal_Closed1,Mouth2_Angry_Closed1,Sweat2-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（……认真想清楚再回答吧）|#0202Trial08_Hiro082| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR4,ArmL2,Eyes1_Normal_Open5,Mouth1_Angry_Closed1,Sweat1-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（……对了，纸上画了【画】。<br>　说起与【画】有关的人——）|#0202Trial08_Hiro083|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge7-8-13
+
+; MARK: 7-8-18: ❌ 汎用選択ミス
+
+# Judge7-8-18
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hanna.Surprised1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hanna Composition:Right
+[PrintTextModified Text:这个人应该不会用这么多纸吧……？|#0202Trial08_Hanna009| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+; ＠備考◆別選択肢共通
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL9,Eyes2_Normal_Closed1,Mouth2_Angry_Closed1,Sweat2-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（看来我搞错了……）|#0202Trial08_Hiro084| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR4,ArmL2,Eyes1_Normal_Open5,Mouth1_Angry_Closed1,Sweat1-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（……对了，纸上画了【画】。<br>　说起与【画】有关的人——）|#0202Trial08_Hiro085|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge7-8-13
+
+; ==============================================================================
+; MARK: 7-8-14: ⭕ 人物・城ケ崎ノア
+; ==============================================================================
+
+# Judge7-8-14
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR6,ArmL3,Eyes1_Angry_Open1,Mouth1_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:当然就是你。<br>诺亚。|#0202Trial08_Hiro086| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+; ＠備考◆わかりやすくとぼけてる
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR4,ArmL2,Angle01/Facial/Eyes>Eyes_Pensive_Open,Angle01/Facial/Mouth>Mouth_Smile_Open01,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Left
+[PrintTextModified Text:是、是吗？<br>诺亚不太知道欸。|#0202Trial08_Noah005| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL4,Eyes2_Normal_Open3,Mouth2_Smile_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:装傻也没有用。|#0202Trial08_Hiro087| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,Arms3,Eyes2_Normal_Closed1,Mouth2_Smile_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:那些纸上应该画了画。|#0202Trial08_Hiro088| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL4,Eyes2_Normal_Open3,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:问题是，纸是从哪里丢掉的。|#0202Trial08_Hiro089| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL3,Eyes2_Angry_Open1,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:我再问你一遍。|#0202Trial08_Hiro090| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL3,Eyes2_Angry_Open1,Mouth2_Smile_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:那些纸不是从淋浴房丢掉的吧？<br>诺亚。|#0202Trial08_Hiro091| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+; ＠備考◆焦り
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Surprised1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Left
+[PrintTextModified Text:这、这个……|#0202Trial08_Noah006| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL6,Eyes2_Normal_Open3,Mouth2_Determined_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:回答我。<br>要想查明真相，这个情报不可或缺。|#0202Trial08_Hiro092| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Pensive_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Right
+[PrintTextModified Text:诺亚……！<br>求你了。|#0202Trial08_Ema014| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・明るい音
+@PlaySfxModified SfxPath:Sfx_Common_2 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Pensive_Open,Angle01/Facial/Mouth>Mouth_Angry_Open,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Left
+[PrintTextModified Text:……诺亚，是在画室丢掉的。|#0202Trial08_Noah007| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Angry_Open,Angle01/Facial/Mouth>Mouth_Surprised_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Left
+[PrintTextModified Text:因为画室里也有丢垃圾的洞。|#0202Trial08_Noah008| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Pensive_Open,Angle01/Facial/Mouth>Mouth_Angry_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Left
+[PrintTextModified Text:诺亚就是在那里丢掉那些纸的。|#0202Trial08_Noah009| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+
+; アイテム追加
+; 【紙】
+; 焼却炉から見つかった、大量の紙。
+; 絵が描かれたものが混じっている。
+
+@ResetText
+@SpawnExtended Path:Clue Params:7-9
+@ShowToastUI Text:"魔女图鉴 更新…|#Toast_001|"
+@UpdateWitchBook Id:7-9 Category:Clue Version:2
+@Wait WaitMode:i1.2
+@DestroySpawnedExtended Path:Clue LogWarning:true
+@Wait WaitMode:0.5
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Surprised1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Right
+[PrintTextModified Text:那就是说……！|#0202Trial08_Ema015| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:是的……|#0202Trial08_Hiro093| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Determined_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:焚烧炉不仅通向淋浴房，<br>还通向二楼诺亚的画室……|#0202Trial08_Hiro094| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Angry_Open2,Mouth1_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:它连接着画室里的<br>另一条垃圾滑槽。|#0202Trial08_Hiro095| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:而诺亚的画室有阳台。|#0202Trial08_Hiro096| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR6,ArmL3,Eyes1_Angry_Open1,Mouth1_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:如果以诺亚的画室为中转站，<br>将可可的尸体从焚烧炉推到中庭的话……|#0202Trial08_Hiro097| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR7,ArmL13,Angle01/Head01/Facial01/Eyes01>Eyes01_Surprised_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Scream_Open,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Right
+[PrintTextModified Text:那无论是直播回放录像，<br>还是我和希罗看到的场面，<br>全部都能说通了！|#0202Trial08_Ema016| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@StopBgm
+@Wait WaitMode:0.1
+@StopVoice
+@Wait WaitMode:0.1
+@PlaySfxModified SfxPath:Sfx_Common_5 Volume:1 Loop:false FadeInDuration:0
+
+@ResetText
+@PlayVoice VoicePath:CommonTrial_Leia00425 Volume:1
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Surprised1
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Angry1,ArmR10,ArmL1,Angle01/Facial/Eyes>Eyes_Angry_Open02,Angle01/Facial/Mouth>Mouth_Yell_Open02
+@GosubToSplitPerspectiveStageScreens Index:1 LookCharacterId:Leia Composition:Left RollDirection:Over
+@Wait WaitMode:1.5
+
+@HidePerspectiveStageScreen Index:1 Reset:true
+@Wait WaitMode:0.3
+@StopVoice
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR6,ArmL5,Angle01/Facial/Eyes>Eyes_Normal_Closed02,Angle01/Facial/Mouth>Mouth_Smile_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Left
+[PrintTextModified Text:不过……这个推理可能有一个漏洞。<br>艾玛，希罗。|#0202Trial08_Leia009| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open3,Mouth2_Surprised_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:漏洞……？|#0202Trial08_Hiro098| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR6,ArmL5,Angle01/Facial/Eyes>Eyes_Normal_Closed02,Angle01/Facial/Mouth>Mouth_Smile_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Left
+[PrintTextModified Text:没错。|#0202Trial08_Leia010| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR5,ArmL7,Angle01/Facial/Eyes>Eyes_Angry_Open02,Angle01/Facial/Mouth>Mouth_Yell_Open02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Left
+[PrintTextModified Text:因为我调查过淋浴房和焚烧炉之间的<br>垃圾滑槽……|#0202Trial08_Leia011| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL9,Eyes2_Normal_Closed1,Mouth2_Angry_Closed1,Sweat2-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（明明是我拜托她去调查的，<br>　却说得好像是她自己主动去调查的一样……）|#0202Trial08_Hiro099|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・決め音
+@PlaySfxModified SfxPath:Sfx_Common_3 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR10,ArmL1,Angle01/Facial/Eyes>Eyes_Angry_Open02,Angle01/Facial/Mouth>Mouth_Yell_Open02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Left
+[PrintTextModified Text:我敢肯定……<br>【用普通的方法是不可能从地下爬到楼上的】！|#0202Trial08_Leia012| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+@AutoSave
+@GotoModified Path:Act02_Chapter02/Act02_Chapter02_Trial09 ResetState:-
+

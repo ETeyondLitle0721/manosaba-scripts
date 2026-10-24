@@ -1,0 +1,778 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook Version:12
+
+@BeginIf Expression:isDebugDirectJump
+    @Gosub Path:Act02_Chapter05/Act02_Chapter05_TrialInit
+    @HidePerspectiveStageScreen Index:1 Duration:0 Reset:true
+    @ModifyBackgroundExtended TintColor:#000000 Duration:0 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+
+@SetTrialTimer Time:900
+@HideUI UINames:ControlPanel AllowToggle:false
+@ShowUI UINames:DebateUI
+
+; クリーチャー化初期化
+@HideActors ActorIds:Hiro Duration:0 Lazy:false
+@ModifyCharacterExtended Position:{hiroPositionX},{characterPositionY},{hiroPositionZ} Rotation:,{hiroRotationY} Scale:{characterScale},{characterScale},1 Duration:0 Lazy:false IdAndAppearance:CreatureHiro.2
+
+@HideActors ActorIds:Meruru Duration:0 Lazy:false
+@ModifyCharacterExtended Position:{meruruPositionX},{characterPositionY},{meruruPositionZ} Rotation:,{meruruRotationY} Scale:{characterScale},{characterScale},1 Duration:0 Lazy:false IdAndAppearance:CreatureMeruru.3-5
+
+@HideActors ActorIds:Leia Duration:0 Lazy:false
+@ModifyCharacterExtended Position:{leiaPositionX},{characterPositionY},{leiaPositionZ} Rotation:,{leiaRotationY} Scale:{characterScale},{characterScale},1 Duration:0 Lazy:false IdAndAppearance:CreatureLeia.0-8
+
+@HideActors ActorIds:Noah Duration:0 Lazy:false
+@ModifyCharacterExtended Position:{noahPositionX},{characterPositionY},{noahPositionZ} Rotation:,{noahRotationY} Scale:{characterScale},{characterScale},1 Duration:0 Lazy:false IdAndAppearance:CreatureNoah.0-3
+
+@HideActors ActorIds:Margo Duration:0 Lazy:false
+@ModifyCharacterExtended Position:{margoPositionX},{characterPositionY},{margoPositionZ} Rotation:,{margoRotationY} Scale:{characterScale},{characterScale},1 Duration:0 Lazy:false IdAndAppearance:CreatureMargo.0-4
+
+@HideActors ActorIds:Nanoka Duration:0 Lazy:false
+@ModifyCharacterExtended Position:{nanokaPositionX},{characterPositionY},{nanokaPositionZ} Rotation:,{nanokaRotationY} Scale:{characterScale},{characterScale},1 Duration:0 Lazy:false IdAndAppearance:CreatureNanoka.0-1
+
+@HideActors ActorIds:Coco Duration:0 Lazy:false
+@ModifyCharacterExtended Position:{cocoPositionX},{characterPositionY},{cocoPositionZ} Rotation:,{cocoRotationY} Scale:{characterScale},{characterScale},1 Duration:0 Lazy:false IdAndAppearance:CreatureCoco.2-3
+
+@HideActors ActorIds:AnAn Duration:0 Lazy:false
+@ModifyCharacterExtended Position:{ananPositionX},{characterPositionY},{ananPositionZ} Rotation:,{ananRotationY} Scale:{characterScale},{characterScale},1 Duration:0 Lazy:false IdAndAppearance:CreatureAnAn.0-3
+
+@HideActors ActorIds:Miria Duration:0 Lazy:false
+
+@HideActors ActorIds:Alisa Duration:0 Lazy:false
+@ModifyCharacterExtended Position:{alisaPositionX},{characterPositionY},{alisaPositionZ} Rotation:,{alisaRotationY} Scale:{characterScale},{characterScale},1 Duration:0 Lazy:false IdAndAppearance:CreatureAlisa.0-7
+
+; ==============================================================================
+; MARK: 10-21: 💬 【紫藤アリサ】
+; ==============================================================================
+; ＠ト書き▼議論10-21紫藤アリサ
+@SetCustomVariable Expression:Judge10_21_3Flag=false
+; 議論開始カットイン
+; BGM変更：Guil-me N'o sinruits-Vocal無-
+@PlayBgm BgmPath:Bgm_8_1 Volume:1 Loop:true FadeInDuration:0
+; ボス演出
+@ResetText
+@ModifyCharacterExtended Duration:0 Lazy:false IdAndAppearance:CreatureHiro.2
+@ModifyPerspectiveStageCamera Index:1 Height:5.6 Rotation:"0,{ (8 / courtStandCount * 360)},0" Distance:12 Duration:0
+@WaitForNextFrame
+
+@ModifyPerspectiveStageCamera Index:1 Rotation:"0,{ (8.1 / courtStandCount * 360)},0" Duration:1 EaseName:OutQuad
+@ShowPerspectiveStageScreen Index:1
+@Wait WaitMode:1.5
+
+@ResetText
+@ModifyCharacterExtended Duration:0 Lazy:false IdAndAppearance:CreatureAlisa.2-8
+@ModifyPerspectiveStageCamera Index:0 Height:5.6 Rotation:"0,{ (4 / courtStandCount * 360)},0" Distance:12 Duration:0
+@WaitForNextFrame
+
+@ModifyPerspectiveStageCamera Index:0 Rotation:"0,{ (3.9 / courtStandCount * 360)},0" Duration:1 EaseName:OutQuad
+@HidePerspectiveStageScreen Index:1 Reset:true
+@Wait WaitMode:1.5
+
+@ChangeCourtFireFxActivity Enable:true
+
+# Judge10-21-1
+
+@Gosub Path:System/System_Subroutine.BeginDebate-First
+@Gosub Path:System/System_Subroutine.BeginDebate-Effect
+@Gosub Path:System/System_Subroutine.BeginDebate-Last
+@ChangeTrialPauseMode Enable:false ProcessTimer:true
+
+@HidePerspectiveStageScreen Index:1 Reset:true
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureAlisa.2-8
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:うっせぇな！<br>死ね死ね死ね！|#0205Trial21_Alisa001| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureAlisa.2-8
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:ウチらは存在することが<br>罪なんだ……。|#0205Trial21_Alisa002| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureAlisa.0-7
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:"お前らだって<br>人に言えないことの<br>１つや２つ<br><link=\"Objection_02_05_21_01\">やってきた</link>んだろ……！？|#0205Trial21_Alisa003|" RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+; 選択肢は10-21-3通過済に選択可能に
+
+@BeginIf Expression:Judge10_21_3Flag=false
+    @GotoModified Path:.Judge10-21-1skip
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureAlisa.0-7
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:"周りに知られたら<br>ドン引きされて、<br>ぜってーに<br><link=\"Objection_02_05_21_02\">許されねぇ</link>ぐらいの<br>ことをよ！|#0205Trial21_Alisa004|" RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+# Judge10-21-1skip
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureAlisa.0-4
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:"だったらここで<br>死んだって<link=\"Objection_02_05_21_03\">いい</link>だろ……。|#0205Trial21_Alisa005|" RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureAlisa.0-4
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:"文句があんなら<br><link=\"Objection_02_05_21_04\">かかってこい</link>よ！|#0205Trial21_Alisa006|" RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureAlisa.1-4
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:骨すら残さねーぐらい、<br>ウチが燃やし尽くしてやる！|#0205Trial21_Alisa007| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureAlisa.1-3
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:"安心しな……<br>ウチだっててめーらと同じ<br><link=\"Objection_02_05_21_05\">罪人</link>の１人だ。|#0205Trial21_Alisa008|" RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureAlisa.1-3
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:おめえらの後は、<br>すぐに追いかけてやるよ！|#0205Trial21_Alisa009| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+
+; ==============================================================================
+; 10-21議論後独白
+; ==============================================================================
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+@Gosub Path:System/System_Subroutine.EndDebate-Effect
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+; 
+; 議論終了
+; ------------------------------------------------------------------------------
+
+@ResetText
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center ZoomLevel:2
+@Wait WaitMode:0.2
+
+[PrintTextModified Text:（私たちを巻き込んでの無理心中か……）|#0205Trial21_Hiro001| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.2
+[PrintTextModified Text:（悪いがそれに付き合うことはできない）|#0205Trial21_Hiro002| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.3
+[PrintTextModified Text:"（失うわけにはいかないんだ。<br>　私たちの命も……そして、君の命も！）|#0205Trial21_Hiro003|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge10-21-1
+
+; 
+; 反論1
+; ------------------------------------------------------------------------------
+
+# Objection_02_05_21_01
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:誰も罪を犯していない|#0205Trial21_Choice001| Lock:false ButtonPath:ChoiceButtons/Trial/Perjury HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge10-21-4
+
+
+@AddChoice ChoiceSummary:戻る|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; 
+; 反論2
+; ------------------------------------------------------------------------------
+
+# Objection_02_05_21_02
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+; MARK: 10-21-3: ❌ 通過
+@AddChoice ChoiceSummary:私は許す|#0205Trial21_Choice002| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge10-21-2
+
+@AddChoice ChoiceSummary:戻る|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; 
+; 反論3
+; ------------------------------------------------------------------------------
+
+# Objection_02_05_21_03
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:いいわけない|#0205Trial21_Choice003| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge10-21-5
+
+@AddChoice ChoiceSummary:戻る|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; 
+; 反論4
+; ------------------------------------------------------------------------------
+
+# Objection_02_05_21_04
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:力づくで止めてやる|#0205Trial21_Choice004| Lock:false ButtonPath:ChoiceButtons/Trial/Approval HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge10-21-6
+
+@AddChoice ChoiceSummary:戻る|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; 
+; 反論5
+; ------------------------------------------------------------------------------
+
+# Objection_02_05_21_05
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:【幻視】|#0205Trial21_Choice005| Lock:false ButtonPath:ChoiceButtons/Trial/MagicNanoka HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge10-21-3
+
+@AddChoice ChoiceSummary:戻る|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; ==============================================================================
+; MARK: 10-21-3: ❌ 魔法・幻視
+; ==============================================================================
+
+# Judge10-21-3
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"……ナノカ！ アリサについて教えてくれ！|#0205Trial21_Hiro004|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureNanoka.1-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right
+[PrintTextModified Text:彼女の罪……それは放火ね。|#0205Trial21_Nanoka001| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureNanoka.1-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right
+[PrintTextModified Text:"偶然が重なって、<br>彼女の悪戯が<ruby=\"おおごと\">大事</ruby>になってしまった……。|#0205Trial21_Nanoka002|" AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureNanoka.2-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right
+[PrintTextModified Text:でも彼女が罰せられることはなかったわ。|#0205Trial21_Nanoka003| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.15
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……どうしてそんなことが。|#0205Trial21_Hiro005| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureNanoka.2-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right
+[PrintTextModified Text:……親に事実を隠蔽されたのよ。<br>おそらく世間体が悪かったのでしょうね。|#0205Trial21_Nanoka004| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureNanoka.2-6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right
+[PrintTextModified Text:だから――。|#0205Trial21_Nanoka005| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+; ＠備考◆頭痛
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureNanoka.2-6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right ZoomLevel:4
+[PrintTextModified Text:――うくっ！|#0205Trial21_Nanoka006| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆苦しげ
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureNanoka.2-7
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right
+[PrintTextModified Text:……ごめんなさい。<br>このぐらいで……大丈夫かしら……。|#0205Trial21_Nanoka007| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureNanoka.2-7
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right
+[PrintTextModified Text:連続で使うには……<br>この姿だと、少し負担が大きいみたい……。|#0205Trial21_Nanoka008| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.25
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……すまない。<br>休んでいてくれ、ナノカ。|#0205Trial21_Hiro006| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@BeginIf Expression:Judge10_21_3Flag=true
+    @GotoModified Path:.Judge10-21-1
+
+@UpdateWitchBook Id:Nanoka Category:Profile Version:11
+@UpdateWitchBook Id:Alisa Category:Profile Version:10
+@ShowToastUI Text:"魔女図鑑 更新…|#Toast_001|"
+@Wait WaitMode:i1.2
+@ShowToastUI Text:議論発展…|#Toast_002|
+@SetCustomVariable Expression:Judge10_21_3Flag=true
+
+@GotoModified Path:.Judge10-21-1
+
+; ==============================================================================
+; MARK: 10-21: ❌ ミス選択肢
+; ==============================================================================
+
+; MARK: 10-21-4: ❌ 偽証・誰も罪を犯していない
+
+# Judge10-21-4
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.7
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:いいや！<br>誰も罪を犯してなんていない！|#0205Trial21_Hiro007| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.7
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:みんな潔白だ！|#0205Trial21_Hiro008| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureAlisa.0-7
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right
+[PrintTextModified Text:すぐバレる嘘つくんじゃねぇ！|#0205Trial21_Alisa010| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureAlisa.0-7
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right
+[PrintTextModified Text:この中にはウチみたく<br>過去に罪を犯したやつらもいる……！|#0205Trial21_Alisa011| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureAlisa.0-7
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right
+[PrintTextModified Text:遅かれ早かれ<br>全員罪を犯すんだよ！|#0205Trial21_Alisa012| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.14
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（嘘で言いくるめられるような相手じゃないか……！）|#0205Trial21_Hiro009| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.13
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（……アリサも、過去に犯した罪がある）|#0205Trial21_Hiro010| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.13
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（罪に対する想いが、<br>　暴走の一因であることは間違いない）|#0205Trial21_Hiro011|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.13
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（その過去に、<br>　何か心残りがあったとしたら――）|#0205Trial21_Hiro012|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+
+@GotoModified Path:.Judge10-21-1
+
+; MARK: 10-21-5: ❌ 反論・いいわけない
+
+# Judge10-21-5
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:違うぞ、アリサ……！|#0205Trial21_Hiro013| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:死んでいい人間なんていない！|#0205Trial21_Hiro014| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureAlisa.0-7
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right
+[PrintTextModified Text:キレイごと言ってんじゃねぇ！|#0205Trial21_Alisa013| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureAlisa.0-7
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right
+[PrintTextModified Text:じゃあ生きる価値もないほど<br>償い切れねぇ罪を犯したヤツはどうすんだよ……！？|#0205Trial21_Alisa014| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureAlisa.1-7
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right
+[PrintTextModified Text:"死ぬべきだろ……！？ なあ！？|#0205Trial21_Alisa015|" AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.14
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（アリサの主張を否定したところで、<br>　反発されるだけか……！）|#0205Trial21_Hiro015|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆別選択肢共通
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.13
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（……アリサも、過去に犯した罪がある）|#0205Trial21_Hiro016| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.13
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（罪に対する想いが、<br>　暴走の一因であることは間違いない）|#0205Trial21_Hiro017|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.13
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（その過去に、<br>　何か心残りがあったとしたら――）|#0205Trial21_Hiro018|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge10-21-1
+
+; MARK: 10-21-6: ❌ 同意・力づくで止めてやる
+
+# Judge10-21-6
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.14
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（そうだな……こうなれば、力づくで止めるしかない）|#0205Trial21_Hiro019| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.14
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（頭数はこちらのほうが上だ。<br>　一斉にかかればアリサだって――）|#0205Trial21_Hiro020|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.13
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（……いや）|#0205Trial21_Hiro021| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.13
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（暴力に訴えれば犠牲が出る……<br>　それはダメだ）|#0205Trial21_Hiro022|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.12
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（……誰ひとり欠けることなく<br>　この牢屋敷を脱出するんだ……！）|#0205Trial21_Hiro023|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.12
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（だから、今は他の方法を考えよう……！）|#0205Trial21_Hiro024| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆別選択肢共通
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.13
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（……アリサも、過去に犯した罪がある）|#0205Trial21_Hiro025| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.13
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（罪に対する想いが、<br>　暴走の一因であることは間違いない）|#0205Trial21_Hiro026|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.13
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（その過去に、<br>　何か心残りがあったとしたら――）|#0205Trial21_Hiro027|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge10-21-1
+
+; ==============================================================================
+; MARK: 10-21-2: ⭕ 私は許す
+; ==============================================================================
+
+# Judge10-21-2
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@GosubToObjectionCutIn CutInKind:CreatureHiro Index:1 VoicePath:CommonTrial_Hiro00033 Volume:1
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+@HideUI UINames:DebateUI AllowToggle:false
+@ShowUI UINames:ControlPanel
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.20
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:私は……許すよ、アリサ。|#0205Trial21_Hiro028| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・軽い衝撃音
+@PlaySfxModified SfxPath:Sfx_Common_4 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureAlisa.3-5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right
+[PrintTextModified Text:ああ！？|#0205Trial21_Alisa016| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.20
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:君が過去にしたことも、全て。|#0205Trial21_Hiro029| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureAlisa.3-5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right
+[PrintTextModified Text:おめえに……何がわかるってんだ！|#0205Trial21_Alisa017| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.20
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:わからない。<br>……それでも、許すんだ。|#0205Trial21_Hiro030| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureAlisa.3-6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right
+[PrintTextModified Text:人が死んだんだ……！<br>ウチは……許されちゃいけないんだよ！！|#0205Trial21_Alisa018| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・決め音
+@PlaySfxModified SfxPath:Sfx_Common_3 Volume:1 Loop:false FadeInDuration:0
+
+; ＠備考◆有無を言わさぬような圧
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.18
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center ZoomLevel:3
+[PrintTextModified Text:――それでも！|#0205Trial21_Hiro031| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureAlisa.3-6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right
+[PrintTextModified Text:……っ……！|#0205Trial21_Alisa019| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.20
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……誰かが君を、許さなくちゃいけないんだ。|#0205Trial21_Hiro032| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.20
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:人を殺し、周りを殺し……<br>そして最後には自分も殺すか？|#0205Trial21_Hiro033| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.20
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:まるで泣きわめく赤ん坊を見ているかのようだ。|#0205Trial21_Hiro034| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureAlisa.2-4
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right
+[PrintTextModified Text:なっ……！？<br>んだとおめえ……！|#0205Trial21_Alisa020| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.20
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:君がやっていることは、<br>そんな子どもの癇癪と<br>変わらないと言っているんだ。|#0205Trial21_Hiro035| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.20
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……君の行動で人死にが出たと言ったな。<br>だが君が後ろ向きに自罰を続ければ、<br>被害者が生き返るのか？|#0205Trial21_Hiro036| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+; ＠備考◆バツが悪そうに
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureAlisa.2-5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right
+[PrintTextModified Text:……それは……。|#0205Trial21_Alisa021| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.20
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:何があったかは知らない。<br>君の過去を知る気もない。|#0205Trial21_Hiro037| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.19
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:だが君がしている自傷や自罰は、償いではない。|#0205Trial21_Hiro038| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.20
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:ただの自己満足で、君が楽になるための現実逃避だ！|#0205Trial21_Hiro039| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・軽い衝撃音
+@PlaySfxModified SfxPath:Sfx_Common_4 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureAlisa.2-6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right
+[PrintTextModified Text:ぐっ……！？|#0205Trial21_Alisa022| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.20
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……だから、私は君を許すんだ。|#0205Trial21_Hiro040| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.20
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:無関係だからこそ、君を受け入れる。|#0205Trial21_Hiro041| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.20
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:友人として君を支えよう。|#0205Trial21_Hiro042| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.20
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:だから……そうやって罪から逃げるんじゃない。|#0205Trial21_Hiro043| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆泣きかけ
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureAlisa.3-5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right
+[PrintTextModified Text:ウ……ウチ、は……。|#0205Trial21_Alisa023| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.20
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……生きるんだよ、アリサ。|#0205Trial21_Hiro044| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.20
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:そして悔いて、罪に向き合い続けるんだ。<br>それが君の――。|#0205Trial21_Hiro045| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・決め音
+@PlaySfxModified SfxPath:Sfx_Common_3 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.20
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center ZoomLevel:3
+[PrintTextModified Text:――私たちの、贖罪だ！|#0205Trial21_Hiro046| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆泣き
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureAlisa.3-6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right
+[PrintTextModified Text:う……う、う……！|#0205Trial21_Alisa024| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureAlisa.3-9
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right
+[PrintTextModified Text:ぐ、うぅ……う……！|#0205Trial21_Alisa025| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureAlisa.3-9
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right
+[PrintTextModified Text:そう……だ。|#0205Trial21_Alisa026| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureAlisa.3-9
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right
+[PrintTextModified Text:ウチ……は……怖かった……。|#0205Trial21_Alisa027| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureAlisa.3-9
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right
+[PrintTextModified Text:誰も責めないのが……<br>誰も……叱ってくれないのが……！|#0205Trial21_Alisa028| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureAlisa.3-10
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right
+[PrintTextModified Text:ウチ……は……！|#0205Trial21_Alisa029| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureAlisa.3-10
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right
+[PrintTextModified Text:ごめんなさい……<br>ごめん……なさい……！！|#0205Trial21_Alisa030| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@StopBgm
+
+; 炎エフェクト終了
+@StopBgm BgmPath:Ambi_102_1
+@ResetText
+@ModifyBackgroundExtended Duration:0.4 Lazy:false Wait:true AppearanceAndTransition:SolidColor SubId:Overlay
+
+@ChangeCourtFireFxActivity Enable:false
+@ModifyBackgroundExtended Duration:0.8 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+
+@Wait WaitMode:2
+
+@UpdateWitchBook Id:Alisa Category:Profile Version:11
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.3
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（……炎の勢いは収まった）|#0205Trial21_Hiro047| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.3
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（アリサの戦意は喪失したか）|#0205Trial21_Hiro048| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.3
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（危ないところだったが、なんとかなっ――）|#0205Trial21_Hiro049| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 振動／轟音
+@PlayBgm BgmPath:Ambi_7_1 Volume:1 Loop:true FadeInDuration:0
+
+@ShakePerspectiveStageCamera Index:0 Force:0.4,-0.2,0 Frequency:50 DampingRatio:1 Duration:3
+@Wait WaitMode:0.5
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureCoco.2-10
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Right
+@Wait WaitMode:0.5
+
+@ShakePerspectiveStageCamera Index:0 Force:0.4,-0.2,0 Frequency:50 DampingRatio:1 Duration:1
+@Wait WaitMode:0.5
+
+[PrintTextModified Text:なにこれっ！？|#0205Trial21_Coco001| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆揺れ
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.15
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+
+[PrintTextModified Text:……今度はなんだっ！|#0205Trial21_Hiro050| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; BGM変更：EmA-虚-
+@PlayBgm BgmPath:Bgm_12_1_Loop IntroBgmPath:Bgm_12_1_Intro Volume:1 Loop:true FadeInDuration:0
+
+@ModifyBackgroundExtended Scale:2.5 TintColor:#FFFFFF Duration:0 Lazy:false ScenePosition:50,50 AppearanceAndTransition:14_1 SubId:Flashback
+@ModifyCharacterExtended Duration:0 Lazy:false ScenePosition:50,50 IdAndAppearance:Warden.11 SubId:Flashback
+
+[PrintTextModified Text:いやーこれは大変ですねぇ……。|#0205Trial21_Warden001| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.14
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+@HideActors ActorIds:MainBackground-Flashback,Warden-Flashback Duration:0 Lazy:false
+[PrintTextModified Text:全然大変そうじゃない前置きはいい！<br>何があったか簡潔に教えろ！|#0205Trial21_Hiro051| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Scale:2.5 TintColor:#FFFFFF Duration:0 Lazy:false ScenePosition:50,50 AppearanceAndTransition:14_1 SubId:Flashback
+@ModifyCharacterExtended Duration:0 Lazy:false ScenePosition:50,50 IdAndAppearance:Warden.11 SubId:Flashback
+[PrintTextModified Text:それがこの島、浮いちゃってます。<br>ザパーって海を離れて、空へ向かってふわふわと。|#0205Trial21_Warden002| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.15
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+@HideActors ActorIds:MainBackground-Flashback,Warden-Flashback Duration:0 Lazy:false
+[PrintTextModified Text:空へ……【浮く】！？|#0205Trial21_Hiro052| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.15
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……まさか！|#0205Trial21_Hiro053| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 魔女化しているハンナ
+@HideActors ActorIds:Hanna Duration:0 Lazy:false
+@ModifyCharacterExtended Position:{hannaPositionX},{characterPositionY},{hannaPositionZ} Rotation:,{hannaRotationY} Scale:{characterScale},{characterScale},1 Duration:0 Lazy:false IdAndAppearance:CreatureHanna.2_10
+
+@StopBgm BgmPath:Bgm_12_1_Loop FadeOutDuration:3
+; @備考◆錯乱
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHanna.2_4
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hanna Composition:Right
+@Wait WaitMode:0.5
+@ShakePerspectiveStageCamera Index:0 Force:0.5,-0.5,0 Frequency:10 DampingRatio:1 Duration:0.5
+@Wait WaitMode:0.5
+
+[PrintTextModified Text:わたくしが……わたくしが……わたくしが……！<br>そんなの嘘……嘘……！|#0205Trial21_Hanna001| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHanna.2_5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hanna Composition:Right ZoomLevel:3
+@Wait WaitMode:0.5
+@ShakePerspectiveStageCamera Index:0 Force:0.5,-0.5,0 Frequency:10 DampingRatio:1 Duration:0.5
+@Wait WaitMode:0.5
+
+[PrintTextModified Text:嘘よ……ねぇ！|#0205Trial21_Hanna002| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHanna.1_5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hanna Composition:Right ZoomLevel:4
+@Wait WaitMode:0.5
+@ShakePerspectiveStageCamera Index:0 Force:0.5.-0.5,0 Frequency:10 DampingRatio:1 Duration:0.5
+@Wait WaitMode:0.5
+
+[PrintTextModified Text:……嘘でしょう！！|#0205Trial21_Hanna003| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+@AutoSave
+@StopBgm
+
+@UpdateWitchBook Id:Hanna Category:Profile Version:10
+
+
+@GotoModified Path:Act02_Chapter05/Act02_Chapter05_Trial22 ResetState:-
+

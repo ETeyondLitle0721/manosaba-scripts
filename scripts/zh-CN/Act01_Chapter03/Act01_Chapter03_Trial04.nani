@@ -1,0 +1,778 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook Version:2
+
+@BeginIf Expression:isDebugDirectJump
+    @Gosub Path:Act01_Chapter03/Act01_Chapter03_TrialInit
+    @HidePerspectiveStageScreen Index:1 Duration:0 Reset:true
+    @ModifyBackgroundExtended TintColor:#000000 Duration:0 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+
+@SetTrialTimer Time:900
+@HideUI UINames:ControlPanel AllowToggle:false
+@ShowUI UINames:DebateUI
+
+@ModifyCharacterExtended Position:,{hiddenCharacterPositionY} Duration:0 Lazy:false IdAndAppearance:Warden.1
+@ModifyCharacterExtended Position:,{hiddenCharacterPositionY} Duration:0 Lazy:false IdAndAppearance:Jailer.1
+; ==============================================================================
+; MARK: 3-4: 💬 ハンナの死亡推定時刻
+; ==============================================================================
+; ＠ト書き▼議論3-4 ハンナの死亡推定時刻
+; カットイン
+; BGM変更：rAwTell Owk...
+@PlayBgm BgmPath:Bgm_7_1 Volume:1 Loop:true FadeInDuration:0
+
+# Judge3-4-1
+
+@Gosub Path:System/System_Subroutine.BeginDebate-First
+@Gosub Path:System/System_Subroutine.BeginDebate-Effect
+@Gosub Path:System/System_Subroutine.BeginDebate-Last
+@ChangeTrialPauseMode Enable:false ProcessTimer:true
+
+@HidePerspectiveStageScreen Index:1 Reset:true
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Normal1,ArmR7,ArmL5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:昨天晚上，<br>我邀请亚里沙和<br>可可<br>协助我进行了<br>一场魔法实验。|#0103Trial04_Margo001| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Default,ArmR3,ArmL2,Angle01/Facial/Eyes>Eyes_Pensive_Open01,Angle01/Facial/Mouth>Mouth_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:我只是被硬拉着<br>陪她胡闹而已。<br>|#0103Trial04_Coco001| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,Angle01/Arms>Arms01,Angle01/ArmL-,Angle01/ArmR-,Angle01/Facial/Eyes>Eyes_Angry_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:我也一样……|#0103Trial04_Alisa001| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,ArmR2,ArmL5,Angle01/Facial/Eyes>Eyes_Normal_Open,Angle01/Facial/Mouth>Mouth_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:结果，<br>汉娜却死了……<br>这说不定就是<br>魔法实验<br>带来的后果呢。<br>|#0103Trial04_Margo002| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,ArmR1,ArmL4,Angle01/Facial/Eyes>Eyes_Smile_Middle,Angle01/Facial/Mouth>Mouth_Smile_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:"毫无疑问，<br>是<link=\"Objection_01_03_04_01\">诅咒</link>夺走了<br>她的生命……|#0103Trial04_Margo003|" RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+; 恐怖
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Fearful1,ArmR4,ArmL6,Angle01/Facial/Eyes>Eyes_Angry_Open03
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:诅、诅咒这种东西……<br>怎么可能是真的啊！<br>|#0103Trial04_Alisa002| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.ArmR2,ArmL9,Eyes1_Normal_Open2,Mouth1_Surprised_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:总之，<br>我想详细了解一下<br>昨天的具体情况。|#0103Trial04_Nanoka001| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.ArmR2,ArmL9,Eyes1_Normal_Open2,Mouth1_Surprised_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:昨晚，<br>远野汉娜确实<br>不在现场，对吧？|#0103Trial04_Nanoka002| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open01,Angle01/Facial/Mouth>Mouth_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:要是她在场的话<br>我们不可能注意不到啊！|#0103Trial04_Alisa003| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open01,Angle01/Facial/Mouth>Mouth_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:但是但是，<br>你们没法<br>证明这一点吧？<br>说不定你们只是<br>没发现她而已！|#0103Trial04_Sherry001| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open01,Angle01/Facial/Mouth>Mouth_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:"也许她是<br><link=\"Objection_01_03_04_02\">躲起来了</link>呢。<br>这么一来，之后悄悄<br><link=\"Objection_01_03_04_03\">自杀</link>的可能性<br>也是存在的吧？<br>又或者说，你们三个人<br>其实是<link=\"Objection_01_03_04_04\">串通好了</link>的？|#0103Trial04_Sherry002|" RevealSpeed:1 ScenePosition:32,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,ArmR4,ArmL6,Angle01/Facial/Eyes>Eyes_Angry_Open03
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:你想说我们三个<br>是共犯吗？<br>开什么<br>玩笑……！|#0103Trial04_Alisa004| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR10,ArmL11,Angle01/Facial/Eyes>Eyes_Smile_Closed01,Angle01/Facial/Mouth>Mouth_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:我只是在探讨<br>各种可能性嘛～！<br>……不可以<br>生气哦☆|#0103Trial04_Sherry003| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,ArmR2,ArmL1,Angle01/Facial/Eyes>Eyes_Angry_Open02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:你这家伙……！|#0103Trial04_Alisa005| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,ArmR7,ArmL5,Angle01/Facial/Eyes>Eyes_Normal_Open,Angle01/Facial/Mouth>Mouth_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:总之……<br>当我们结束<br>魔法实验<br>打开门时，<br>看守就站在<br>门口。|#0103Trial04_Margo004| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Default,ArmR3,ArmL2,Angle01/Facial/Eyes>Eyes_Pensive_Open01,Angle01/Facial/Mouth>Mouth_Pensive_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:本来还以为<br>要出事了……<br>但结果无事发生，<br>等我们出来后<br>它就直接上锁离开了。|#0103Trial04_Coco002| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+@Gosub Path:System/System_Subroutine.EndDebate-Effect
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+; 
+; 議論終了
+; ------------------------------------------------------------------------------
+
+@ResetText
+@ModifyCharacterExtended Duration:0 Lazy:false IdAndAppearance:Ema.Default,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Nervous_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center ZoomLevel:2
+@Wait WaitMode:0.2
+
+; ==============================================================================
+; 3-4議論後独白
+; ==============================================================================
+
+[PrintTextModified Text:"（关键是要弄清楚昨天晚上<br>　究竟发生了什么……）|#0103Trial04_Ema001|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Nervous_Closed
+[PrintTextModified Text:"（有没有什么能证明……<br>　那个房间当时的具体状况呢？）|#0103Trial04_Ema002|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge3-4-1
+; 
+; 反論1
+; ------------------------------------------------------------------------------
+
+# Objection_01_03_04_01
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:汉娜是因魔法窒息的|#0103Trial04_Choice001| Lock:false ButtonPath:ChoiceButtons/Trial/Approval HandlerId:Trial AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge3-4-3
+
+@AddChoice ChoiceSummary:汉娜被魔法操控了|#0103Trial04_Choice002| Lock:false ButtonPath:ChoiceButtons/Trial/Approval HandlerId:Trial AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge3-4-4
+
+@AddChoice ChoiceSummary:汉娜被魔法召唤了|#0103Trial04_Choice003| Lock:false ButtonPath:ChoiceButtons/Trial/Approval HandlerId:Trial AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge3-4-5
+
+
+@AddChoice ChoiceSummary:返回|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:Trial AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; 
+; 反論2
+; ------------------------------------------------------------------------------
+
+# Objection_01_03_04_02
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:证明现场没有人躲藏|#0103Trial04_Choice004| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:Trial AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge3-4-2
+
+
+@AddChoice ChoiceSummary:返回|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:Trial AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; 
+; 反論3
+; ------------------------------------------------------------------------------
+
+# Objection_01_03_04_03
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:有迹象表明不是自杀|#0103Trial04_Choice005| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:Trial AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge3-4-6
+
+
+@AddChoice ChoiceSummary:返回|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:Trial AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; 
+; 反論4
+; ------------------------------------------------------------------------------
+
+# Objection_01_03_04_04
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:三人并未串通|#0103Trial04_Choice006| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:Trial AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge3-4-7
+
+
+@AddChoice ChoiceSummary:返回|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:Trial AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; ==============================================================================
+; MARK: 3-4: ❌ 議論ミス選択肢
+; ==============================================================================
+; MARK: 3-4-3: ❌ ハンナは魔法で窒息した
+
+# Judge3-4-3
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Surprised1,ArmR4,ArmL5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:那，说不定汉娜就是<br>因为魔法的力量<br>窒息而死的……！|#0103Trial04_Ema003| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Default,ArmR3,ArmL2,Angle01/Facial/Eyes>Eyes_Pensive_Open01,Angle01/Facial/Mouth>Mouth_Pensive_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Right
+[PrintTextModified Text:喂喂，艾玛亲……你看过尸体了吗？|#0103Trial04_Coco003| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Serious_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left
+[PrintTextModified Text:远野的脖子上留着清晰的绳索勒痕……|#0103Trial04_Alisa006| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.ArmL5,Angle01/ArmR-,Eyes1_Flushed_Open1,Mouth1_Pensive_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right
+[PrintTextModified Text:如果真是魔法造成的窒息，<br>现场留下的实物证据未免太多了。|#0103Trial04_Nanoka003| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Surprised_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Confused_Open,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（被冷静地指出漏洞了……！）|#0103Trial04_Ema004| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（我要重整旗鼓，认真听取大家的意见才行……！）|#0103Trial04_Ema005| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+
+@GotoModified Path:.Judge3-4-1
+; MARK: 3-4-4: ❌ ハンナは魔法で操られた
+
+# Judge3-4-4
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Surprised1,ArmR4,ArmL5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:我知道了……汉娜是被魔法操控了！|#0103Trial04_Ema006| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:凶手没有亲自动手，<br>而是通过魔法控制了汉娜的意识，<br>让她自杀的！|#0103Trial04_Ema007| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.ArmL5,Angle01/ArmR-,Eyes1_Normal_Open2,Mouth1_Surprised_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right
+[PrintTextModified Text:那么，是谁拥有这种操控远野汉娜的能力呢？|#0103Trial04_Nanoka004| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Smile1,ArmR2,ArmL5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Left
+[PrintTextModified Text:安安已经不在了……<br>难道是我们的实验不小心召唤出了什么邪魔吗？|#0103Trial04_Margo005| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.ArmR2,ArmL9,Eyes1_Normal_Open2,Mouth1_Surprised_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right
+[PrintTextModified Text:就算真的存在这种力量，<br>现场也没有任何迹象表明<br>远野汉娜被操控过。|#0103Trial04_Nanoka005| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,ArmR2,ArmL1,Angle01/Facial/Eyes>Eyes_Angry_Open02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left
+[PrintTextModified Text:别在那里乱猜了。|#0103Trial04_Alisa007| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL6,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Flushed_Middle,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（被骂了……！）|#0103Trial04_Ema008| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Meruru.Normal2,ArmR1_2,ArmL3,Eyes2_Normal_Open1,Mouth2_Angry_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Right
+[PrintTextModified Text:请、请不要灰心，艾玛小姐……！<br>我觉得探讨各种可能性也是、<br>也是很有意义的……！|#0103Trial04_Meruru001| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL6,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Flushed_Middle,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（还被安慰了……！）|#0103Trial04_Ema009| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Pensive1,ArmR4,ArmL5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（虽然梅露露说得对，<br>　讨论任何可能性都很重要……）|#0103Trial04_Ema010|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（但如果没有确凿的证据，是无法说服大家的……<br>　重新检查所有证物，再仔细思考一下吧……！）|#0103Trial04_Ema011|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge3-4-1
+
+; MARK: 3-4-5: ❌ ハンナは魔法で召喚された
+
+# Judge3-4-5
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:昨天大家进行魔法实验的时候，<br>会不会因为实验的影响，<br>意外地把汉娜召唤到了那个房间……！？|#0103Trial04_Ema012| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:这样就能解释<br>为什么汉娜的尸体<br>会出现在那个密室中了！|#0103Trial04_Ema013| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,Angle01/Arms>Arms01,Angle01/ArmL-,Angle01/ArmR-,Angle01/Facial/Eyes>Eyes_Serious_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left
+[PrintTextModified Text:……我不觉得我们进行的魔法实验<br>能实现瞬间移动……<br>|#0103Trial04_Alisa008| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.ArmR1,ArmL10,Eyes1_Normal_Open1,Mouth1_Normal_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right
+[PrintTextModified Text:……要相信她是被召唤的，<br>得有足够的证据才行。|#0103Trial04_Nanoka006| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open03,Angle01/Facial/Mouth>Mouth_Surprised_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left
+[PrintTextModified Text:你有证据吗？<br>艾玛。|#0103Trial04_Sherry004| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Pensive1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:这个……只是我的直觉而已……|#0103Trial04_Ema014| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆笑顔
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Smile1,ArmR10,ArmL1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left
+[PrintTextModified Text:那这个推理就不能成立了！|#0103Trial04_Sherry005| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Surprised_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Confused_Open,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（被笑着否定了……！）|#0103Trial04_Ema015| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Nervous_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（除了魔法实验之外，<br>　还有没有其他能了解<br>　昨晚招待所状况的线索呢……？）|#0103Trial04_Ema016|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge3-4-1
+
+; MARK: 3-4-6: ❌ 自殺ではない理由がある
+
+# Judge3-4-6
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:等一下，雪莉。<br>我之前已经解释过这不可能是自杀的原因了。|#0103Trial04_Ema017| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR10,ArmL11,Angle01/Facial/Eyes>Eyes_Normal_Open03,Angle01/Facial/Mouth>Mouth_Surprised_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left
+[PrintTextModified Text:但那只是<br>建立在尸体被伪装过的假设之上吧？|#0103Trial04_Sherry006| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR10,ArmL11,Angle01/Facial/Eyes>Eyes_Normal_Open03,Angle01/Facial/Mouth>Mouth_Surprised_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left
+[PrintTextModified Text:而且，杀人凶手和纵火犯<br>完全可能是两个不同的人哦。|#0103Trial04_Sherry007| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR10,ArmL11,Angle01/Facial/Eyes>Eyes_Normal_Open03,Angle01/Facial/Mouth>Mouth_Surprised_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left
+[PrintTextModified Text:虽然放火的动机还不清楚，<br>但自杀和纵火这两起事件<br>完全可能是正巧同时发生而已！|#0103Trial04_Sherry008| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,Angle01/Arms>Arms01,Angle01/ArmL-,Angle01/ArmR-,Angle01/Facial/Eyes>Eyes_Normal_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right
+[PrintTextModified Text:……总比什么诅咒的说法靠谱多了。|#0103Trial04_Alisa009| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Pensive1,ArmR4,ArmL5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（确实……<br>　从这个角度来看很难继续反驳了……）|#0103Trial04_Ema018|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Pensive1,ArmR4,ArmL5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（……但是汉娜真的有可能<br>　躲在那个房间里吗……）|#0103Trial04_Ema019|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Pensive1,ArmR4,ArmL5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（有没有什么能够检验这一点的证据呢？）|#0103Trial04_Ema020| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge3-4-1
+
+; MARK: 3-4-7: ❌ 3人は口裏を合わせていない
+
+# Judge3-4-7
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:她们三个绝对不可能串通在一起！|#0103Trial04_Ema021| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open03,Angle01/Facial/Mouth>Mouth_Surprised_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right
+[PrintTextModified Text:是这样吗？<br>既然你这么笃定，<br>那你一定掌握了能证明这一点的证据吧？|#0103Trial04_Sherry009| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Pensive1,ArmR3,ArmL1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:呃……没有具体的证据。|#0103Trial04_Ema022| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR15,ArmL4,Angle01/Facial/Eyes>Eyes_Wink_Open01,Angle01/Facial/Mouth>Mouth_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right
+[PrintTextModified Text:那就是说，果然她们三个都是共犯呢！|#0103Trial04_Sherry010| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,ArmR2,ArmL7,Angle01/Facial/Eyes>Eyes_Angry_Open02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left
+[PrintTextModified Text:喂，别随便下定论！<br>我才不是什么共犯！|#0103Trial04_Alisa010| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Angry1,ArmR13,ArmL10
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Right
+[PrintTextModified Text:喂！什么叫【我才不是】！<br>人家也根本没有参与好吗！|#0103Trial04_Coco004| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.ArmL5,Angle01/ArmR-,Eyes1_Angry_Closed1,Mouth1_Surprised_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:樱羽艾玛，我理解你想要袒护他人的心情，<br>但在这种场合，适当的怀疑也是必要的。|#0103Trial04_Nanoka007| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.ArmL5,Angle01/ArmR-,Eyes1_Angry_Closed1,Mouth1_Surprised_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:而且轻率的发言很可能会引发更多的矛盾。<br>……请你谨慎发言。|#0103Trial04_Nanoka008| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL6,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Flushed_Middle,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（被骂了一顿……）|#0103Trial04_Ema023| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Nervous_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（说得对，就算是为了保护他人，<br>　也必须经过深思熟虑后再发言）|#0103Trial04_Ema024|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Nervous_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（那么，关键就在于昨晚房间的具体状况了）|#0103Trial04_Ema025| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Nervous_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（有没有什么能够检验这一点的证据呢？）|#0103Trial04_Ema026| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge3-4-1
+
+; ==============================================================================
+; MARK: 3-4-2: ⭕ 誰も隠れていなかったと証明する
+; ==============================================================================
+
+# Judge3-4-2
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@GosubToObjectionCutIn CutInKind:Ema Index:1 VoicePath:CommonTrial_Ema05117 Volume:1
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+@HideUI UINames:DebateUI AllowToggle:false
+@ShowUI UINames:ControlPanel
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR8,ArmL2,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:等一下，雪莉。<br>昨天晚上，那个房间里应该没有任何人在场。|#0103Trial04_Ema027| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open03,Angle01/Facial/Mouth>Mouth_Surprised_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right
+[PrintTextModified Text:欸？是吗？|#0103Trial04_Sherry011| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+# Judge3-4-8
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:能够证明这一点的证据就是……这个！|#0103Trial04_Ema028| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 証拠提出：看守カメラ
+@ChoiceEvidence CategoryNames:Clue Back:false Global:false CorrectEvidenceId:3-12
+
+; 看守カメラ
+@BeginIf Expression:"chosenEvidenceId==\"3-12\""
+    @GotoModified Path:.Judge3-4-9
+
+@GotoModified Path:.Judge3-4-10
+
+; ==============================================================================
+; ミス選択肢
+; ==============================================================================
+; MARK: 3-4-10: ❌ 汎用選択ミス
+
+# Judge3-4-10
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR17,ArmL1,Angle01/Facial/Eyes>Eyes_Normal_Open04,Angle01/Facial/Mouth>Mouth_Normal_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left
+[PrintTextModified Text:不行不行，艾玛！<br>这种东西根本算不上有效证据，<br>这一点谁都清楚吧！|#0103Trial04_Sherry012| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Default,ArmR3,ArmL2,Angle01/Facial/Eyes>Eyes_Pensive_Open01,Angle01/Facial/Mouth>Mouth_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Right
+[PrintTextModified Text:你该不会是<br>想用一些模棱两可的证据来混淆视听吧？|#0103Trial04_Coco005| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Angry_Open02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left
+[PrintTextModified Text:麻烦你正经点。|#0103Trial04_Alisa011| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL6,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Flushed_Middle,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:对、对不起……我不是那个意思。|#0103Trial04_Ema029| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Nervous_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（要证明昨晚房间里确实空无一人的话……）<br>|#0103Trial04_Ema030| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Nervous_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（如果有确凿的目击证据就好了……）|#0103Trial04_Ema031| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge3-4-8
+
+; ==============================================================================
+; MARK: 3-4-9: ⭕ 【看守カメラ】
+; ==============================================================================
+
+# Judge3-4-9
+
+@StopBgm
+
+; アイテム表示
+@SpawnExtended Path:Clue Params:3-12
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open03,Angle01/Facial/Mouth>Mouth_Surprised_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right
+[PrintTextModified Text:你是说……安装在看守身上的<br>摄像头吗？|#0103Trial04_Sherry013| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 気任せの蝶［チェロ有り］
+@PlayBgm BgmPath:Bgm_45_1 Volume:1 Loop:true FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Determined2,ArmR7,ArmL7,Angle01/Head02/Facial02/Mouth02>Mouth02_Angry_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:没错。<br>根据典狱长的说法，昨晚摄像头的画面中<br>并未拍到任何可疑的情况……|#0103Trial04_Ema032| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Determined2,ArmR7,ArmL7,Angle01/Head02/Facial02/Mouth02>Mouth02_Angry_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:我说得对吧，典狱长？|#0103Trial04_Ema033| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@DestroySpawnedExtended Path:Clue Wait:true LogWarning:true
+
+@ModifyCharacterExtended Position:,{characterPositionY} Duration:0 Lazy:false IdAndAppearance:Warden.1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Warden Composition:Right
+[PrintTextModified Text:是的，确实如此。|#0103Trial04_Warden001| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,Angle01/Arms>Arms01,Angle01/ArmL-,Angle01/ArmR-,Angle01/Facial/Eyes>Eyes_Serious_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left
+[PrintTextModified Text:……那东西真的靠谱吗？|#0103Trial04_Alisa012| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR8,ArmL2,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:如果不相信的话，<br>那就请它们调取录像吧。|#0103Trial04_Ema034| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR8,ArmL2,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:这没问题吧？|#0103Trial04_Ema035| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Warden.3
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Warden Composition:Right
+[PrintTextModified Text:嗯，这点小事还好……|#0103Trial04_Warden002| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Warden.4
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Warden Composition:Right
+[PrintTextModified Text:……欸？<br>要我去调取录像吗？|#0103Trial04_Warden003| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Angry_Open02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left
+[PrintTextModified Text:除了你还能有谁去啊！|#0103Trial04_Alisa013| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Warden.3
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Warden Composition:Right
+[PrintTextModified Text:唉……<br>从服务器调取数据很麻烦的啊……<br>好吧，请稍等一下……|#0103Trial04_Warden004| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@ModifyBackgroundExtended Duration:0.6 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+
+@StopBgm
+@ModifyCharacterExtended Duration:0 Lazy:false IdAndAppearance:Warden.1
+@ModifyBackgroundExtended Duration:0.6 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:0.6
+
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Warden Composition:Right
+[PrintTextModified Text:……好了，我已经取来了昨晚的监控录像。|#0103Trial04_Warden005| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Warden.3
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Warden Composition:Right
+[PrintTextModified Text:考虑到观看录像要花不少时间，<br>我已经大致把画面打印出来了，<br>请各位过目。|#0103Trial04_Warden006| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ☆アイテム追加
+; 【昨夜の写真】
+; タイムスタンプは21:45。
+; ハンナの死体は映っていない。
+; 看守カメラによって撮影されたもの。
+@SpawnExtended Path:Clue Params:3-13
+@ShowToastUI Text:"魔女图鉴 更新…|#Toast_001|"
+@UpdateWitchBook Id:3-13 Category:Clue Version:1
+@Wait WaitMode:i1.2
+@DestroySpawnedExtended Path:Clue LogWarning:true
+
+; BGM変更：rAwTell Owk...
+@PlayBgm BgmPath:Bgm_7_1 Volume:1 Loop:true FadeInDuration:0
+
+; SE・明るい音
+@PlaySfxModified SfxPath:Sfx_Common_2 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR15,ArmL4,Angle01/Facial/Eyes>Eyes_Surprised_Open03,Angle01/Facial/Mouth>Mouth_Normal_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left
+[PrintTextModified Text:你们快看！<br>房间里不仅没有汉娜的尸体，<br>连一根绳子都没有！|#0103Trial04_Sherry014| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.ArmR3,ArmL1,Eyes1_Normal_Open2,Mouth1_Angry_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right
+[PrintTextModified Text:这就证实了一点：<br>昨晚这个房间被上锁时，<br>远野汉娜并不在里面。|#0103Trial04_Nanoka009| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Pensive1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Left
+[PrintTextModified Text:可、可是这究竟是怎么一回事……？|#0103Trial04_Coco006| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR6,ArmL8,Angle01/Facial/Eyes>Eyes_Smile_Closed01,Angle01/Facial/Mouth>Mouth_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right
+[PrintTextModified Text:密室杀人……<br>不，这已经是【不可能的犯罪】了！|#0103Trial04_Sherry015| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Nervous_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（从昨天晚上开始，<br>　就没有任何人能够进入火精之室……）|#0103Trial04_Ema036|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Nervous_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（可是今早打开门的时候，<br>　却发现了汉娜的尸体……）|#0103Trial04_Ema037|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Nervous_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（这究竟是……怎么回事……）|#0103Trial04_Ema038| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・明るい音
+@PlaySfxModified SfxPath:Sfx_Common_2 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.ArmR1,ArmL10,Eyes1_Normal_Open1,Mouth1_Normal_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:……不过，现在有一点是可以确定的。|#0103Trial04_Nanoka010| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Surprised_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Cry_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:欸？|#0103Trial04_Ema039| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.ArmR1,ArmL10,Eyes1_Normal_Open1,Mouth1_Normal_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:【远野汉娜是在夜间死亡的】……<br>这一点应该已经可以确定了。|#0103Trial04_Nanoka011| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.ArmR1,ArmL10,Eyes1_Normal_Open1,Mouth1_Normal_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:因为昨晚那个时候，她的尸体还不在房间里……|#0103Trial04_Nanoka012| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open01,Angle01/Facial/Mouth>Mouth_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right
+[PrintTextModified Text:也就是说汉娜是在夜里死亡的，<br>然后通过某种方式进入了那个密室，对吧！|#0103Trial04_Sherry016| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・明るい音
+@PlaySfxModified SfxPath:Sfx_Common_2 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,Angle01/Arms>Arms01,Angle01/ArmL-,Angle01/ArmR-,Angle01/Facial/Eyes>Eyes_Serious_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left
+[PrintTextModified Text:……说起来，<br>我在夜里听到了【很大的声响】。|#0103Trial04_Alisa014| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Pensive1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Right
+[PrintTextModified Text:欸？|#0103Trial04_Coco007| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,Angle01/Arms>Arms01,Angle01/ArmL-,Angle01/ArmR-,Angle01/Facial/Eyes>Eyes_Normal_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left
+[PrintTextModified Text:因为有点睡不着……<br>我就在外面走了走。|#0103Trial04_Alisa015| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,ArmR7,ArmL5,Angle01/Facial/Eyes>Eyes_Surprised_Open,Angle01/Facial/Mouth>Mouth_Neutral_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right
+[PrintTextModified Text:哎呀，这可违反了规定呢。|#0103Trial04_Margo006| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,ArmR9,ArmL2,Angle01/Facial/Eyes>Eyes_Angry_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left
+[PrintTextModified Text:啊？<br>反正又不是当场被抓到，<br>早过追究期啦。|#0103Trial04_Alisa016| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Pensive1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（这才半天都不到……<br>　这样真的好吗……）|#0103Trial04_Ema040|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Warden.9
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Warden Composition:Left
+[PrintTextModified Text:…………|#0103Trial04_Warden007| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Nervous_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（典狱长似乎并不在意的样子……<br>　而且奈叶香也没被带走，<br>　现在是优先处理审判的事情吧……？）|#0103Trial04_Ema041|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ゴクチョーは裁判に参加しているわけではないので消去
+@ModifyCharacterExtended Position:,{hiddenCharacterPositionY} Duration:0 Lazy:false IdAndAppearance:Warden.1
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,Angle01/Arms>Arms01,Angle01/ArmL-,Angle01/ArmR-,Angle01/Facial/Eyes>Eyes_Serious_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left
+[PrintTextModified Text:我在两个不同的时间点听到了声响。|#0103Trial04_Alisa017| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,Angle01/Arms>Arms01,Angle01/ArmL-,Angle01/ArmR-,Angle01/Facial/Eyes>Eyes_Serious_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left
+[PrintTextModified Text:【深夜1点的时候听到1次】，<br>【2点的时候听到了好几次】……|#0103Trial04_Alisa018| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,Angle01/Arms>Arms01,Angle01/ArmL-,Angle01/ArmR-,Angle01/Facial/Eyes>Eyes_Serious_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left
+[PrintTextModified Text:这些声音都是从外面传来的。|#0103Trial04_Alisa019| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Pensive_Open02,Angle01/Facial/Mouth>Mouth_Gross_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Right
+[PrintTextModified Text:那是什么？你怎么不录下来？|#0103Trial04_Coco008| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left
+[PrintTextModified Text:谁会想起要录音啊。|#0103Trial04_Alisa020| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆使えないヤツ、の意
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Default,ArmR3,ArmL2,Angle01/Facial/Eyes>Eyes_Pensive_Open01,Angle01/Facial/Mouth>Mouth_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Right
+[PrintTextModified Text:要你有什么用。|#0103Trial04_Coco009| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・軽い衝撃音
+@PlaySfxModified SfxPath:Sfx_Common_4 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,ArmR2,ArmL7,Angle01/Facial/Eyes>Eyes_Angry_Open02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left
+[PrintTextModified Text:你说什么……|#0103Trial04_Alisa021| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Smile1,ArmR17,ArmL12
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right
+[PrintTextModified Text:好啦好啦！<br>我们现在有了新的证词呢！|#0103Trial04_Sherry017| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@StopBgm
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR6,ArmL8,Angle01/Facial/Eyes>Eyes_Surprised_Open03,Angle01/Facial/Mouth>Mouth_Normal_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right
+[PrintTextModified Text:那些声响到底是什么……<br>让我们一起来推理一下吧！|#0103Trial04_Sherry018| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+@AutoSave
+@GotoModified Path:Act01_Chapter03/Act01_Chapter03_Trial05 ResetState:-
+

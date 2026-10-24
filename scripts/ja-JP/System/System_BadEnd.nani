@@ -1,0 +1,31 @@
+@Skip Enable:false
+@ProcessInput InputEnabled:true SetEnabled:Continue.true,Pause.false,Skip.false,ToggleSkip.false,SkipMovie.false,AutoPlay.false,ToggleUI.false,ShowBacklog.false,Rollback.false
+@StopBgm FadeOutDuration:1
+@ResetText
+@HideUI UINames:ControlPanel,AutoToggle,WitchBookButtonUI AllowToggle:false
+@ModifyBackgroundExtended TintColor:#000000 Duration:1.6 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:0.6
+
+@HidePrinter Duration:0.9
+@Wait WaitMode:1.8
+
+@SpawnExtended Path:BadEnd Params:"BAD END" Wait:true
+
+@Wait WaitMode:i1.8
+
+@DestroySpawnedExtended Path:BadEnd Wait:true LogWarning:true
+
+@Wait WaitMode:i1.2
+
+# BadEndChoice
+
+@AddChoice ChoiceSummary:ロード画面を開く|#Common_BadEnd001| Lock:false AutoPlay:true ShowHandler:true
+    @ShowLoadUi AutoSave:true
+    @GotoModified Path:.BadEndChoice
+
+@AddChoice ChoiceSummary:タイトル画面へ戻る|#Common_BadEnd002| Lock:false AutoPlay:true ShowHandler:true
+    @ClearBacklog
+    @ReturnToTitle FadeDuration:1.2 MinDelayDuration:0.6 Wait:true
+
+@Stop
+

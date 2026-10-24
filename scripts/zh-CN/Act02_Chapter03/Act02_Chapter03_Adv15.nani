@@ -1,0 +1,71 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook IsDebugDirectJump:{isDebugDirectJump}
+@Gosub Path:System/System_Subroutine.BeginAdv
+
+# Scene2-3-15
+
+; ========================================
+; ●シーン2‐3‐15
+; ========================================
+
+@ModifyBackgroundExtended Scale:2 Lazy:false ScenePosition:50,70 AppearanceAndTransition:27_1
+@ModifyBackgroundExtended TintColor:#000000 Duration:1.2 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+
+@PlayBgm BgmPath:Bgm_24_1 Volume:1 Loop:true FadeInDuration:0
+@AutoSave
+[PrintTextModified Text:审判过后，<br>我独自来到地下焚烧炉室。|#0203Adv15_Narrative001| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:打开门，室内一片阴暗，<br>烧焦的残渣不规律地层叠堆砌着。|#0203Adv15_Narrative002| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:房间里还放了几袋焚烧前的垃圾，<br>还有一些没有全部烧完的物件。|#0203Adv15_Narrative003| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:纸质类的物品特别不好烧，<br>如果叠在一起的话还很容易烧不着保留下来。|#0203Adv15_Narrative004| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 焼却炉の中を漁る音
+@PlaySfxModified SfxPath:Sfx_143 Volume:1 Loop:false FadeInDuration:0
+
+[PrintTextModified Text:我毫不犹豫地把手伸进那堆灰烬的小山丘里翻找。<br>|#0203Adv15_Narrative005| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（肯定，肯定还留着）|#0203Adv15_Hiro001| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:我没有任何证据。<br>即使如此，我也不会停止寻找。|#0203Adv15_Narrative006| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:我奋不顾身，忘我地一次又一次<br>把翻出来的焦黑纸片和金属片抓住，再往外扔。|#0203Adv15_Narrative007| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:终于——我找到了。|#0203Adv15_Narrative008| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+
+; ぬいぐるみの中で紙がカサリと鳴る音
+@PlaySfxModified SfxPath:Sfx_66 Volume:1 Loop:false FadeInDuration:0
+
+@Wait WaitMode:1
+
+[PrintTextModified Text:我用满是煤黑的双手，<br>小心翼翼地打开纸片，<br>生怕把它弄得更脏。|#0203Adv15_Narrative009| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:那里面是——真正由诺亚画出来的画。|#0203Adv15_Narrative010| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:能找到这幅画，<br>说不定是奇迹。|#0203Adv15_Narrative011| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:原来是这样……确实不怎么好看。|#0203Adv15_Hiro002| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:我低头看着诺亚的画作，<br>忍不住轻笑。|#0203Adv15_Narrative012| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:啪嗒，啪嗒。<br>纸片上落下泪滴。|#0203Adv15_Narrative013| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:一滴，又一滴。<br>泪水不住地往下掉。|#0203Adv15_Narrative014| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:就好像下了一场雨一样。|#0203Adv15_Narrative015| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 次話への引継ぎアイテム：『万年筆』
+; ========================================
+
+; ========================================
+; ＞魔法少女ノ魔女裁判 第2章4話へ
+; ========================================
+
+@SetCustomVariable Expression:"g_gameProgress = max(9, g_gameProgress)"
+@Gosub Path:System/System_Subroutine.EndAdv
+
+@GotoModified Path:Act02_Chapter04/Act02_Chapter04_Adv01 SoftReset:true
+

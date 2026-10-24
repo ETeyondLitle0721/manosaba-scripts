@@ -1,0 +1,702 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook Version:4
+
+@BeginIf Expression:isDebugDirectJump
+    @Gosub Path:Act02_Chapter04/Act02_Chapter04_TrialInit
+    @HidePerspectiveStageScreen Index:1 Duration:0 Reset:true
+    @ModifyBackgroundExtended TintColor:#000000 Duration:0 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+
+@SetTrialTimer Time:900
+@HideUI UINames:ControlPanel AllowToggle:false
+@ShowUI UINames:DebateUI
+
+; ==============================================================================
+; MARK: 9-6: 💬 死体はどうやって乗りこんだ？
+; ==============================================================================
+; ＠ト書き▼議論シーン9-6 死体はどうやって乗りこんだ？
+; 議論開始エフェクト
+; BGM変更：rAwTell Owk...
+@PlayBgm BgmPath:Bgm_7_1 Volume:1 Loop:true FadeInDuration:0
+
+# Judge9-6-1
+
+@Gosub Path:System/System_Subroutine.BeginDebate-First
+@Gosub Path:System/System_Subroutine.BeginDebate-Effect
+@Gosub Path:System/System_Subroutine.BeginDebate-Last
+@ChangeTrialPauseMode Enable:false ProcessTimer:true
+
+@HidePerspectiveStageScreen Index:1 Reset:true
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open03,Angle01/Facial/Mouth>Mouth_Surprised_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:ヒロさんの推理では、<br>天井裏に<br>レイアさんとエマさんの<br>２人が乗っていた<br>ことになります。|#0204Trial06_Sherry001| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open03,Angle01/Facial/Mouth>Mouth_Surprised_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:そして仮に、<br>ミリアさんが<br>降りたタイミングで、<br>天井裏から<br>エマさんの死体が<br>落とされたとしましょうか。|#0204Trial06_Sherry002| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open03,Angle01/Facial/Mouth>Mouth_Surprised_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:……でも、<br>それはおかしいんですよ。|#0204Trial06_Sherry003| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Miria.Default,ArmR3,ArmL4,Angle01/Facial/Eyes>Eyes_Glare_Open04,Angle01/Facial/Mouth>Mouth_Pensive_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Miria Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:……可搬重量の問題だよね。|#0204Trial06_Miria001| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Miria.Default,ArmR3,ArmL4,Angle01/Facial/Eyes>Eyes_Glare_Open04,Angle01/Facial/Mouth>Mouth_Pensive_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Miria Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:あのエレベーターは、<br>２人分の体重しか<br>乗れない設定に<br>なっていたはず……。|#0204Trial06_Miria002| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Miria.Default,ArmR3,ArmL4,Angle01/Facial/Eyes>Eyes_Glare_Open04,Angle01/Facial/Mouth>Mouth_Pensive_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Miria Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:"元々２人の死体が<br>天井裏にあったなら、<br>ハンナちゃんや<br>シェリーちゃんが乗ったときも<br><link=\"Objection_02_04_06_01\">人数制限</link>で<br>動かなかったはずだよ。|#0204Trial06_Miria003|" RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR17,ArmL1,Angle01/Facial/Eyes>Eyes_Normal_Open04,Angle01/Facial/Mouth>Mouth_Normal_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:その通りですね！|#0204Trial06_Sherry004| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR17,ArmL1,Angle01/Facial/Eyes>Eyes_Normal_Open04,Angle01/Facial/Mouth>Mouth_Normal_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:最初私たちが乗ったときは、<br>１人しか乗れませんでした。|#0204Trial06_Sherry005| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR17,ArmL1,Angle01/Facial/Eyes>Eyes_Normal_Open04,Angle01/Facial/Mouth>Mouth_Normal_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:なのでたしかに<br>ヒロさんの言う通り、<br>レイアさんかエマさんの<br>どちらかの死体が<br>最初から天井裏にあった<br>可能性はあるでしょう。|#0204Trial06_Sherry006| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR17,ArmL1,Angle01/Facial/Eyes>Eyes_Normal_Open04,Angle01/Facial/Mouth>Mouth_Normal_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:ですが２人の死体が<br>最初からあったなら、<br>３人目となったはずの<br>先に乗った私たち３人が<br>乗れるはずはないんですよ。|#0204Trial06_Sherry007| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,Angle01/Arms>Arms01,Angle01/ArmL-,Angle01/ArmR-,Angle01/Facial/Eyes>Eyes_Serious_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:……一応確認しとくけどよ。<br>【体重に誤差があって乗れた】<br>……とか<br>単純な見落としじゃ<br>ねーんだろうな。|#0204Trial06_Alisa001| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR17,ArmL1,Angle01/Facial/Eyes>Eyes_Normal_Open04,Angle01/Facial/Mouth>Mouth_Normal_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:"はい！<br>ダイエットして<br><link=\"Objection_02_04_06_02\">軽くなって</link>いたり、<br>多少の持ち物が<br>増えたぐらいじゃ<br>全然変わらないぐらいの<br>設定です！|#0204Trial06_Sherry008|" RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Angry_Open02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:"ならやっぱ、<br>おめえら３人が<br><link=\"Objection_02_04_06_03\">共犯</link>でもない限り、<br>二階堂以外は<br>桜羽の死体を<br>持ち込めねーことになるな。|#0204Trial06_Alisa002|" RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hanna.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Pensive_Open,Angle01/Head01/Facial01/Mouth01>Mouth01_Surprised_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hanna Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:"そもそも<br><link=\"Objection_02_04_06_04\">死体が勝手に動いて</link><br>でもない限り、<br>ヒロさんの推理は<br>無理がありますわ！|#0204Trial06_Hanna001|" RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+
+; ==============================================================================
+; 9-6議論後独白
+; ==============================================================================
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+@Gosub Path:System/System_Subroutine.EndDebate-Effect
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+; 
+; 議論終了
+; ------------------------------------------------------------------------------
+
+@ResetText
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center ZoomLevel:2
+@Wait WaitMode:0.2
+
+[PrintTextModified Text:"（死体が現れた最大の謎……<br>　それがエレベーターの重量制限だ）|#0204Trial06_Hiro001|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+[PrintTextModified Text:"（誰かが電子制御を操作したりする技術があったとは<br>　考えにくい……。<br>　なら犯人は物理的なトリックを用いたはずだ）|#0204Trial06_Hiro002|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+[PrintTextModified Text:"（だがその方法……<br>　まともな方法でできたとも考えにくいな）|#0204Trial06_Hiro003|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge9-6-1
+
+; 
+; 反論1
+; ------------------------------------------------------------------------------
+
+# Objection_02_04_06_01
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:重量センサーの誤作動|#0204Trial06_Choice001| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge9-6-3
+
+
+@AddChoice ChoiceSummary:戻る|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; 
+; 反論2
+; ------------------------------------------------------------------------------
+
+# Objection_02_04_06_02
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:死体は軽かった|#0204Trial06_Choice002| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge9-6-2
+
+
+@AddChoice ChoiceSummary:戻る|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; 
+; 反論3
+; ------------------------------------------------------------------------------
+
+# Objection_02_04_06_03
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:３人は共犯だった|#0204Trial06_Choice003| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge9-6-4
+
+
+@AddChoice ChoiceSummary:戻る|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; 
+; 反論4
+; ------------------------------------------------------------------------------
+
+# Objection_02_04_06_04
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:死体が動いた|#0204Trial06_Choice004| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge9-6-5
+
+
+@AddChoice ChoiceSummary:戻る|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; ==============================================================================
+; MARK: 9-6: ❌ 議論ミス選択肢
+; ==============================================================================
+
+; MARK: 9-6-3: ❌ 反論・重量センサーの誤作動
+
+# Judge9-6-3
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL6,Eyes2_Normal_Open3,Mouth2_Determined_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:重量センサーの誤作動が起きたとしたら？|#0204Trial06_Hiro004| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Miria.Default,ArmR4,ArmL3,Angle01/Facial/Eyes>Eyes_Pensive_Open01,Angle01/Facial/Mouth>Mouth_Pensive_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Miria Composition:Left
+[PrintTextModified Text:……エレベーター内の重さをはかる<br>センサーのこと……？|#0204Trial06_Miria004| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL6,Eyes2_Normal_Open3,Mouth2_Determined_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:そうだ。<br>そのセンサーがエレベーターの床下にあったことで――。|#0204Trial06_Hiro005| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL6,Eyes2_Normal_Open3,Mouth2_Determined_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:天井裏に死体が２体あってもうまく検知されず、<br>１体分として判断された可能性はあるんじゃないか？|#0204Trial06_Hiro006| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open03,Angle01/Facial/Mouth>Mouth_Surprised_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right
+[PrintTextModified Text:……たしかにエレベーターの重量センサーは<br>床下に設置されていることが多いです。|#0204Trial06_Sherry009| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open03,Angle01/Facial/Mouth>Mouth_Surprised_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right
+[PrintTextModified Text:でもそれらはエレベーターの箱になっている部分……<br>【カゴ】全体にかかる重量を検知するように<br>できてるみたいですよ。|#0204Trial06_Sherry010| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open01,Angle01/Facial/Mouth>Mouth_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right
+[PrintTextModified Text:ゴクチョーさんが言ってました！|#0204Trial06_Sherry011| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open01,Angle01/Facial/Mouth>Mouth_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right
+[PrintTextModified Text:だから天井裏に死体があろうと<br>検知されないことはないと思います！|#0204Trial06_Sherry012| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,Angle01/Arms>Arms01,Angle01/ArmL-,Angle01/ArmR-,Angle01/Facial/Eyes>Eyes_Serious_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left
+[PrintTextModified Text:……隠れてても無駄ってことだな。|#0204Trial06_Alisa003| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hanna.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Pensive_Open,Angle01/Head01/Facial01/Mouth01>Mouth01_Surprised_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hanna Composition:Right
+[PrintTextModified Text:やっぱりヒロさんの推理はむちゃくちゃですわ～！|#0204Trial06_Hanna002| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR12,ArmL12,Eyes2_Serious_Open1,Mouth2_Angry_Closed1,Sweat2-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（機械的な不具合はなかった……と信じるべきか）|#0204Trial06_Hiro007| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（……だが最初から２人分の体重がかかっていたら<br>　ミリアたちはエレベーターで地上に昇れない）|#0204Trial06_Hiro008|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（ならいったい……<br>　あの中では何が起こっていた……？）|#0204Trial06_Hiro009|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+
+@GotoModified Path:.Judge9-6-1
+
+; MARK: 9-6-4: ❌ 反論・3人は共犯だった
+
+# Judge9-6-4
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR2,ArmL4,Eyes1_Normal_Open3,Mouth1_Determined_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……いや、アリサ。<br>３人は共犯だったんだ。|#0204Trial06_Hiro010| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR2,ArmL4,Eyes1_Normal_Open3,Mouth1_Determined_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:シェリー、ミリア、ハンナが協力して<br>エマの死体をエレベーターに運び込んだ……<br>と考えれば――。|#0204Trial06_Hiro011| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hanna.Default,ArmR3,ArmL2,Angle01/Head01/Facial01/Eyes01>Eyes01_Angry_Closed,Angle01/Head01/Facial01/Mouth01>Mouth01_Cry_Open,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hanna Composition:Right
+[PrintTextModified Text:共犯なわけありませんわー！|#0204Trial06_Hanna003| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR3,ArmL4,Angle01/Facial/Eyes>Eyes_Angry_Open01,Angle01/Facial/Mouth>Mouth_Neutral_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left
+[PrintTextModified Text:お言葉ですがヒロさん！|#0204Trial06_Sherry013| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR3,ArmL4,Angle01/Facial/Eyes>Eyes_Angry_Open01,Angle01/Facial/Mouth>Mouth_Neutral_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left
+[PrintTextModified Text:共犯だとしたらこんな裁判を開く前に<br>もっと良い方法でヒロさんを殺していますよ！|#0204Trial06_Sherry014| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,ArmR7,ArmL3,Angle01/Facial/Eyes>Eyes_Fearful_Open,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right
+[PrintTextModified Text:こ、こえーこと言うな……。|#0204Trial06_Alisa004| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR12,ArmL12,Eyes2_Serious_Open1,Mouth2_Angry_Closed1,Sweat2-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（共犯だとしたら<br>　もう投票されているか……）|#0204Trial06_Hiro012|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆別選択肢共通
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（……だが最初から２人分の体重がかかっていたら<br>　ミリアたちはエレベーターで地上に昇れない）|#0204Trial06_Hiro013|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（ならいったい……<br>　あの中では何が起こっていた……？）|#0204Trial06_Hiro014|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+
+@GotoModified Path:.Judge9-6-1
+
+; MARK: 9-6-5: ❌ 反論・死体が動いた
+
+# Judge9-6-5
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR2,ArmL4,Eyes1_Normal_Open3,Mouth1_Determined_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:いや、死体を操る方法があったんだ。|#0204Trial06_Hiro015| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR2,ArmL4,Eyes1_Normal_Open3,Mouth1_Determined_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:例えば地下にいる氷漬けの魔女の中に<br>死体を操る魔法の持ち主がいたとしたら――。|#0204Trial06_Hiro016| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Angry_Open02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right
+[PrintTextModified Text:【いたとしたら】じゃねーよ。|#0204Trial06_Alisa005| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Angry_Open02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right
+[PrintTextModified Text:氷漬けの魔女が<br>どうやって魔法を使うんだ？|#0204Trial06_Alisa006| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR10,ArmL11,Angle01/Facial/Eyes>Eyes_Normal_Open04,Angle01/Facial/Mouth>Mouth_Surprised_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left
+[PrintTextModified Text:仮に死体が動いたとしても<br>その死体がどうやってエレベーターに入ったかは<br>わかりませんよね？|#0204Trial06_Sherry015| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hanna.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Pensive_Open,Angle01/Head01/Facial01/Mouth01>Mouth01_Surprised_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hanna Composition:Right
+[PrintTextModified Text:上の階にはわたくしたち３人がいましたし、<br>下にはヒロさんがいましたものね……。|#0204Trial06_Hanna004| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Angry_Open02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right
+[PrintTextModified Text:死体が動いても、意味がねーってことだな。|#0204Trial06_Alisa007| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR12,ArmL12,Eyes2_Serious_Open1,Mouth2_Angry_Closed1,Sweat2-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（根拠のない推理は、<br>　こちらの立場を悪くするだけだな……）|#0204Trial06_Hiro017|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆別選択肢共通
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（……だが最初から２人分の体重がかかっていたら<br>　ミリアたちはエレベーターで地上に昇れない）|#0204Trial06_Hiro018|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（ならいったい……<br>　あの中では何が起こっていた……？）|#0204Trial06_Hiro019|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+
+@GotoModified Path:.Judge9-6-1
+
+; ==============================================================================
+; MARK: 9-6-2: ⭕ 反論・死体は軽かった
+; ==============================================================================
+
+# Judge9-6-2
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+; @gosubCutIn Ema index:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+@HideUI UINames:DebateUI AllowToggle:false
+@ShowUI UINames:ControlPanel
+
+; カットイン
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open3,Mouth2_Surprised_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:はたして本当に、<br>死体は１人分の質量があったと言えるだろうか？|#0204Trial06_Hiro020| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Angry_Open02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right
+[PrintTextModified Text:……何言ってんだ、てめー…。|#0204Trial06_Alisa008| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open3,Mouth2_Surprised_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:【死体が軽かった】なら<br>エレベーターの体重制限に引っかからず、<br>もう１人乗ることができる……。|#0204Trial06_Hiro021| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open3,Mouth2_Surprised_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……そう言ってるんだよ。|#0204Trial06_Hiro022| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,ArmR4,ArmL6,Angle01/Facial/Eyes>Eyes_Angry_Open03
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right
+[PrintTextModified Text:【死体が軽かった】だぁ？|#0204Trial06_Alisa009| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,ArmR4,ArmL6,Angle01/Facial/Eyes>Eyes_Angry_Open03
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right
+[PrintTextModified Text:んなことあるわけねーだろうが。|#0204Trial06_Alisa010| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open03,Angle01/Facial/Mouth>Mouth_Surprised_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left
+[PrintTextModified Text:【魂の重さ】というやつですね！|#0204Trial06_Sherry016| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open03,Angle01/Facial/Mouth>Mouth_Surprised_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left
+[PrintTextModified Text:なんでも、死んだら体重が減っちゃうとか！<br>たしか２１グラムでしたっけ！|#0204Trial06_Sherry017| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open3,Mouth2_Surprised_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:それは俗説でしかないと思うが……。|#0204Trial06_Hiro023| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open3,Mouth2_Surprised_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:ともあれ、<br>死体は【重さが違った】と考えれば辻褄が合うんだ。|#0204Trial06_Hiro024| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,ArmR4,ArmL6,Angle01/Facial/Eyes>Eyes_Angry_Open03
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right
+[PrintTextModified Text:……なら聞くが、<br>人間の重さぐらいの体重を減らすなんて<br>どうやったらできるってんだよ。ああ？|#0204Trial06_Alisa011| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open3,Mouth2_Surprised_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:１人分の体重を減らす方法……それは。|#0204Trial06_Hiro025| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+
+# Judge9-6-6
+
+@AddChoice ChoiceSummary:体重がかかっていなかった|#0204Trial06_Choice005| Lock:false AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @GotoModified Path:.Judge9-6-7
+
+@AddChoice ChoiceSummary:乗る前から重量物が乗っていた|#0204Trial06_Choice006| Lock:false AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @GotoModified Path:.Judge9-6-8
+
+@AddChoice ChoiceSummary:中身がなかった|#0204Trial06_Choice007| Lock:false AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @GotoModified Path:.Judge9-6-9
+
+@StopForChoice Clear:false
+
+; MARK: 9-6-8: ❌ 乗る前から重量物が乗っていた
+
+# Judge9-6-8
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR2,ArmL4,Eyes1_Normal_Open3,Mouth1_Determined_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……いや、正確に言えば<br>【１人分の体重を余計に乗せられるようにする方法】だよ。|#0204Trial06_Hiro026| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,ArmR1,ArmL3,Angle01/Facial/Eyes>Eyes_Surprised_Open01,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right
+[PrintTextModified Text:……どういうことだ？|#0204Trial06_Alisa012| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR2,ArmL4,Eyes1_Normal_Open3,Mouth1_Determined_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:元々、エレベーターのどこかに<br>１人分の重量物が乗っていた……と考えてみたらどうだろう？|#0204Trial06_Hiro027| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR2,ArmL4,Eyes1_Normal_Open3,Mouth1_Determined_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:しかし私たちが地上へ上がる時点で<br>真犯人がそれを除去していたとすれば……。|#0204Trial06_Hiro028| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR4,ArmL5,Angle01/Facial/Eyes>Eyes_Surprised_Open01,Angle01/Facial/Mouth>Mouth_Surprised_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left
+[PrintTextModified Text:"なるほど！ つまりあのエレベーターは<br>実は【３人乗り】だったんですね！|#0204Trial06_Sherry018|" AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR4,ArmL5,Angle01/Facial/Eyes>Eyes_Surprised_Open01,Angle01/Facial/Mouth>Mouth_Surprised_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left
+[PrintTextModified Text:なのに重量物が乗っていたことで<br>私たちは【２人乗り】だと錯覚させられていたんですよ！|#0204Trial06_Sherry019| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Miria.Default,ArmR4,ArmL3,Angle01/Facial/Eyes>Eyes_Surprised_Open,Angle01/Facial/Mouth>Mouth_Surprised_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Miria Composition:Right
+[PrintTextModified Text:そっか……！<br>それなら死体が天井裏に２人分あったとしても――。|#0204Trial06_Miria005| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Miria.Default,ArmR4,ArmL3,Angle01/Facial/Eyes>Eyes_Surprised_Open,Angle01/Facial/Mouth>Mouth_Surprised_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Miria Composition:Right
+[PrintTextModified Text:エレベーターはおじさんたちを――<br>３人目を乗せて動くことができる……！|#0204Trial06_Miria006| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,Angle01/Arms>Arms01,Angle01/ArmL-,Angle01/ArmR-,Angle01/Facial/Eyes>Eyes_Serious_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left
+[PrintTextModified Text:……いや、ちょっと待てよ。|#0204Trial06_Alisa013| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,Angle01/Arms>Arms01,Angle01/ArmL-,Angle01/ArmR-,Angle01/Facial/Eyes>Eyes_Serious_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left
+[PrintTextModified Text:二階堂が桜羽の死体を発見した時、<br>そのままじゃあエレベーターに乗れなかったんだろ？|#0204Trial06_Alisa014| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,Angle01/Arms>Arms01,Angle01/ArmL-,Angle01/ArmR-,Angle01/Facial/Eyes>Eyes_Serious_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left
+[PrintTextModified Text:天井裏に蓮見の死体があって、箱の中に桜羽の死体があった。<br>で、二階堂が乗るとブザーが鳴った――。|#0204Trial06_Alisa015| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,Angle01/Arms>Arms01,Angle01/ArmL-,Angle01/ArmR-,Angle01/Facial/Eyes>Eyes_Serious_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left
+[PrintTextModified Text:ってことはやっぱ<br>【３人乗りはできない】ってことになんねーか。|#0204Trial06_Alisa016| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Miria.Default,ArmR4,ArmL3,Angle01/Facial/Eyes>Eyes_Surprised_Open,Angle01/Facial/Mouth>Mouth_Surprised_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Miria Composition:Right
+[PrintTextModified Text:ああっ……た、たしかに……！|#0204Trial06_Miria007| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open03,Angle01/Facial/Mouth>Mouth_Surprised_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left
+[PrintTextModified Text:"なるほど！ イイ推理だと思ったんですけどね！|#0204Trial06_Sherry020|" AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL9,Eyes2_Normal_Closed1,Mouth2_Angry_Closed1,Sweat2-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（時系列から考えて、<br>　あらかじめ荷物が乗っていた可能性はないか……）|#0204Trial06_Hiro029|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL9,Eyes2_Normal_Closed1,Mouth2_Angry_Closed1,Sweat2-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（……実行の可否やトリックの有無はともかく、<br>　シンプルに考えれば――）|#0204Trial06_Hiro030|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL9,Eyes2_Normal_Closed1,Mouth2_Angry_Closed1,Sweat2-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（１人分の重量を軽くする方法の選択肢は<br>　おのずと狭まる……！）|#0204Trial06_Hiro031|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+
+@GotoModified Path:.Judge9-6-6
+
+; MARK: 9-6-9: ❌ 中身がなかった
+
+# Judge9-6-9
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR2,ArmL4,Eyes1_Normal_Open3,Mouth1_Determined_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:中身をなくせばいいんだ。|#0204Trial06_Hiro032| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR2,ArmL4,Eyes1_Normal_Open3,Mouth1_Determined_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:もしエマとレイアの中身が、事前に抜かれていたとしたら……？|#0204Trial06_Hiro033| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hanna.Surprised1,ArmR3,ArmL1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hanna Composition:Right
+[PrintTextModified Text:な、中身って、どういうことですの……！？|#0204Trial06_Hanna005| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR2,ArmL4,Eyes1_Normal_Open3,Mouth1_Determined_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:人体の中身……。|#0204Trial06_Hiro034| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR2,ArmL4,Eyes1_Normal_Open3,Mouth1_Determined_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:つまり臓器や骨などを抜いて、<br>死体を軽量化していたとしたら<br>２人で１人分程度の重量になるんじゃないかな。|#0204Trial06_Hiro035| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hanna.Surprised1,ArmR3,ArmL1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hanna Composition:Right
+[PrintTextModified Text:ヒッ……！？|#0204Trial06_Hanna006| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Miria.Default,ArmR4,ArmL3,Angle01/Facial/Eyes>Eyes_Surprised_Open,Angle01/Facial/Mouth>Mouth_Surprised_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Miria Composition:Left
+[PrintTextModified Text:で、でも死体の外傷は<br>頭部の損傷や刺し傷だけだったし……。|#0204Trial06_Miria008| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Miria.Default,ArmR4,ArmL3,Angle01/Facial/Eyes>Eyes_Surprised_Open,Angle01/Facial/Mouth>Mouth_Surprised_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Miria Composition:Left
+[PrintTextModified Text:手術痕もないのに、<br>そんな大手術ができたわけないよ……！|#0204Trial06_Miria009| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hanna.Fearful1,ArmR3,ArmL1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hanna Composition:Right
+[PrintTextModified Text:発想がグロ過ぎますわ～～！|#0204Trial06_Hanna007| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR12,ArmL12,Eyes2_Serious_Open1,Mouth2_Angry_Closed1,Sweat2-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（ドン引きさせてしまったな……）|#0204Trial06_Hiro036| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆別選択肢共通
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL9,Eyes2_Normal_Closed1,Mouth2_Angry_Closed1,Sweat2-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（……実行の可否やトリックの有無はともかく、<br>　シンプルに考えれば――）|#0204Trial06_Hiro037|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL9,Eyes2_Normal_Closed1,Mouth2_Angry_Closed1,Sweat2-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（１人分の重量を軽くする方法の選択肢は<br>　おのずと狭まる……！）|#0204Trial06_Hiro038|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge9-6-6
+
+; ==============================================================================
+; MARK: 9-6-7: ⭕ 体重がかかっていなかった
+; ==============================================================================
+
+# Judge9-6-7
+
+; ヒロカットイン
+@StopBgm
+@GosubToObjectionCutIn CutInKind:Hiro Index:3 VoicePath:CommonTrial_Hiro00027 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open1,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:エマの死体は、<br>体重がエレベーターにかかっていなかったんだ。<br>……私の目の前に現れる、直前まで。|#0204Trial06_Hiro039| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open03,Angle01/Facial/Mouth>Mouth_Surprised_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left
+[PrintTextModified Text:エレベーターに直接触れていなかった……<br>ということですよね？|#0204Trial06_Sherry021| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+; BGM変更：Sen-Choose N'o SurC
+@PlayBgm BgmPath:Bgm_38_1_Loop IntroBgmPath:Bgm_38_1_Intro Volume:1 Loop:true FadeInDuration:0
+
+# Trick5-9-6-7
+
+; ピクトグラム系の図説表示
+@ModifyBackgroundExtended Id:Tricks Scale:{g_backgroundDefaultScale} Lazy:false AppearanceAndTransition:9_6_1
+
+@ModifyCharacterExtended Lazy:false ScenePosition:20,30 IdAndAppearance:Sherry.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open03,Angle01/Facial/Mouth>Mouth_Surprised_Open SubId:Tricker
+@ModifyCharacterExtended Lazy:false ScenePosition:80,30 IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open1,Mouth2_Determined_Closed1 SubId:Tricker
+
+[PrintTextModified Text:ではその場合、エマさんの死体は<br>どこにあったのでしょうか？|#0204Trial06_Sherry022| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open1,Mouth2_Determined_Open2 SubId:Tricker
+[PrintTextModified Text:当然、天井裏の空間だ。|#0204Trial06_Hiro040| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; エマ点滅
+@ModifyBackgroundExtended Id:Tricks Duration:0.3 Lazy:false AppearanceAndTransition:9_6_2
+@Wait WaitMode:0.3
+@ModifyBackgroundExtended Id:Tricks Duration:0.3 Lazy:false AppearanceAndTransition:9_6_1
+@Wait WaitMode:0.3
+@ModifyBackgroundExtended Id:Tricks Duration:0.3 Lazy:false AppearanceAndTransition:9_6_2
+@Wait WaitMode:0.3
+@ModifyBackgroundExtended Id:Tricks Duration:0.3 Lazy:false AppearanceAndTransition:9_6_1
+@Wait WaitMode:0.3
+@ModifyBackgroundExtended Id:Tricks Duration:0.3 Lazy:false AppearanceAndTransition:9_6_2
+@Wait WaitMode:0.3
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open1,Mouth2_Normal_Closed1 SubId:Tricker
+[PrintTextModified Text:天井裏に通じるフタは<br>ずっと開いていたからね。|#0204Trial06_Hiro041| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Id:Tricks Lazy:false AppearanceAndTransition:9_6_3
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Closed1,Mouth2_Determined_Open2 SubId:Tricker
+[PrintTextModified Text:死体はずっとそこにあって、<br>そしてエレベーターが下がったタイミングで<br>落ちてきた……。|#0204Trial06_Hiro042| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Id:Tricks Lazy:false AppearanceAndTransition:9_6_4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open1,Mouth2_Determined_Open2 SubId:Tricker
+[PrintTextModified Text:それなら、<br>エレベーターの中に存在しなかったエマの死体が<br>突然現れたことに説明がつく。|#0204Trial06_Hiro043| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideActors ActorIds:Hiro-Tricker,Sherry-Tricker Lazy:false
+@HideActors ActorIds:Tricks Lazy:false
+; 図示終わり
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open03,Angle01/Facial/Mouth>Mouth_Pensive_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left
+[PrintTextModified Text:……ふーむー……。|#0204Trial06_Sherry023| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open03,Angle01/Facial/Mouth>Mouth_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left
+[PrintTextModified Text:……たしかに<br>それなら辻褄は合いそうです。|#0204Trial06_Sherry024| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open03,Angle01/Facial/Mouth>Mouth_Surprised_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left
+[PrintTextModified Text:しかし……本当にそんなことができるんでしょうか？|#0204Trial06_Sherry025| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open3,Mouth2_Surprised_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……細部はさておき、<br>エレベーターに体重がかかってさえいなければ<br>犯行は誰でも可能になるよ。|#0204Trial06_Hiro044| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open3,Mouth2_Surprised_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（……と言っても、まだ立証しきれていない以上、<br>　机上の空論の状態ではあるのだが……）|#0204Trial06_Hiro045|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@StopBgm
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR1,ArmL4,Eyes2_Normal_Open3,Mouth2_Determined_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（それでも……活路はここしかない）|#0204Trial06_Hiro046| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Angry_Open1,Mouth1_Angry_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（この道を進み……<br>　真犯人にたどり着いてみせる……！）|#0204Trial06_Hiro047|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Angry_Open1,Mouth1_Angry_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:だから……付き合ってもらうよ。<br>私の推理に！|#0204Trial06_Hiro048| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+@AutoSave
+
+@GotoModified Path:Act02_Chapter04/Act02_Chapter04_Trial07 ResetState:-
+

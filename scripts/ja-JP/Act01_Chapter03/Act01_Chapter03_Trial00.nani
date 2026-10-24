@@ -1,0 +1,186 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook Version:1
+@Gosub Path:Act01_Chapter03/Act01_Chapter03_TrialInit
+
+; 議論パート1章3話
+
+# Judge3-1-0
+
+; 使われる証拠品
+; 
+; 【牢屋敷の設計図】
+; 牢屋敷の設計図。
+; 古いものらしい。
+; ※ゲストハウスは1棟しかない（水精の間）
+; 
+; 【燃えた痕跡】
+; なんらかの可燃物が燃えた跡。
+; アリサによると、燃え方からして火元はここ。
+; 外から放火されたらしい。
+; 
+; 【ハンナの死体写真】
+; 首にロープの跡が残っている。
+; 
+; 【ゴクチョーの像】
+; 火精の間で倒れていた家具。
+; 地精の間でも同じく倒れていたが、
+; 水精の間では倒れていなかった。
+; 重心は不安定らしい。
+; 
+; 【弾痕】
+; 倉庫にあった弾痕。
+; 最近撃たれた様子。
+; 弾が残っている。
+; 周囲に血痕はない。
+; 
+; 【着火物】
+; 倉庫にあった物。
+; ロウソク・マッチ・爆竹などがある。
+; 火をつけるのに使えそうだ。
+
+; 【ロープ】
+; 現場にあったロープ。
+; 首や人形を吊り下げるのに使われている。
+; 長い。
+; 
+; 【焦げた人形】
+; ハンナの作った人形。
+; 死体現場に吊るされていた。
+; 
+; 【アリサの人形】
+; ハンナの作った人形。
+; 地精の間に残されていた。
+; 
+; 【ゲストハウス】
+; 館の敷地内に用意されたゲストハウス。
+; 火精（サラマンダー）の間、
+; 水精（ウンディーネ）の間、
+; 地精（ノーム）の間の順に3棟が並んでいる。
+; ドアにはそれぞれの紋章が描かれた板が
+; かけられている。
+; 内装はどれも似通っているようだ。
+; 外部の人間が泊まる時、ここを使うらしい。
+; 
+; 【現場写真】
+; 現場を入口から撮影したもの。
+; ハンナの死体は梁からかけた
+; ロープで吊るされている。
+; 
+; 【石畳の塗料】
+; ゲストハウスの前に残されていた赤色の塗料。
+; 血ではなさそうだ。
+
+@SetBadId CommonBadEndId:4
+
+@ModifyCharacterExtended Position:,{hiddenCharacterPositionY} Duration:0 Lazy:false IdAndAppearance:Warden.1
+@ModifyCharacterExtended Position:,{hiddenCharacterPositionY} Duration:0 Lazy:false IdAndAppearance:Jailer.1
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Angry1,Option-ArmL-Off
+
+@ModifyPerspectiveStageCamera Index:0 Height:5 Distance:7 Duration:0
+@ModifyPerspectiveStageCamera Index:1 Height:3 Rotation:"-2,{ (0.7 / courtStandCount * 360)},-2" Distance:4 Duration:0
+@WaitForNextFrame
+
+@ModifyPerspectiveStageCamera Index:1 Height:4 Rotation:"-1,{ (5.2 / courtStandCount * 360)}" Duration:40
+@ModifyBackgroundExtended TintColor:#000000 Duration:0.9 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:0.6
+
+@ProcessInput InputEnabled:true
+
+; ==============================================================================
+; ADVシーン
+; ==============================================================================
+; BGM変更：Kei-Plne Co-Jundic
+@PlayBgm BgmPath:Bgm_25_1 Volume:1 Loop:true FadeInDuration:0
+@AutoSave
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default
+[PrintTextModified Text:"（３度目の裁判……。<br>　ハンナちゃんが死んで、残ったのは７人……）|#0103Trial00_Ema001|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default
+[PrintTextModified Text:（こんなの……いつまで続くんだろう……）|#0103Trial00_Ema002| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・話の転換音
+@PlaySfxModified SfxPath:Sfx_Common_5 Volume:1 Loop:false FadeInDuration:0
+
+@ResetText
+@ModifyCharacterExtended Duration:0 Lazy:false IdAndAppearance:Coco.Default
+@ModifyPerspectiveStageCamera Index:0 Height:5.6 Rotation:"0,{ (cocoIdx / courtStandCount * 360)},0" Distance:12 Duration:0
+@WaitForNextFrame
+@HidePerspectiveStageScreen Index:1 Reset:true
+@ModifyPerspectiveStageCamera Index:0 Rotation:"0,{ ((cocoIdx + 0.1) / courtStandCount * 360)},0" Duration:0.6 EaseName:OutQuad
+@Wait WaitMode:0.2
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Default,ArmR10,ArmL8,Angle01/Facial/Eyes>Eyes_Pensive_Open01,Angle01/Facial/Mouth>Mouth_Pensive_Open
+[PrintTextModified Text:……で？<br>誰がお嬢をヤったわけ？|#0103Trial00_Coco001| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@ModifyCharacterExtended Duration:0 Lazy:false IdAndAppearance:Sherry.Default
+@ModifyPerspectiveStageCamera Index:1 Height:5.6 Rotation:"0,{ (sherryIdx / courtStandCount * 360)},0" Distance:12 Duration:0
+@WaitForNextFrame
+@ShowPerspectiveStageScreen Index:1
+@ModifyPerspectiveStageCamera Index:1 Rotation:"0,{ ((sherryIdx - 0.1) / courtStandCount * 360)},0" Duration:0.6 EaseName:OutQuad
+@Wait WaitMode:0.2
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR8,ArmL4,Angle01/Facial/Eyes>Eyes_Angry_Open01,Angle01/Facial/Mouth>Mouth_Normal_Open
+[PrintTextModified Text:それをこれから明らかにするんですよ！|#0103Trial00_Sherry001| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・ネガティブ音
+@PlaySfxModified SfxPath:Sfx_Common_7 Volume:1 Loop:false FadeInDuration:0
+@HidePerspectiveStageScreen Index:1 Reset:true
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,Angle01/Arms>Arms01,Angle01/ArmL-,Angle01/ArmR-,Angle01/Facial/Eyes>Eyes_Angry_Open02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right
+[PrintTextModified Text:んなこたわかってんだよ……。|#0103Trial00_Alisa001| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Smile1,ArmR2,ArmL5,Angle01/Facial/Eyes>Eyes_Pensive_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Left
+[PrintTextModified Text:【自白してくれる人はいないのか】……<br>そう言いたいのね？|#0103Trial00_Margo001| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.ArmL5,Angle01/ArmR-,Eyes1_Normal_Open2,Mouth1_Surprised_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right
+[PrintTextModified Text:犯人がいたとして、すると思うのかしら。|#0103Trial00_Nanoka001| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Meruru.Pensive1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Left
+[PrintTextModified Text:きっと……<br>そんな展開にはならないんでしょうね。|#0103Trial00_Meruru001| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Pensive_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Cry_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:なら、やっぱりみんなで話すしかないよ。|#0103Trial00_Ema003| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Pensive_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Cry_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:何があったのか……。<br>そして……誰が犯人なのかを。|#0103Trial00_Ema004| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Closed04,Angle01/Head01/Facial01/Mouth01>Mouth01_Cry_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（話し合いの結果、何が待っているのかはわからないけど……）|#0103Trial00_Ema005| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Closed02,Angle01/Head01/Facial01/Mouth01>Mouth01_Nervous_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（今は……前に進まないと……！）|#0103Trial00_Ema006| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR3,ArmL3,Angle01/Facial/Eyes>Eyes_Normal_Open04
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right
+[PrintTextModified Text:では起こった事を整理しましょうか！|#0103Trial00_Sherry002| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR3,ArmL1,Angle01/Facial/Eyes>Eyes_Normal_Open04
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right
+[PrintTextModified Text:今回の被害者は遠野ハンナさん。<br>被害者はゲストハウスで発見されたみたいですね。|#0103Trial00_Sherry003| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@StopBgm
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,ArmR7,ArmL5,Angle01/Facial/Eyes>Eyes_Normal_Open,Angle01/Facial/Mouth>Mouth_Neutral_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Left
+[PrintTextModified Text:ええ……。<br>それについては私から説明した方がいいかしら？|#0103Trial00_Margo002| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,ArmR7,ArmL5,Angle01/Facial/Eyes>Eyes_Smile_Open,Angle01/Facial/Mouth>Mouth_Neutral_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Left
+[PrintTextModified Text:まだきちんと見ていない人もいるでしょうし……ね。|#0103Trial00_Margo003| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+@AutoSave
+
+; メルルとシェリーは医務室にいたので、現場を見ていない。
+
+
+@GotoModified Path:Act01_Chapter03/Act01_Chapter03_Trial01 ResetState:-
+

@@ -1,0 +1,168 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook IsDebugDirectJump:{isDebugDirectJump}
+@Gosub Path:System/System_Subroutine.BeginAdv
+
+# Scene1-4-9
+
+; ========================================
+; ●シーン1‐4-9
+; ========================================
+
+@ModifyBackgroundExtended Id:Stills Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false AppearanceAndTransition:300_1
+@ModifyBackgroundExtended TintColor:#000000 Duration:1.2 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:1.8
+
+@PlayBgm BgmPath:Bgm_35_1 Volume:1 Loop:true FadeInDuration:0
+@AutoSave
+[PrintTextModified Text:ともかく現場を調べなくては始まらない。<br>エマはまず裁判所の死体現場を調べることにした。|#0104Adv09_Narrative001| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（……アリサちゃん……）|#0104Adv09_Ema001| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:椅子に拘束され、<br>力なくうなだれている少女の姿はあまりに痛ましい。|#0104Adv09_Narrative002| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:平常の心もちでは、直視なんてできない。<br>手がかりを得ることだけを考え、心を殺した。|#0104Adv09_Narrative003| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆泣き声まじり
+
+[PrintTextModified Text:アリサさんは誰かに処刑されたのでしょうか……。|#0104Adv09_Meruru001| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:しばらく泣き崩れていたメルルが、<br>よろよろとエマの隣に立つ。|#0104Adv09_Narrative004| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:どうやら気を持ち直し、手伝ってくれる様子だ。|#0104Adv09_Narrative005| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（処刑……やっぱり何より気になるのは）|#0104Adv09_Ema002| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:これって電気、椅子だよね。<br>電気を流して殺す処刑方法に使われる。|#0104Adv09_Ema003| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:そ、そうだと思います……。<br>背部にスイッチがありますし……。|#0104Adv09_Meruru002| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:メルルのいうとおり、<br>椅子の背中側にスイッチがあった。|#0104Adv09_Narrative006| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:詳細はわからないが、<br>これを押せば電気が流れる仕組みなのだろう。|#0104Adv09_Narrative007| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:アリサちゃん、髪や服が湿ってる……。|#0104Adv09_Ema004| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（どうしてだろう……？）|#0104Adv09_Ema005| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:ボクらはアリサちゃんを見ても<br>死因がはっきりわかるわけじゃないけど。|#0104Adv09_Ema006| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:やっぱり電気椅子の電流が死因なのかな……。|#0104Adv09_Ema007| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@PlaySfxModified SfxPath:Sfx_28 Volume:1 Loop:false FadeInDuration:0
+
+; ========================================
+; ☆証拠品：『電気椅子』入手
+; ========================================
+@SpawnExtended Path:Clue Params:4-2
+@UpdateWitchBook Id:4-2 Category:Clue Version:1
+@DestroySpawnedExtended Path:Clue LogWarning:true
+
+[PrintTextModified Text:エマさん、これ……！|#0104Adv09_Meruru003| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"メルルが指さしたのは、アリサの顔に残った、<br>模様だった。<br>エマは息を<ruby=\"の\">呑</ruby>む。|#0104Adv09_Narrative008|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:これは……火傷？|#0104Adv09_Ema008| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:それに……魔女化が進んでいるみたいです。|#0104Adv09_Meruru004| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:アリサの姿はすでに通常の人間とは<br>かけ離れた姿になりかけているようだった。|#0104Adv09_Narrative009| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（まるで……なれはてみたいだ）|#0104Adv09_Ema009| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 写真撮影音
+@PlaySfxModified SfxPath:Sfx_28 Volume:1 Loop:false FadeInDuration:0
+
+; ========================================
+; ☆証拠品：『アリサの死体写真』入手
+; ========================================
+@SpawnExtended Path:Clue Params:4-9
+@UpdateWitchBook Id:4-9 Category:Clue Version:1
+@Wait WaitMode:i1.5
+@DestroySpawnedExtended Path:Clue Wait:true LogWarning:true
+
+[PrintTextModified Text:処刑台の床を調べるうち、<br>もうひとつ気になるものに気付く。|#0104Adv09_Narrative010| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:死体の足元を中心として、付近にガラスの破片のようなものが<br>広範囲にわたって散乱していた。|#0104Adv09_Narrative011| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 写真撮影音
+@PlaySfxModified SfxPath:Sfx_28 Volume:1 Loop:false FadeInDuration:0
+
+; ========================================
+; ☆証拠品：『ガラスの破片』入手
+; ========================================
+@SpawnExtended Path:Clue Params:4-5
+@UpdateWitchBook Id:4-5 Category:Clue Version:1
+@Wait WaitMode:i1.5
+@DestroySpawnedExtended Path:Clue Wait:true LogWarning:true
+
+[PrintTextModified Text:（これは一体なんだろう……？）|#0104Adv09_Ema010| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:電気椅子にガラス素材はなく、<br>どこかから持ち運ばれたものであるように見えた。|#0104Adv09_Narrative012| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:ただ、考えてもすぐに何かはわからない。<br>エマは詰めていた息を吐き出した。|#0104Adv09_Narrative013| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:そうして目線を下に向けると、アリサの足元に<br>ガラスの破片に混じった別の透明なかけらを見つける。|#0104Adv09_Narrative014| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:これって……蝋……かな？|#0104Adv09_Ema011| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:ああ、本当ですね……。<br>使用済みのロウソクの欠片……でしょうか。|#0104Adv09_Meruru005| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（……アリサちゃんが使ったのかな？）|#0104Adv09_Ema012| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; ☆証拠品：『ロウソク』入手
+; ========================================
+@SpawnExtended Path:Clue Params:4-1
+@UpdateWitchBook Id:4-1 Category:Clue Version:1
+@Wait WaitMode:i1.5
+@DestroySpawnedExtended Path:Clue Wait:true LogWarning:true
+
+[PrintTextModified Text:"（アリサちゃんの周辺、<br>　ひととおりは見たと思うけど）|#0104Adv09_Ema013|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（アリサちゃんは<br>　どうして処刑台で……？）|#0104Adv09_Ema014|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 写真撮影音
+@PlaySfxModified SfxPath:Sfx_28 Volume:1 Loop:false FadeInDuration:0
+
+; ========================================
+; ☆証拠品：『処刑台』入手
+; ========================================
+@SpawnExtended Path:Clue Params:4-8
+@UpdateWitchBook Id:4-8 Category:Clue Version:1
+@Wait WaitMode:i1.5
+@DestroySpawnedExtended Path:Clue Wait:true LogWarning:true
+
+[PrintTextModified Text:引っかかりがあったことから、<br>エマは処刑の台座部分をスマホで撮影する。|#0104Adv09_Narrative015| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（……これまでボクらは何度か処刑を見てきた）|#0104Adv09_Ema015| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（誰かが処刑される時、元々ある台座が地下に降りて、<br>　違う処刑台が地下からせりあがってきた）|#0104Adv09_Ema016|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（仕組みがはっきりわかるわけじゃないけど、<br>　機械仕掛けだよね）|#0104Adv09_Ema017|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:処刑の際の歯車の嫌な音を思い出し、<br>エマは首を強く横に振る。|#0104Adv09_Narrative016| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"それからいまいちどアリサの姿を見ていると、<br>視界が<ruby=\"にじ\">滲</ruby>み始めた。|#0104Adv09_Narrative017|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（アリサちゃんをこんな目に遭わせた犯人がいるなら、<br>　許されない）|#0104Adv09_Ema018|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:エマさん、大丈夫ですか……？|#0104Adv09_Meruru006| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:メルルがそっと肩に手を置いたので、<br>エマは袖口で涙を強引に拭う。|#0104Adv09_Narrative018| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:大丈夫。ボクは他の場所に捜査に行くよ。|#0104Adv09_Ema019| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:わかりました……無理はしないでくださいね。|#0104Adv09_Meruru007| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:うん、ありがとうメルルちゃん。|#0104Adv09_Ema020| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:エマは裁判所を後にした。|#0104Adv09_Narrative019| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 消化していないイベントがある＞シーン1‐4‐8
+; 全てのイベントを消化している＞シーン1‐4‐12
+; ========================================
+
+@Gosub Path:System/System_Subroutine.EndAdv
+
+@GotoModified Path:Act01_Chapter04/Act01_Chapter04_Adv08 SoftReset:true
+

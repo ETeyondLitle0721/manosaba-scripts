@@ -1,0 +1,541 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook Version:3
+
+@BeginIf Expression:isDebugDirectJump
+    @Gosub Path:Act01_Chapter04/Act01_Chapter04_TrialInit
+    @HidePerspectiveStageScreen Index:1 Duration:0 Reset:true
+    @ModifyBackgroundExtended TintColor:#000000 Duration:0 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+
+@SetTrialTimer Time:900
+@HideUI UINames:ControlPanel AllowToggle:false
+@ShowUI UINames:DebateUI
+
+; ==============================================================================
+; MARK: 4-10: 💬 アリサを殺したもの
+; ==============================================================================
+; ＠ト書き▼議論4-10 アリサを殺したもの
+
+; 議論開始カットイン
+; BGM変更：weRer N'o Hir
+@PlayBgm BgmPath:Bgm_43_1 Volume:1 Loop:true FadeInDuration:0
+
+@ResetText
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Warden.8
+@ModifyPerspectiveStageCamera Index:1 Height:5.6 Rotation:"0,{ (8 / courtStandCount * 360)},0" Distance:12 Duration:0
+@WaitForNextFrame
+
+@ModifyPerspectiveStageCamera Index:1 Rotation:"0,{ (7.9 / courtStandCount * 360)},0" Duration:1 EaseName:OutQuad
+@ShowPerspectiveStageScreen Index:1
+@Wait WaitMode:1.8
+
+@ModifyCharacterExtended Duration:0 Lazy:false IdAndAppearance:Ema.Pensive1,ArmR3,ArmL7
+@ModifyPerspectiveStageCamera Index:0 Height:5.6 Rotation:"0,{ (0 / courtStandCount * 360)},0" Distance:12 Duration:0
+@WaitForNextFrame
+
+@ModifyPerspectiveStageCamera Index:0 Rotation:"0,{ (0.1 / courtStandCount * 360)},0" Duration:1 EaseName:OutQuad
+@HidePerspectiveStageScreen Index:1 Reset:true
+@Wait WaitMode:2.3
+
+# Judge4-10-1
+
+@Gosub Path:System/System_Subroutine.BeginDebate-First
+@Gosub Path:System/System_Subroutine.BeginDebate-Effect
+@Gosub Path:System/System_Subroutine.BeginDebate-Last
+@ChangeTrialPauseMode Enable:false ProcessTimer:true
+
+@HidePerspectiveStageScreen Index:1 Reset:true
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Warden.2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Warden Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:処刑台は<br>私がリモコンで操作するか、<br>もしくは地下の施設で<br>操作しない限りは<br>動かないはずなんです。|#0104Trial10_Warden001| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Warden.1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Warden Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:ですが実際に動いた記録が<br>残っています。|#0104Trial10_Warden002| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Warden.1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Warden Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:"昨晩から今朝にかけて……<br>これはいったい<br>どうして<br><link=\"Objection_01_04_10_01\">動いた</link>んでしょうね？|#0104Trial10_Warden003|" RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+; ＠備考◆投げやり
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Default,ArmR3,ArmL2,Angle01/Facial/Eyes>Eyes_Uncomfortable_Open02,Angle01/Facial/Mouth>Mouth_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:勘違いとかじゃねーの？<br>もしくは<br>お前が嘘ついてるか。|#0104Trial10_Coco001| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Warden.5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Warden Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:私はあくまでも<br>この施設の管理者ですから。<br>嘘なんてついてませんよ。<br>……皆さんに言えないことは<br>ありますけどね。|#0104Trial10_Warden004| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+@Gosub Path:System/System_Subroutine.EndDebate-Effect
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+; 
+; 議論終了
+; ------------------------------------------------------------------------------
+
+@ResetText
+@ModifyCharacterExtended Duration:0 Lazy:false IdAndAppearance:Ema.Determined2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center ZoomLevel:2
+@Wait WaitMode:0.2
+
+; ==============================================================================
+; 4-10議論後独白
+; ==============================================================================
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed
+[PrintTextModified Text:"（ゴクチョーの言ってる【地下】って……<br>　あの隠し通路のことだよね？）|#0104Trial10_Ema001|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Angry_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed
+[PrintTextModified Text:"（でも……だとすると、昨日の晩に<br>　地下に入って何か操作した人物が<br>　いるってことで……）|#0104Trial10_Ema002|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Fearful_Open
+[PrintTextModified Text:（それって……もしかして）|#0104Trial10_Ema003| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge4-10-1
+
+; 
+; 反論1
+; ------------------------------------------------------------------------------
+
+# Objection_01_04_10_01
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:誤作動した|#0104Trial10_Choice001| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:Trial AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge4-10-3
+
+@AddChoice ChoiceSummary:ゴクチョーが間違えた|#0104Trial10_Choice002| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:Trial AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge4-10-4
+
+@AddChoice ChoiceSummary:地下で操作した人物がいる|#0104Trial10_Choice003| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:Trial AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge4-10-2
+
+
+@AddChoice ChoiceSummary:戻る|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:Trial AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; ==============================================================================
+; MARK: 4-12: ❌ 議論ミス選択肢
+; ==============================================================================
+; MARK: 4-10-3: ❌ 誤作動した
+
+# Judge4-10-3
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR8,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:ご、誤作動の可能性はないの……！？|#0104Trial10_Ema004| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Warden.1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Warden Composition:Right
+[PrintTextModified Text:ないと思いますけどねぇ……<br>動くにしても、何かキッカケがないと。|#0104Trial10_Warden005| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Normal_Middle,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"で、電気椅子だって不具合があったって言うし……<br>ほ、ほら！ 処刑台にも何か問題があったのかも……！|#0104Trial10_Ema005|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆純粋な疑問と疑い
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,ArmR2,ArmL5,Angle01/Facial/Eyes>Eyes_Pensive_Open,Angle01/Facial/Mouth>Mouth_Neutral_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Left
+[PrintTextModified Text:……ねえ、エマちゃん。|#0104Trial10_Margo001| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆冷ややかな目
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,ArmR2,ArmL5,Angle01/Facial/Eyes>Eyes_Pensive_Open,Angle01/Facial/Mouth>Mouth_Neutral_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Left
+[PrintTextModified Text:あなた、処刑台に誤作動がないと<br>何か困ることでもあるの？<br>さっきから少し様子がおかしいけど……。|#0104Trial10_Margo002| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Fearful_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（マーゴちゃんに疑われちゃったかも……！）|#0104Trial10_Ema006| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR7,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Pensive_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（……思い当たらないわけじゃない。<br>　昨日の夜に地下の施設から処刑台が動かされたこと……<br>　その可能性を、ボクは知っている……）|#0104Trial10_Ema007|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge4-10-1
+
+; MARK: 4-10-4: ❌ ゴクチョーが間違えた
+
+# Judge4-10-4
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR8,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:ゴ、ゴクチョーが間違えて操作しちゃったんじゃ……！|#0104Trial10_Ema008| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Warden.2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Warden Composition:Right
+[PrintTextModified Text:それはないからお尋ねしてるんですよ。|#0104Trial10_Warden006| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Normal_Middle,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:そ、そうなんだ……。|#0104Trial10_Ema009| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Default,ArmR3,ArmL2,Angle01/Facial/Eyes>Eyes_Pensive_Open01,Angle01/Facial/Mouth>Mouth_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Left
+[PrintTextModified Text:エマっち、なんかあせってない？|#0104Trial10_Coco002| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Default,ArmR3,ArmL2,Angle01/Facial/Eyes>Eyes_Pensive_Open01,Angle01/Facial/Mouth>Mouth_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Left
+[PrintTextModified Text:なんか……隠しごとでもあんの？|#0104Trial10_Coco003| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Fearful_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（ココちゃんに怪しまれちゃったみたい……！）|#0104Trial10_Ema010| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR7,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Pensive_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（……思い当たらないわけじゃない。<br>　昨日の夜に地下の施設から処刑台が動かされたこと……<br>　その可能性を、ボクは知っている……）|#0104Trial10_Ema011|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+
+@GotoModified Path:.Judge4-10-1
+
+; ==============================================================================
+; MARK: 4-10-2: ⭕ 地下で操作した人物がいる
+; ==============================================================================
+
+# Judge4-10-2
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@HideUI UINames:DebateUI AllowToggle:false
+@ShowUI UINames:ControlPanel
+
+@StopBgm
+@GosubToObjectionCutIn CutInKind:Ema Index:1 VoicePath:CommonTrial_Ema05120 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+
+# Judge4-10-9
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR6,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Pensive_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Fearful_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:昨日、地下で操作した人物がいるんだ。<br>それは……。|#0104Trial10_Ema012| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 証拠品提示
+@ChoiceEvidence CategoryNames:Profile Back:false Global:false CorrectEvidenceId:Ema
+
+; 桜羽エマ
+@BeginIf Expression:"chosenEvidenceId==\"Ema\""
+    @GotoModified Path:.Judge4-10-5
+
+; 黒部ナノカ
+@BeginIf Expression:"chosenEvidenceId==\"Nanoka\""
+    @GotoModified Path:.Judge4-10-6
+
+; ゴクチョー or 看守
+@BeginIf Expression:"chosenEvidenceId==\"Warden\"||chosenEvidenceId==\"Jailer\""
+    @GotoModified Path:.Judge4-10-7
+
+; 汎用選択ミス
+@GotoModified Path:.Judge4-10-8
+
+; ==============================================================================
+; ミス選択肢
+; ==============================================================================
+
+; MARK: 4-10-6: ❌ 黒部ナノカ
+
+# Judge4-10-6
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Fearful_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Flushed_Closed02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（ダ、ダメだ！<br>　ナノカちゃんのことを言ったら……！）|#0104Trial10_Ema013|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Fearful_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Flushed_Closed02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（それにナノカちゃんが地下のことを知ったのは、<br>　今朝のことのはず……！）|#0104Trial10_Ema014|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Fearful_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Flushed_Closed02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（つまり昨晩、ナノカちゃんが<br>　処刑台を操作できたとは考えにくい……）|#0104Trial10_Ema015|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Warden.2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Warden Composition:Right
+[PrintTextModified Text:エマさん……もしかして、何か隠してます？|#0104Trial10_Warden007| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Fearful_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（みんなから疑われちゃったかも……！）|#0104Trial10_Ema016| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR7,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Pensive_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（変な疑いがかかる前に、<br>　早く言わなきゃ……！）|#0104Trial10_Ema017|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+
+@GotoModified Path:.Judge4-10-9
+
+; MARK: 4-10-7: ❌ ゴクチョーor看守
+
+# Judge4-10-7
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR8,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:ゴクチョーたちなんじゃないのかな……？|#0104Trial10_Ema018| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Warden.1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Warden Composition:Right
+[PrintTextModified Text:それがないから確認しているんです。|#0104Trial10_Warden008| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Warden.2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Warden Composition:Right
+[PrintTextModified Text:不自然なことがないようでしたら……<br>魔女の処刑投票は、通常通り実施させてもらいますよ。|#0104Trial10_Warden009| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Fearful_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（マズい……！<br>　アリサちゃんが自殺だって<br>　みんなに納得してもらったのに……！）|#0104Trial10_Ema019|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 別選択肢共通
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR7,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Pensive_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（変な疑いがかかる前に、<br>　早く言わなきゃ……！）|#0104Trial10_Ema020|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge4-10-9
+
+; MARK: 4-10-8: ❌ 汎用選択ミス
+
+# Judge4-10-8
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Warden.1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Warden Composition:Right
+[PrintTextModified Text:その人がどうやって動かしたんでしょうか？<br>これまでの話からすると、<br>不可能な気がするんですけどねぇ……。|#0104Trial10_Warden010| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+; 別選択肢共通
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR7,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Pensive_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（変な疑いがかかる前に、<br>　早く言わなきゃ……！）|#0104Trial10_Ema021|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge4-10-9
+
+; ==============================================================================
+; MARK: 4-10-5: ⭕ 【桜羽エマ】
+; ==============================================================================
+
+# Judge4-10-5
+
+; カットイン
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR6,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Flushed_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Fearful_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:それは……ボクだよ。|#0104Trial10_Ema022| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Default,ArmR13,ArmL10,Angle01/Facial/Eyes>Eyes_Surprised_Open,Angle01/Facial/Mouth>Mouth_Surprised_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Right
+[PrintTextModified Text:"えっ！？ どゆこと！？|#0104Trial10_Coco004|" AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR7,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Pensive_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（今地下を調べているナノカちゃんの<br>　邪魔をするわけにはいかない……）|#0104Trial10_Ema023|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR7,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Pensive_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（朝に処刑台が動いたのは、<br>　地下にいたナノカちゃんなんだろうけど……。<br>　ナノカちゃんのことは黙っておこう）|#0104Trial10_Ema024|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR7,ArmL10,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（まずは昨日あったことの、<br>　必要最低限の説明だけして……）|#0104Trial10_Ema025|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; BGM変更：Kei-Plne Co-Jundic
+@PlayBgm BgmPath:Bgm_25_1 Volume:1 Loop:true FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR8,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Confused_Middle,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:その……昨日偶然、<br>地下に通じる隠し通路を見つけたんだ。|#0104Trial10_Ema026| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR8,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:そこでボク、閉じ込められちゃって……<br>【操作パネル】っぽいものがあったから<br>扉を開けようとしてそれを触ったんだけど……。|#0104Trial10_Ema027| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR7,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Confused_Middle,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:もしかしたらその時のボクの操作で<br>処刑台が動いちゃったのかもしれない……。|#0104Trial10_Ema028| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・ガーン
+@PlaySfxModified SfxPath:Sfx_Common_6 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Default,ArmR8,ArmL7,Angle01/Facial/Eyes>Eyes_Surprised_Open,Angle01/Facial/Mouth>Mouth_Surprised_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Right
+[PrintTextModified Text:か、隠し通路！？|#0104Trial10_Coco005| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆恐る恐る確認
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Default,ArmR8,ArmL7,Angle01/Facial/Eyes>Eyes_Pensive_Open01,Angle01/Facial/Mouth>Mouth_Normal_Open,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Right
+[PrintTextModified Text:……エ、エマっちが<br>ナノカの言ってた黒幕だったり……<br>しないよな……？|#0104Trial10_Coco006| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR5,ArmL3,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Confused_Open,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:ボクが黒幕だったら、<br>こんなこと正直に言わないよ……！|#0104Trial10_Ema029| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Warden.1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Warden Composition:Left
+[PrintTextModified Text:……なるほど。そうだったんですね。<br>どうやら私の疑問は、解決したようです。|#0104Trial10_Warden011| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Pensive_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Flushed_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:……地下に入ったけど、ボクは処罰されたりするの？|#0104Trial10_Ema030| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Warden.2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Warden Composition:Left
+[PrintTextModified Text:いいえ？<br>べつに【地下の管理室に入ってはいけない】なんて<br>ルールはありませんからねぇ。|#0104Trial10_Warden012| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR12,ArmL16,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Normal_Closed,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（……良かった。<br>　ならもっと堂々と地下の調査ができるかも……！）|#0104Trial10_Ema031|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@StopBgm
+@Wait WaitMode:0.1
+
+@StopVoice
+@Wait WaitMode:0.1
+
+@PlaySfxModified SfxPath:Sfx_Common_5 Volume:1 Loop:false FadeInDuration:0
+
+@ResetText
+@PlayVoice VoicePath:CommonTrial_Margo01682 Volume:1
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Surprised1
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,ArmR2,ArmL5,Angle01/Facial/Eyes>Eyes_Angry_Open,Angle01/Facial/Mouth>Mouth_Neutral_Open
+@GosubToSplitPerspectiveStageScreens Index:1 LookCharacterId:Margo Composition:Right RollDirection:Over
+@Wait WaitMode:1.5
+
+@HidePerspectiveStageScreen Index:1 Reset:true
+@Wait WaitMode:0.3
+@StopVoice
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,ArmR2,ArmL5,Angle01/Facial/Eyes>Eyes_Angry_Open,Angle01/Facial/Mouth>Mouth_Neutral_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right
+[PrintTextModified Text:……待って。|#0104Trial10_Margo003| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR12,ArmL16,Angle01/Head01/Facial01/Eyes01>Eyes01_Surprised_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Cry_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:……え？|#0104Trial10_Ema032| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; BGM変更：吸われた祈り
+@PlayBgm BgmPath:Bgm_35_1 Volume:1 Loop:true FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,ArmR2,ArmL5,Angle01/Facial/Eyes>Eyes_Angry_Open,Angle01/Facial/Mouth>Mouth_Neutral_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right
+[PrintTextModified Text:……ねぇ、メルルちゃん。|#0104Trial10_Margo004| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Meruru.Head2,ArmR12_2,ArmL13,Eyes2_Surprised_Open1,Mouth2_Normal_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Left
+[PrintTextModified Text:は、はい……。なんでしょう……？|#0104Trial10_Meruru001| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,ArmR2,ArmL5,Angle01/Facial/Eyes>Eyes_Angry_Open,Angle01/Facial/Mouth>Mouth_Neutral_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right
+[PrintTextModified Text:……アリサちゃんの飲んだ【睡眠薬】について<br>あらためて教えて欲しいんだけど……。|#0104Trial10_Margo005| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,ArmR2,ArmL5,Angle01/Facial/Eyes>Eyes_Normal_Open,Angle01/Facial/Mouth>Mouth_Neutral_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right
+[PrintTextModified Text:一度に大量に摂取すると……<br>どうなるのかしら？|#0104Trial10_Margo006| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Meruru.Head2,ArmR12_2,ArmL13,Eyes2_Surprised_Open1,Mouth2_Normal_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Left
+[PrintTextModified Text:え、ええと、それは……。|#0104Trial10_Meruru002| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・明るい音
+@PlaySfxModified SfxPath:Sfx_Common_2 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Meruru.Head1,ArmR1_1,ArmL8,Eyes1_Pensive_Open2,Mouth1_Normal_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Left
+[PrintTextModified Text:あのビンに入っていた分を一気に飲み干してしまったら……<br>まずは昏睡状態になると思います。<br>何があっても起きないぐらいに……。|#0104Trial10_Meruru003| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Meruru.Head2,ArmR1_2,ArmL5,Eyes2_Normal_Open1,Mouth2_Surprised_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Left
+[PrintTextModified Text:そのあと……<br>おそらく２４時間以内に適切な処置をしないと、<br>手遅れになってしまうかと……。|#0104Trial10_Meruru004| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,ArmR2,ArmL5,Angle01/Facial/Eyes>Eyes_Normal_Closed,Angle01/Facial/Mouth>Mouth_Neutral_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right
+[PrintTextModified Text:やっぱり……<br>そういうことなのね……。|#0104Trial10_Margo007| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Default,ArmR5,ArmL5,Angle01/Facial/Eyes>Eyes_Gross_Open,Angle01/Facial/Mouth>Mouth_Pensive_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Left
+[PrintTextModified Text:な、なんでそんなこと確認すんの……？<br>アリサは自殺ってことなんじゃ……？|#0104Trial10_Coco007| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@StopBgm
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,ArmR2,ArmL5,Angle01/Facial/Eyes>Eyes_Normal_Closed,Angle01/Facial/Mouth>Mouth_Neutral_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right
+[PrintTextModified Text:そう、思っていたわ。|#0104Trial10_Margo008| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,ArmR2,ArmL5,Angle01/Facial/Eyes>Eyes_Angry_Open,Angle01/Facial/Mouth>Mouth_Neutral_Open,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right ZoomLevel:3
+[PrintTextModified Text:……さっきまでは。|#0104Trial10_Margo009| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR7,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Surprised_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Cry_Open,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:ど、どういうこと……？|#0104Trial10_Ema033| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,ArmR2,ArmL5,Angle01/Facial/Eyes>Eyes_Normal_Open,Angle01/Facial/Mouth>Mouth_Neutral_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right
+[PrintTextModified Text:昨晩アリサちゃんは睡眠薬を飲んだ……。|#0104Trial10_Margo010| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,ArmR7,ArmL5,Angle01/Facial/Eyes>Eyes_Normal_Open,Angle01/Facial/Mouth>Mouth_Neutral_Open,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right
+[PrintTextModified Text:……もし昨夜の時点で、アリサちゃんが<br>【生きていた】としたら……？|#0104Trial10_Margo011| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR7,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Surprised_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Confused_Middle,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:……そ、それは……！|#0104Trial10_Ema034| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,ArmR7,ArmL5,Angle01/Facial/Eyes>Eyes_Normal_Open,Angle01/Facial/Mouth>Mouth_Pensive_Closed,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right
+[PrintTextModified Text:そのあとアリサちゃんは<br>眠った状態で地下に送られた……。|#0104Trial10_Margo012| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,ArmR7,ArmL5,Angle01/Facial/Eyes>Eyes_Normal_Open,Angle01/Facial/Mouth>Mouth_Pensive_Closed,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right
+[PrintTextModified Text:それなら、アリサちゃんの死因は<br>睡眠薬による【オーバードーズ】ではなくて――。|#0104Trial10_Margo013| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆焦り
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,ArmR2,ArmL5,Angle01/Facial/Eyes>Eyes_Angry_Middle,Angle01/Facial/Mouth>Mouth_Pensive_Open,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right ZoomLevel:3
+[PrintTextModified Text:――【凍死】、になるんじゃないかしら……。|#0104Trial10_Margo014| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Meruru.Head2,ArmR1_2,ArmL3,Eyes2_Normal_Open1,Mouth2_Angry_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Left
+[PrintTextModified Text:そ、それって……！|#0104Trial10_Meruru005| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+@AutoSave
+
+@GotoModified Path:Act01_Chapter04/Act01_Chapter04_Trial11 ResetState:-
+

@@ -1,0 +1,40 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook IsDebugDirectJump:{isDebugDirectJump}
+@Gosub Path:System/System_Subroutine.BeginAdv
+
+# Scene1-3-5
+
+; ========================================
+; ●シーン1‐3-5
+; ========================================
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false AppearanceAndTransition:9_1
+@ModifyBackgroundExtended TintColor:#000000 Duration:1.2 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:1.8
+
+@PlayBgm BgmPath:Bgm_19_1 Volume:1 Loop:true FadeInDuration:0
+@AutoSave
+[PrintTextModified Text:メルルがお弁当を仕上げている間に、<br>エマはシェリーとハンナを呼びに行くことにした。|#0103Adv05_Narrative001| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（今日は息抜きの日、切り替えて楽しもう！）|#0103Adv05_Ema001| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:歩きだしてすぐ、<br>先程見かけたアリサの姿が頭に浮かぶ。|#0103Adv05_Narrative002| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（アリサちゃん、久しぶりに会ったな。<br>　マーゴちゃんやココちゃんも何してるんだろう……？）|#0103Adv05_Ema002|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Determined2
+
+[PrintTextModified Text:……よし！|#0103Adv05_Ema003| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:エマはキッと強い瞳で顔を上げた。|#0103Adv05_Narrative003| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（シェリーちゃん、ハンナちゃんだけじゃなくて、<br>　みんなを誘ってみよう！）|#0103Adv05_Ema004|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:きっとまだ溝は埋められるはずだと、<br>エマは信じて先を急ぐ。|#0103Adv05_Narrative004| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@SetCustomVariable Expression:"chosenAreaFlag = 0"
+@Gosub Path:System/System_Subroutine.EndAdv
+
+@GotoModified Path:Act01_Chapter03/Act01_Chapter03_Adv06 SoftReset:true
+

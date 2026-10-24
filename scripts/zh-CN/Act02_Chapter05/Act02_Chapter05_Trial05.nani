@@ -1,0 +1,1073 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook Version:2
+
+@BeginIf Expression:isDebugDirectJump
+    @Gosub Path:Act02_Chapter05/Act02_Chapter05_TrialInit
+    @HidePerspectiveStageScreen Index:1 Duration:0 Reset:true
+    @ModifyBackgroundExtended TintColor:#000000 Duration:0 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+
+@SetTrialTimer Time:900
+@HideUI UINames:ControlPanel AllowToggle:false
+@ShowUI UINames:DebateUI
+
+; クリーチャー化初期化
+@HideActors ActorIds:Hiro Lazy:false
+@ModifyCharacterExtended Position:{hiroPositionX},{characterPositionY},{hiroPositionZ} Rotation:,{hiroRotationY} Scale:{characterScale},{characterScale},1 Duration:0 Lazy:false IdAndAppearance:CreatureHiro.2
+
+@HideActors ActorIds:Meruru Lazy:false
+@ModifyCharacterExtended Position:{meruruPositionX},{characterPositionY},{meruruPositionZ} Rotation:,{meruruRotationY} Scale:{characterScale},{characterScale},1 Duration:0 Lazy:false IdAndAppearance:CreatureMeruru.3-5
+
+; ==============================================================================
+; MARK: 10-5: 💬 【蓮見レイア】
+; ==============================================================================
+; ＠ト書き▼議論10-5【蓮見レイア】
+; 議論開始カットイン
+; BGM変更：HirO（Voなし）
+@PlayBgm BgmPath:Bgm_37_1_Loop IntroBgmPath:Bgm_37_1_Intro Volume:1 Loop:true FadeInDuration:0
+
+; ボス演出
+@ResetText
+@ModifyCharacterExtended Duration:0 Lazy:false IdAndAppearance:CreatureHiro.2
+@ModifyPerspectiveStageCamera Index:1 Height:5.6 Rotation:"0,{ (8 / courtStandCount * 360)},0" Distance:12 Duration:0
+@WaitForNextFrame
+
+@ModifyPerspectiveStageCamera Index:1 Rotation:"0,{ (8.1 / courtStandCount * 360)},0" Duration:1 EaseName:OutQuad
+@ShowPerspectiveStageScreen Index:1
+@Wait WaitMode:1.5
+
+@ResetText
+@ModifyCharacterExtended Duration:0 Lazy:false IdAndAppearance:Leia.Default,ArmR8,ArmL4,Angle01/Facial/Eyes>Eyes_Fearful_Open,Angle01/Facial/Mouth>Mouth_Angry_Closed,Angle01/Facial/Sweat>Sweat01
+@ModifyPerspectiveStageCamera Index:0 Height:5.6 Rotation:"0,{ (3 / courtStandCount * 360)},0" Distance:12 Duration:0
+@WaitForNextFrame
+
+@ModifyPerspectiveStageCamera Index:0 Rotation:"0,{ (2.9 / courtStandCount * 360)},0" Duration:1 EaseName:OutQuad
+@HidePerspectiveStageScreen Index:1 Reset:true
+@Wait WaitMode:1.5
+
+# Judge10-5-1
+
+@Gosub Path:System/System_Subroutine.BeginDebate-First
+@Gosub Path:System/System_Subroutine.BeginDebate-Effect
+@Gosub Path:System/System_Subroutine.BeginDebate-Last
+@ChangeTrialPauseMode Enable:false ProcessTimer:true
+
+@HidePerspectiveStageScreen Index:1 Reset:true
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.9
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:你为了受人瞩目，<br>而持续进行着活动……|#0205Trial05_Hiro001| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.8
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:无论使出什么手段，<br>都必须永远争到第一<br>才甘心。|#0205Trial05_Hiro002| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR9,ArmL4,Angle01/Facial/Eyes>Eyes_Fearful_Open,Angle01/Facial/Mouth>Mouth_Yell_Open02,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:不、不对！<br>我，才没有……！|#0205Trial05_Leia001| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.10
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:哪里不对了？|#0205Trial05_Hiro003| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.11
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:还是说，<br>你要否认你用了魔法吗？|#0205Trial05_Hiro004| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR1,ArmL4,Angle01/Facial/Eyes>Eyes_Downcast_Open,Angle01/Facial/Mouth>Mouth_Angry_Open,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:这、这个……|#0205Trial05_Leia002| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR3,ArmL4,Angle01/Facial/Eyes>Eyes_Pensive_Open,Angle01/Facial/Mouth>Mouth_Yell_Open01,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:……可是，<br>我并没有做什么<br>不正当的事！|#0205Trial05_Leia003| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR3,ArmL4,Angle01/Facial/Eyes>Eyes_Uncomfortable_Open01,Angle01/Facial/Mouth>Mouth_Angry_Open,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:在试镜或者和他人竞争的时候，<br>我并没有用魔法<br>争取有利地位……|#0205Trial05_Leia004| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+; ＠備考◆自信なさげに
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR1,ArmL3,Angle01/Facial/Eyes>Eyes_Downcast_Open,Angle01/Facial/Mouth>Mouth_Angry_Closed,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:"只不过是……<br>为了提升<br><link=\"Objection_02_05_05_01\">正式演出</link>的品质……<br>才用过……|#0205Trial05_Leia005|" RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR2,ArmL1,Angle01/Facial/Eyes>Eyes_Smile_Open,Angle01/Facial/Mouth>Mouth_Yell_Open01,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:绝、绝不是<br>为了除掉别人<br>才用的魔法！|#0205Trial05_Leia006| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR9,ArmL4,Angle01/Facial/Eyes>Eyes_Pensive_Open,Angle01/Facial/Mouth>Mouth_Yell_Open02,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:"我是<br>为了<link=\"Objection_02_05_05_02\">来看我演出的观众</link>……<br>以及为了共同演出的同伴<br>才使用魔法的！|#0205Trial05_Leia007|" RevealSpeed:1 ScenePosition:35,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR9,ArmL4,Angle01/Facial/Eyes>Eyes_Fearful_Open,Angle01/Facial/Mouth>Mouth_Yell_Open01,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:"请相信我……！<br>不论是现在、过去、还是<br><link=\"Objection_02_05_05_03\">将来</link>……<br>我都不会做<br>那种卑鄙的事情！|#0205Trial05_Leia008|" RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+
+; ==============================================================================
+; 10-5議論後独白
+; ==============================================================================
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+@Gosub Path:System/System_Subroutine.EndDebate-Effect
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+; 
+; 議論終了
+; ------------------------------------------------------------------------------
+
+@ResetText
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.17
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center ZoomLevel:2
+@Wait WaitMode:0.2
+
+[PrintTextModified Text:（蕾雅的话里掺杂着谎言）|#0205Trial05_Hiro005| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.17
+[PrintTextModified Text:"（她话语中的犹豫，<br>　大概是缺乏自信和心虚的表现吧）|#0205Trial05_Hiro006|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.2
+[PrintTextModified Text:（……只不过，现在指出那一点也没什么大作用）|#0205Trial05_Hiro007| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.2
+[PrintTextModified Text:"（重要的是，<br>　得找到能够震撼支撑蕾雅人格根基的<br>　【心理创伤】）|#0205Trial05_Hiro008|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.3
+[PrintTextModified Text:（只要对其作出刺激，说不定就能击碎她的内心）|#0205Trial05_Hiro009| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.1
+[PrintTextModified Text:（……我还真够恶趣味的）|#0205Trial05_Hiro010| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge10-5-1
+
+; 
+; 反論1
+; ------------------------------------------------------------------------------
+
+# Objection_02_05_05_01
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:你在正式演出之外也用过|#0205Trial05_Choice001| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge10-5-3
+
+
+@AddChoice ChoiceSummary:返回|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; 
+; 反論2
+; ------------------------------------------------------------------------------
+
+# Objection_02_05_05_02
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:粉丝不会原谅你的做法|#0205Trial05_Choice002| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge10-5-4
+
+
+@AddChoice ChoiceSummary:返回|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; 
+; 反論3
+; ------------------------------------------------------------------------------
+
+# Objection_02_05_05_03
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:你再也无法站在聚光灯下了|#0205Trial05_Choice003| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge10-5-2
+
+
+@AddChoice ChoiceSummary:返回|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; ==============================================================================
+; MARK: 10-5: ❌ 議論ミス選択肢
+; ==============================================================================
+; MARK: 10-5-3: ❌ 反論・本番以外でも利用していた
+
+# Judge10-5-3
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:到底是不是真的呢？|#0205Trial05_Hiro011| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:你平时就在使用，<br>固定视线的魔法……|#0205Trial05_Hiro012| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.18
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:正因为你是能夺走所有人目光的顶尖明星，<br>才能做到这种事。|#0205Trial05_Hiro013| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,Arms,Angle01/Facial/Eyes>Eyes_Angry_Open02,Angle01/Facial/Mouth>Mouth_Angry_Closed,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:你、你说的根本没证据……！|#0205Trial05_Leia009| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR1,ArmL3,Angle01/Facial/Eyes>Eyes_Pensive_Open,Angle01/Facial/Mouth>Mouth_Smile_Middle,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:我确实是明星！<br>说不定在普通人看来，<br>我简直就是用了魔法！|#0205Trial05_Leia010| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR1,ArmL4,Angle01/Facial/Eyes>Eyes_Angry_Open02,Angle01/Facial/Mouth>Mouth_Yell_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:但是这并不对！|#0205Trial05_Leia011| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR9,ArmL8,Angle01/Facial/Eyes>Eyes_Angry_Open02,Angle01/Facial/Mouth>Mouth_Yell_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right ZoomLevel:3
+[PrintTextModified Text:我，超级受欢迎！！|#0205Trial05_Leia012| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR9,ArmL8,Angle01/Facial/Eyes>Eyes_Normal_Closed02,Angle01/Facial/Mouth>Mouth_Smile_Open02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right ZoomLevel:4
+[PrintTextModified Text:不论男女……受欢迎得不得了！|#0205Trial05_Leia013| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR10,ArmL5,Angle01/Facial/Eyes>Eyes_Normal_Closed02,Angle01/Facial/Mouth>Mouth_Smile_Open02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:所以希罗……你的反驳，是错的！|#0205Trial05_Leia014| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+; ＠備考◆ダメージを受けてるのではなく、睨みつけ返しているようなイメージ
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.22
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（唔……！<br>　……居然脸不红心不跳……！）|#0205Trial05_Hiro014|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.22
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（蕾雅这份自我肯定感，<br>　无论我说什么都无法完全否定吗？）|#0205Trial05_Hiro015|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.13
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（看来要刺伤她的内心，<br>　得从别的角度攻击才行……）|#0205Trial05_Hiro016|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+
+@GotoModified Path:.Judge10-5-1
+
+; MARK: 10-5-4: ❌ 反論・ファンは許さない
+
+# Judge10-5-4
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:可是，你做出这种事，你觉得粉丝们会原谅你吗？|#0205Trial05_Hiro017| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:什么【为了粉丝和同伴使用了魔法】……？<br>谁信啊。|#0205Trial05_Hiro018| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR5,ArmL2,Angle01/Facial/Eyes>Eyes_Smile_Closed,Angle01/Facial/Mouth>Mouth_Smile_Open01,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:是、是我的粉丝的话，一定会相信我的！|#0205Trial05_Leia015| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR5,ArmL2,Angle01/Facial/Eyes>Eyes_Uncomfortable_Open01,Angle01/Facial/Mouth>Mouth_Smile_Open01,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:……我承认，我曾经误以为魔法的能力纯粹只是我的才能之一，<br>在不知情的情况下使用过……|#0205Trial05_Leia016| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR5,ArmL5,Angle01/Facial/Eyes>Eyes_Normal_Open02,Angle01/Facial/Mouth>Mouth_Yell_Open01,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:但我发誓，<br>我从未夺走过同伴们出彩的机会……！|#0205Trial05_Leia017| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR5,ArmL3,Angle01/Facial/Eyes>Eyes_Normal_Open03,Angle01/Facial/Mouth>Mouth_Angry_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:……不过，我剥夺了粉丝们视线的自由，<br>这是事实。|#0205Trial05_Leia018| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR7,ArmL1,Angle01/Facial/Eyes>Eyes_Downcast_Open,Angle01/Facial/Mouth>Mouth_Angry_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:如果我的信誉因此扫地的话——|#0205Trial05_Leia019| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR7,ArmL1,Angle01/Facial/Eyes>Eyes_Normal_Closed02,Angle01/Facial/Mouth>Mouth_Normal_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:我打算从零开始，<br>重新来过……！|#0205Trial05_Leia020| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR7,ArmL1,Angle01/Facial/Eyes>Eyes_Normal_Closed02,Angle01/Facial/Mouth>Mouth_Smile_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:这也算是向粉丝赎罪……！|#0205Trial05_Leia021| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR1,ArmL3,Angle01/Facial/Eyes>Eyes_Smile_Open,Angle01/Facial/Mouth>Mouth_Smile_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:大家一定会选择支持我的！|#0205Trial05_Leia022| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR2,ArmL3,Angle01/Facial/Eyes>Eyes_Smile_Open,Angle01/Facial/Mouth>Mouth_Smile_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:怎么样！这下就没任何问题了吧！|#0205Trial05_Leia023| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.22
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（唔……！<br>　她很信任粉丝啊……！）|#0205Trial05_Hiro019|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆別選択肢共通
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.22
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（蕾雅这份自我肯定感，<br>　无论我说什么都无法完全否定吗？）|#0205Trial05_Hiro020|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.13
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（看来要刺伤她的内心，<br>　得从别的角度攻击才行……）|#0205Trial05_Hiro021|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+
+@GotoModified Path:.Judge10-5-1
+
+; ==============================================================================
+; MARK: 10-5-2: ⭕ 反論・二度と表舞台には立てない
+; ==============================================================================
+
+# Judge10-5-2
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@HideUI UINames:DebateUI AllowToggle:false
+@ShowUI UINames:ControlPanel
+
+
+@StopBgm
+@GosubToObjectionCutIn CutInKind:CreatureHiro Index:1 VoicePath:CommonTrial_Hiro00032 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:我说你……是不是搞错了什么？|#0205Trial05_Hiro022| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR3,ArmL2,Angle01/Facial/Eyes>Eyes_Smile_Open,Angle01/Facial/Mouth>Mouth_Smile_Open01,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:什、什么……？|#0205Trial05_Leia024| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.16
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:【将来】……？<br>难道你以为自己<br>还有【未来】吗？|#0205Trial05_Hiro023| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR7,ArmL4,Angle01/Facial/Eyes>Eyes_Fearful_Open,Angle01/Facial/Mouth>Mouth_Angry_Closed,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:……欸？|#0205Trial05_Leia025| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+; BGM変更：交々のいと
+@PlayBgm BgmPath:Bgm_26_2 Volume:1 Loop:true FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.20
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:既然你被囚禁在这里，<br>就意味着你已被认定为预备魔女。|#0205Trial05_Hiro024| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.21
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:换言之，就是携带着会毁灭人类的<br>魔女因子的【世界之敌】……|#0205Trial05_Hiro025| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.20
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:就算能从这里逃出去，<br>你也无法再次站在聚光灯之下了。|#0205Trial05_Hiro026| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆半笑い／半信半疑／焦り
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR8,ArmL4,Angle01/Facial/Eyes>Eyes_Fearful_Open,Angle01/Facial/Mouth>Mouth_Smile_Middle,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:……哈哈。<br>……怎么……可能……|#0205Trial05_Leia026| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.20
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:是真的。|#0205Trial05_Hiro027| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.8
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:别说电视和网络了，<br>就连小规模的公演都办不了。|#0205Trial05_Hiro028| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.8
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:就算你从这里逃出去，也只能一辈子活在暗处……<br>在完全不被任何人关注的情况下苟活着。|#0205Trial05_Hiro029| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+; ＠備考◆焦り／恐怖の、息を呑む
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR1,ArmL4,Angle01/Facial/Eyes>Eyes_Fearful_Open,Angle01/Facial/Mouth>Mouth_Cry_Closed01,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:………！|#0205Trial05_Leia027| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:还有就是这座监牢。<br>这不只是个关押囚犯的地方……|#0205Trial05_Hiro030| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:还是煽动少女们的不安，<br>让她们互相残杀，<br>只为制造出魔女的设施……|#0205Trial05_Hiro031| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.8
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:简直就像把虫子放进罐子里，让它们互相争斗的蛊毒一般……|#0205Trial05_Hiro032| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.8
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:这里根本就是地狱。|#0205Trial05_Hiro033| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.10
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:只要身在此处，<br>等待你的就只有死亡的命运——|#0205Trial05_Hiro034| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.9
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:或者是互相残杀到最后，<br>独自一人存活下来。|#0205Trial05_Hiro035| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.8
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:只有这两种结局。|#0205Trial05_Hiro036| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆恐怖／怯え
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Fearful1,ArmR7,ArmL4,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:这、这……你骗我……！|#0205Trial05_Leia028| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:我没骗你。|#0205Trial05_Hiro037| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……梅露露，至今为止有人成功从这里逃出去过吗？|#0205Trial05_Hiro038| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureMeruru.3-4
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Left
+[PrintTextModified Text:没、没有……！|#0205Trial05_Meruru001| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Left
+[PrintTextModified Text:尽管她们很可怜……<br>但从未出现过被抓来的少女<br>成功逃脱的情况……|#0205Trial05_Meruru002| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureMeruru.0-4
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Left
+[PrintTextModified Text:直到变成魔女，化作残骸，直到海枯石烂……|#0205Trial05_Meruru003| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureMeruru.0-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Left
+[PrintTextModified Text:少女们都无法离开这座监牢……|#0205Trial05_Meruru004| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureMeruru.0-4
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Left
+[PrintTextModified Text:包括我在内……<br>从古至今……永远如此。|#0205Trial05_Meruru005| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+
+; SE・決め音
+@PlaySfxModified SfxPath:Sfx_Common_3 Volume:1 Loop:false FadeInDuration:0
+
+; ＠備考◆叫び
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Fearful1,ArmR10,ArmL4,Angle01/Facial/Mouth>Mouth_Yell_Open01,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Center
+[PrintTextModified Text:——你骗人！！！|#0205Trial05_Leia029| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Fearful1,ArmR10,ArmL4,Angle01/Facial/Mouth>Mouth_Angry_Open,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Center
+[PrintTextModified Text:竟然要我……在这种狭窄、封闭的社会里……过一辈子……！？|#0205Trial05_Leia030| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Fearful1,ArmR10,ArmL4,Angle01/Facial/Mouth>Mouth_Yell_Open02,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Center
+[PrintTextModified Text:这……我无法接受……！|#0205Trial05_Leia031| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Fearful1,ArmR9,ArmL8,Angle01/Facial/Eyes-,Angle01/Facial/Pale>Pale01,Angle01/Facial/Pale>Pale01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Center
+[PrintTextModified Text:我……我……！|#0205Trial05_Leia032| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Fearful1,ArmR8,ArmL4,Angle01/Facial/Eyes-,Angle01/Facial/Mouth>Mouth_Angry_Closed,Angle01/Facial/Sweat>Sweat01,Angle01/Facial/Pale>Pale01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Center ZoomLevel:3
+[PrintTextModified Text:必须更受瞩目才行……！|#0205Trial05_Leia033| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・決め音
+@PlaySfxModified SfxPath:Sfx_Common_3 Volume:1 Loop:false FadeInDuration:0
+
+; ＠備考◆叫び
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Fearful1,ArmR9,ArmL8,Angle01/Facial/Eyes-,Angle01/Facial/Mouth>Mouth_Yell_Open02,Angle01/Facial/Sweat>Sweat01,Angle01/Facial/Pale>Pale01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Center ZoomLevel:4
+[PrintTextModified Text:不然的话……<br>活着就没有任何意义了！！|#0205Trial05_Leia034| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+; レイア魔女化
+@ResetText
+@ModifyBackgroundExtended TintColor:#FFFFFF00 Duration:0 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@ModifyBackgroundExtended TintColor:#FFFFFF20 Duration:1 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:1
+@ModifyBackgroundExtended TintColor:#FFFFFFFF Duration:0.4 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:0.8
+
+@HideActors ActorIds:Leia Lazy:false
+@ModifyCharacterExtended Position:{leiaPositionX},{characterPositionY},{leiaPositionZ} Rotation:,{leiaRotationY} Scale:{characterScale},{characterScale},1 Duration:0 Lazy:false IdAndAppearance:CreatureLeia.1-9
+
+@ModifyBackgroundExtended TintColor:#FFFFFF80 Duration:0.8 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:0.8
+@ModifyBackgroundExtended TintColor:#FFFFFF00 Duration:2 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:2
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.15
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（【成了】吗……！）|#0205Trial05_Hiro039| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR13,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Fearful_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Fearful_Open,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Left
+[PrintTextModified Text:魔、魔女化……！|#0205Trial05_Ema001| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆殺気／怒気を込める／声震える半笑い
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureLeia.1-9
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Center
+[PrintTextModified Text:……没错。|#0205Trial05_Leia035| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureLeia.1-9
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Center
+[PrintTextModified Text:根本不用想得太复杂。|#0205Trial05_Leia036| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureLeia.0-9
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Center
+[PrintTextModified Text:如果有人碍事……只要把他杀掉就好了。|#0205Trial05_Leia037| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureLeia.0-9
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Center
+[PrintTextModified Text:那样的话……至少在临死的那一瞬间——|#0205Trial05_Leia038| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@StopBgm
+
+; ＠備考◆囁くように
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureLeia.1-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Center ZoomLevel:3
+[PrintTextModified Text:那个人……会看着我吧。|#0205Trial05_Leia039| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.22
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（糟糕……！魔女化导致杀意失控了……！<br>　必须得制服她……！）|#0205Trial05_Hiro040|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・明るい音
+@PlaySfxModified SfxPath:Sfx_Common_2 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureMeruru.0-2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Left
+[PrintTextModified Text:……请交给我吧。|#0205Trial05_Meruru006| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.22
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:梅露露……！|#0205Trial05_Hiro041| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; BGM変更：海の森
+@PlayBgm BgmPath:Bgm_24_1 Volume:1 Loop:true FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureMeruru.2-2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Center ZoomLevel:3
+[PrintTextModified Text:来……蕾雅小姐没事的。|#0205Trial05_Meruru007| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureMeruru.1-3
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Center ZoomLevel:4
+[PrintTextModified Text:……没事的，没事的……<br>请你冷静下来……|#0205Trial05_Meruru008| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 魔法エフェクト・治療
+@ModifyBackgroundExtended TintColor:#00000000 Duration:0 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@ModifyBackgroundExtended TintColor:#88BB88AA Duration:0.4 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:0.4
+@ModifyBackgroundExtended TintColor:#00000000 Duration:0.4 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:0.4
+@ModifyBackgroundExtended TintColor:#88BB88AA Duration:0.4 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:0.4
+@ModifyBackgroundExtended TintColor:#00000000 Duration:0.4 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:0.4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureLeia.2-2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Center ZoomLevel:4
+[PrintTextModified Text:……这……是……|#0205Trial05_Leia040| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆困惑
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureLeia.2-2
+[PrintTextModified Text:……总觉得……|#0205Trial05_Leia041| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureLeia.2-3
+[PrintTextModified Text:……感觉很不舒服……|#0205Trial05_Leia042| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureLeia.2-3
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Center
+[PrintTextModified Text:感觉几秒前的自己像是另一个人……<br>一种自己不是自己的感觉。|#0205Trial05_Leia043| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureLeia.0-3
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Center
+[PrintTextModified Text:虽然暖乎乎的……但非常不舒服。|#0205Trial05_Leia044| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureLeia.1-8
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Center
+[PrintTextModified Text:……我已经冷静下来了，你能放开我了吗？|#0205Trial05_Leia045| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・明るい音
+@PlaySfxModified SfxPath:Sfx_Common_2 Volume:1 Loop:false FadeInDuration:0
+
+; ＠備考◆にっこり
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureMeruru.3-3
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Left
+[PrintTextModified Text:……好的。|#0205Trial05_Meruru009| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.17
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（这就是梅露露的魔法……【治疗】）|#0205Trial05_Hiro042| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.17
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（她一瞬间就让蕾雅冷静下来了）|#0205Trial05_Hiro043| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（这魔法就像是强力的精神药物……不，<br>　是性质更恶劣的药物……）|#0205Trial05_Hiro044|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（不过，正好能用来安全促进魔女化）|#0205Trial05_Hiro045| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureLeia.2-4
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:……看来我还真是【魔女】呢。|#0205Trial05_Leia046| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureLeia.0-4
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:还变成了与之相称的外貌……|#0205Trial05_Leia047| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@StopBgm
+
+; SE・明るい音
+@PlaySfxModified SfxPath:Sfx_Common_2 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureLeia.0-5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:……唔。|#0205Trial05_Leia048| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureLeia.1-4
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:……等一等。|#0205Trial05_Leia049| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・決め音
+@PlaySfxModified SfxPath:Sfx_Common_3 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureLeia.2-2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:这……和我之前想的不一样……！|#0205Trial05_Leia050| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureLeia.2-3
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:这、这个外貌……！|#0205Trial05_Leia051| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・明るい音
+@PlaySfxModified SfxPath:Sfx_Common_2 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureLeia.1-6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right ZoomLevel:3
+[PrintTextModified Text:……太美了……！|#0205Trial05_Leia052| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+; BGM変更：小鳥達の閑話休題
+@PlayBgm BgmPath:Bgm_18_1_Loop IntroBgmPath:Bgm_18_1_Intro Volume:1 Loop:true FadeInDuration:0
+
+; ＠備考◆呆れ
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.24
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:…………|#0205Trial05_Hiro046| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureLeia.1-6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:呵呵……还以为会变成丑陋的怪物，<br>结果竟然是变成<br>这么充满个性的样子……！|#0205Trial05_Leia053| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.24
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（怪物般的自我肯定感，<br>　以及对自己品味的绝对自信……）|#0205Trial05_Hiro047|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.24
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（莲见蕾雅……<br>　在各种意义上都是怪物啊……）|#0205Trial05_Hiro048|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@StopBgm
+
+@UpdateWitchBook Id:Leia Category:Profile Version:7
+@ShowToastUI Text:"魔女图鉴 更新…|#Toast_001|"
+
+; SE・明るい音
+@PlaySfxModified SfxPath:Sfx_Common_2 Volume:1 Loop:false FadeInDuration:0
+
+; ＠備考◆真面目に
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureLeia.1-8
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:……事已至此，再消沉下去也无济于事。|#0205Trial05_Leia054| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+; BGM変更：鐘楼の音
+@PlayBgm BgmPath:Bgm_39_2 Volume:1 Loop:true FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureLeia.1-8
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:按希罗的说法，<br>魔女化好像关系到能否逃离这座监牢。|#0205Trial05_Leia055| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureLeia.2-6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:那么我想，押宝希罗<br>大概是最有希望的吧！|#0205Trial05_Leia056| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・軽い衝撃音
+@PlaySfxModified SfxPath:Sfx_Common_4 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hanna.Default,ArmR3,ArmL2,Angle01/Head01/Facial01/Eyes01>Eyes01_Angry_Closed,Angle01/Head01/Facial01/Mouth01>Mouth01_Cry_Open,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hanna Composition:Left
+[PrintTextModified Text:虽说成了魔女，<br>你这是不是想得太开了啊！？|#0205Trial05_Hanna001| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・軽い衝撃音
+@PlaySfxModified SfxPath:Sfx_Common_4 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureLeia.2-7
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:呵呵！<br>请不要这么夸奖我！|#0205Trial05_Leia057| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（她已经完成了魔女化，<br>　离变成残骸还剩多少时间，<br>　连她自己都不清楚……）|#0205Trial05_Hiro049|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.3
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（所以蕾雅的选择是正确的）|#0205Trial05_Hiro050| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.3
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（……虽然，堵死她退路的人是我）|#0205Trial05_Hiro051| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.3
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（总之，多一个同伴总是让人安心的……）|#0205Trial05_Hiro052| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（话说回来……）|#0205Trial05_Hiro053| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@StopBgm
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+; ＠備考◆睨む
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,ArmR7,ArmL6,Angle01/Facial/Eyes>Eyes_Fearful_Open,Angle01/Facial/Sweat>Sweat02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right
+[PrintTextModified Text:…………|#0205Trial05_Alisa001| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 気任せの蝶［チェロ無し］
+@PlayBgm BgmPath:Bgm_45_2 Volume:1 Loop:true FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（她脸上一副【怪物又增加了】的表情）|#0205Trial05_Hiro054| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.17
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（我必须在不信任感加剧到讨论不下去之前，<br>　促进大家的魔女化……）|#0205Trial05_Hiro055|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.17
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（我依靠死亡回溯魔法获得的那些<br>　经验、知识、信息……）|#0205Trial05_Hiro056|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; スチルを次々フラッシュバック。ヒロスチル、殺害スチルなど
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.12
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（我必须回想起来这些情报……）|#0205Trial05_Hiro057| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.12
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（然后利用它们，<br>　思考能否让新的魔女觉醒吧）|#0205Trial05_Hiro058|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+; ☆アイテム追加
+; 【氷上メルル殺人事件】
+; 宝生マーゴは優しくされて殺害した。
+@SpawnExtended Path:Clue Params:10-16
+@UpdateWitchBook Id:10-16 Category:Clue Version:1
+@ShowToastUI Text:"魔女图鉴 更新…|#Toast_001|"
+@Wait WaitMode:i1.2
+@DestroySpawnedExtended Path:Clue LogWarning:true
+
+; ☆アイテム追加
+; 【沢渡ココ殺人事件】
+; 黒部ナノカは姉を守る為に殺害した。
+@SpawnExtended Path:Clue Params:10-17
+@UpdateWitchBook Id:10-17 Category:Clue Version:1
+@ShowToastUI Text:"魔女图鉴 更新…|#Toast_001|"
+@Wait WaitMode:i1.2
+@DestroySpawnedExtended Path:Clue LogWarning:true
+
+; ☆アイテム追加
+; 【夏目アンアン殺人事件】
+; 城ケ崎ノアは絵を見られて殺害した。
+@SpawnExtended Path:Clue Params:10-18
+@UpdateWitchBook Id:10-18 Category:Clue Version:1
+@ShowToastUI Text:"魔女图鉴 更新…|#Toast_001|"
+@Wait WaitMode:i1.2
+@DestroySpawnedExtended Path:Clue LogWarning:true
+
+; ☆アイテム追加
+; 【蓮見レイア殺人事件】
+; 遠野ハンナは劣等感を覚え殺害した。
+; 遠野ハンナは犯行を目撃され殺害した。
+@SpawnExtended Path:Clue Params:10-19
+@UpdateWitchBook Id:10-19 Category:Clue Version:1
+@ShowToastUI Text:"魔女图鉴 更新…|#Toast_001|"
+@Wait WaitMode:i1.2
+@DestroySpawnedExtended Path:Clue LogWarning:true
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（我所遭遇的五起凶杀案……）|#0205Trial05_Hiro059| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（在这些案件中，<br>　能够明确凶手心理创伤的案件是……）|#0205Trial05_Hiro060|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+# Judge10-5-5
+
+@ChoiceEvidence CategoryNames:Clue Back:false Global:false CorrectEvidenceId:10-18
+
+; 夏目アンアン殺人事件
+@BeginIf Expression:"chosenEvidenceId==\"10-18\""
+    @GotoModified Path:.Judge10-5-6
+
+; 氷上メルル殺人事件
+@BeginIf Expression:"chosenEvidenceId==\"10-16\""
+    @GotoModified Path:.Judge10-5-7
+
+; 沢渡ココ殺人事件
+@BeginIf Expression:"chosenEvidenceId==\"10-17\""
+    @GotoModified Path:.Judge10-5-8
+
+; 蓮見レイア殺人事件
+@BeginIf Expression:"chosenEvidenceId==\"10-19\""
+    @GotoModified Path:.Judge10-5-9
+
+; 汎用
+@GotoModified Path:.Judge10-5-10
+
+; MARK: 10-5-7: ❌ 氷上メルル殺人事件
+
+# Judge10-5-7
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.17
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（玛格的心理创伤是【被温柔对待】吗……？）|#0205Trial05_Hiro061| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.12
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（但是……条件太模糊，范围太广了）|#0205Trial05_Hiro062| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.12
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（而且，大概没人能保证她说了真话……）|#0205Trial05_Hiro063| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（……目前还是先验证一下其他人的作案动机吧）|#0205Trial05_Hiro064| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge10-5-5
+
+; MARK: 10-5-8: ❌ 沢渡ココ殺人事件
+
+# Judge10-5-8
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.17
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（奈叶香的心理创伤是【姐姐】吗……？）|#0205Trial05_Hiro065| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.17
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（如果去伤害看守，<br>　或许能行……）|#0205Trial05_Hiro066|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.12
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（虽然她会变成魔女，<br>　但恐怕我的脑袋会掉得更快）|#0205Trial05_Hiro067|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（而且……<br>　我感觉触发她心理创伤的原因<br>　不仅仅是姐姐）|#0205Trial05_Hiro068|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（……目前还是先验证一下其他人的作案动机吧）|#0205Trial05_Hiro069| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge10-5-5
+
+; MARK: 10-5-9: ❌ 蓮見レイア殺人事件
+
+# Judge10-5-9
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.17
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（汉娜的心理创伤是【有钱人】吗……？）|#0205Trial05_Hiro070| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.17
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（……她假装大小姐的行为<br>　似乎与此有关……）|#0205Trial05_Hiro071|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.17
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（但如果真是这样，<br>　蕾雅第一次遇到她的时候就会直接被她杀了才对吧）|#0205Trial05_Hiro072|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（……目前还是先验证一下其他人的作案动机吧）|#0205Trial05_Hiro073| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge10-5-5
+; MARK: 10-5-10: ❌ 汎用
+
+# Judge10-5-10
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（……这个应该没办法<br>　调查出作案动机和心理创伤）|#0205Trial05_Hiro074|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge10-5-5
+
+; ==============================================================================
+; MARK: 10-5-6: ⭕ 夏目アンアン殺人事件
+; ==============================================================================
+
+# Judge10-5-6
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.17
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（……诺亚决心行凶的理由是——）|#0205Trial05_Hiro075| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ==============================================================================
+; ◎回想シーン（流用）
+; ●シーン2‐3‐14
+; ==============================================================================
+@PlayBgm BgmPath:Bgm_45_2 Volume:0.2 Loop:true FadeInDuration:0
+@Wait WaitMode:0.2
+@ResetText
+@ModifyBackgroundExtended TintColor:#00000000 Duration:0 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@ModifyBackgroundExtended TintColor:#000000FF Duration:0.4 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:0.4
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} TintColor:#FFFFFF Duration:0 Lazy:false ScenePosition:50,50 AppearanceAndTransition:13_1 SubId:Flashback
+@ModifyCharacterExtended Duration:0 Lazy:false ScenePosition:50,50 IdAndAppearance:Noah.Default,ArmR1,ArmL1,Angle01/Facial/Eyes>Eyes_Pensive_Open_1,Angle01/Facial/Mouth>Mouth_Angry_Open SubId:Flashback
+@HidePerspectiveStageScreen Index:1 Reset:true
+@ModifyBackgroundExtended TintColor:#00000000 Duration:0.4 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:0.4
+
+[PrintTextModified Text:因为安安她……<br>看到了诺亚的画……|#0205Trial05_Noah001| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,Angle01/Facial/Eyes>Eyes_Pensive_Open_1,Angle01/Facial/Mouth>Mouth_Angry_Open
+[PrintTextModified Text:……那些啊，其实都不是诺亚画的。|#0205Trial05_Noah002| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR1,ArmL4,Angle01/Facial/Eyes>Eyes_Cry_Open,Angle01/Facial/Mouth>Mouth_Confused_Open
+[PrintTextModified Text:对不起，诺亚骗了大家。<br>可是呢，那都是因为，诺亚画的画其实都很难看。|#0205Trial05_Noah003| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@ModifyBackgroundExtended TintColor:#000000FF Duration:0.4 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:0.4
+@HideActors ActorIds:MainBackground-Flashback,Noah-Flashback Duration:0 Lazy:false
+@ModifyBackgroundExtended TintColor:#00000000 Duration:0.4 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:0.4
+@PlayBgm BgmPath:Bgm_45_2 Volume:1 Loop:true FadeInDuration:0
+; ==============================================================================
+; 回想ここまで
+; ==============================================================================
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.17
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（被人看到了自己画的画……）|#0205Trial05_Hiro076| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（那幅画本身只存在于我的记忆中）|#0205Trial05_Hiro077| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（只不过……<br>　如果运用得当，或许能把诺亚逼入绝境）|#0205Trial05_Hiro078|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@StopBgm
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……诺亚。|#0205Trial05_Hiro079| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR6,ArmL4,Angle01/Facial/Eyes>Eyes_Surprised_Open02,Angle01/Facial/Mouth>Mouth_Confused_Open,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right
+[PrintTextModified Text:哇！？|#0205Trial05_Noah004| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR6,ArmL4,Angle01/Facial/Eyes>Eyes_Pensive_Open,Angle01/Facial/Mouth>Mouth_Angry_Open,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right
+[PrintTextModified Text:……诺、诺亚不是坏孩子哦……？|#0205Trial05_Noah005| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.19
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:是吗……那可不好说。|#0205Trial05_Hiro080| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.18
+[PrintTextModified Text:你有着不能告诉别人的秘密……对吧？|#0205Trial05_Hiro081| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・軽い衝撃音
+@PlaySfxModified SfxPath:Sfx_Common_4 Volume:1 Loop:false FadeInDuration:0
+
+; ＠備考◆ギクッ
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR6,ArmL4,Angle01/Facial/Eyes>Eyes_Surprised_Open01,Angle01/Facial/Mouth>Mouth_Normal_Closed,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right
+[PrintTextModified Text:！|#0205Trial05_Noah006| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR4,ArmL4,Angle01/Facial/Eyes>Eyes_Pensive_Open,Angle01/Facial/Mouth>Mouth_Smile_Open01,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Right
+[PrintTextModified Text:你、你在说什么呀～……|#0205Trial05_Noah007| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.18
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……对我撒谎是没用的。|#0205Trial05_Hiro082| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.20
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……老实坦白吧。|#0205Trial05_Hiro083| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+@AutoSave
+
+@GotoModified Path:Act02_Chapter05/Act02_Chapter05_Trial06 ResetState:-
+

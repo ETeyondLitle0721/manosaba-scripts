@@ -1,39 +1,53 @@
-# Unity MonoBehaviour dump → Naninovel .nani
+# 简体中文转换版
 
-Node.js 18+，不需要 npm install。基于随附 parse-unity-dump.mjs 二次开发。
+用此目录的全部代码文件替换你本地 `D:\Workspace\Visual-Studio-Code\deliverable` 中对应文件，然后运行 `convert.ps1`。不要只更新 PS1：旧版 JS 不支持本次新增的 --locale 参数。
 
-```bash
-node convert-to-nani.mjs CAB-b2d3e8.dump.txt --out nani --strict
-node convert-to-nani.mjs CAB-b2d3e8.dump.txt --out nani --aliases aliases.example.json
-node test.mjs CAB-b2d3e8.dump.txt
+## 已配置的路径
+
+- 剧情 bundle：`D:\特殊文件夹\文档\ManosabaNaniScripts`
+- 中文 bundle：`D:\特殊文件夹\文档\ManosabaZhCNLocale`
+- UnityDataTool：`E:\UnityDataTool\UnityDataTool.exe`
+- 最终脚本：`D:\特殊文件夹\文档\ManosabaNaniScripts\zh-CN\<原脚本路径>.nani`
+- 每次导出和报告：`ManosabaNaniScripts\DumpedTxt\<本次运行ID>\`
+
+如工具位置变化，修改 convert.ps1 顶部配置即可。脚本采用 UTF-8 BOM 保存，兼容 Windows PowerShell 5.1 中文路径；生成 .nani 使用 UTF-8。
+
+## 执行流程
+
+1. 在本地化目录中查找直接包含的 *.bundle，逐个调用 UnityDataTool dump。
+2. 每个 bundle 在全新临时工作目录导出，收集全部 CAB-*.txt，不再只取第一个，也不在旧工作目录中兜底搜索。随后移动到本次 dump 目录。
+3. 逐个导出剧情 bundle，识别包含 playlist 的 CAB。
+4. Node 按“完整脚本路径 + 文本ID”应用中文，并将完整剧情脚本写入 zh-CN。保留命令、标签、台词ID和原脚本行号。
+5. 每个 CAB 单独保存转换报告，避免批处理时报告相互覆盖。报告包含翻译计数、缺失项及语音关联线索。
+
+默认 `$RequireTranslations = $true`：任何可本地化参数缺少翻译，该 CAB 转换失败，写出前检查，最终批处理以错误结束；其他已成功 CAB 属于部分结果。如果需要未译部分回退原文，将它改为 `$false`，并查看报告中的 translation.missing。输出目录不会自动清理，以免删除已有文件；失败后已有旧文件仍可能存在，应以本次成功状态和报告为准。
+
+同一个脚本路径如果在多个剧情 bundle 中重复出现，后处理的结果会覆盖前者，处理顺序按 bundle 名称排序。这个工具不会为重复版本选择“最新”或合并剧情。
+
+## 中文本地化格式
+
+本次文件为 TextAsset，m_Script 含实际多行本地化文档，不能用原缩进 AST 解析正文。localization.mjs 按 TextAsset 对象边界截取正文，读取文档头的完整 script path，再解析 `# 文本ID` 分段；忽略原文注释。
+
+多行译文转换为单行参数：已有 `<br>` 后的物理换行移除，其他换行转换为 `<br>`，避免脚本行号漂移或产生重复换行。空段视为缺失译文，不清空台词；同一脚本和ID出现不同译文则报冲突。保留段内空格、全角空格与富文本。
+
+输出包含所有剧情命令，是已经替换中文的完整 .nani，不是只含翻译条目的 Naninovel localization document。zh-CN 是你指定的输出目录名；如需在 Unity 运行时作为语言包安装，仍需按该项目的资源/本地化配置部署，不能仅凭文件夹名自动注册语言。
+
+## 单独使用 Node（已有 dump）
+
+```powershell
+node .\convert-to-nani.mjs .\CAB-ed2f69.dump.txt --out .\zh-CN --aliases .\aliases.json --locale '.\CAB-ce605c585d6e79fd21f0eb3d9526fe70(1).txt' --strict --require-translations
 ```
 
-测试命令针对本次 CAB 样本；压缩包未重复收录 9 MB 原始 dump，使用你原来的文件路径即可。
+`--locale` 也可以是包含多份本地化 dump 的目录（递归读取 *.txt），或指定一个 dump 文件。脚本路径作用域内匹配，避免跨章节同名 ID 误替换。
 
-## 输出与恢复方式
+## 验证情况
 
-- 按对象 path 保留目录，每个脚本输出一个 .nani。
-- 按 lines 的 lineIndex 恢复空行、注释、标签、缩进；通过对象内 references 解析命令和内联命令。RID、PathID 始终保留字符串，避免 64 位整数精度损失。
-- GenericTextScriptLine 输出 `[PrintTextModified Text:... AuthorId:... ...]`，而不是只输出台词，以保留打印机、等待、追加等参数。它是可编辑的脚本表达，不是原始源码逐字复原。
-- 优先读取 raw.parts：text 原样恢复；expression 转为 `{表达式}`；id 从当前对象 textMap 查找。保留 `<br>`、ruby 等富文本。
-- hasValue=0 的参数省略；raw 为空但 hasValue=1 时，从 value 恢复编译后的值（包括 true/false、列表和命名值）。因此会比原文多出显式默认参数。
-- conversion-report.json 记录脚本、命令计数和问题。--strict 在缺失文本、引用、未知行或不支持值等情况失败，不写出新结果。
-- 修复原解析器 getCommandRids：同时支持 `rid (SInt64)` 和 `rid(...)`。
+使用你上传的中文本地化文件和此前 CAB-ed2f69 剧情样本，生成 44 个中文脚本，替换 2796 处可本地化文本（台词和选项等），缺失翻译 0。中文结果已放在本包 zh-CN 目录。
 
-## 命令名称与运行限制
-
-dump 中没有 C# `[Alias]` 元数据，不能可靠推出自定义命令的简写。本工具默认保留完整类名、字段名，例如：
-
-```nani
-@Gosub Path:System/System_Subroutine.BeginAdv
-@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Margo.Normal1
-[PrintTextModified Text:こんにちは AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+```powershell
+node .\test-localization.mjs .\CAB-ed2f69.dump.txt '.\CAB-ce605c585d6e79fd21f0eb3d9526fe70(1).txt'
 ```
 
-Naninovel 文档允许按类名调用命令、按字段名传入参数；但本游戏所用版本、覆盖内置命令的注册冲突，仍需在原 Unity 项目导入验证。`aliases.example.json` 展示如何改用已确认的 Alias（空字符串表示无名参数）；它不是本游戏全部别名的已验证映射。可从 Assembly-CSharp / 扩展程序集的反编译代码中补齐。使用工具不会把自定义命令自动转换为标准 Naninovel 的等价实现。
+测试通过：中文台词、跨行译文、全部脚本行数和语音关联不变、缺失翻译严格失败/原文回退、冲突翻译报错。原始 dump 和 dump.cs 未重复包含在本包。aliases.json 沿用你提供 dump.cs 提取的 140 项映射；extract-aliases.mjs 可用于重新提取。
 
-本次样本：14 个脚本、3085 行、1577 条命令，严格模式无问题。已校验 playlist 命令总数与输出命令总数一致，并检查标签行号、台词、作者、表达式、别名覆盖、非法路径及缺失引用。未在 Unity/Naninovel 引擎中运行；运行还依赖原游戏自定义命令、角色/音频/UI 资源、System 子脚本及变量。
-
-基础 dump 格式本身未提供字符串长度或转义边界。若其他 dump 包含实际跨行字符串、伪装成字段的文本，现有缩进解析无法保证无歧义还原；本次样本未发现对象内部 unknown 节点。默认四个空格表示一级脚本缩进，无法还原原始空格数量。文本 ID 被展开为当前文本，原始本地化 ID 标记未写回 .nani；原始 ID 仍在源 dump。
-
-参考：https://naninovel.com/guide/custom-commands ，https://naninovel.com/guide/scenario-scripting 。
+当前环境没有 PowerShell 和 Windows UnityDataTool，未实际执行 PS1 或在 Unity 中播放；已完成 Node 端真实样本转换和测试。PowerShell 部分沿用你现有工具的 `UnityDataTool dump <bundle>` 约定，要求工具输出到当前工作目录，否则会明确报错。运行语音仍依赖原游戏音频配置和资源。

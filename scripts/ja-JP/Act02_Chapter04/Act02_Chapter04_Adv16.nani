@@ -1,0 +1,766 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook IsDebugDirectJump:{isDebugDirectJump}
+@Gosub Path:System/System_Subroutine.BeginAdv
+
+# Scene2-4-16
+
+; ========================================
+; ●シーン2‐4‐16
+; ========================================
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false AppearanceAndTransition:12_1
+@ModifyBackgroundExtended TintColor:#000000 Duration:1.2 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:1.8
+@AutoSave
+[PrintTextModified Text:アリサとミリアに連れられてやってきたのは、<br>図書室だった。|#0204Adv16_Narrative001| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:どうしてここに連れてこられたのか、<br>何もわからない。|#0204Adv16_Narrative002| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"考える気力もない。<br>私はただぼんやりと<ruby=\"うつ\">虚</ruby>ろな瞳で、<br>読書スペースの椅子に腰かけた。|#0204Adv16_Narrative003|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:すると、アリサがどこかから持ってきた本を、<br>机の上に置いた。|#0204Adv16_Narrative004| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 机に本を置く音
+@PlaySfxModified SfxPath:Sfx_42 Volume:1 Loop:false FadeInDuration:0
+@Wait WaitMode:1
+
+; ========================================
+; アイテムスチル：『魔女の本』表示
+; ========================================
+@SpawnExtended Path:Clue Params:10-11
+
+[PrintTextModified Text:その本は、見覚えがあった。|#0204Adv16_Narrative005| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:牢屋敷に囚われて間もなく、<br>シェリーたちが私に見せてきた、<br>魔女について書かれた本――。|#0204Adv16_Narrative006| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:あの日に見せられて以来、<br>すっかり忘れていた。|#0204Adv16_Narrative007| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"内容もほとんど<ruby=\"はあく\">把握</ruby>していない。|#0204Adv16_Narrative008|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:この本に一体なんの意味が……？|#0204Adv16_Hiro001| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:言いながら、私は本を開く。|#0204Adv16_Narrative009| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@DestroySpawnedExtended Path:Clue LogWarning:true
+
+; 本のページをぱらぱらめくる音
+@PlaySfxModified SfxPath:Sfx_43 Volume:1 Loop:false FadeInDuration:0
+@Wait WaitMode:2
+
+; ========================================
+; ＞挿入歌『救いを求めるヒトの詩』
+; ========================================
+
+@PlayBgm BgmPath:Bgm_40_1_Loop IntroBgmPath:Bgm_40_1_Intro Volume:1 Loop:true FadeInDuration:0
+
+; ＠備考◆息を呑む
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Surprised1
+
+[PrintTextModified Text:――！|#0204Adv16_Hiro002| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"ぱらぱらとページを<ruby=\"めく\">捲</ruby>っていくうちに、<br>私の目はみるみる見開かれていった。|#0204Adv16_Narrative010|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:そこに書かれていたのは、<br>この牢屋敷に囚われた少女たちの文字だった。|#0204Adv16_Narrative011| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"不思議な文字を解読しようと書き込みし、<br>解読されていった、たくさんの……<br>本当にたくさんの<ruby=\"こんせき\">痕跡</ruby>だった。|#0204Adv16_Narrative012|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Alisa.Pensive1,Option-ArmL-Off
+
+[PrintTextModified Text:桜羽の発案でさ、<br>順番にみんなで時間かけて<br>書き込んでいったんだよ。|#0204Adv16_Alisa001| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Miria.Pensive1,ArmR10
+
+[PrintTextModified Text:エマちゃん、<br>ヒロちゃんには<br>なかなか回せなかったみたいで……。|#0204Adv16_Miria001| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:だからヒロちゃんは<br>まだ目を通してないよね……？|#0204Adv16_Miria002| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:"こくりと<ruby=\"うなず\">頷</ruby>いた瞬間――|#0204Adv16_Narrative013|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"本の上に涙の<ruby=\"しずく\">雫</ruby>が、<br>ぱたりぱたりと落ちていった。|#0204Adv16_Narrative014|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Cry1
+
+[PrintTextModified Text:（ああ――そういうこと、だったのか）|#0204Adv16_Hiro003| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:"マーゴの部屋で、<br>エマが<ruby=\"ふところ\">懐</ruby>にさっと隠し、回収したもの。|#0204Adv16_Narrative015|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:それは凶器なんかじゃなかった。<br>この本だった。|#0204Adv16_Narrative016| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:たしかにここにいた彼女たちの証を、<br>指先でなぞる。|#0204Adv16_Narrative017| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro
+
+[PrintTextModified Text:ほとんど、解読できている。|#0204Adv16_Hiro004| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（私はずっとひとりで、足掻いていたと思っていた。<br>　皆、こんなにも戦っていたのに――……）|#0204Adv16_Hiro005|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Alisa
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Miria
+
+[PrintTextModified Text:……もう行かないと。|#0204Adv16_Hiro006| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Alisa.Surprised1,Option-ArmL-Off
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Miria.Surprised1
+
+[PrintTextModified Text:私は本をそっと胸に抱き、<br>立ち上がった。|#0204Adv16_Narrative018| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:そして、歩きだす。|#0204Adv16_Narrative019| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false AppearanceAndTransition:9_2
+
+@ModifyBackgroundExtended Duration:0.8 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:0.9
+
+
+[PrintTextModified Text:本の中で最初に見つけたのは、<br>マーゴが書き残した言葉だった。|#0204Adv16_Narrative020| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; @show Clue
+
+[PrintTextModified Text:――大魔女を召喚する方法について。<br>――１３人の魔女が１カ所に集う儀式が必要だと判明。|#0204Adv16_Margo001| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:――１３人の魔女が儀礼剣に向かって強く念じること。<br>――そうすれば大魔女が受肉し、私たちの元に降臨する。|#0204Adv16_Margo002| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:――わかったのはここまで。|#0204Adv16_Margo003| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:――私たちは１３人だけど、<br>儀礼剣があれば大魔女を召喚できるということかしら？|#0204Adv16_Margo004| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+; @hide Clue
+
+; ========================================
+; ◎回想シーン（2-1-9の流用）
+; ========================================
+
+@ResetText
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+@ModifyBackgroundExtended TintColor:#dfd1a2 Duration:0 Lazy:false AppearanceAndTransition:7_1
+@ModifyBackgroundExtended Duration:0.8 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:0.9
+
+@AnimateActorExtended ActorIds:MainBackground Loop:false
+@SpawnExtended Path:MaskingRectangle Params:1000,30,true,0.3,#000000 ScenePosition:20,60 Rotation:,,0 SubId:Front
+@ModifyBackgroundExtended Rotation:,,0 Scale:1.75 TintColor:#dfd1a2 Lazy:false ScenePosition:48,56 AppearanceAndTransition:7_2 SubId:Front
+@SpawnBlur ActorId:MainBackground-Front FadeDuration:0
+@ModifyCharacterExtended Rotation:,,0 Scale:1.5 TintColor:#dfd1a2 Duration:0 Lazy:false ScenePosition:40,20 IdAndAppearance:Margo.Normal1 SubId:Front
+@ChangeActorMaskability ActorIds:MainBackground-Front,Margo-Front Enable:true
+@AnimateActorExtended ActorIds:MainBackground-Front Loop:false ScenePositionX:45 EasingTypeName:EaseOutQuad Duration:0.4
+@AnimateActorExtended ActorIds:Margo-Front Loop:false ScenePositionX:35 EasingTypeName:EaseOutQuad Duration:0.4
+@Wait WaitMode:0.3
+
+[PrintTextModified Text:……ねえヒロちゃん。<br>あまりエマちゃんたちを責めないであげてね。<br>私も同じようなことは考えていたのだから。|#0204Adv16_Margo005| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:君も脱獄を？|#0204Adv16_Hiro007| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:ええ。ここから出る方法はないものか<br>考えるのは当然でしょう？|#0204Adv16_Margo006| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:看守に逆らうのは危険だ。<br>大人しくしていたほうがいい。|#0204Adv16_Hiro008| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:35,20 IdAndAppearance:Margo.Pensive1 SubId:Front
+
+[PrintTextModified Text:……そうね。<br>今回の件で一筋縄でいかないことはわかったし、<br>もう少しここの調査をしていくつもり。|#0204Adv16_Margo007| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:ヒロちゃんのこと、頼りにしているわね。<br>一緒に魔女と戦いましょう――。|#0204Adv16_Margo008| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 回想シーンここまで
+; ========================================
+
+@ResetText
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+
+@HideActors ActorIds:Margo-Front,MainBackground-Front Lazy:false
+@SpawnBlur ActorId:MainBackground-Front Intensity:0 FadeDuration:0
+@DestroySpawnedExtended Path:MaskingRectangle SubId:Front LogWarning:true
+@Wait WaitMode:0.3
+
+@ModifyBackgroundExtended TintColor:#FFFFFF Duration:0 Lazy:false AppearanceAndTransition:9_2
+@ModifyBackgroundExtended Duration:0.8 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:0.9
+
+[PrintTextModified Text:端に、本当に小さく小さく、<br>誰にも見つからないようにと書き残したのだろう、<br>メルルの言葉があることにも気付いた。|#0204Adv16_Narrative021| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; @show Clue
+
+[PrintTextModified Text:――大魔女様に会いたい。|#0204Adv16_Meruru001| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+; @hide Clue
+
+; ========================================
+; ◎ 回想シーン（2-1-4からの流用）
+; ========================================
+
+@ResetText
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+@ModifyBackgroundExtended TintColor:#dfd1a2 Duration:0 Lazy:false AppearanceAndTransition:9_1
+@HideAllCharacters Duration:0 Lazy:false
+@ModifyCharacterExtended TintColor:#dfd1a2 Duration:0 Lazy:false ScenePosition:50,35 IdAndAppearance:Meruru.Pensive
+@ModifyBackgroundExtended Duration:0.8 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:0.9
+
+[PrintTextModified Text:あ、ああ、なんてひどい怪我を……<br>嫌です、ダメです、絶対に死なせません……。|#0204Adv16_Meruru002| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:しっかりしてください、マーゴさん……！|#0204Adv16_Meruru003| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆重傷で苦しげ
+
+[PrintTextModified Text:みんなを助けてあげようと思ったのに……<br>私がやられちゃざまあないわね……くっ|#0204Adv16_Margo009| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:しゃべってはダメです……<br>私が治しますから、しっかりしてください……。|#0204Adv16_Meruru004| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 回想シーンここまで
+; ========================================
+
+@ResetText
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+@HideAllCharacters Duration:0 Lazy:false
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} TintColor:#FFFFFF Duration:0 Lazy:false AppearanceAndTransition:9_2
+
+@ModifyBackgroundExtended Duration:0.8 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:0.9
+
+[PrintTextModified Text:ミリアとココとアリサの<br>書き残した言葉もあった。|#0204Adv16_Narrative022| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"文字の解読を試みている書き込みも多かったが、<br>３人のぼやきのような走り書きに<ruby=\"ほお\">頬</ruby>が緩んだ。|#0204Adv16_Narrative023|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+; @show Clue
+
+[PrintTextModified Text:――おじさんたちは魔女化によって<br>魔法が強くなるらしい。|#0204Adv16_Miria003| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:――入れ替わりの魔法が強くなったら、<br>どうなるんだろう？|#0204Adv16_Miria004| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+; @hide Clue
+
+; ========================================
+; ◎回想シーン（議論9-2-2からの流用）
+; ========================================
+
+@ResetText
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+@ModifyBackgroundExtended TintColor:#dfd1a2 Duration:0 Lazy:false AppearanceAndTransition:13_1
+@HideAllCharacters Duration:0 Lazy:false
+@ModifyCharacterExtended TintColor:#dfd1a2 Duration:0 Lazy:false IdAndAppearance:Miria.Pensive1,ArmR10
+@ModifyBackgroundExtended Duration:0.8 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:0.9
+
+[PrintTextModified Text:だって……この中に仲間を２人も殺した人がいるなんて、<br>信じられないよ……。|#0204Adv16_Miria005| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:それに……さ。|#0204Adv16_Miria006| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:そうすれば……これ以上誰か処刑されなくて済むよね……？|#0204Adv16_Miria007| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:だって、犯人なんていないんだからさ……。|#0204Adv16_Miria008| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:これ以上誰かが死ぬなんて……間違ってるよ……。|#0204Adv16_Miria009| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Miria.Angry1
+
+[PrintTextModified Text:これ以上誰か死ぬなんて……<br>もういやなんだ！|#0204Adv16_Miria010| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 回想シーンここまで
+; ========================================
+
+@ResetText
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+@HideAllCharacters Duration:0 Lazy:false
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} TintColor:#FFFFFF Duration:0 Lazy:false AppearanceAndTransition:9_2
+
+@ModifyBackgroundExtended Duration:0.8 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:0.9
+
+; @show Clue
+
+[PrintTextModified Text:――解読めんどくせえ。あてぃしはパス！|#0204Adv16_Coco001| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:――でもあてぃしの魔法が強くなったら、<br>異次元でも繋がれるんだよね。|#0204Adv16_Coco002| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:――あてぃしらみんな、<br>スゲー魔法使えるようになんじゃね？|#0204Adv16_Coco003| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+; @hide Clue
+
+; ========================================
+; ◎回想シーン（2-2-10からの流用）
+; ========================================
+
+@ResetText
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+@ModifyBackgroundExtended TintColor:#dfd1a2 Duration:0 Lazy:false AppearanceAndTransition:27_1
+@HideAllCharacters Duration:0 Lazy:false
+@ModifyCharacterExtended TintColor:#dfd1a2 Duration:0 Lazy:false IdAndAppearance:Coco.Pensive1,ArmR11
+@ModifyBackgroundExtended Duration:0.8 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:0.9
+
+[PrintTextModified Text:あー元気だよ？<br>んな心配すんなって。まったくさぁ毎日毎日飽きもせず……。|#0204Adv16_Coco004| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Normal1
+
+[PrintTextModified Text:ううん、嬉しいよ。<br>あてぃしのことずっと忘れずにいてくれて。|#0204Adv16_Coco005| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Smile1
+
+[PrintTextModified Text:絶対、絶対帰るからね。<br>いや、だからあてぃしの心配すんなし！|#0204Adv16_Coco006| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Pensive1
+
+[PrintTextModified Text:あてぃしはじーちゃんのが心配だっつの！<br>すっかり弱っちゃってさぁ……そんな顔しないでよ……。|#0204Adv16_Coco007| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆涙声
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Smile1
+
+[PrintTextModified Text:あてぃしが笑顔にしてあげるから……待っててよ。|#0204Adv16_Coco008| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 回想シーンここまで
+; ========================================
+
+@ResetText
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+@HideAllCharacters Duration:0 Lazy:false
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} TintColor:#FFFFFF Duration:0 Lazy:false AppearanceAndTransition:9_2
+
+@ModifyBackgroundExtended Duration:0.8 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:0.9
+
+; @show Clue
+
+[PrintTextModified Text:――魔法が強くなったらウチらをこんな目に遭わせた奴ら、<br>全員焼き尽くしてやる。|#0204Adv16_Alisa002| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+; @hide Clue
+
+; ========================================
+; ◎回想シーン（2-4-6の流用）
+; ========================================
+
+@ResetText
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+@ModifyBackgroundExtended TintColor:#dfd1a2 Duration:0 Lazy:false AppearanceAndTransition:18_1
+@HideAllCharacters Duration:0 Lazy:false
+@ModifyCharacterExtended TintColor:#dfd1a2 Duration:0 Lazy:false IdAndAppearance:Alisa.Smile1,Option-ArmL-Off
+@ModifyBackgroundExtended Duration:0.8 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:0.9
+
+; ＠備考◆鼻で笑う
+
+[PrintTextModified Text:ハッ、おめえらの言うことは<br>いちいち嘘くせえんだよ。|#0204Adv16_Alisa003| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Angry1,Option-ArmL-Off
+
+[PrintTextModified Text:蓮見、二階堂、おめえらはウチが大嫌いなタイプだ。<br>だからウチが魔女化したら、<br>最初におめえらに殺意が向くだろうな。|#0204Adv16_Alisa004| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Pensive1,Option-ArmL-Off
+
+[PrintTextModified Text:さっさと消えろよ。|#0204Adv16_Alisa005| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 回想シーンここまで
+; ========================================
+
+@ResetText
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+@HideAllCharacters Duration:0 Lazy:false
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} TintColor:#FFFFFF Duration:0 Lazy:false AppearanceAndTransition:29_2
+
+@ModifyBackgroundExtended Duration:0.8 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:0.9
+
+[PrintTextModified Text:当然のようにノアの描いた落書きもあった。<br>それに添えるようにアンアンの見慣れた文字も。|#0204Adv16_Narrative024| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:そのページはノアの落書きに埋めつくされ、<br>ほとんど何もわからなくなってしまっていた。|#0204Adv16_Narrative025| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"そして<ruby=\"すみ\">隅</ruby>に書かれているメッセージに、<br>胸が切なく締め付けられた。|#0204Adv16_Narrative026|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+; @show Clue
+
+[PrintTextModified Text:――ヒロちゃん大好き！|#0204Adv16_Noah001| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+; @hide Clue
+
+; ========================================
+; ◎回想シーン（2-3-14からの流用）
+; ========================================
+
+@ResetText
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+
+@ModifyBackgroundExtended Id:Stills Scale:{g_backgroundDefaultScale} TintColor:#dfd1a2 Duration:0 Lazy:false AppearanceAndTransition:460_7
+@HideAllCharacters Duration:0 Lazy:false
+@ModifyBackgroundExtended Duration:0.8 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:0.9
+
+; ＠備考◆鼻すすりながら
+
+[PrintTextModified Text:……でもね、嬉しいって気持ちもあったんだ。|#0204Adv16_Noah002| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:アンアンちゃんに、<br>本当の絵を好きだって言われて……。|#0204Adv16_Noah003| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:だから、ヒロちゃんにも見てほしかった。<br>のあの本当の絵、褒めてもらいたかったな。|#0204Adv16_Noah004| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 回想シーンここまで
+; ========================================
+
+@ResetText
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+
+@HideActors ActorIds:Stills Duration:0 Lazy:false
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} TintColor:#FFFFFF Duration:0 Lazy:false AppearanceAndTransition:29_2
+
+@ModifyBackgroundExtended Duration:0.8 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:0.9
+
+; @show Clue
+
+[PrintTextModified Text:――落書きするな。真面目にやれ。|#0204Adv16_AnAn001| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:――わがはいたちが助かるためには、<br>この本に書かれた文字を解読せねば……|#0204Adv16_AnAn002| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+; @hide Clue
+
+[PrintTextModified Text:アンアンはその２文しか書いておらず、<br>きっと面倒になったのだろう。|#0204Adv16_Narrative027| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; ◎回想シーン（2-3-9からの流用）
+; ========================================
+
+@ResetText
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+@ModifyBackgroundExtended TintColor:#dfd1a2 Duration:0 Lazy:false AppearanceAndTransition:6_1
+@HideAllCharacters Duration:0 Lazy:false
+@ModifyCharacterExtended TintColor:#dfd1a2 Duration:0 Lazy:false IdAndAppearance:AnAn.Angry1,Angle01/Option_Arms-
+@ModifyBackgroundExtended Duration:0.8 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:0.9
+
+[PrintTextModified Text:そ、そうだ……！<br>わがはいはいずれ文豪になるのだ。<br>み、見ていろ……！|#0204Adv16_AnAn003| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:次こそ皆をあっと言わせる、<br>大傑作を仕上げてみせる……！|#0204Adv16_AnAn004| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 回想シーンここまで
+; ========================================
+
+@ResetText
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+@HideAllCharacters Duration:0 Lazy:false
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} TintColor:#FFFFFF Duration:0 Lazy:false AppearanceAndTransition:29_2
+
+@ModifyBackgroundExtended Duration:0.8 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:0.9
+
+[PrintTextModified Text:空っぽになったはずの心に、<br>ひとりひとりの存在が刻まれ、<br>あたたかさが宿っていく。|#0204Adv16_Narrative028| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:時を刻みながら、<br>私は一歩一歩、前に進む。|#0204Adv16_Narrative029| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Duration:1 Lazy:false AppearanceAndTransition:10_1
+@Wait WaitMode:1
+
+[PrintTextModified Text:ナノカは膨大な量の書き込みをしていた。<br>その中に気になる文章があった。|#0204Adv16_Narrative030| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; @show Clue
+
+[PrintTextModified Text:――【死に戻り】の魔法の解明について。|#0204Adv16_Nanoka001| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:――【死に戻り】の魔法は、<br>強くなればなるほど、飛距離が伸びる。|#0204Adv16_Nanoka002| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:――つまり遡れる時間が増える。|#0204Adv16_Nanoka003| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+; @hide Clue
+
+; ========================================
+; ◎回想シーン（2-2-21からの流用）
+; ========================================
+@ResetText
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+; 配信フレームIN
+@ModifyBackgroundExtended TintColor:#dfd1a2 Duration:0 Lazy:false AppearanceAndTransition:24_1
+@HideAllCharacters Duration:0 Lazy:false
+@ModifyCharacterExtended TintColor:#dfd1a2 Duration:0 Lazy:false IdAndAppearance:Nanoka
+@ModifyTextPrinter Lazy:false IdAndAppearance:Normal.Stream MakeDefault:true HideOther:true
+@ModifyBackgroundExtended Duration:0.8 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:0.9
+
+; ＠備考◆配信中
+
+[PrintTextModified Text:正直、自分でもよくわからないわ。|#0204Adv16_Nanoka004| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:ただ、あなたならこの牢屋敷の、いえ、<br>魔女の秘密の全てを暴けると思った。|#0204Adv16_Nanoka005| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:だから私に何かあったら、あなたに託す。|#0204Adv16_Nanoka006| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:どうか真実を突き止めて。<br>そしてもうこれ以上、<br>私のような魔女を生み出さないで。|#0204Adv16_Nanoka007| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:もう誰も、犠牲になってほしくないから。<br>……よろしくね、二階堂ヒロ。|#0204Adv16_Nanoka008| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 回想シーンここまで
+; ========================================
+
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+@HidePrinter
+@HideAllCharacters Duration:0 Lazy:false
+@ModifyTextPrinter Lazy:false IdAndAppearance:Normal.Default MakeDefault:true HideOther:true
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} TintColor:#FFFFFF Duration:0 Lazy:false AppearanceAndTransition:10_1
+
+@ModifyBackgroundExtended Duration:0.8 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:0.9
+
+[PrintTextModified Text:その近くにレイアの書き込みも見つけた。|#0204Adv16_Narrative031| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; @show Clue
+
+[PrintTextModified Text:――魔法が強まると、私たちは異形と化してしまう。|#0204Adv16_Leia001| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:――【死に戻り】の魔法所有者に警告しておく。|#0204Adv16_Leia002| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:――強くなった魔法を使うべきではない。<br>魔女化が進んだ状態で使えば、<br>死ねない体になって、二度と魔法は使用できなくなる。|#0204Adv16_Leia003| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+; @hide Clue
+
+; ========================================
+; ◎回想シーン（2-4-9からの流用）
+; ========================================
+
+@ResetText
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+@ModifyBackgroundExtended TintColor:#dfd1a2 Duration:0 Lazy:false AppearanceAndTransition:9_1
+@HideAllCharacters Duration:0 Lazy:false
+@ModifyCharacterExtended TintColor:#dfd1a2 Duration:0 Lazy:false IdAndAppearance:Leia.Smile1
+@ModifyBackgroundExtended Duration:0.8 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:0.9
+
+[PrintTextModified Text:ヒロくんがいてくれて良かった。|#0204Adv16_Leia004| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:顔を上げたレイアが笑顔で言ってくる。|#0204Adv16_Narrative032| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:キミの強さが私の支えになっているんだと思う。|#0204Adv16_Leia005| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:ここまで折れずにやってこれたのは、<br>きっとヒロくんが傍にいてくれたおかげだよ。|#0204Adv16_Leia006| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 回想シーンここまで
+; ========================================
+
+@ResetText
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+@HideAllCharacters Duration:0 Lazy:false
+
+@ModifyBackgroundExtended TintColor:#FFFFFF Duration:0 Lazy:false AppearanceAndTransition:10_1
+
+@ModifyBackgroundExtended Duration:0.8 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:0.9
+
+[PrintTextModified Text:彼女たちはもしかしたら、<br>私の魔法に気付いていたのかもしれない。|#0204Adv16_Narrative033| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:けれどもうそのことを確かめる術がない。|#0204Adv16_Narrative034| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Duration:1 Lazy:false AppearanceAndTransition:4_1
+@Wait WaitMode:1
+
+[PrintTextModified Text:シェリーとハンナは、<br>じゃれあうように書き込んでいた。|#0204Adv16_Narrative035| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; @show Clue
+
+[PrintTextModified Text:――シェリーちゃんの名推理によりますと！|#0204Adv16_Sherry001| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:――【魔女を１３人集める】というのは、<br>私たちが魔女化していないと<br>いけないのかもしれませんね。|#0204Adv16_Sherry002| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:――わたくし魔女になりたくありませんわ。|#0204Adv16_Hanna001| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"――詰んだ！ 無理かも！笑|#0204Adv16_Sherry003|" AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:――全員を助けられるなら、<br>なってやらんこともないですわ。|#0204Adv16_Hanna002| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:――ウワ～～上から目線でありがとうございます！|#0204Adv16_Sherry004| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+; @hide Clue
+
+; ========================================
+; ◎回想シーン（2-4-14からの流用）
+; ========================================
+
+@ResetText
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+
+@ModifyBackgroundExtended Id:Stills Scale:{g_backgroundDefaultScale} TintColor:#dfd1a2 Duration:0 Lazy:false AppearanceAndTransition:470_7
+@HideAllCharacters Duration:0 Lazy:false
+@ModifyBackgroundExtended Duration:0.8 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:0.9
+
+[PrintTextModified Text:でも……でも、わたくし、<br>魔女になりたくありませんの……っ|#0204Adv16_Hanna003| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:どんなに汚くても、<br>罪深くても、人間のままでいさせてほしいの……っ|#0204Adv16_Hanna004| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+; @back 470_8 id:Stills scale:1 time:0 tint:#dfd1a2
+
+[PrintTextModified Text:どうか人間のままで殺して――！|#0204Adv16_Hanna005| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:わたくしを化け物にしないでよぉっ！<br>わたくしのままでいさせてよぉっ！|#0204Adv16_Hanna006| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:置き去りが嫌だって言ったので、<br>一緒に逝きましょう！|#0204Adv16_Sherry005| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:私が一緒ですから、ハンナさんはもう大丈夫！<br>置き去りにしてもいないし、<br>置き去りにされてもいません！|#0204Adv16_Sherry006| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Id:Stills Scale:{g_backgroundDefaultScale} TintColor:#dfd1a2 Duration:0 Lazy:false AppearanceAndTransition:470_9
+
+[PrintTextModified Text:なれはてには、させませんっ！|#0204Adv16_Sherry007| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 回想シーンここまで
+; ========================================
+
+@ResetText
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+
+@HideActors ActorIds:Stills Duration:0 Lazy:false
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} TintColor:#FFFFFF Duration:0 Lazy:false AppearanceAndTransition:4_1
+
+@ModifyBackgroundExtended Duration:0.8 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:0.9
+
+[PrintTextModified Text:"まだ失われた実感が<ruby=\"ともな\">伴</ruby>わない。<br>今にも彼女たちのはしゃぐ声が、聞こえてくるようだった。|#0204Adv16_Narrative036|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Duration:1 Lazy:false AppearanceAndTransition:2_1
+@Wait WaitMode:1
+
+[PrintTextModified Text:……そして最後に、<br>エマの書いた言葉を見つけた。|#0204Adv16_Narrative037| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; @show Clue
+
+[PrintTextModified Text:――絶対、みんなそろってここを出ようね。|#0204Adv16_Ema001| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; @hide Clue
+
+; ========================================
+; ◎回想シーン（2-3-10からの流用）
+; ========================================
+
+@ResetText
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+@ModifyBackgroundExtended TintColor:#dfd1a2 Duration:0 Lazy:false AppearanceAndTransition:29_2
+@HideAllCharacters Duration:0 Lazy:false
+@ModifyCharacterExtended TintColor:#dfd1a2 Duration:0 Lazy:false IdAndAppearance:Ema.Cry1,ArmR3
+@ModifyBackgroundExtended Duration:0.8 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:0.9
+
+; ＠備考◆泣きながら
+[PrintTextModified Text:生きてよ、ヒロちゃん……！|#0204Adv16_Ema002| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:お願いだから、生きて……！！|#0204Adv16_Ema003| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 回想シーンここまで
+; ========================================
+
+@ResetText
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+@HideAllCharacters Duration:0 Lazy:false
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} TintColor:#FFFFFF Duration:0 Lazy:false AppearanceAndTransition:2_1
+
+@ModifyBackgroundExtended Duration:0.8 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:0.9
+
+[PrintTextModified Text:"もうすっかり<ruby=\"か\">枯</ruby>れ果てたと思っていた涙が、<br>熱く<ruby=\"ほお\">頬</ruby>を伝い、流れていく。|#0204Adv16_Narrative038|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:私は、本当のエマを見つけた。|#0204Adv16_Narrative039| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:ようやく正しさを見つけた。|#0204Adv16_Narrative040| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（私は……叶うならもう一度、<br>　君たちに会いたい）|#0204Adv16_Hiro009|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（ただそれだけだったんだ）|#0204Adv16_Hiro010| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+@HideAllCharacters Lazy:false
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} TintColor:#FFFFFF Duration:0 Lazy:false AppearanceAndTransition:1_1
+
+@ModifyBackgroundExtended Duration:0.8 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:0.9
+
+[PrintTextModified Text:"<ruby=\"くびつ\">首吊</ruby>り<ruby=\"わ\">輪</ruby>の準備はできていた。|#0204Adv16_Narrative041|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:おそらく今の私は魔女化が進んでいながら、<br>死ねることのできるギリギリのラインに立っている。|#0204Adv16_Narrative042| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:今なら最大限の魔法が使用できる。|#0204Adv16_Narrative043| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:長く長く、飛べる。<br>きっと牢屋敷に囚われた初日に、戻れる。|#0204Adv16_Narrative044| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:それより前に行く必要はない。<br>私が目指すのはただその時。|#0204Adv16_Narrative045| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:彼女たち全員が生きていた、<br>初めて会った、その日に。|#0204Adv16_Narrative046| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:そして――チャンスは一度きりだ。|#0204Adv16_Narrative047| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:彼女たちと過ごした記憶が、<br>たとえ私の中にしか残らなかったとしても。|#0204Adv16_Narrative048| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（どうか――もう一度、会わせてください）|#0204Adv16_Hiro011| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:祈るように、縄の前で頭を垂れる。|#0204Adv16_Narrative049| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:そして、私は顔を上げた。|#0204Adv16_Narrative050| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:心の禁忌を踏み越え、私は必ず会いに行く。|#0204Adv16_Narrative051| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+
+[PrintTextModified Text:――君たちを救いに。|#0204Adv16_Narrative052| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ロープが軋む首吊り音
+@PlaySfxModified SfxPath:Sfx_127 Volume:1 Loop:false FadeInDuration:0
+@Wait WaitMode:3
+
+; ========================================
+; ＞魔女裁判 第2章5話へ
+; ========================================
+
+@SetCustomVariable Expression:"g_gameProgress = max(10, g_gameProgress)"
+@Gosub Path:System/System_Subroutine.EndAdv
+
+@GotoModified Path:Act02_Chapter05/Act02_Chapter05_Adv01 SoftReset:true
+

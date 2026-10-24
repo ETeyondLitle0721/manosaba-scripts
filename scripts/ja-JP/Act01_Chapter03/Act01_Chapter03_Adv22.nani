@@ -1,0 +1,100 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook IsDebugDirectJump:{isDebugDirectJump}
+@Gosub Path:System/System_Subroutine.BeginAdv
+
+# Scene1-3-22
+
+; ========================================
+; ●シーン１‐3-22
+; ========================================
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false AppearanceAndTransition:23_1
+@ModifyBackgroundExtended TintColor:#000000 Duration:1.2 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:1.8
+
+; ========================================
+; ＞『地精の間』を選択
+; ========================================
+
+@PlayBgm BgmPath:Bgm_5_1 Volume:1 Loop:true FadeInDuration:0
+@AutoSave
+[PrintTextModified Text:"エマは火事の起こったゲストハウスの並ぶ棟、<br>一番奥手にある【<ruby=\"ノーム\">地精</ruby>の間】へ入った。|#0103Adv22_Narrative001|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:火事が起こった建物ではないので、<br>中は元のままだった。|#0103Adv22_Narrative002| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:そして中で、<br>エマはベッドで寝ているココに遭遇した。|#0103Adv22_Narrative003| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Pensive1
+
+[PrintTextModified Text:ココちゃん、ここで何を……？|#0103Adv22_Ema001| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Coco.Pensive1,ArmR7,ArmL6
+
+[PrintTextModified Text:んあ……あー、エマっち……。<br>いやあ、あてぃし寝不足でさぁ……。|#0103Adv22_Coco001| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:裁判の時間まで、<br>ちょっと仮眠取っておこうかなーって。|#0103Adv22_Coco002| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（てっきり捜査に出たと思ってたのに……）|#0103Adv22_Ema002| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Coco.Normal1,ArmR7,ArmL6
+
+[PrintTextModified Text:いやあてぃしも調べようって気はあったよ。<br>でも現場はやっぱあんま見たくないし。|#0103Adv22_Coco003| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:でまあ、他の棟を調べようかなーって思ったら、<br>気持ちよさそうなベッドが目に入って。|#0103Adv22_Coco004| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Pensive1,ArmR3
+
+[PrintTextModified Text:そっか……。|#0103Adv22_Ema003| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Coco.Angry1,ArmR1,ArmL1
+
+[PrintTextModified Text:あ、なにその目、ウザッ。<br>別にいーだろ、ほっとけよ！|#0103Adv22_Coco005| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:ココはふてくされた様子で、<br>エマに背を向けて寝に入ってしまった。|#0103Adv22_Narrative004| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（ココちゃんはもう仕方ない……。<br>　ボクはボクでやれることをやろう）|#0103Adv22_Ema004|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"エマは室内を<ruby=\"くま\">隈</ruby>なく調べはじめる。|#0103Adv22_Narrative005|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（ここは殺害現場じゃないし、<br>　意味がないのかもしれないけど……）|#0103Adv22_Ema005|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（この部屋、荒らされてる……？<br>　ココちゃんがやったんじゃないだろうけど……<br>　いったいどうして……？）|#0103Adv22_Ema006|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:そこで、床に落ちている物を見つけた。|#0103Adv22_Narrative006| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; ☆証拠品：『アリサの人形』入手
+; ========================================
+@SpawnExtended Path:Clue Params:3-8
+@UpdateWitchBook Id:3-8 Category:Clue Version:1
+@DestroySpawnedExtended Path:Clue LogWarning:true
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Surprised1
+
+[PrintTextModified Text:"（アリサちゃんの人形……！<br>　ハンナちゃんが作ったものかな？）|#0103Adv22_Ema007|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:他にも何かないかと探してみたが、<br>それ以外は何も見つからなかった。|#0103Adv22_Narrative007| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（時間もないし、他のところを探そう）|#0103Adv22_Ema008| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:部屋を出る際に、<br>エマはココの方を一度振り返る。|#0103Adv22_Narrative008| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:……毎晩、あいつうなされてうるさかったし、<br>最近めっちゃヒステリックに騒いでたし……<br>いなくなってせいせいするっつーの。|#0103Adv22_Coco006| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:眠ったフリをするココの背中が、<br>少し震えているように見えた。|#0103Adv22_Narrative009| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 消化していないイベントがある＞シーン1‐3‐19
+; 全てのイベントを消化している＞シーン1‐3‐26
+; ========================================
+
+@Gosub Path:System/System_Subroutine.EndAdv
+
+@GotoModified Path:Act01_Chapter03/Act01_Chapter03_Adv19 SoftReset:true
+

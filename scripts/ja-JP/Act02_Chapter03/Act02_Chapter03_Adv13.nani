@@ -1,0 +1,49 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook IsDebugDirectJump:{isDebugDirectJump}
+@Gosub Path:System/System_Subroutine.BeginAdv
+
+# Scene2-3-13
+
+; ========================================
+; ●シーン2‐3‐13
+; ========================================
+
+@PlayBgm BgmPath:Bgm_2_1_Loop IntroBgmPath:Bgm_2_1_Intro Volume:1 Loop:true FadeInDuration:0
+
+@ModifyBackgroundExtended Scale:2 Duration:0 Lazy:false ScenePosition:75,60 AppearanceAndTransition:13_1
+@Wait WaitMode:0.9
+
+@ModifyBackgroundExtended TintColor:#000000 Duration:1.8 Lazy:false ScenePosition:50,50 AppearanceAndTransition:Transparent SubId:Overlay
+@WaitForNextFrame
+
+@AnimateActorExtended ActorIds:MainBackground Loop:false ScenePositionX:25 Duration:20
+@Wait WaitMode:1.5
+@AutoSave
+[PrintTextModified Text:これまでと同様、<br>私は看守に裁判所まで連行された。|#0203Adv13_Narrative001| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"生き残っている他の少女たちも、<br>すでに<ruby=\"そろ\">揃</ruby>っている。|#0203Adv13_Narrative002|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:エマ、シェリー、ハンナ。<br>レイア、ノア、ミリア、アリサ。|#0203Adv13_Narrative003| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:全員が証言台に立ち、<br>私にそれぞれ複雑な視線を投げかけている。|#0203Adv13_Narrative004| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false AppearanceAndTransition:13_1 SubId:Middle
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Warden.1 SubId:Middle
+
+[PrintTextModified Text:さて、もう始めちゃっていいですかね？<br>今回はサクッと終わるといいんですけど。|#0203Adv13_Warden001| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:…………。|#0203Adv13_Hiro001| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Warden.1 SubId:Middle
+
+[PrintTextModified Text:それでは、魔女裁判開廷です！|#0203Adv13_Warden002| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; ＞議論パートへ
+; ========================================
+
+@Gosub Path:System/System_Subroutine.EndAdv
+
+@GotoModified Path:Act02_Chapter03/Act02_Chapter03_Trial00 SoftReset:true
+

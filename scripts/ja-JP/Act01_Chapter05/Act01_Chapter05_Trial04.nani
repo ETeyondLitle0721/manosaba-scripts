@@ -1,0 +1,622 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook Version:2
+
+@BeginIf Expression:isDebugDirectJump
+    @Gosub Path:Act01_Chapter05/Act01_Chapter05_TrialInit
+    @HidePerspectiveStageScreen Index:1 Duration:0 Reset:true
+    @ModifyBackgroundExtended TintColor:#000000 Duration:0 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+
+@SetTrialTimer Time:900
+@HideUI UINames:ControlPanel AllowToggle:false
+@ShowUI UINames:DebateUI
+
+@ModifyCharacterExtended Position:,{hiddenCharacterPositionY} Duration:0 Lazy:false IdAndAppearance:Warden.1
+; ==============================================================================
+; MARK: 5-4: 💬 死体が移動した理由
+; ==============================================================================
+; ＠ト書き▼議論5-4 死体が移動した理由
+; BGM変更：AccUhEarts(Vocal無)
+@PlayBgm BgmPath:Bgm_15_1 Volume:1 Loop:true FadeInDuration:0
+
+# Judge5-4-1
+
+@Gosub Path:System/System_Subroutine.BeginDebate-First
+@Gosub Path:System/System_Subroutine.BeginDebate-Effect
+@Gosub Path:System/System_Subroutine.BeginDebate-Last
+@ChangeTrialPauseMode Enable:false ProcessTimer:true
+
+@HidePerspectiveStageScreen Index:1 Reset:true
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,ArmR5,ArmL1,Angle01/Facial/Eyes>Eyes_Normal_Open,Angle01/Facial/Mouth>Mouth_Neutral_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:ナノカちゃんが<br>見つかった処刑台。<br>そこへの唯一の入口である<br>裁判所には<br>１０時から<br>ずっと誰かしら<br>２人以上がいたわ。|#0105Trial04_Margo001| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,Angle01/Facial/Eyes>Eyes_Normal_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:けれどエマちゃんは<br>その前に<br>ナノカちゃんが<br>地下に入るのを<br>見たと言っている……。|#0105Trial04_Margo002| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,ArmR7,ArmL5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:"エマちゃんの話が<br>真実だったとき……<br>そもそもナノカちゃんは<br>処刑台に入ることも、<br>そこで死ぬことも<br><link=\"Objection_01_05_04_01\">できない</link>のよ。|#0105Trial04_Margo003|" RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL11,Angle01/Head01/Facial01/Eyes01>Eyes01_Surprised_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:……で、でも、<br>ナノカちゃんのいた処刑台は<br>朝から地下に<br>あったはずだよね？<br>地上には<br>アリサちゃんのいた<br>処刑台が<br>あったんだし……。|#0105Trial04_Ema001| RevealSpeed:1 ScenePosition:35,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,ArmR7,ArmL5,Angle01/Facial/Eyes>Eyes_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:そうね。|#0105Trial04_Margo004| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL11,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:なら、<br>地下から処刑台に<br>移動した可能性は<br>考えられるんじゃ<br>ないかな……！|#0105Trial04_Ema002| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,ArmR5,ArmL1,Angle01/Facial/Eyes>Eyes_Normal_Open,Angle01/Facial/Mouth>Mouth_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:地下には処刑台を覗ける<br>【覗き窓】が<br>あるんだったわね？<br>それがあるぐらいだから<br>物理的な距離で言うなら<br>地下と処刑台の距離は<br>短かったと思うわ。|#0105Trial04_Margo005| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,ArmR2,ArmL5,Angle01/Facial/Eyes>Eyes_Uncomfortable_Open01,Angle01/Facial/Mouth>Mouth_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:でも……<br>その間を通ることは<br>できたのかしら？<br>ねえ、ココちゃん。|#0105Trial04_Margo006| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Default,ArmR2,ArmL1,Angle01/Facial/Eyes>Eyes_Gross_Open,Angle01/Facial/Mouth>Mouth_Gross_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:無理むり！<br>通路なんて<br>なかったって！<br>もちろん、<br>隠し通路とかも！|#0105Trial04_Coco001| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Default,ArmR3,ArmL9,Angle01/Facial/Eyes>Eyes_Normal_Closed,Angle01/Facial/Mouth>Mouth_Gross_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:"覗き窓だって<br>絶対通れないし！<br>あんなちっちゃい通路、<br><link=\"Objection_01_05_04_02\">猫でもなきゃ</link><br>通れないって！|#0105Trial04_Coco002|" RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Default,Angle01/Facial/Eyes>Eyes_Pensive_Open02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:なのに<br>どうやってナノカが<br>通ったってんだよ！？|#0105Trial04_Coco003| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Meruru.Normal1,ArmR8_1,ArmL8,Eyes1_Pensive_Open2,Mouth1_Normal_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:やっぱりエマさんの<br>推理には<br>無理があるような……。|#0105Trial04_Meruru001| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+@Gosub Path:System/System_Subroutine.EndDebate-Effect
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+; 
+; 議論終了
+; ------------------------------------------------------------------------------
+
+@ResetText
+@ModifyCharacterExtended Duration:0 Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL2,Angle01/Head01/Facial01/Eyes01>Eyes01_Angry_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center ZoomLevel:2
+@Wait WaitMode:0.2
+
+; ==============================================================================
+; 5-4議論後独白
+; ==============================================================================
+
+[PrintTextModified Text:"（……そんなわけない。<br>　ナノカちゃんが地上に出ていないことは、<br>　ボクが見ている……）|#0105Trial04_Ema003|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed
+[PrintTextModified Text:"（だとしたらナノカちゃんは<br>　どうやって移動したんだろう……？）|#0105Trial04_Ema004|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Pensive1,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Thinking_Closed01,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+[PrintTextModified Text:"（ナノカちゃんが移動できる方法を証明しないと<br>　犯人はボクしかいなくなっちゃう……！<br>　可能性を考えないと……！）|#0105Trial04_Ema005|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge5-4-1
+
+; 
+; 反論1
+; ------------------------------------------------------------------------------
+
+# Objection_01_05_04_01
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:入れる時間帯はある|#0105Trial04_Choice001| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:Trial AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge5-4-3
+
+
+@AddChoice ChoiceSummary:戻る|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:Trial AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; 
+; 反論2
+; ------------------------------------------------------------------------------
+
+# Objection_01_05_04_02
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:ナノカは猫になった|#0105Trial04_Choice002| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:Trial AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge5-4-4
+
+@AddChoice ChoiceSummary:ナノカは小さくなった|#0105Trial04_Choice003| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:Trial AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge5-4-2
+
+@AddChoice ChoiceSummary:ゴクチョーなら通れた|#0105Trial04_Choice004| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:Trial AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge5-4-5
+
+
+@AddChoice ChoiceSummary:戻る|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:Trial AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; ==============================================================================
+; MARK: 5-4: ❌ 議論ミス選択肢
+; ==============================================================================
+; MARK: 5-4-3: ❌ 入れる時間帯はある
+
+# Judge5-4-3
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Fearful_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:ナノカちゃんが<br>地下の処刑台に入れる時間帯は<br>あったんじゃないかな……？|#0105Trial04_Ema006| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,ArmR2,ArmL5,Angle01/Facial/Eyes>Eyes_Normal_Open,Angle01/Facial/Mouth>Mouth_Neutral_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right
+[PrintTextModified Text:でもエマちゃんの話によれば、<br>今朝までナノカちゃんは生きてたのよね？|#0105Trial04_Margo007| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Confused_Middle,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:そ、そうだけど……。|#0105Trial04_Ema007| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right
+[PrintTextModified Text:けれどそもそも、<br>処刑台は昨夜の２１時と<br>朝の９時にしか動いていない……。|#0105Trial04_Margo008| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right
+[PrintTextModified Text:なら、エマちゃんの証言と<br>ゴクチョーが持ってる処刑台の動作履歴は<br>矛盾するんじゃないかしら？|#0105Trial04_Margo009| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Surprised_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Flushed_Middle,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:うぐっ……！？|#0105Trial04_Ema008| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Default,ArmR3,ArmL2,Angle01/Facial/Eyes>Eyes_Pensive_Open01,Angle01/Facial/Mouth>Mouth_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Left
+[PrintTextModified Text:……まー、ゴクチョーと喧嘩したいなら<br>べつに止めねーけど。|#0105Trial04_Coco004| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Default,Angle01/Facial/Mouth>Mouth_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Left
+[PrintTextModified Text:べつにゴクチョーが<br>嘘ついてる証拠もないと思うけど？|#0105Trial04_Coco005| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL6,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Flushed_Middle,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:それは……そうかも。|#0105Trial04_Ema009| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right
+[PrintTextModified Text:じゃあエマちゃんが嘘をついてる犯人でいいのね？|#0105Trial04_Margo010| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Fearful_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Confused_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:それはダメかも……！|#0105Trial04_Ema010| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL7,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（処刑台の動作記録はボクとナノカちゃんが<br>　操作盤を押したタイミングなんだろうし、<br>　間違ってない気がするけど……）|#0105Trial04_Ema011|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Thinking_Closed01,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（……【ナノカちゃんは今朝まで生きていた】<br>　そして【地下の冷凍室に入っていった】<br>　それは間違いない）|#0105Trial04_Ema012|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Fearful_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（じゃあナノカちゃんはどうやって<br>　【地下の冷凍室から進入不能な処刑台に入り、殺された】のか。<br>　証拠の矛盾と照らし合わせて考えるんだ……！）|#0105Trial04_Ema013|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge5-4-1
+
+; MARK: 5-4-4: ❌ ナノカは猫になった
+
+# Judge5-4-4
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL11,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Normal_Middle,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:なら……ナノカちゃんは猫になったとか<br>考えられないかな？<br>魔女の使い魔といえば猫なところあるし……。|#0105Trial04_Ema014| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Default,ArmR8,ArmL7,Angle01/Facial/Eyes>Eyes_Surprised_Open,Angle01/Facial/Mouth>Mouth_Surprised_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Left
+[PrintTextModified Text:なんでそうなるんだよ！|#0105Trial04_Coco006| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL11,Angle01/Head01/Facial01/Eyes01>Eyes01_Pensive_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Normal_Middle,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:だ、だって小動物に変身でもしないと<br>成立できないなら、<br>したとしか思えないよ！|#0105Trial04_Ema015| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL11,Angle01/Head01/Facial01/Eyes01>Eyes01_Pensive_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Normal_Middle,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:もしかしたらそんな魔法や薬があったのかも……！|#0105Trial04_Ema016| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆マーゴによるナノカの声真似
+; ＠黒部ナノカ
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,ArmR1,ArmL4,Angle01/Facial/Eyes>Eyes_Smile_Middle,Angle01/Facial/Mouth>Mouth_Surprised_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right
+[PrintTextModified Text:【見苦しいわね、桜羽エマ】。|#0105Trial04_Margo011| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,Angle01/Facial/Mouth>Mouth_Smile_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right
+[PrintTextModified Text:……きっとナノカちゃんなら、<br>そう言って呆れてるわよ♡|#0105Trial04_Margo012| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Fearful_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Confused_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（ナノカちゃんの声マネまでして<br>　呆れられちゃった……！）|#0105Trial04_Ema017|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Thinking_Closed01,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（……【ナノカちゃんは今朝まで生きていた】<br>　そして【地下の冷凍室に入っていった】<br>　それは間違いない）|#0105Trial04_Ema018|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Fearful_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（じゃあナノカちゃんはどうやって<br>　【地下の冷凍室から進入不能な処刑台に入り、殺された】のか。<br>　証拠の矛盾と照らし合わせて考えるんだ……！）|#0105Trial04_Ema019|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge5-4-1
+
+; MARK: 5-4-5: ❌ ゴクチョーなら通れた
+
+# Judge5-4-5
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL11,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Normal_Middle,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:ゴクチョーなら通れたんじゃないかな……！？|#0105Trial04_Ema020| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,ArmR5,ArmL1,Angle01/Facial/Eyes>Eyes_Pensive_Open,Angle01/Facial/Mouth>Mouth_Pensive_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right
+[PrintTextModified Text:エマちゃん、今はナノカちゃんがそこを通れたかどうかを<br>話してるのよ？|#0105Trial04_Margo013| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Default,ArmR2,ArmL9,Angle01/Facial/Eyes>Eyes_Normal_Closed,Angle01/Facial/Mouth>Mouth_Gross_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Left
+[PrintTextModified Text:ゴクチョーが通れたからって<br>どうなるんだよ！<br>バカ！|#0105Trial04_Coco007| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Fearful_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Confused_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（シンプルに罵倒されちゃった……！）|#0105Trial04_Ema021| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Thinking_Closed01,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（……【ナノカちゃんは今朝まで生きていた】<br>　そして【地下の冷凍室に入っていった】<br>　それは間違いない）|#0105Trial04_Ema022|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Fearful_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（じゃあどうやって<br>　【地下の冷凍室から進入不能な処刑台に入り、殺された】のか。<br>　証拠の矛盾と照らし合わせて考えるんだ……！）|#0105Trial04_Ema023|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge5-4-1
+
+; ==============================================================================
+; MARK: 5-4-2: ⭕ ナノカは小さくなった
+; ==============================================================================
+
+# Judge5-4-2
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@GosubToObjectionCutIn CutInKind:Ema Index:1 VoicePath:CommonTrial_Ema05117 Volume:1
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+@HideUI UINames:DebateUI AllowToggle:false
+@ShowUI UINames:ControlPanel
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Closed01,Angle01/Head01/Facial01/Mouth01>Mouth01_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:ナノカちゃんが小さくならなきゃ<br>そこを通れないなら……。|#0105Trial04_Ema024| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・決め音
+@PlaySfxModified SfxPath:Sfx_Common_3 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:……ナノカちゃんは小さくなったんだよ！|#0105Trial04_Ema025| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・軽い衝撃音
+@PlaySfxModified SfxPath:Sfx_Common_4 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Pensive_Open02,Angle01/Facial/Mouth>Mouth_Gross_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Left
+[PrintTextModified Text:"はぁ！？ どうやってだよ！<br>ナノカの魔法は、<br>過去を見るとかなんとかの魔法だろ！|#0105Trial04_Coco008|" AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Default,ArmR3,Angle01/Facial/Mouth>Mouth_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Left
+[PrintTextModified Text:ナノカが小さくなったって……<br>どうやって小さくなったってんだよ！！|#0105Trial04_Coco009| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Pensive_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Pensive_Open,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:そ、それは……！|#0105Trial04_Ema026| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Thinking_Closed01,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（考えるんだ……！）|#0105Trial04_Ema027| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（他に道がないっていうなら……<br>　【その道を通れるようにする方法】を<br>　考えるしかない……！）|#0105Trial04_Ema028|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（これまでの調べたことや議論の中で<br>　あったことを思い出すんだ……）|#0105Trial04_Ema029|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ==============================================================================
+; 回想シーン（流用）ADV5話シーン1-5-3
+; ==============================================================================
+
+@ResetText
+@PlayBgm BgmPath:Bgm_15_1 Volume:0.2 Loop:true FadeInDuration:0
+@ModifyBackgroundExtended TintColor:#FFFFFF00 Duration:0 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@ModifyBackgroundExtended TintColor:#FFFFFFFF Duration:0.2 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:0.2
+@ModifyBackgroundExtended Id:Stills Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false ScenePosition:50,50 AppearanceAndTransition:310_1 SubId:Flashback
+@ModifyBackgroundExtended TintColor:#00000000 Duration:0.4 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:0.4
+
+[PrintTextModified Text:ナノカちゃんは殺されたのかしら……。<br>パッと見じゃわからないわね。|#0105Trial04_Margo014| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（マーゴちゃんの言ったとおり、<br>　目立った外傷もないし、死因がわからない……）|#0105Trial04_Ema030|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@ModifyBackgroundExtended TintColor:#FFFFFFFF Duration:0.2 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:0.2
+@HideActors ActorIds:Stills-Flashback Duration:0 Lazy:false
+; # trick3-5-3-14 のイラスト
+@ModifyBackgroundExtended Id:Tricks Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false AppearanceAndTransition:5_3_2
+@ModifyCharacterExtended Duration:0 Lazy:false ScenePosition:80,30 IdAndAppearance:Ema.Default,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle SubId:tricker
+@ModifyBackgroundExtended TintColor:#FFFFFF00 Duration:0.2 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:0.2
+
+[PrintTextModified Text:だから冷凍室にナノカちゃんの銃を運んだのは<br>【黒幕】の方……。|#0105Trial04_Ema031| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:たぶん、その人が冷凍室の氷に残された弾丸と、<br>どこかに撃たれた３発目の弾丸……<br>その２発を撃ったんだよ。|#0105Trial04_Ema032| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（……だとしたら、最後の１発が<br>　撃ちこまれた場所は……）|#0105Trial04_Ema033|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@ModifyBackgroundExtended TintColor:#FFFFFFFF Duration:0.2 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:0.2
+@HideActors ActorIds:Tricks Duration:0 Lazy:false
+@HideActors ActorIds:Ema-tricker Duration:0 Lazy:false
+@ModifyCharacterExtended Duration:0 Lazy:false IdAndAppearance:Ema.Default,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Fearful_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Fearful_Open,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+@ModifyBackgroundExtended TintColor:#FFFFFF00 Duration:0.2 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:0.2
+@PlayBgm BgmPath:Bgm_15_1 Volume:1 Loop:true FadeInDuration:0
+; ==============================================================================
+; 回想ここまで
+; ==============================================================================
+
+[PrintTextModified Text:（……も、もしかしてナノカちゃんは……！）|#0105Trial04_Ema034| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Angry_Middle,Angle01/Facial/Mouth>Mouth_Gross_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Left
+[PrintTextModified Text:なんだよ黙り込んで！<br>やっぱナノカが小さくなることなんて……。|#0105Trial04_Coco010| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,Angle01/Head01/Facial01/Eyes01>Eyes01_Fearful_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:いいや。<br>ナノカちゃんは……<br>小さくされたんだ。|#0105Trial04_Ema035| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Angry_Middle,Angle01/Facial/Mouth>Mouth_Gross_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Left
+[PrintTextModified Text:……あ？|#0105Trial04_Coco011| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+# Judge5-4-7
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Pensive_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Pensive_Open,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:犯人がナノカちゃんを小さくした方法……<br>それは……。|#0105Trial04_Ema036| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@AddChoice ChoiceSummary:他人の魔法|#0105Trial04_Choice005| Lock:false AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @GotoModified Path:.Judge5-4-9
+
+@AddChoice ChoiceSummary:分割した|#0105Trial04_Choice006| Lock:false AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @GotoModified Path:.Judge5-4-8
+
+@AddChoice ChoiceSummary:特殊なアイテム|#0105Trial04_Choice007| Lock:false AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @GotoModified Path:.Judge5-4-10
+
+@StopForChoice Clear:false
+
+; ==============================================================================
+; ミス選択肢
+; ==============================================================================
+; MARK: 5-4-9: ❌ 他人の魔法
+
+# Judge5-4-9
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:他の人の魔法で小さくなったんだと思う……！|#0105Trial04_Ema037| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL11,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Normal_Middle,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:他の人に小さくされたなら、<br>何も問題はなくなるはずだよ！|#0105Trial04_Ema038| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Meruru.Normal1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Left
+[PrintTextModified Text:……あの、今のところ<br>魔法の正体がわかっていない人は、<br>エマさんだけなので……。|#0105Trial04_Meruru002| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Default,ArmR2,ArmL1,Angle01/Facial/Eyes>Eyes_Gross_Open,Angle01/Facial/Mouth>Mouth_Smile_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Right
+[PrintTextModified Text:エマっちがその魔法を使えるっつーなら、<br>まー納得すっけどさ。|#0105Trial04_Coco012| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,ArmR7,ArmL5,Angle01/Facial/Eyes>Eyes_Angry_Middle,Angle01/Facial/Mouth>Mouth_Neutral_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Left
+[PrintTextModified Text:その場合、やっぱりエマちゃんが<br>犯人ということでいいのかしら？|#0105Trial04_Margo015| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Closed04,Angle01/Head01/Facial01/Mouth01>Mouth01_Flushed_Middle,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（よ、よくない……！！）|#0105Trial04_Ema039| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Pensive_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（……もう一度、考えてみよう）|#0105Trial04_Ema040| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Pensive_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（ナノカちゃんの死体に外傷はない……）|#0105Trial04_Ema041| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Angry_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（けど……１発の弾丸の行方がわかっていない……）|#0105Trial04_Ema042| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Angry_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（もしもそれをナノカちゃんがまだ持っているのだとしたら……<br>　その体には、致命的な矛盾が残っている……！）|#0105Trial04_Ema043|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+
+@GotoModified Path:.Judge5-4-7
+
+; MARK: 5-4-10: ❌ 特殊なアイテム
+
+# Judge5-4-10
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL11,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Normal_Middle,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:人を小さくする特殊な物があるんじゃないかな……！<br>ここは牢屋敷だし、いわくありげなものが<br>あってもおかしくないと思う……！|#0105Trial04_Ema044| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,ArmR7,ArmL5,Angle01/Facial/Eyes>Eyes_Angry_Middle,Angle01/Facial/Mouth>Mouth_Neutral_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Left
+[PrintTextModified Text:それで、そのアイテムっていうのはどれ？|#0105Trial04_Margo016| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL11,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Normal_Middle,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:えっと……金庫にいろいろ入ってたし……<br>そのどれかとか……。|#0105Trial04_Ema045| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,ArmR7,ArmL5,Angle01/Facial/Eyes>Eyes_Angry_Middle,Angle01/Facial/Mouth>Mouth_Neutral_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Left
+[PrintTextModified Text:それは薬で小さくなった名探偵の話？<br>それとも不思議の国に迷い込んだ<br>女の子のお話かしら？|#0105Trial04_Margo017| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Angry_Middle,Angle01/Facial/Mouth>Mouth_Gross_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Right
+[PrintTextModified Text:今は現実の事件の話を<br>してるんだっつーの！|#0105Trial04_Coco013| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Closed04,Angle01/Head01/Facial01/Mouth01>Mouth01_Flushed_Middle,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（物語のことかと思われちゃった……！）|#0105Trial04_Ema046| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 別選択肢共通
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Pensive_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（……もう一度、考えてみよう）|#0105Trial04_Ema047| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Pensive_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（ナノカちゃんの死体に外傷はない……）|#0105Trial04_Ema048| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Angry_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（けど……１発の弾丸の行方がわかっていない……）|#0105Trial04_Ema049| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Angry_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（もしもそれをナノカちゃんがまだ持っているのだとしたら……<br>　その体には、致命的な矛盾が残っている……！）|#0105Trial04_Ema050|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+
+@GotoModified Path:.Judge5-4-7
+
+; ==============================================================================
+; MARK: 5-4-8: ⭕ 分割した
+; ==============================================================================
+
+# Judge5-4-8
+
+
+@StopBgm
+@GosubToObjectionCutIn CutInKind:Ema Index:1 VoicePath:CommonTrial_Ema05120 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Fearful1,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Pensive_Lifeless03,Angle01/Head01/Facial01/Mouth01>Mouth01_Fearful_Open,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:それ……は……。|#0105Trial04_Ema051| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Fearful1,ArmR8,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Pensive_Lifeless01,Angle01/Head01/Facial01/Mouth01>Mouth01_Normal_Middle,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:……………分割……したんだ。|#0105Trial04_Ema052| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Default,ArmR13,ArmL10,Angle01/Facial/Eyes>Eyes_Surprised_Open,Angle01/Facial/Mouth>Mouth_Surprised_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Right
+[PrintTextModified Text:は……！？<br>どういう意味……！？|#0105Trial04_Coco014| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Fearful1,ArmR3,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Lifeless01,Angle01/Head01/Facial01/Mouth01>Mouth01_Fearful_Open,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:ナノカちゃんは……<br>少しずつ……移動させられた……。|#0105Trial04_Ema053| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Fearful1,ArmR3,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Lifeless01,Angle01/Head01/Facial01/Mouth01>Mouth01_Fearful_Open,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:……体が……【細切れ】にされていたなら……<br>あの覗き窓だって越えられるはずだよ。|#0105Trial04_Ema054| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Wait WaitMode:0.1
+@StopVoice
+@Wait WaitMode:0.1
+
+@PlaySfxModified SfxPath:Sfx_Common_5 Volume:1 Loop:false FadeInDuration:0
+
+@ResetText
+@PlayVoice VoicePath:CommonTrial_Coco00921 Volume:1
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Surprised1
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Fearful1,ArmR10,ArmL5,Angle01/Facial/Eyes>Eyes_Fearful_Open,Angle01/Facial/Mouth>Mouth_Gross_Open,Angle01/Facial/Sweat>Sweat01
+@GosubToSplitPerspectiveStageScreens Index:1 LookCharacterId:Coco Composition:Right RollDirection:Over
+@Wait WaitMode:2
+
+@HidePerspectiveStageScreen Index:1 Reset:true
+@Wait WaitMode:0.3
+@StopVoice
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Fearful1,ArmR10,ArmL5,Angle01/Facial/Eyes>Eyes_Fearful_Open,Angle01/Facial/Mouth>Mouth_Gross_Open,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Right
+[PrintTextModified Text:ちょ……ちょっと……<br>ま、待ってよっ！？|#0105Trial04_Coco015| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Fearful1,ArmR10,ArmL5,Angle01/Facial/Eyes>Eyes_Fearful_Open,Angle01/Facial/Mouth>Mouth_Gross_Open,Angle01/Facial/Sweat>Sweat01,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Right ZoomLevel:4
+[PrintTextModified Text:そんなの……何もかも、【通らない】だろ！|#0105Trial04_Coco016| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+@AutoSave
+
+@GotoModified Path:Act01_Chapter05/Act01_Chapter05_Trial05 ResetState:-
+

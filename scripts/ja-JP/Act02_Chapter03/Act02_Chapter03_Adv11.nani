@@ -1,0 +1,81 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook IsDebugDirectJump:{isDebugDirectJump}
+@Gosub Path:System/System_Subroutine.BeginAdv
+
+# Scene2-3-11
+
+; ========================================
+; ●シーン2‐3‐11
+; ========================================
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false AppearanceAndTransition:9_2
+@ModifyBackgroundExtended TintColor:#000000 Duration:1.2 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:1.8
+
+@PlayBgm BgmPath:Bgm_23_1 Volume:1 Loop:true FadeInDuration:0
+@AutoSave
+[PrintTextModified Text:アトリエの片付けを終えたエマは、<br>私を連れて１階の通路を移動し、中庭に向かった。|#0203Adv11_Narrative001| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:エマと２人で通路を進んでいると。|#0203Adv11_Narrative002| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:うわあああああああっ！？|#0203Adv11_Leia001| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:レイアの悲鳴が響いてきた。<br>方向的に、おそらく中庭だ。|#0203Adv11_Narrative003| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"そんな、嘘だ……なんで、どうして……<br>ああああぁぁっ！ うああああぁっ！|#0203Adv11_Leia002|" AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 廊下を走る音
+@PlaySfxModified SfxPath:Sfx_58 Volume:1 Loop:false FadeInDuration:0
+
+[PrintTextModified Text:しばらくすると、レイアが<br>転がるように通路へと走り込んできた。|#0203Adv11_Narrative004| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"私とエマの姿を見て、<br><ruby=\"すが\">縋</ruby>るような目を向けてくる。|#0203Adv11_Narrative005|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Leia.Fearful1
+
+[PrintTextModified Text:ヒロくん……エマくん……！！|#0203Adv11_Leia003| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:レイア……。|#0203Adv11_Hiro001| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:私もエマも、何も言わない。<br>レイアが目撃したものは、わかりきっている。|#0203Adv11_Narrative006| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Fearful1
+
+[PrintTextModified Text:雨の音が聞こえた気がして、<br>私は、背景の書き割りが心配になって……。|#0203Adv11_Leia004| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:中庭に様子を見に行ったんだ……<br>案の定、書き割りは雨で絵の具がどろどろに……。|#0203Adv11_Leia005| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"言葉を<ruby=\"しぼ\">絞</ruby>り出すようにして、<br>レイアは首を横に振る。|#0203Adv11_Narrative007|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Angry1
+
+[PrintTextModified Text:違う、私が言いたいのはそんなことじゃない……！|#0203Adv11_Leia006| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:いつもは落ち着いた振る舞いの彼女が、<br>ひどく取り乱している。|#0203Adv11_Narrative008| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Cry1
+
+[PrintTextModified Text:アンアンくんが……死んでいた。|#0203Adv11_Leia007| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:認めたくない事実を口にするように、<br>レイアは重々しく告げた。|#0203Adv11_Narrative009| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:……わかっている。|#0203Adv11_Hiro002| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Leia.Cry1
+
+[PrintTextModified Text:……え？<br>ヒロくん、それはどういう……。|#0203Adv11_Leia008| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ResetText
+
+; フクロウの通知音
+@PlaySfxModified SfxPath:Sfx_14 Volume:1 Loop:false FadeInDuration:0
+@Wait WaitMode:1
+
+[PrintTextModified Text:そこで、スマホの通知が鳴る。|#0203Adv11_Narrative010| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:確認するまでもない。<br>きっと、少女たちを招集する、<br>ゴクチョーからのメッセージだ。|#0203Adv11_Narrative011| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Gosub Path:System/System_Subroutine.EndAdv
+
+@GotoModified Path:Act02_Chapter03/Act02_Chapter03_Adv12 SoftReset:true
+

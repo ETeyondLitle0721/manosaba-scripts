@@ -1,0 +1,1019 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook Version:4
+
+@BeginIf Expression:isDebugDirectJump
+    @Gosub Path:Act01_Chapter02/Act01_Chapter02_TrialInit
+    @HidePerspectiveStageScreen Index:1 Duration:0 Reset:true
+    @ModifyBackgroundExtended TintColor:#000000 Duration:0 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+
+@SetTrialTimer Time:900
+@HideUI UINames:ControlPanel AllowToggle:false
+@ShowUI UINames:DebateUI
+
+; 冒頭非表示処理
+@ModifyCharacterExtended Position:,{hiddenCharacterPositionY} Duration:0 Lazy:false IdAndAppearance:Warden.1
+@ModifyCharacterExtended Position:,{hiddenCharacterPositionY} Duration:0 Lazy:false IdAndAppearance:Jailer.1
+; ==============================================================================
+; MARK: 10: 💬 犯人だという証拠
+; ==============================================================================
+; ＠ト書き▼議論2-10 犯人だという証拠
+; BGM変更：AccUhEarts(Vocal無)
+@PlayBgm BgmPath:Bgm_15_1 Volume:1 Loop:true FadeInDuration:0
+
+# Judge2-10-1
+
+@Gosub Path:System/System_Subroutine.BeginDebate-First
+@Gosub Path:System/System_Subroutine.BeginDebate-Effect
+@Gosub Path:System/System_Subroutine.BeginDebate-Last
+@ChangeTrialPauseMode Enable:false ProcessTimer:true
+
+@HidePerspectiveStageScreen Index:1 Reset:true
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,Angle01/Option_Arms-,ArmR-Option-Off,ArmR2,ArmL3,Angle01/Head/Facial/Eyes>Eyes_Uncomfortable_Open02,Angle01/Head/Facial/Mouth>Mouth_Uncomfortable_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:播放录音？<br>清除数据？<br>杀害米莉亚？|#0102Trial10_AnAn001| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,Angle01/Option_Arms-,ArmR-Option-Off,ArmR2,ArmL3,Angle01/Head/Facial/Eyes>Eyes_Angry_Closed,Angle01/Head/Facial/Mouth>Mouth_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:……没有任何证据<br>证明吾辈做了这些事。<br>根本只是<br>一派胡言。|#0102Trial10_AnAn002| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,Angle01/Option_Arms-,ArmR-Option-Off,ArmR2,ArmL3,Angle01/Head/Facial/Eyes>Eyes_Angry_Open01,Angle01/Head/Facial/Mouth>Mouth_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:更何况这些论点<br>是否与案件有关<br>尚且不明。<br>完全没有真凭实据。|#0102Trial10_AnAn003| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmL5,Angle01/ArmR-,Eyes1_Angry_Open1,Mouth1_Surprised_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:……要这么说<br>那我也一样。<br>并没有证据证明<br>我杀害了佐伯米莉亚。|#0102Trial10_Nanoka001| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,Angle01/Option_Arms-,ArmR-Option-Off,ArmR2,ArmL3,Angle01/Head/Facial/Eyes>Eyes_Angry_Open01,Angle01/Head/Facial/Mouth>Mouth_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:至少有证据<br>证明你<br>进过房间。|#0102Trial10_AnAn004| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Smile1,ArmR2,ArmL5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:你是指<br>奈叶香出示的<br>惩罚室钥匙吧？|#0102Trial10_Margo001| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Smile1,ArmR7,ArmL5,Angle01/Facial/Mouth>Mouth_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:但那也只是<br>她出示的证物，<br>现在门锁坏掉了<br>没办法检查<br>是不是真的钥匙……<br><br>|#0102Trial10_Margo002| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,Angle01/Option_Arms-,ArmR-Option-Off,ArmR2,ArmL3,Angle01/Head/Facial/Eyes>Eyes_Angry_Open01,Angle01/Head/Facial/Mouth>Mouth_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:……无论如何，<br>都没有证据支持<br>吾辈是凶手的假说。|#0102Trial10_AnAn005| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,Angle01/Option_Arms-,ArmR-Option-Off,ArmR2,ArmL2,Angle01/Head/Facial/Eyes>Eyes_Angry_Open01,Angle01/Head/Facial/Mouth>Mouth_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:"因为如果当时<br>门没有上锁，<br>那<link=\"Objection_01_02_10_01\">谁都能进房间</link>，<br><link=\"Objection_01_02_10_02\">也能杀害她</link>。<br>其他人也都能<br><link=\"Objection_01_02_10_03\">伪造声音</link>。|#0102Trial10_AnAn006|" RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,Angle01/Option_Arms-,ArmR-Option-Off,ArmR5,ArmL2,Angle01/Head/Facial/Eyes>Eyes_Angry_Open02,Angle01/Head/Facial/Mouth>Mouth_Uncomfortable_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:所以<br>再讨论下去<br>也只是浪费时间。<br>……因为吾辈<br>不是凶手。|#0102Trial10_AnAn007| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+@Gosub Path:System/System_Subroutine.EndDebate-Effect
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+; 
+; 議論終了
+; ------------------------------------------------------------------------------
+
+@ResetText
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Pensive1,ArmR7,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Cry_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center ZoomLevel:2
+@Wait WaitMode:0.2
+
+; ==============================================================================
+; ADVシーン
+; ==============================================================================
+
+[PrintTextModified Text:"（也许正如安安所说的那样……<br>　没有证据能证明她是凶手……）|#0102Trial10_Ema001|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,Angle01/Head01/Facial01/Eyes01>Eyes01_Pensive_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed
+
+[PrintTextModified Text:（可是……真的是奈叶香杀的吗……？）|#0102Trial10_Ema002| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Determined2,ArmR7,ArmL7
+
+[PrintTextModified Text:"（从头开始思考吧……<br>　安安和奈叶香的证词之间<br>　有没有矛盾之处……）|#0102Trial10_Ema003|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge2-10-1
+
+; 
+; 反論1
+; ------------------------------------------------------------------------------
+
+# Objection_01_02_10_01
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:不是谁都能进房间|#0102Trial10_Choice001| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:Trial AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge2-10-2
+
+
+@AddChoice ChoiceSummary:返回|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:Trial AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; 
+; 反論2
+; ------------------------------------------------------------------------------
+
+# Objection_01_02_10_02
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:不是谁都能杀害她|#0102Trial10_Choice002| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:Trial AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge2-10-3
+
+
+@AddChoice ChoiceSummary:返回|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:Trial AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; 
+; 反論3
+; ------------------------------------------------------------------------------
+
+# Objection_01_02_10_03
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:不是谁都能伪造声音|#0102Trial10_Choice003| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:Trial AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge2-10-4
+
+
+@AddChoice ChoiceSummary:返回|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:Trial AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; ==============================================================================
+; ミス選択肢
+; ==============================================================================
+; MARK: 2-10-3: ❌ 誰も殺せない
+
+# Judge2-10-3
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL13,Angle01/Head01/Facial01/Eyes01>Eyes01_Surprised_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Scream_Open,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:那也太奇怪了……！<br>并不是谁都能杀害米莉亚啊！|#0102Trial10_Ema004| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,Angle01/Option_Arms-,ArmR-Option-Off,ArmR2,ArmL3,Angle01/Head/Facial/Eyes>Eyes_Normal_Open02,Angle01/Head/Facial/Mouth>Mouth_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Right
+[PrintTextModified Text:你在说什么？<br>米莉亚不是已经被杀害了吗。|#0102Trial10_AnAn008| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL13,Angle01/Head01/Facial01/Eyes01>Eyes01_Pensive_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Confused_Open,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:可是……！|#0102Trial10_Ema005| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,Angle01/Option_Arms-,ArmR-Option-Off,ArmR2,ArmL3,Angle01/Head/Facial/Eyes>Eyes_Normal_Open02,Angle01/Head/Facial/Mouth>Mouth_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Right
+[PrintTextModified Text:惩罚室的门没上锁，<br>而且米莉亚还被绑在里面的十字架上哦？|#0102Trial10_AnAn009| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,Angle01/Option_Arms-,ArmR-Option-Off,ArmR2,ArmL3,Angle01/Head/Facial/Eyes>Eyes_Normal_Closed,Angle01/Head/Facial/Mouth>Mouth_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Right
+[PrintTextModified Text:而这用来拷问的房间里<br>正好有凶器……|#0102Trial10_AnAn010| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,Angle01/Option_Arms-,ArmR-Option-Off,ArmR2,ArmL3,Angle01/Head/Facial/Eyes>Eyes_Normal_Open02,Angle01/Head/Facial/Mouth>Mouth_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Right
+[PrintTextModified Text:大家都没有明确的不在场证明。<br>杀害她的条件简直不要太充分。|#0102Trial10_AnAn011| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,Angle01/Option_Arms-,ArmR-Option-Off,ArmR2,ArmL11,Angle01/Head/Facial/Eyes>Eyes_Normal_Open02,Angle01/Head/Facial/Mouth>Mouth_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Right
+[PrintTextModified Text:奇怪的是你的反驳。艾玛。|#0102Trial10_AnAn012| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL6,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Flushed_Middle,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（我是不是说了很离谱的话……！）|#0102Trial10_Ema006| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Meruru.Normal2,ArmR1_2,ArmL3,Eyes2_Normal_Open1,Mouth2_Angry_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Left
+[PrintTextModified Text:艾玛小姐……！<br>安安小姐的话确实很合理……<br>可是……|#0102Trial10_Meruru001| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Meruru.ArmR1_2,ArmL1,Eyes2_Pensive_Open2,Mouth2_Angry_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Left
+[PrintTextModified Text:也许还有【未经讨论的问题】……<br>请你回想一下……奈叶香小姐的观点。|#0102Trial10_Meruru002| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Surprised_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Cry_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:奈叶香的观点……？|#0102Trial10_Ema007| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR7,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（奈叶香主张<br>　这是典狱长它们干的。<br>　我记得……她给出的理由是……）|#0102Trial10_Ema008|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge2-10-1
+
+; MARK: 2-10-4: ❌ 誰も声の偽装はできない
+
+# Judge2-10-4
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL13,Angle01/Head01/Facial01/Eyes01>Eyes01_Surprised_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Scream_Open,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:伪造声音这种事……<br>可不是谁都能做到的……！|#0102Trial10_Ema009| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,Angle01/Option_Arms-,ArmR-Option-Off,ArmR2,ArmL3,Angle01/Head/Facial/Eyes>Eyes_Normal_Open02,Angle01/Head/Facial/Mouth>Mouth_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Right
+[PrintTextModified Text:吾辈刚才应当说过。<br>如果只要在指定时间播放惨叫，<br>设一个闹钟便是。|#0102Trial10_AnAn013| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,Angle01/Option_Arms-,ArmR-Option-Off,ArmR2,ArmL3,Angle01/Head/Facial/Eyes>Eyes_Angry_Open02,Angle01/Head/Facial/Mouth>Mouth_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Right
+[PrintTextModified Text:谁都能轻易做到。<br>连你也能做得到吧？|#0102Trial10_AnAn014| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Surprised1,ArmR3,ArmL1,Angle01/Head01/Facial01/Mouth01>Mouth01_Confused_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:欸！？我吗！？|#0102Trial10_Ema010| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,Angle01/Option_Arms-,ArmR-Option-Off,ArmR2,ArmL11,Angle01/Head/Facial/Eyes>Eyes_Normal_Open02,Angle01/Head/Facial/Mouth>Mouth_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Right
+[PrintTextModified Text:你就是为了嫁祸自己的罪行<br>才一直故意捣乱吧！|#0102Trial10_AnAn015| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL6,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Flushed_Middle,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（我反倒惹上了嫌疑……！）|#0102Trial10_Ema011| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 別選択肢共通
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Meruru.Normal2,ArmR1_2,ArmL3,Eyes2_Normal_Open1,Mouth2_Angry_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Left
+[PrintTextModified Text:艾玛小姐……！<br>安安小姐的话确实很合理……<br>可是……|#0102Trial10_Meruru003| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Meruru.ArmR1_2,ArmL1,Eyes2_Pensive_Open2,Mouth2_Angry_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Left
+[PrintTextModified Text:也许还有【未经讨论的问题】……<br>请你回想一下……奈叶香小姐的观点。|#0102Trial10_Meruru004| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Surprised_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Cry_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:奈叶香的观点……？|#0102Trial10_Ema012| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR7,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（奈叶香主张<br>　这是典狱长它们干的。<br>　我记得……她给出的理由是……）|#0102Trial10_Ema013|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+
+@GotoModified Path:.Judge2-10-1
+
+; ==============================================================================
+; MARK: 2-10-2: ⭕ 誰も部屋に入れない
+; ==============================================================================
+
+# Judge2-10-2
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@GosubToObjectionCutIn CutInKind:Ema Index:1 VoicePath:CommonTrial_Ema06193 Volume:1
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+@HideUI UINames:DebateUI AllowToggle:false
+@ShowUI UINames:ControlPanel
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL4,Angle01/Head01/Facial01/Eyes01>Eyes01_Surprised_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Scream_Open,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:……等、等一等安安。<br>我觉得不对。|#0102Trial10_Ema014| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,Angle01/Option_Arms-,ArmR-Option-Off,ArmR2,ArmL3,Angle01/Head/Facial/Eyes>Eyes_Angry_Open02,Angle01/Head/Facial/Mouth>Mouth_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Right
+[PrintTextModified Text:……什么意思？|#0102Trial10_AnAn016| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR8,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:奈叶香的证词中提到<br>【惩罚室的门没有上锁】……|#0102Trial10_Ema015| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR8,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:但会不会是因为【有人开了锁】<br>所以才没上锁？|#0102Trial10_Ema016| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,Angle01/Option_Arms-,ArmR-Option-Off,ArmR2,ArmL3,Angle01/Head/Facial/Eyes>Eyes_Angry_Open02,Angle01/Head/Facial/Mouth>Mouth_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Right
+[PrintTextModified Text:……你想说什么？<br>没上锁什么的<br>想必是奈叶香的谎话吧。|#0102Trial10_AnAn017| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR7,ArmL12,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:就算是谎话，也依然有一个问题。|#0102Trial10_Ema017| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+
+# Judge2-10-5
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR7,ArmL12,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+
+[PrintTextModified Text:我想说的是……|#0102Trial10_Ema018| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@AddChoice ChoiceSummary:门是自己开的|#0102Trial10_Choice004| Lock:false AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @GotoModified Path:.Judge2-10-7
+
+@AddChoice ChoiceSummary:一开始就没有所谓的钥匙|#0102Trial10_Choice005| Lock:false AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @GotoModified Path:.Judge2-10-8
+
+@AddChoice ChoiceSummary:如果门锁着，奈叶香也不可能打开门|#0102Trial10_Choice006| Lock:false AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @GotoModified Path:.Judge2-10-6
+
+@StopForChoice Clear:false
+
+; ==============================================================================
+; ミス選択肢
+; ==============================================================================
+; MARK: 2-10-7: ❌ 自然に扉が開いた
+
+# Judge2-10-7
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL12,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:惩罚室的门<br>有可能是自己开的。|#0102Trial10_Ema019| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Angry_Open02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left
+[PrintTextModified Text:不是说【有人开了锁】嘛，<br>怎么这就改口了。|#0102Trial10_Alisa001| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left
+[PrintTextModified Text:话说什么叫<br>“门是自己开的”？|#0102Trial10_Alisa002| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL12,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Normal_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:……比、比如自动门之类的。|#0102Trial10_Ema020| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hanna.Angry1,ArmR2,ArmL2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hanna Composition:Right
+[PrintTextModified Text:那扇门怎么看都不是自动门呀！<br>请你不要再胡闹了！|#0102Trial10_Hanna001| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL6,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Flushed_Middle,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（被骂了……！）|#0102Trial10_Ema021| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Meruru.Default,ArmR1_1,ArmL8,Eyes1_Pensive_Open2,Mouth1_Normal_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Left
+[PrintTextModified Text:……艾、艾玛小姐。<br>请你回想一下先前讨论的内容……|#0102Trial10_Meruru005| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Meruru.Default,ArmR1_1,ArmL1,Eyes1_Pensive_Open2,Mouth1_Normal_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Left
+[PrintTextModified Text:奈叶香小姐的证词里，<br>有提到过门一开始就没有上锁吧……？|#0102Trial10_Meruru006| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Meruru.Default,ArmR1_1,ArmL1,Eyes1_Pensive_Open2,Mouth1_Normal_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Left
+[PrintTextModified Text:那么……这门究竟是怎么开的呢？|#0102Trial10_Meruru007| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Surprised_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Cry_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:……【门是怎么开的】……|#0102Trial10_Ema022| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR7,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（开门应该需要钥匙……<br>　那么该怎样拿到钥匙呢……？）|#0102Trial10_Ema023|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge2-10-5
+
+; MARK: 2-10-8: ❌ 鍵は最初から存在しなかった
+
+# Judge2-10-8
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL12,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:惩罚室的钥匙<br>一开始就不存在……！|#0102Trial10_Ema024| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmL5,Angle01/ArmR-,Eyes1_Pensive_Open1,Mouth1_Surprised_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right
+[PrintTextModified Text:不是啊？<br>钥匙就在我手里。|#0102Trial10_Nanoka002| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR17,ArmL1,Angle01/Facial/Eyes>Eyes_Normal_Open04,Angle01/Facial/Mouth>Mouth_Normal_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left
+[PrintTextModified Text:虽然锁被我破坏了，<br>但钥匙本身是有的。|#0102Trial10_Sherry001| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hanna.Normal1,ArmR2,ArmL2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hanna Composition:Right
+[PrintTextModified Text:就算门没开，钥匙应该也是有的！|#0102Trial10_Hanna002| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Meruru.Normal2,ArmR1_2,ArmL3,Eyes2_Surprised_Open1,Mouth2_Angry_Open2,Pale2_1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Left
+[PrintTextModified Text:你、你们两位都冷静点……|#0102Trial10_Meruru008| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL6,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Flushed_Middle,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（大家好像都以为我头脑混乱了……！）|#0102Trial10_Ema025| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 別選択肢共通
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Meruru.Default,ArmR1_1,ArmL8,Eyes1_Pensive_Open2,Mouth1_Normal_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Left
+[PrintTextModified Text:……艾、艾玛小姐。<br>请你回想一下先前讨论的内容……|#0102Trial10_Meruru009| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Meruru.Default,ArmR1_1,ArmL1,Eyes1_Pensive_Open2,Mouth1_Normal_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Left
+[PrintTextModified Text:奈叶香小姐的证词里，<br>有提到过门一开始就没有上锁吧……？|#0102Trial10_Meruru010| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Meruru.Default,ArmR1_1,ArmL1,Eyes1_Pensive_Open2,Mouth1_Normal_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Left
+[PrintTextModified Text:那么……这门究竟是怎么开的呢？|#0102Trial10_Meruru011| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Surprised_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Cry_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:……【门是怎么开的】……|#0102Trial10_Ema026| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR7,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（开门应该需要钥匙……<br>　那么该怎样拿到钥匙呢……？）|#0102Trial10_Ema027|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge2-10-5
+
+; ==============================================================================
+; MARK: 2-10-6: ⭕ ナノカにも扉を開ける事が不可能
+; ==============================================================================
+
+# Judge2-10-6
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR7,ArmL12,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:……【如果门锁着，奈叶香也不可能打开门】。|#0102Trial10_Ema028| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR7,ArmL12,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Normal_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:如果惩罚室的门打不开的话，<br>那奈叶香也不可能作案。<br>|#0102Trial10_Ema029| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆焦り
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,Angle01/Option_Arms-,ArmR-Option-Off,ArmR1,ArmL3,Angle01/Head/Facial/Eyes>Eyes_Uncomfortable_Open02,Angle01/Head/Facial/Mouth>Mouth_Uncomfortable_Open,Angle01/Head/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Right
+[PrintTextModified Text:这、这……！|#0102Trial10_AnAn018| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmR3,ArmL1,Eyes1_Neutral_Open1,Mouth1_Surprised_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:是啊……<br>我能进得去<br>就是因为【门没有上锁】。|#0102Trial10_Nanoka003| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Eyes1_Flushed_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:……应该有人打开了惩罚室的门锁，<br>把钥匙放在里面了。|#0102Trial10_Nanoka004| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR7,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:……如果是这样<br>还是很奇怪。|#0102Trial10_Ema030| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR7,ArmL12,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Normal_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:说起来，你们觉得这钥匙<br>究竟是从哪里来的？|#0102Trial10_Ema031| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,Angle01/Arms>Arms01,Angle01/ArmL-,Angle01/ArmR-,Angle01/Facial/Eyes>Eyes_Serious_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right
+[PrintTextModified Text:……可以肯定的是，钥匙不是自己<br>轻轻飘到房间里来的。|#0102Trial10_Alisa003| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,Angle01/Option_Arms-,ArmR-Option-Off,ArmR2,ArmL1,Angle01/Head/Facial/Eyes>Eyes_Angry_Open01,Angle01/Head/Facial/Mouth>Mouth_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Left
+[PrintTextModified Text:……钥匙是奈叶香<br>从哪里偷来的吧。<br>否则所有人都不可能犯罪……|#0102Trial10_AnAn019| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆やや焦り
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,Angle01/Option_Arms-,ArmR-Option-Off,ArmR2,ArmL1,Angle01/Head/Facial/Eyes>Eyes_Angry_Open01,Angle01/Head/Facial/Mouth>Mouth_Uncomfortable_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Left
+[PrintTextModified Text:所以你的推理有破绽！<br>没有讨论下去的意义！|#0102Trial10_AnAn020| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmR2,ArmL1,Eyes1_Normal_Open3,Mouth1_Normal_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right
+[PrintTextModified Text:……当然，我要否定偷钥匙的指控。|#0102Trial10_Nanoka005| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,Angle01/Option_Arms-,ArmR-Option-Off,ArmR5,ArmL1,Angle01/Head/Facial/Eyes>Eyes_Angry_Open01,Angle01/Head/Facial/Mouth>Mouth_Uncomfortable_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Left
+[PrintTextModified Text:你不可能证明这点！<br>这件事没有任何讨论下去的意义！|#0102Trial10_AnAn021| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR7,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Cry_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（……真的是这样吗）|#0102Trial10_Ema032| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR7,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:我能证明<br>【奈叶香没有偷钥匙】吗……|#0102Trial10_Ema033| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+
+@AddChoice ChoiceSummary:可以证明|#0102Trial10_Choice007| Lock:false AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @GotoModified Path:.Judge2-10-9
+
+@AddChoice ChoiceSummary:不能证明|#0102Trial10_Choice008| Lock:false AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @GotoModified Path:.Judge2-10-10
+
+@StopForChoice Clear:false
+
+; ※分岐後合流
+
+; ==============================================================================
+; MARK: 2-10-9: ❌ できる
+; ==============================================================================
+
+# Judge2-10-9
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR7,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Cry_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:我觉得……能证明。|#0102Trial10_Ema034| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（……说来，奈叶香捡到的钥匙<br>　到底是哪来的？）|#0102Trial10_Ema035|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（只要能弄清楚这点，也许就能证明……<br>　但是真的能查出它的由来吗……？）|#0102Trial10_Ema036|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（比如可能知道监牢钥匙在哪的人……？<br>　也许去问那个人就能……？）|#0102Trial10_Ema037|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+
+@GotoModified Path:.Judge2-10-11
+
+; ==============================================================================
+; MARK: 2-10-10: ❌ できないかもしれない
+; ==============================================================================
+
+# Judge2-10-10
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Cry_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:不可能证明得了……<br>如果奈叶香的证词是真的，<br>那就是有人把钥匙带进惩罚室了吧？|#0102Trial10_Ema038| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmR3,ArmL1,Eyes1_Normal_Open2,Mouth1_Angry_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:是啊。<br>……所以我觉得运营方是凶手。|#0102Trial10_Nanoka006| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmR1,ArmL10,Eyes1_Normal_Open1,Mouth1_Normal_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:而我们甚至<br>连典狱长它们把钥匙保管在哪里<br>都不知道。|#0102Trial10_Nanoka007| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,Angle01/Option_Arms-,ArmR-Option-Off,ArmR2,ArmL3,Angle01/Head/Facial/Eyes>Eyes_Angry_Open01,Angle01/Head/Facial/Mouth>Mouth_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Right
+[PrintTextModified Text:假如真像奈叶香所说的那样<br>钥匙掉在惩罚室里了，<br>也无法证明究竟是谁带进去的。|#0102Trial10_AnAn022| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,Angle01/Option_Arms-,ArmR-Option-Off,ArmR2,ArmL3,Angle01/Head/Facial/Eyes>Eyes_Neutral_Open,Angle01/Head/Facial/Mouth>Mouth_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Right
+[PrintTextModified Text:……讨论到此为止。|#0102Trial10_AnAn023| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Closed04,Angle01/Head01/Facial01/Mouth01>Mouth01_Flushed_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（呃……只能到此为止了吗……）|#0102Trial10_Ema039| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Meruru.Default,ArmR1_1,ArmL8,Eyes1_Pensive_Open2,Mouth1_Normal_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Left
+[PrintTextModified Text:……艾玛小姐，真是如此吗。|#0102Trial10_Meruru012| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Surprised_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Cry_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:梅露露……|#0102Trial10_Ema040| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Meruru.Default,ArmR1_1,ArmL8,Eyes1_Normal_Open1,Mouth1_Normal_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Left
+[PrintTextModified Text:的、的确……<br>我也赞同<br>【不知道是谁带进去的】这一点……|#0102Trial10_Meruru013| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Meruru.Default,ArmR1_1,ArmL8,Eyes1_Pensive_Open2,Mouth1_Normal_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Left
+[PrintTextModified Text:但是，会不会有人知道……<br>是【从哪里带进去的】呢？|#0102Trial10_Meruru014| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Surprised_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Cry_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（从哪里带进去的……也就是说……<br>　钥匙之前在哪里……【之前在谁手上】……？）|#0102Trial10_Ema041|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR7,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Cry_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:那个知情者……该不会是……|#0102Trial10_Ema042| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+
+@GotoModified Path:.Judge2-10-11
+
+; ==============================================================================
+; 選択肢合流
+; ==============================================================================
+
+# Judge2-10-11
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR3,ArmL4,Angle01/Facial/Eyes>Eyes_Normal_Open04,Angle01/Facial/Mouth>Mouth_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left
+[PrintTextModified Text:怎么了？艾玛。看你一直沉思。<br>是想到什么了吗？|#0102Trial10_Sherry002| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR7,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:……我想到一个人，也许这个人知道<br>钥匙是从哪里带进去的。|#0102Trial10_Ema043| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR3,ArmL4,Angle01/Facial/Eyes>Eyes_Normal_Open04,Angle01/Facial/Mouth>Mouth_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left
+[PrintTextModified Text:有这么个人吗？|#0102Trial10_Sherry003| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR7,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:嗯，这个人就是……|#0102Trial10_Ema044| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ChoiceEvidence CategoryNames:Profile Back:false Global:false CorrectEvidenceId:Warden
+
+@BeginIf Expression:"chosenEvidenceId==\"Warden\""
+    @GotoModified Path:.Judge2-10-12
+
+@BeginIf Expression:"chosenEvidenceId==\"Jailer\""
+    @GotoModified Path:.Judge2-10-12
+
+@BeginIf Expression:"chosenEvidenceId==\"Ema\""
+    @GotoModified Path:.Judge2-10-13
+
+@BeginIf Expression:"chosenEvidenceId==\"Margo\""
+    @GotoModified Path:.Judge2-10-14
+
+@BeginIf Expression:"chosenEvidenceId==\"Coco\""
+    @GotoModified Path:.Judge2-10-15
+
+
+@GotoModified Path:.Judge2-10-16
+
+; ==============================================================================
+; ミス選択肢
+; ==============================================================================
+; MARK: 2-10-13: ❌ 桜羽エマ
+
+# Judge2-10-13
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR5,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Confused_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:是……我。|#0102Trial10_Ema045| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmL5,Angle01/ArmR-,Eyes1_Flushed_Open1,Mouth1_Pensive_Closed1,OptionB_Body1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right
+[PrintTextModified Text:……樱羽艾玛。<br>那你就是幕后黑手了吧。|#0102Trial10_Nanoka008| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Surprised1,ArmR3,ArmL3,Angle01/Head01/Facial01/Mouth01>Mouth01_Confused_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:等、等等！<br>我马上推理给你们看……！|#0102Trial10_Ema046| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Smile1,ArmR2,ArmL5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Left
+[PrintTextModified Text:呵呵呵，真是个有趣的小可爱♡<br>艾玛，我喜欢你这一点♡|#0102Trial10_Margo003| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+@Skip Enable:false
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Default,ArmR3,ArmL2,Angle01/Facial/Eyes>Eyes_Pensive_Open01,Angle01/Facial/Mouth>Mouth_Smile_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Right
+[PrintTextModified Text:奈叶香，你干脆一枪毙了她吧？|#0102Trial10_Coco001| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Arms4,Eyes1_Angry_Open1,Mouth1_Flushed_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+
+@Wait WaitMode:i1.5
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR12,ArmL16,Angle01/Head01/Facial01/Eyes01>Eyes01_Fearful_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Cry_Open,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（要被枪击了……！）|#0102Trial10_Ema047| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Determined2,ArmR7,ArmL7,Angle01/Head02/Facial02/Sweat02>Sweat02_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（一定有这么一个人……<br>　【知晓监牢钥匙的存放位置】。<br>　否则，这把钥匙无人能用……！）|#0102Trial10_Ema048|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Arms4,Eyes1_Angry_Open1,Mouth1_Flushed_Closed1
+@GotoModified Path:.Judge2-10-11
+
+; MARK: 2-10-14: ❌ 宝生マーゴ
+
+# Judge2-10-14
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Normal1,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:玛格……<br>你应该知道钥匙在哪吧……？|#0102Trial10_Ema049| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Smile1,ArmR2,ArmL5,Angle01/Facial/Eyes>Eyes_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Left
+[PrintTextModified Text:……哦，这话是什么意思？|#0102Trial10_Margo004| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR8,ArmL2,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:大家都知道吧，<br>玛格的爱好是……|#0102Trial10_Ema050| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hanna.Default,ArmR2,ArmL2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hanna Composition:Right
+[PrintTextModified Text:是【占卜】！！|#0102Trial10_Hanna003| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR2,ArmL2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left
+[PrintTextModified Text:该不会是用占卜<br>去推测钥匙在哪里吧！？|#0102Trial10_Sherry004| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Smile1,ArmR2,ArmL5,Angle01/Facial/Eyes>Eyes_Smile_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Left
+[PrintTextModified Text:顺便一提，占卜的结果是在这个房间里。<br>……因为奈叶香刚才出示了证据♡|#0102Trial10_Margo005| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Surprised_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Flushed_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（还真是……！）|#0102Trial10_Ema051| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 別選択肢共通
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Determined2,ArmR7,ArmL7,Angle01/Head02/Facial02/Sweat02>Sweat02_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（一定有这么一个人……<br>　【知晓监牢钥匙的存放位置】。<br>　否则，这把钥匙无人能用……！）|#0102Trial10_Ema052|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge2-10-11
+
+; MARK: 2-10-15: ❌ 沢渡ココ
+
+# Judge2-10-15
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:可可！<br>你应该知道钥匙放在哪吧！|#0102Trial10_Ema053| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Pensive_Open02,Angle01/Facial/Mouth>Mouth_Gross_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Right
+[PrintTextModified Text:知道的话我就说了！<br>你别再胡闹了行吗！|#0102Trial10_Coco002| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Surprised_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Flushed_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（被骂了……！）|#0102Trial10_Ema054| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 別選択肢共通
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Determined2,ArmR7,ArmL7,Angle01/Head02/Facial02/Sweat02>Sweat02_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（一定有这么一个人……<br>　【知晓监牢钥匙的存放位置】。<br>　否则，这把钥匙无人能用……！）|#0102Trial10_Ema055|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge2-10-11
+
+; MARK: 2-10-16: ❌ 汎用選択ミス
+
+# Judge2-10-16
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Smile1,ArmR2,ArmL5,Angle01/Facial/Eyes>Eyes_Pensive_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Left
+[PrintTextModified Text:是吗，我可不觉得她会知道哦？|#0102Trial10_Margo006| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,Angle01/Facial/Eyes>Eyes_Smile_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Left
+[PrintTextModified Text:再好好想想吧？<br>艾玛♡|#0102Trial10_Margo007| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Surprised_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Flushed_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（被温柔地教导了……！）|#0102Trial10_Ema056| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 別選択肢共通
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Determined2,ArmR7,ArmL7,Angle01/Head02/Facial02/Sweat02>Sweat02_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（一定有这么一个人……<br>　【知晓监牢钥匙的存放位置】。<br>　否则，这把钥匙无人能用……！）|#0102Trial10_Ema057|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge2-10-11
+
+
+; ==============================================================================
+; MARK: 2-10-12: ⭕ 【ゴクチョー】or【看守】
+; ==============================================================================
+
+# Judge2-10-12
+
+@StopBgm
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR8,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Normal_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:管理钥匙的典狱长它们……<br>应该知道钥匙在哪吧？|#0102Trial10_Ema058| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,Angle01/Option_Arms-,ArmR-Option-Off,ArmR1,ArmL3,Angle01/Head/Facial/Eyes>Eyes_Uncomfortable_Open02,Angle01/Head/Facial/Mouth>Mouth_Uncomfortable_Open,Angle01/Head/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Right
+[PrintTextModified Text:什、什么……！？|#0102Trial10_AnAn024| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+; BGM変更：rAwTell Owk...
+@PlayBgm BgmPath:Bgm_7_1 Volume:1 Loop:true FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left
+[PrintTextModified Text:樱羽，你……是认真的吗？|#0102Trial10_Alisa004| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Default,ArmR3,ArmL2,Angle01/Facial/Eyes>Eyes_Pensive_Open01,Angle01/Facial/Mouth>Mouth_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Right
+[PrintTextModified Text:你要让那个高高在上的看戏鸟作证？|#0102Trial10_Coco003| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR8,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Normal_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:是、是的……<br>奈叶香不是也说过吗。|#0102Trial10_Ema059| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@PlaySfxModified SfxPath:Sfx_Common_2 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR8,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:【钥匙应该是看守管理的】……|#0102Trial10_Ema060| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,Eyes1_Pensive_Open1,ArmL5,Angle01/ArmR-,OptionB_Body1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:……嗯。<br>这……倒确实没错……|#0102Trial10_Nanoka009| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR8,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:那……|#0102Trial10_Ema061| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR8,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:让它亲自作证<br>不是更快吗。|#0102Trial10_Ema062| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Default,ArmR3,ArmL2,Angle01/Facial/Eyes>Eyes_Pensive_Open01,Angle01/Facial/Mouth>Mouth_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Right
+[PrintTextModified Text:呃，你的意思是……|#0102Trial10_Coco004| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@PlaySfxModified SfxPath:Sfx_Common_3 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Determined2,ArmR7,ArmL7,Angle01/Head02/Facial02/Mouth02>Mouth02_Angry_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:先问问看典狱长吧！|#0102Trial10_Ema063| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Default,ArmR6,ArmL2,Angle01/Facial/Eyes>Eyes_Gross_Open,Angle01/Facial/Mouth>Mouth_Gross_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Right
+[PrintTextModified Text:……真的假的？|#0102Trial10_Coco005| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+; ＠備考セリフのみ／立ち絵なし登場
+; ＠ゴクチョー
+
+[PrintTextModified Text:……你是认真的吗？|#0102Trial10_Unknown001| AuthorId:Unknown RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR7,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Surprised_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Confused_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:……典狱长……！|#0102Trial10_Ema064| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Position:,{characterPositionY} Duration:0 Lazy:false IdAndAppearance:Warden.9
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Warden Composition:Left
+[PrintTextModified Text:你需要我的证词……？|#0102Trial10_Warden001| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR7,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Surprised_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:嗯，我是认真的。<br>如果没有你的证词就无法查明魔女是谁……<br>要想找到魔女，就来帮我们！|#0102Trial10_Ema065| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Warden.11
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Warden Composition:Left
+[PrintTextModified Text:……哎呀呀。<br>就算你这么说<br>我也不想加班……|#0102Trial10_Warden002| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Warden.11
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Warden Composition:Left
+[PrintTextModified Text:不过……<br>我也不希望影响到审判的进度。|#0102Trial10_Warden003| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Warden.3
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Warden Composition:Left
+[PrintTextModified Text:真是没办法啊……<br>那我同意吧。|#0102Trial10_Warden004| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Warden.2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Warden Composition:Left
+[PrintTextModified Text:但是查明魔女并非我们的工作。<br>因此我们只提供证词，<br>至于如何判断证词，就交给各位了。|#0102Trial10_Warden005| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Position:,{characterPositionY} Duration:0 Lazy:false IdAndAppearance:Jailer.1
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Jailer.1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Jailer Composition:Right
+[PrintTextModified Text:…………|#0102Trial10_Jailer001| AuthorId:Jailer RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hanna.Surprised1,ArmR4,ArmL1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hanna Composition:Left
+[PrintTextModified Text:连、连看守都来了……！？<br>它能说话吗！？|#0102Trial10_Hanna004| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Jailer.1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Jailer Composition:Right
+[PrintTextModified Text:………|#0102Trial10_Jailer002| AuthorId:Jailer RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Warden.3
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Warden Composition:Left
+[PrintTextModified Text:总之……要不要问话，<br>请各位自行决定。|#0102Trial10_Warden006| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmL5,Angle01/ArmR-,Eyes1_Normal_Open5,Mouth1_Surprised_Open1,OptionB_Body1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right
+[PrintTextModified Text:既然你们愿意帮忙……<br>那我很感谢。|#0102Trial10_Nanoka010| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmL5,Angle01/ArmR-,Eyes1_Neutral_Open1,Mouth1_Angry_Open1,OptionB_Body1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right
+[PrintTextModified Text:……但你们要是敢说谎，<br>我们一定会摆出证据查明真相。|#0102Trial10_Nanoka011| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Warden.3
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Warden Composition:Left
+[PrintTextModified Text:……我们能说的并不多。<br>有什么问题尽管问吧。<br>|#0102Trial10_Warden007| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR7,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（至少目前典狱长看上去<br>　没有在打什么坏主意……）|#0102Trial10_Ema066|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@StopBgm FadeOutDuration:1
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Determined2,ArmR7,ArmL7
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（总之……问问看吧！）|#0102Trial10_Ema067| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 気任せの蝶［チェロ有り］
+@PlayBgm BgmPath:Bgm_45_2 Volume:1 Loop:true FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmR2,ArmL9,Eyes1_Normal_Open3,Mouth1_Normal_Open1,OptionB_Body1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right
+[PrintTextModified Text:……首先，我们来重新整理一下现在的情况。|#0102Trial10_Nanoka012| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmR2,ArmL9,Eyes1_Normal_Closed1,Mouth1_Normal_Open1,OptionB_Body1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right
+[PrintTextModified Text:远野汉娜听见了【佐伯米莉亚的惨叫】……<br>如果那一刻佐伯米莉亚还活着，<br>就只有我能杀了她……|#0102Trial10_Nanoka013| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmL5,Angle01/ArmR-,Eyes1_Flushed_Open1,Mouth1_Angry_Open1,OptionB_Body1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right
+[PrintTextModified Text:正因为如此，凶手才伪造她的声音……<br>这就是我的观点。|#0102Trial10_Nanoka014| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR3,ArmL1,Angle01/Facial/Eyes>Eyes_Normal_Open03
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left
+[PrintTextModified Text:要坚持你的观点，<br>就必须证明那声惨叫<br>是播放的录音！|#0102Trial10_Sherry005| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@PlaySfxModified SfxPath:Sfx_Common_5 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,Angle01/Option_Arms-,ArmR-Option-Off,ArmR2,ArmL3,Angle01/Head/Facial/Eyes>Eyes_Uncomfortable_Open02,Angle01/Head/Facial/Mouth>Mouth_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Left
+[PrintTextModified Text:……但，那是不可能的。|#0102Trial10_AnAn025| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,Angle01/Facial/Eyes>Eyes_Flushed_Closed01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right
+[PrintTextModified Text:是啊～！<br>因为米莉亚的手机数据都没了嘛！|#0102Trial10_Sherry006| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmR3,ArmL1,Eyes1_Normal_Open2,Mouth1_Angry_Open1,OptionB_Body1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:而另一方面……能清除手机数据的人，<br>除了在尸体被发现前进入房间的人……<br>也就是我以外——|#0102Trial10_Nanoka015| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Serious_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Right
+[PrintTextModified Text:——就只有最早发现手机的人……<br>也就是夏目了。|#0102Trial10_Alisa005| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,Angle01/Option_Arms-,ArmR-Option-Off,ArmR2,ArmL3,Angle01/Head/Facial/Eyes>Eyes_Uncomfortable_Open01,Angle01/Head/Facial/Mouth>Mouth_Normal_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Left
+[PrintTextModified Text:……哼。|#0102Trial10_AnAn026| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,ArmR5,ArmL1,Angle01/Facial/Eyes>Eyes_Normal_Open,Angle01/Facial/Mouth>Mouth_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right
+[PrintTextModified Text:但是再讨论下去也没有任何结果。<br>因为找不到证据，需要新的证据和证词……|#0102Trial10_Margo008| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@SpawnExtended Path:Clue Params:2-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,ArmR5,ArmL4,Angle01/Facial/Eyes>Eyes_Smile_Open,Angle01/Facial/Mouth>Mouth_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right
+[PrintTextModified Text:所以艾玛出示的新证据是<br>【惩罚室的钥匙】对吧。|#0102Trial10_Margo009| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@DestroySpawnedExtended Path:Clue Wait:true LogWarning:true
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmR1,ArmL1,Eyes1_Normal_Open1,Mouth1_Normal_Open1,OptionB_Body1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:……这是当时掉在惩罚室里的钥匙。|#0102Trial10_Nanoka016| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmR1,ArmL10,Eyes1_Normal_Open3,Mouth1_Normal_Open1,OptionB_Body1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:关于我捡到的这把钥匙……<br>我想听一听<br>钥匙的管理者——典狱长的意见。|#0102Trial10_Nanoka017| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Warden.1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Warden Composition:Right
+[PrintTextModified Text:原来如此……我明白了。|#0102Trial10_Warden008| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Warden.9
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Warden Composition:Right
+[PrintTextModified Text:这把钥匙<br>确实是惩罚室门的钥匙。|#0102Trial10_Warden009| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmL5,Angle01/ArmR-,Eyes1_Flushed_Open1,Mouth1_Surprised_Open1,OptionB_Body1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:那么，请你解释一下……<br>为什么这把钥匙会在惩罚室里。|#0102Trial10_Nanoka018| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@StopBgm
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Warden.8
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Warden Composition:Right
+[PrintTextModified Text:……可以。<br>那我就说一说自己知道的情况吧。|#0102Trial10_Warden010| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+@AutoSave
+@GotoModified Path:Act01_Chapter02/Act01_Chapter02_Trial11 ResetState:-
+

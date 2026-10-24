@@ -1,0 +1,460 @@
+@BeginIf Expression:isDebugDirectJump
+    @Gosub Path:System/System_Subroutine.BeginAdv
+
+; ========================================
+; ＞『念のため中を調べることにした』を選択
+; ========================================
+
+# Scene2-2-b1
+
+; ========================================
+; ＞シーン2-2-b1へ
+; ========================================
+
+; ========================================
+; ●シーン2-2-b1
+; ========================================
+
+@ModifyBackgroundExtended Scale:2 Duration:0 Lazy:false ScenePosition:100 AppearanceAndTransition:30_2
+@ModifyBackgroundExtended TintColor:#000000 Duration:1.2 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:1.8
+
+@PlayBgm BgmPath:Bgm_22_1 Volume:1 Loop:true FadeInDuration:0
+
+[PrintTextModified Text:私はダストシュートの中を詳しく調べることにした。|#0202Bad01_Narrative001| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（事前のチェックは必要だ。<br>　どんなトラブルが起きるかわからない）|#0202Bad01_Hiro001|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:仕掛けに影響しないよう、<br>重たい鉄製のフタをそっと開く。|#0202Bad01_Narrative002| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:中を覗くと冷たい空気が吹き抜けていった。|#0202Bad01_Narrative003| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（……暗くてよく見えないな）|#0202Bad01_Hiro002| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:もう少ししっかり確認しようと、更に身を乗り出した<br>――瞬間だった。|#0202Bad01_Narrative004| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@StopBgm
+
+; 背中を押す音
+@PlaySfxModified SfxPath:Sfx_76 Volume:1 Loop:false FadeInDuration:0
+
+[PrintTextModified Text:うわっ！？|#0202Bad01_Hiro003| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@ModifyBackgroundExtended TintColor:#00000000 Duration:0 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@ModifyCamera Offset:-8,-1 Zoom:0.8 Duration:0.2 Lazy:false
+@ModifyBackgroundExtended TintColor:#000000FF Duration:0.4 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:1
+
+; ＠備考◆落下の瞬間
+
+[PrintTextModified Text:（しまっ……――！）|#0202Bad01_Hiro004| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@PlayBgm BgmPath:Bgm_12_1_Loop IntroBgmPath:Bgm_12_1_Intro Volume:1 Loop:true FadeInDuration:0
+
+[PrintTextModified Text:"誰かに強く背中を押されて、<br>バランスを崩した私は狭いダクトに<ruby=\"の\">吞</ruby>み込まれた。|#0202Bad01_Narrative005|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:暗闇の中を急降下していき、<br>心臓が一気にはね上がる。|#0202Bad01_Narrative006| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆落下中
+
+[PrintTextModified Text:（くっ、止められな――）|#0202Bad01_Hiro005| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@StopBgm FadeOutDuration:1
+@ModifyCamera Offset:0 Zoom:0 Lazy:false
+@Wait WaitMode:2
+
+; 激しい風の音
+; BGMない
+; @bgm Ambi_9_1
+
+[PrintTextModified Text:風が耳元で叫び声のように渦巻くのを感じながら、<br>私の意識は途中でぷつりと途絶えた――。|#0202Bad01_Narrative007| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+
+@StopBgm
+
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} TintColor:#77FFFF Duration:0 Lazy:false ScenePosition:50,50 AppearanceAndTransition:21_1
+@SpawnBlur ActorId:MainBackground FadeDuration:0
+; 演出相談：背景を歪ませてほしいです。
+
+@ModifyBackgroundExtended TintColor:#00000000 Duration:1 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:1.2
+
+; 水滴の音
+@PlaySfxModified SfxPath:Sfx_121 Volume:1 Loop:false FadeInDuration:0
+
+[PrintTextModified Text:……徐々に意識を取り戻し、<br>私はがばりと起き上がった。|#0202Bad01_Narrative008| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:するとそこは――懲罰房の中だった。|#0202Bad01_Narrative009| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@PlayBgm BgmPath:Bgm_20_1 Volume:1 Loop:true FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Hiro.Pensive
+
+[PrintTextModified Text:"な、なんだ……？ 懲罰房、か……？|#0202Bad01_Hiro006|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:"（落下して死んだのか私は……？<br>　いやでも、それなら牢屋のベッドで目覚めるはず）|#0202Bad01_Hiro007|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:あれだけの距離のダクトを落下したのに、<br>自身には怪我も痛みもない。|#0202Bad01_Narrative010| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:それに、ダクトの先は焼却炉のはずだ。|#0202Bad01_Narrative011| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（いったい何が起きたんだ……？）|#0202Bad01_Hiro008| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:戸惑いながら懲罰房を見回すと、<br>違和感は更に膨らんだ。|#0202Bad01_Narrative012| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@SpawnBlur ActorId:MainBackground Intensity:1
+
+[PrintTextModified Text:"壁が<ruby=\"ゆが\">歪</ruby>んでいる、いや、<br>空気そのもの、世界全てが<ruby=\"ゆが\">歪</ruby>んでいた。|#0202Bad01_Narrative013|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（自身の魔法が牢屋敷に干渉して、<br>　不可思議な現象に<ruby=\"つな\">繋</ruby>がったのかもしれないな）|#0202Bad01_Hiro009|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（ともかく調べてみるしかなさそうだ）|#0202Bad01_Hiro010| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:出入口の方へ足を向けると、<br>先に扉が勢いよく開いた。|#0202Bad01_Narrative014| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 扉が勢いよく開く音
+@PlaySfxModified SfxPath:Sfx_75 Volume:1 Loop:false FadeInDuration:0
+
+@Wait WaitMode:1
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Hiro.Surprised
+
+; ＠備考◆息を呑む
+
+[PrintTextModified Text:！？|#0202Bad01_Hiro011| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+; ========================================
+; 立ち絵：クリーチャーB表示
+; ========================================
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:JailerB.1
+
+[PrintTextModified Text:現れたのは――異形の化け物だった。|#0202Bad01_Narrative015| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（なれはてか！？）|#0202Bad01_Hiro012| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:中に入ってきた相手もまた、<br>私の存在に気付きびくりと体を強張らせた。|#0202Bad01_Narrative016| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"互いに警戒し<ruby=\"にら\">睨</ruby>み合うこと数秒――<br>なれはてが武器を掲げる。|#0202Bad01_Narrative017|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 二階堂ヒロのボイス加工：逆再生
+; ＠二階堂ヒロ
+
+[PrintTextModified Text:■■■■■■■■|#0202Bad01_Unknown001| AuthorId:Unknown RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Hiro.Angry
+
+[PrintTextModified Text:なんだ！？|#0202Bad01_Hiro013| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:JailerB.1
+
+[PrintTextModified Text:なれはてが何かを喚きながら、<br>猛烈な勢いで私に向かってくる。|#0202Bad01_Narrative018| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ぶんっと武器が振り下ろされる音
+@PlaySfxModified SfxPath:Sfx_9 Volume:1 Loop:false FadeInDuration:0
+
+[PrintTextModified Text:"明らかな殺意をむき出しに、<ruby=\"おの\">斧</ruby>が振られる。|#0202Bad01_Narrative019|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:くっ！|#0202Bad01_Hiro014| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:"私は身を翻し、<ruby=\"とっさ\">咄嗟</ruby>に避けた。|#0202Bad01_Narrative020|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:こちらには対抗する術がない。<br>私は逃げるため、扉の方へと駆け抜けた。|#0202Bad01_Narrative021| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} TintColor:#FF77FF Duration:0.5 Lazy:false AppearanceAndTransition:3_2
+; 演出相談：背景を歪ませてほしいです。
+
+; 地下通路を走る音・1人
+@PlaySfxModified SfxPath:Sfx_51 Volume:1 Loop:false FadeInDuration:0
+
+@Wait WaitMode:0.5
+
+[PrintTextModified Text:あれが何なのかはわからないが、<br>私を殺そうとしたのは空気で伝わった。|#0202Bad01_Narrative022| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:JailerB.1
+
+[PrintTextModified Text:走りながら、ちらりと後ろを振り向いた。<br>なれはてはまだ私を追いかけてきている。|#0202Bad01_Narrative023| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 二階堂ヒロのボイス加工：逆再生
+; ＠二階堂ヒロ
+
+[PrintTextModified Text:■■■■■■■！|#0202Bad01_Unknown002| AuthorId:Unknown RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（何を言っている！？）|#0202Bad01_Hiro015| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:"振り向いたせいで前方がおろそかになり、<br>何かに<ruby=\"つまづ\">躓</ruby>いてしまう。|#0202Bad01_Narrative024|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Hiro.Surprised
+
+; ＠備考◆躓いて
+
+[PrintTextModified Text:あ……ッ！？|#0202Bad01_Hiro016| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 転ぶ音
+@PlaySfxModified SfxPath:Sfx_6 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false ScenePosition:,20 IdAndAppearance:Hiro
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:脚がもつれ、私はその場に倒れ込んだ。|#0202Bad01_Narrative025| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆転倒して痛がっている
+
+[PrintTextModified Text:うっ……くっ|#0202Bad01_Hiro017| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:JailerB.1
+
+[PrintTextModified Text:何か考えている暇もなく、<br>なれはては目前まで迫ってきていた。|#0202Bad01_Narrative026| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:待――。|#0202Bad01_Hiro018| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ざんっと肉が切れる音
+@PlaySfxModified SfxPath:Sfx_12 Volume:1 Loop:false FadeInDuration:0
+
+@ResetText
+@ModifyBackgroundExtended TintColor:#660000FF Duration:0.1 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:0.2
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:肉を裂き骨を貫く衝撃が自身を襲う。<br>痛みを感じる間すら与えられず、<br>【死】が急速に迫ってくるのを感じた。|#0202Bad01_Narrative027| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（死ぬ、のか……私は……なん……で……？）|#0202Bad01_Hiro019| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@ModifyBackgroundExtended TintColor:#000000FF Duration:0.5 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:0.8
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} TintColor:#FFFF77 Duration:0 Lazy:false AppearanceAndTransition:6_1
+; 演出相談：背景を歪ませてほしいです。
+
+@ModifyBackgroundExtended TintColor:#00000000 Duration:1 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:1.2
+
+[PrintTextModified Text:……え？|#0202Bad01_Hiro020| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:目が醒めると、そこは食堂だった。|#0202Bad01_Narrative028| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:何故だ！？|#0202Bad01_Hiro021| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"先ほどの懲罰房と同じ、<ruby=\"ゆが\">歪</ruby>んだ世界。|#0202Bad01_Narrative029|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（【死に戻り】が発動しなかったのか？<br>　いや、違う――私の傷は治っている。<br>　それなら、【死に戻り】は発動したはず）|#0202Bad01_Hiro022|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 立ち絵：クリーチャーB表示
+; ========================================
+
+@HideAllCharacters Lazy:false
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:JailerB.1
+
+[PrintTextModified Text:そして食堂にはまた、<br>先ほど遭遇したなれはてがいた。|#0202Bad01_Narrative030| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 二階堂ヒロのボイス加工：逆再生
+; ＠二階堂ヒロ
+
+[PrintTextModified Text:■■■■■■■！|#0202Bad01_Unknown003| AuthorId:Unknown RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:なれはてが武器を掲げ、私に向かってくる。|#0202Bad01_Narrative031| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:やめ――。|#0202Bad01_Hiro023| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+
+; ぶんっと武器が振り下ろされる音
+@PlaySfxModified SfxPath:Sfx_9 Volume:1 Loop:false FadeInDuration:0
+@Wait WaitMode:0.5
+
+; ざんっと肉が切れる音
+@PlaySfxModified SfxPath:Sfx_12 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyBackgroundExtended TintColor:#660000FF Duration:0.1 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:0.5
+
+[PrintTextModified Text:"容赦のない一撃で、<br>私の首は<ruby=\"は\">刎</ruby>ね飛ばされた。|#0202Bad01_Narrative032|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（何故――殺される）|#0202Bad01_Hiro024| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended TintColor:#000000FF Duration:1 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:1.2
+
+[PrintTextModified Text:……その後は同じことの繰り返しだった。|#0202Bad01_Narrative033| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} TintColor:#33FFFF Duration:0 Lazy:false AppearanceAndTransition:9_1
+; 演出相談：背景を歪ませてほしいです。
+
+@ModifyBackgroundExtended TintColor:#00000000 Duration:1 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:1.2
+
+[PrintTextModified Text:やめてくれ、まだ――。|#0202Bad01_Hiro025| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+
+; ぶんっと武器が振り下ろされる音
+@PlaySfxModified SfxPath:Sfx_9 Volume:1 Loop:false FadeInDuration:0
+@Wait WaitMode:0.5
+
+; ざんっと肉が切れる音
+@PlaySfxModified SfxPath:Sfx_12 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyBackgroundExtended TintColor:#660000FF Duration:0.1 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:0.5
+@ModifyBackgroundExtended TintColor:#000000FF Duration:1 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:1.2
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} TintColor:#FF33FF Duration:0 Lazy:false AppearanceAndTransition:11_1
+; 演出相談：背景を歪ませてほしいです。
+
+@ModifyBackgroundExtended TintColor:#00000000 Duration:1 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:1.2
+
+[PrintTextModified Text:来るなあああ！！|#0202Bad01_Hiro026| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:ひぃぃっ……嫌だああああ！！|#0202Bad01_Hiro027| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+
+; ぶんっと武器が振り下ろされる音
+@PlaySfxModified SfxPath:Sfx_9 Volume:1 Loop:false FadeInDuration:0
+
+@Wait WaitMode:0.5
+
+; ぐちゃ、めきっなど体を害する音
+@PlaySfxModified SfxPath:Sfx_12 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyBackgroundExtended TintColor:#660000FF Duration:0.1 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:0.5
+
+@ModifyBackgroundExtended TintColor:#000000FF Duration:1 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:1.2
+
+[PrintTextModified Text:逃げる。<br>殺される。<br>目が醒める。|#0202Bad01_Narrative034| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:隠れる。<br>殺される。<br>目が醒める。|#0202Bad01_Narrative035| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:逃げる。<br>殺される。<br>目が醒める……|#0202Bad01_Narrative036| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:その繰り返しだった。|#0202Bad01_Narrative037| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+
+; ざんっと肉が切れる音
+@PlaySfxModified SfxPath:Sfx_12 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyBackgroundExtended TintColor:#660000FF Duration:0.1 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:0.5
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} TintColor:#FFFF33 Duration:0 Lazy:false AppearanceAndTransition:1_1
+; 演出相談：背景を歪ませてほしいです。
+
+@ModifyBackgroundExtended TintColor:#00000000 Duration:1 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:1.2
+
+; ＠備考◆震えて怖がっている
+
+[PrintTextModified Text:あ……ああ……来るな、来るなぁ……。|#0202Bad01_Hiro028| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"幾度となく首を<ruby=\"は\">刎</ruby>ねられ、<br>もう何度目かもわからない。|#0202Bad01_Narrative038|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:私は壁隅にうずくまり、ガタガタと震えていた。|#0202Bad01_Narrative039| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ずるずる引きずる音
+@PlaySfxModified SfxPath:Sfx_5 Volume:1 Loop:false FadeInDuration:0
+@Wait WaitMode:1
+
+[PrintTextModified Text:"鉄格子の向こうで、<br>私を探して<ruby=\"はいかい\">徘徊</ruby>しているなれはての気配があった。|#0202Bad01_Narrative040|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 二階堂ヒロのボイス加工：逆再生
+; ＠二階堂ヒロ
+
+[PrintTextModified Text:■は■し■■い。君は■■く■い。君■正しくな■|#0202Bad01_Unknown004| AuthorId:Unknown RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:――唐突に気付く。<br>ずっと同じことを言われて殺され続けていて、<br>ようやく理解が追いついたのかもしれない。|#0202Bad01_Narrative041| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（正しくない……だと？）|#0202Bad01_Hiro029| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 二階堂ヒロのボイス加工：逆再生
+; ＠二階堂ヒロ
+
+[PrintTextModified Text:君は■しくない。■は正しくない。君は正しく■い。|#0202Bad01_Unknown005| AuthorId:Unknown RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:逃げながら、私はずっと考えていた。|#0202Bad01_Narrative042| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"どうしてこの化け物は、<br>私をここまで<ruby=\"しつよう\">執拗</ruby>に狙うのだろうと。|#0202Bad01_Narrative043|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（――このなれはては、私だ）|#0202Bad01_Hiro030| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（落下で私の魔法が不可思議に干渉し、<br>　違う世界線に迷い込んだのか……）|#0202Bad01_Hiro031|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（ここは私がなれはてとなって、<br>　牢屋敷を<ruby=\"はいかい\">徘徊</ruby>している世界――）|#0202Bad01_Hiro032|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（あの【私】にとっては、<br>　私が間違っている、正しくない存在なんだ）|#0202Bad01_Hiro033|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:否――私は、間違ってなんかいない。|#0202Bad01_Hiro034| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:"ぽつりと<ruby=\"つぶや\">呟</ruby>きを落とした。<br>すっかり萎えていた気力が、ようやく戻ってきた。|#0202Bad01_Narrative044|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} TintColor:#6666FF Lazy:false AppearanceAndTransition:2_1
+; 演出相談：背景を歪ませてほしいです。
+
+[PrintTextModified Text:通路の方へ出ると、なれはてが私に気付く。|#0202Bad01_Narrative045| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 二階堂ヒロのボイス加工：逆再生
+; ＠二階堂ヒロ
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:JailerB.1
+
+[PrintTextModified Text:君は正しくない！|#0202Bad01_Unknown006| AuthorId:Unknown RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:正しくないのは貴様だ！|#0202Bad01_Hiro035| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:私は間違ったものを排除する！！|#0202Bad01_Hiro036| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:貴様を正し、私が正しい世界を手に入れる！！|#0202Bad01_Hiro037| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:私は食堂で入手したナイフを手に、<br>なれはてへと突っ込んでいった。|#0202Bad01_Narrative046| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:アアアアアッ！！|#0202Bad01_Hiro038| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended TintColor:#000000FF Duration:1 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:1.2
+
+[PrintTextModified Text:戦いは終わらない。<br>終わるわけがない。|#0202Bad01_Narrative047| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:私が何度殺されようと、<br>なれはてを倒してみせようと――|#0202Bad01_Narrative048| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:互いに【死に戻り】続けるだけなのだ。|#0202Bad01_Narrative049| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:もうその答えにはたどりついたはずなのに、<br>私はこの結末を受け入れるしかないのだ。|#0202Bad01_Narrative050| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"決して終わることはない、<ruby=\"えいごう\">永劫</ruby>の戦いを。|#0202Bad01_Narrative051|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:互いに譲れない【正しさ】のために、<br>永遠の孤独を。|#0202Bad01_Narrative052| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 『END～永遠の孤独～』
+; ========================================
+
+@ProcessBadEnd Number:18 BadEndPartKind:Adv
+

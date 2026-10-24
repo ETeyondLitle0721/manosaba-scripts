@@ -1,0 +1,612 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook IsDebugDirectJump:{isDebugDirectJump}
+@Gosub Path:System/System_Subroutine.BeginAdv
+
+# Scene1-5-4
+
+; ========================================
+; ●シーン1‐5-4
+; ========================================
+
+; ========================================
+; ＞『秘密の地下施設』を選択
+; ========================================
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false AppearanceAndTransition:25_2
+@ModifyBackgroundExtended TintColor:#000000 Duration:1.2 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:1.8
+
+@PlayBgm BgmPath:Bgm_26_2 Volume:1 Loop:true FadeInDuration:0
+@AutoSave
+[PrintTextModified Text:"ゲストハウス【<ruby=\"ウンディーネ\">水精</ruby>の間】に隠された<br>エレベーターを経由し――|#0105Adv04_Narrative001|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:エマがココと共にやってきたのは、<br>秘密の地下施設だった。|#0105Adv04_Narrative002| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Ema.Pensive1,ArmR3
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Coco.Pensive1,ArmR10,ArmL8
+
+[PrintTextModified Text:な、なんここ、さっっっむ……。|#0105Adv04_Coco001| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:扉、閉まらないようにしておいてココちゃん。<br>……鍵がかかって閉じ込められちゃうから。|#0105Adv04_Ema001| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Coco.Surprised1,ArmR10,ArmL8
+
+[PrintTextModified Text:ひっ……！|#0105Adv04_Coco002| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:エマも昨夜見つけたばかりで、<br>ココにとっては初めてくる場所だ。|#0105Adv04_Narrative003| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:ココはあたりの冷気と、加えて少しの恐怖を感じてか<br>がくがくと震えながら、<br>物珍しそうに周囲を見回している。|#0105Adv04_Narrative004| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Coco.Pensive1,ArmR10,ArmL8
+
+[PrintTextModified Text:こんな場所あったんだ……<br>ここでエマっちが処刑台を操作して、<br>アリサを殺したってわけか。|#0105Adv04_Coco003| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Angry,ArmR3
+
+[PrintTextModified Text:……ッ、ボクは――。|#0105Adv04_Ema002| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:エマは反論しかけて、すぐに押し留める。|#0105Adv04_Narrative005| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（今ボクがアリサちゃんを殺してないって主張しても、<br>　信じてもらえる材料がない……）|#0105Adv04_Ema003|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（残された時間で、有効な手がかりを見つけないと）|#0105Adv04_Ema004| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 写真撮影音
+@PlaySfxModified SfxPath:Sfx_28 Volume:1 Loop:false FadeInDuration:0
+; ========================================
+
+; ========================================
+; ☆証拠品：『操作室』入手
+; ========================================
+@SpawnExtended Path:Clue Params:5-14
+@UpdateWitchBook Id:5-14 Category:Clue Version:1
+@DestroySpawnedExtended Path:Clue LogWarning:true
+
+[PrintTextModified Text:室内をスマホで撮影してから、<br>エマは息をつく。|#0105Adv04_Narrative006| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:そんなエマの横で手持ち無沙汰にしていたココは、<br>手近にあった操作盤に目を向けた。|#0105Adv04_Narrative007| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Coco.Normal1,ArmR1,ArmL1
+
+[PrintTextModified Text:なにこれ？|#0105Adv04_Coco004| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Normal1,ArmR1
+
+[PrintTextModified Text:それがゴクチョーが言ってた【操作盤】だよ。|#0105Adv04_Ema005| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:"（昨日の夜はゆっくり観察する余裕がなかったけど、<br>　これで処刑台を入れ替えているんだ……）|#0105Adv04_Ema006|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:エマは操作盤を改めて調べていく。|#0105Adv04_Narrative008| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（ゴクチョーの話では、<br>　昨日の夜これをボクがいじったから処刑台が下がった）|#0105Adv04_Ema007|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（処刑台のユニットを入れ替える操作や<br>　扉の開閉もできるみたいだけど……）|#0105Adv04_Ema008|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（改めて見ても、詳しい使い方はわからないや……）|#0105Adv04_Ema009| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:はからずも自分がアリサに<br>手を下してしまった可能性を考えて、エマは青ざめる。|#0105Adv04_Narrative009| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（今は考えたらダメだ）|#0105Adv04_Ema010| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:時間も残されていない。<br>すぐに振り切って、なんとか心を平静に保った。|#0105Adv04_Narrative010| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（……あれ？<br>　でも、おかしいな……）|#0105Adv04_Ema011|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:エマは昨日、この場所に訪れた記憶を<br>思い出す。|#0105Adv04_Narrative011| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（あのときたしか……<br>　操作盤は落として割っちゃったような）|#0105Adv04_Ema012|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（誰かが来て、<br>　新品と交換したのかな……？）|#0105Adv04_Ema013|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; ★証拠品：『操作盤』情報更新
+; ========================================
+@SpawnExtended Path:Clue Params:5-17
+@UpdateWitchBook Id:5-17 Category:Clue Version:2
+@DestroySpawnedExtended Path:Clue LogWarning:true
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Coco.Pensive1,ArmR10,ArmL8
+
+[PrintTextModified Text:なあエマっち、もういい？<br>奥の扉も鍵がかかって開かないみたいだしさ……。<br>さっさと出ないと寒すぎて死ぬ。|#0105Adv04_Coco005| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Pensive1,ArmR3
+
+[PrintTextModified Text:"……ごめん……！ もう少し待って。|#0105Adv04_Ema014|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Coco.Angry1,ArmR10,ArmL8
+
+[PrintTextModified Text:だあっ、まさかあてぃしを<br>ここで凍死させる気なん！？|#0105Adv04_Coco006| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:……もうあがいても仕方なくね？|#0105Adv04_Coco007| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:ぶつくさ文句を言いつつも、<br>ココはエマの後ろについてくる。|#0105Adv04_Narrative012| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:エマは焦っていた。<br>差し迫る時間、<br>それに対して何も有効な手がかりを得られていない。|#0105Adv04_Narrative013| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（どうしよう、どうしようどうしよう……！<br>　このままじゃボクが処刑に――！）|#0105Adv04_Ema015|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（パニックになるな！<br>　冷静に、落ち着いて考えないと！）|#0105Adv04_Ema016|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:寒さも思考力を奪っている。<br>エマはポケットに手を入れて、万年筆に触れた。|#0105Adv04_Narrative014| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:すると不思議なことに、<br>エマの体はほんの少しあたたかさを取り戻した。|#0105Adv04_Narrative015| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Surprised1,ArmR1
+
+[PrintTextModified Text:あ……。|#0105Adv04_Ema017| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:驚きから万年筆を取り出して眺める。|#0105Adv04_Narrative016| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:（ボクのことを守ってくれてるの……？）|#0105Adv04_Ema018| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:一度目を閉じて、深呼吸してから目を開く。|#0105Adv04_Narrative017| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:それから操作室を見回してみると、<br>昨晩と違う箇所に気付いた。|#0105Adv04_Narrative018| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@ModifyCamera Offset:-6,3 Zoom:0.5 EasingTypeName:SmoothStep Duration:0.9 Lazy:false
+@Wait WaitMode:0.9
+
+[PrintTextModified Text:――通気口が開いてる。|#0105Adv04_Ema019| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 写真撮影音
+@PlaySfxModified SfxPath:Sfx_28 Volume:1 Loop:false FadeInDuration:0
+
+; ========================================
+; ☆証拠品：『通気口』入手
+; ========================================
+@SpawnExtended Path:Clue Params:5-12
+@UpdateWitchBook Id:5-12 Category:Clue Version:1
+@DestroySpawnedExtended Path:Clue LogWarning:true
+
+[PrintTextModified Text:通気口のフタが外れて、下に落ちている。|#0105Adv04_Narrative019| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@ModifyCamera Offset:0,0 Zoom:0 EasingTypeName:SmoothStep Duration:0.9 Lazy:false
+@Wait WaitMode:0.9
+
+[PrintTextModified Text:近くで確認すると、<br>フタの留め具が破壊されており、<br>破壊した銃弾が残っていた。|#0105Adv04_Narrative020| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（銃弾……！？ これ、まさかナノカちゃんが……！？）|#0105Adv04_Ema020|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"中を<ruby=\"のぞ\">覗</ruby>くと、人ひとりがぎりぎり通れそうな幅があった。|#0105Adv04_Narrative021|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Normal1,ArmR3
+
+[PrintTextModified Text:ここから中に入れそう！|#0105Adv04_Ema021| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Coco.Pensive1,ArmR10,ArmL8
+
+[PrintTextModified Text:まさかエマっち、行く気じゃないよな……？|#0105Adv04_Coco008| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Normal1,ArmR3
+
+[PrintTextModified Text:入ってみよう……！|#0105Adv04_Ema022| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Coco.Pensive,ArmR10,ArmL8
+
+[PrintTextModified Text:マジかぁ～。|#0105Adv04_Coco009| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:"エマはごくりと喉を鳴らし、<br>四つん<ruby=\"ば\">這</ruby>いになって通気口の中へと突入した。|#0105Adv04_Narrative022|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@ModifyBackgroundExtended DissolveTexturePath:VerticalBlindGradually TintColor:#000000 Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:1.5
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Lazy:false AppearanceAndTransition:26_1
+@ModifyBackgroundExtended DissolveTexturePath:VerticalBlindGradually TintColor:#000000 Duration:0.99 Lazy:false AppearanceAndTransition:Transparent.Custom SubId:Overlay
+@Wait WaitMode:0.9
+
+[PrintTextModified Text:――エマとココがたどりついた先は、<br>広大な冷凍室だった。|#0105Adv04_Narrative023| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:魔女の【なれはて】となった者たちが、<br>氷漬けにされて保管されている。|#0105Adv04_Narrative024| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（ゴクチョーに聞いていたとおりだ。<br>　ここは……）|#0105Adv04_Ema023|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（――魔女たちが眠る場所）|#0105Adv04_Ema024| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Coco.Surprised1,ArmR10,ArmL8
+
+[PrintTextModified Text:"さむ！ 寒すぎ！ 無理！！|#0105Adv04_Coco010|" AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:冷凍室の中はあまりに寒く、<br>じっとしているだけで凍りついてしまいそうだ。|#0105Adv04_Narrative025| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:エマとココは、<br>広い室内を手分けして捜査にあたることにした。|#0105Adv04_Narrative026| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Coco.Pensive1,ArmR10,ArmL8
+
+[PrintTextModified Text:……なんかここの部屋、<br>あてぃし見たことある気がすんだけど。|#0105Adv04_Coco011| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"いざ捜査をはじめようとした矢先、<br>ココが首を傾げて<ruby=\"つぶや\">呟</ruby>いた。|#0105Adv04_Narrative027|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Coco.Surprised1,ArmR10,ArmL8
+
+[PrintTextModified Text:"あっ、そうだ！ 今朝の夢の中で見たんだ！|#0105Adv04_Coco012|" AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Pensive1,ArmR3
+
+[PrintTextModified Text:夢の中……？<br>ココちゃん、それってどういう……。|#0105Adv04_Ema025| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:声をかけた時には、<br>既にココの姿は物陰の向こうに消えていた。|#0105Adv04_Narrative028| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（ボクも急いで調査しないと）|#0105Adv04_Ema026| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:エマは切り替えて、<br>目を凝らし、室内を調べていった。|#0105Adv04_Narrative029| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（これって……！）|#0105Adv04_Ema027| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 写真撮影音
+@PlaySfxModified SfxPath:Sfx_28 Volume:1 Loop:false FadeInDuration:0
+
+; ========================================
+; ☆証拠品：『弾痕』入手
+; ========================================
+@SpawnExtended Path:Clue Params:5-3
+@UpdateWitchBook Id:5-3 Category:Clue Version:1
+@DestroySpawnedExtended Path:Clue LogWarning:true
+
+[PrintTextModified Text:――ナノカが発砲したのだろうか、<br>氷塊に弾痕が残っているのを見つけた。|#0105Adv04_Narrative030| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:発砲の衝撃だろうか、<br>周辺には氷が散らばっている。|#0105Adv04_Narrative031| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:そしてそのすぐ傍には……|#0105Adv04_Narrative032| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 写真撮影音
+@PlaySfxModified SfxPath:Sfx_28 Volume:1 Loop:false FadeInDuration:0
+
+; ========================================
+; ☆証拠品：『ナノカの銃』入手
+; ========================================
+@SpawnExtended Path:Clue Params:5-2
+@UpdateWitchBook Id:5-2 Category:Clue Version:1
+@DestroySpawnedExtended Path:Clue LogWarning:true
+
+[PrintTextModified Text:ナノカがいつも持ち歩いていた銃が、<br>冷凍室に落ちていた。|#0105Adv04_Narrative033| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（ナノカちゃんの銃……。<br>　やっぱりさっきの弾痕は、<br>　ナノカちゃんが撃ったもの……？）|#0105Adv04_Ema028|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（わからないけど、<br>　やっぱりここで何かあったんだ……！）|#0105Adv04_Ema029|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:おーいエマっちこっち来て！<br>なんかスゲーもん見つけた！|#0105Adv04_Coco013| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:ココに呼ばれてエマが駆けつけると、<br>そこには巨大な金庫があった。|#0105Adv04_Narrative034| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+
+@ModifyBackgroundExtended Scale:2 Duration:0 Lazy:false ScenePosition:70,80 AppearanceAndTransition:26_1 SubId:Middle
+@ModifyBackgroundExtended TintColor:#000000 Duration:1.2 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:1.8
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Ema.Normal1,ArmR1 SubId:Middle
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Coco.Normal1,ArmR1,ArmL1 SubId:Middle
+
+[PrintTextModified Text:これココちゃんが開けたの？|#0105Adv04_Ema030| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:いや最初から開いてた。|#0105Adv04_Coco014| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Ema.Pensive1,ArmR3 SubId:Middle
+
+[PrintTextModified Text:そうなんだ……。|#0105Adv04_Ema031| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:"（あ、数字を入力するところ、血がついてる……！<br>　怪我をした人が開けたのかな……？）|#0105Adv04_Ema032|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 写真撮影音
+@PlaySfxModified SfxPath:Sfx_28 Volume:1 Loop:false FadeInDuration:0
+
+; ========================================
+; ☆証拠品：『金庫』入手
+; ========================================
+@SpawnExtended Path:Clue Params:5-10
+@UpdateWitchBook Id:5-10 Category:Clue Version:1
+@DestroySpawnedExtended Path:Clue LogWarning:true
+
+[PrintTextModified Text:金庫は既に開かれた後で、<br>中には不可解なものがたくさん入っていた。|#0105Adv04_Narrative035| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; ☆証拠品：『透明な液体』入手
+; ========================================
+@SpawnExtended Path:Clue Params:5-5
+@UpdateWitchBook Id:5-5 Category:Clue Version:1
+@DestroySpawnedExtended Path:Clue LogWarning:true
+
+[PrintTextModified Text:何かの薬品らしき透明な液体の入ったビンが数本と――|#0105Adv04_Narrative036| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; ☆証拠品：『儀礼剣』入手
+; ========================================
+@SpawnExtended Path:Clue Params:5-1
+@UpdateWitchBook Id:5-1 Category:Clue Version:1
+@DestroySpawnedExtended Path:Clue LogWarning:true
+
+[PrintTextModified Text:厳かな雰囲気を醸す剣。|#0105Adv04_Narrative037| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; ☆証拠品：『拳銃』入手
+; ========================================
+@SpawnExtended Path:Clue Params:5-6
+@UpdateWitchBook Id:5-6 Category:Clue Version:1
+@DestroySpawnedExtended Path:Clue LogWarning:true
+
+[PrintTextModified Text:そして、本物の拳銃。|#0105Adv04_Narrative038| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; ☆証拠品：『資料』入手
+; ========================================
+@SpawnExtended Path:Clue Params:5-7
+@UpdateWitchBook Id:5-7 Category:Clue Version:1
+@DestroySpawnedExtended Path:Clue LogWarning:true
+
+; ========================================
+; ☆【魔女図鑑】『研究員の調査書』入手
+; ========================================
+@UpdateWitchBook Id:13 Category:Note Version:1
+
+[PrintTextModified Text:更には、大量のレポートも入っていた。|#0105Adv04_Narrative039| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Coco.Pensive1 SubId:Middle
+
+[PrintTextModified Text:金庫の中に入ってたっつーことは、<br>かなり重要なものっぽいよな。|#0105Adv04_Coco015| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:あてぃしには何がなんだかわかんねーけど。|#0105Adv04_Coco016| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Pensive1 SubId:Middle
+
+[PrintTextModified Text:うん……<br>ひとつひとつじっくり検討してる暇はないけど、<br>きっとこの牢屋敷にとって大切なものだと思う。|#0105Adv04_Ema033| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:"（……金庫が開いていたのは、<br>　ナノカちゃんが開けた……？）|#0105Adv04_Ema034|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（ナノカちゃんは牢屋敷の秘密を覗き見たから、<br>　殺されたのかも……）|#0105Adv04_Ema035|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:とうとう牢屋敷の大きな秘密に迫っている気がして、<br>エマは身を震わせた。|#0105Adv04_Narrative040| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（きっとボクらは真相にたどりつける――）|#0105Adv04_Ema036| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:エマがそんなことを考えていると、いつの間にか<br>いなくなっていたココの声が遠くから聞こえた。|#0105Adv04_Narrative041| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆遠くから
+
+[PrintTextModified Text:……ちょっ、エマっち！！<br>こっちきてー！！|#0105Adv04_Coco017| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Normal1 SubId:Middle
+
+; ＠備考◆遠くに返答するように
+
+[PrintTextModified Text:どうしたのー？|#0105Adv04_Ema037| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:いいから早くきてよ！<br>これ……ヤバ……！|#0105Adv04_Coco018| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+
+@HideActors ActorIds:MainBackground-Middle Duration:0 Lazy:false
+@ModifyBackgroundExtended TintColor:#000000 Duration:1.2 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:1.8
+
+[PrintTextModified Text:エマが小走りでココの声がする方へと<br>向かう。|#0105Adv04_Narrative042| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+
+@ModifyBackgroundExtended Scale:2 Duration:0 Lazy:false ScenePosition:10,50 AppearanceAndTransition:26_1 SubId:Middle
+@ModifyBackgroundExtended TintColor:#000000 Duration:1.2 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:1.8
+
+[PrintTextModified Text:エマを出迎えたのは、巨大な門だった。|#0105Adv04_Narrative043| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Ema.Pensive1,ArmR3 SubId:Middle
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Coco.Pensive,ArmR7,ArmL6 SubId:Middle
+
+[PrintTextModified Text:大きい……。<br>巨人でも通るのかな。|#0105Adv04_Ema038| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:や、やめてよ……。<br>そんなバケモンいるなんて<br>ありえないんだけど……。|#0105Adv04_Coco019| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:ココはその顔に恐怖を見え隠れさせつつ、<br>眼前の巨大な扉へと近付いた。|#0105Adv04_Narrative044| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:……あ、エマっち！<br>こっから中が見える！|#0105Adv04_Coco020| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"扉の下部に小さな<ruby=\"のぞ\">覗</ruby>き窓を見つけ、<br>ココがその場にかがんで興奮気味に声をあげた。|#0105Adv04_Narrative045|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"エマも駆け寄って中を<ruby=\"のぞ\">覗</ruby>くと、<br>そこにはものものしい処刑台が見えた。|#0105Adv04_Narrative046|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Ema.Pensive1,ArmR3 SubId:Middle
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Coco.Pensive1,ArmR7,ArmL6 SubId:Middle
+
+[PrintTextModified Text:処刑台……。<br>地上で処刑された魔女は、<br>地下へ送られてここを通るのかな。|#0105Adv04_Ema039| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:……こんな悪趣味な施設、<br>誰が作ったんだろ。|#0105Adv04_Coco021| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:……これまでの処刑を見てても、<br>本当に最低だった。|#0105Adv04_Ema040| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:少女たちの精神を、<br>極限まで追い詰めるためだけに<br>作られた装置と屋敷。|#0105Adv04_Narrative047| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:その処刑台を長く直視できず、<br>エマはすぐに立ち上がった。|#0105Adv04_Narrative048| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Coco.Pensive1,ArmR7,ArmL6 SubId:Middle
+
+[PrintTextModified Text:……うーん、これどうやっても<br>こっからは入れないわ。|#0105Adv04_Coco022| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:"ココはしばらく<ruby=\"のぞ\">覗</ruby>き窓から両腕を<br>ねじ込もうとしていたが、諦めて立ち上がる。|#0105Adv04_Narrative049|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:それは人がどうあっても出入りできない程度の<br>大きさのようだった。|#0105Adv04_Narrative050| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Coco.Pensive1,ArmR7,ArmL6 SubId:Middle
+
+[PrintTextModified Text:子どもでも通れなさそうだな～……。<br>猫とか小動物ぐらいなら通れっかも？|#0105Adv04_Coco023| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:"（ココちゃんの言う通り、<br>　この覗き窓を人が通ることは<br>　難しそうだ……）|#0105Adv04_Ema041|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Pensive1,ArmR3 SubId:Middle
+
+[PrintTextModified Text:そもそもこの門、どうやって開けるんだろ。|#0105Adv04_Ema042| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Coco.Pensive1,ArmR1,ArmL1 SubId:Middle
+
+[PrintTextModified Text:さっきみたいな操作盤はなさそうだし、<br>簡単には開かないんじゃね？|#0105Adv04_Coco024| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:（覗き窓のついた、開かない巨大な門……か）|#0105Adv04_Ema043| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 写真撮影音
+@PlaySfxModified SfxPath:Sfx_28 Volume:1 Loop:false FadeInDuration:0
+
+; ========================================
+; ☆証拠品：『巨大な門』
+; ========================================
+@SpawnExtended Path:Clue Params:5-9
+@UpdateWitchBook Id:5-9 Category:Clue Version:1
+@DestroySpawnedExtended Path:Clue LogWarning:true
+
+@ResetText
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false ScenePosition:50,50 AppearanceAndTransition:26_1 SubId:Front
+@ModifyBackgroundExtended TintColor:#000000 Duration:1.2 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:1.8
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Coco.Pensive1,ArmR1,ArmL1 SubId:Middle
+
+[PrintTextModified Text:あとこの部屋にあるのは……。|#0105Adv04_Coco025| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Coco.Normal1,ArmR2,ArmL4 SubId:Front
+
+[PrintTextModified Text:"……お！ あれなんかは重要そうな証拠じゃね？|#0105Adv04_Coco026|" AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+; 写真撮影音
+@PlaySfxModified SfxPath:Sfx_28 Volume:1 Loop:false FadeInDuration:0
+
+; ========================================
+; ☆証拠品：『液体窒素』入手
+; ========================================
+@SpawnExtended Path:Clue Params:5-4
+@UpdateWitchBook Id:5-4 Category:Clue Version:1
+@DestroySpawnedExtended Path:Clue LogWarning:true
+
+[PrintTextModified Text:"（液体窒素……。<br>　処刑された魔女を凍らせるのに使うのかな……）|#0105Adv04_Ema044|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Coco.Pensive1,ArmR10,ArmL8 SubId:Front
+
+; ＠備考◆震えながら
+
+[PrintTextModified Text:うー、サブッ……！<br>……他にはなんもなさそ？|#0105Adv04_Coco027| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:ココは白い息を吐きつつ、<br>エマに尋ねる。|#0105Adv04_Narrative051| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Pensive1,ArmR3 SubId:Front
+
+[PrintTextModified Text:そうだね……。<br>他に繋がる通路とかはなさそうだけど……。|#0105Adv04_Ema045| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:"（この部屋自体は広いけど、<br>　地下にはこれ以上の先はないみたい）|#0105Adv04_Ema046|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（……だとしたら、ナノカちゃんはどうやって地下から<br>　処刑台側へ抜け出したんだろう……？<br>　あの【門】が開いたのかな……？）|#0105Adv04_Ema047|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; ★証拠品：『処刑台』情報更新（地下側から入ることができない事を追記）
+; ========================================
+@SpawnExtended Path:Clue Params:5-16
+@UpdateWitchBook Id:5-16 Category:Clue Version:2
+@DestroySpawnedExtended Path:Clue LogWarning:true
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Coco.Fearful1,ArmR10,ArmL8 SubId:Front
+
+[PrintTextModified Text:だあっ、限界……！<br>もう無理あてぃし戻る！！|#0105Adv04_Coco028| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:寒さで青ざめたココが喚き、<br>通気口の方へと走っていく。|#0105Adv04_Narrative052| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:限界だったのはエマも一緒で、<br>通気口の方へと向かった。|#0105Adv04_Narrative053| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:その途中、視界の端に映ったものが気にかかった。|#0105Adv04_Narrative054| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Surprised1,ArmR1 SubId:Front
+
+[PrintTextModified Text:ちょっと待ってココちゃん！<br>気になるものが……！|#0105Adv04_Ema048| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Coco.Surprised1,ArmR10,ArmL8 SubId:Front
+
+[PrintTextModified Text:エマっちしつこすぎてキモいわ！！|#0105Adv04_Coco029| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:逃げ腰のココを半ば引きずって、<br>エマは壁際まで走った。|#0105Adv04_Narrative055| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 写真撮影音
+@PlaySfxModified SfxPath:Sfx_28 Volume:1 Loop:false FadeInDuration:0
+
+; ========================================
+; ☆証拠品：『レスキューボックス』入手
+; ========================================
+@SpawnExtended Path:Clue Params:5-11
+@UpdateWitchBook Id:5-11 Category:Clue Version:1
+@DestroySpawnedExtended Path:Clue LogWarning:true
+
+[PrintTextModified Text:"――その目立つ箱の中には、<br><ruby=\"おの\">斧</ruby>や消火器、救急用具や裁縫道具などが入っていた。|#0105Adv04_Narrative056|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（何かに使えたりするのかな……？）|#0105Adv04_Ema049| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（たくさん証拠品を入手できた）|#0105Adv04_Ema050| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（あとでしっかり魔女図鑑を確認しておこう……！）|#0105Adv04_Ema051| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 消化していないイベントがある＞シーン1‐5‐2
+; 全てのイベントを消化している＞シーン1‐5‐5
+; ========================================
+
+@Gosub Path:System/System_Subroutine.EndAdv
+
+@GotoModified Path:Act01_Chapter05/Act01_Chapter05_Adv02 SoftReset:true
+

@@ -1,0 +1,654 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook Version:1
+
+@BeginIf Expression:isDebugDirectJump
+    @Gosub Path:Act01_Chapter01/Act01_Chapter01_TrialInit
+    @HidePerspectiveStageScreen Index:1 Duration:0 Reset:true
+    @ModifyBackgroundExtended TintColor:#000000 Duration:0 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+
+@SetTrialTimer Time:900
+@PlayBgm BgmPath:Bgm_7_1 Volume:1 Loop:true FadeInDuration:0
+@HideUI UINames:ControlPanel AllowToggle:false
+@ShowUI UINames:DebateUI
+
+; ==============================================================================
+; MARK: 💬 1-3-1 ノアの死因について
+; ==============================================================================
+
+# Judge1-3-1
+
+@Gosub Path:System/System_Subroutine.BeginDebate-First
+@Gosub Path:System/System_Subroutine.BeginDebate-Effect
+@Gosub Path:System/System_Subroutine.BeginDebate-Last
+@ChangeTrialPauseMode Enable:false ProcessTimer:true
+
+@HidePerspectiveStageScreen Index:1 Reset:true
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Normal1,ArmR2,ArmL1,Angle01/Facial/Mouth>Mouth_Smile_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:请大家<br>回想一下<br>诺亚尸体的<br>状况……|#0101Trial03_Margo001| RevealSpeed:1 ScenePosition:35,50 Roll:-4
+
+@ModifyBackgroundExtended Id:Stills Rotation:,,-4 Scale:1.5 TintColor:#808080 Lazy:false ScenePosition:35,60 AppearanceAndTransition:270_2
+@PrintDebateText Text:现场是一幅<br>纯白色的画布，<br>而她尸体的摆放位置<br>仿佛在诉说，她就是那只蝴蝶。|#0101Trial03_Margo002| RevealSpeed:1 ScenePosition:70,35 Roll:-4
+
+@PrintDebateText Text:她将自己的身体<br>用作她最终作品的<br>画具……<br>这样子想是不是就说得通了呢？|#0101Trial03_Margo003| RevealSpeed:1 ScenePosition:70,35 Roll:-4
+
+@HideActors ActorIds:Stills Lazy:false
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Pensive1,ArmR2,ArmL1,Option-ArmL-Off
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left ZoomLevel:3
+@PrintDebateText Text:这……<br>真的说得通吗？|#0101Trial03_Alisa001| RevealSpeed:1 ScenePosition:70,50 Roll:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Normal1,ArmR2,ArmL1,Angle01/Facial/Eyes>Eyes_Smile_Middle,Angle01/Facial/Mouth>Mouth_Smile_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right ZoomLevel:3
+@PrintDebateText Text:……内心疲惫不堪的<br>天才艺术家诺亚，<br>选择拿起凶器<br>刺穿自己的心脏。|#0101Trial03_Margo004| RevealSpeed:1 ScenePosition:30,50 Roll:0
+
+; ＠備考◆恍惚
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Smile1,ArmR7,ArmL3
+@PrintDebateText Text:接着，<br>从伤口处喷出了血液，<br>将事先涂满颜料的房间<br>染成一片通红……|#0101Trial03_Margo005| RevealSpeed:1
+
+; 恍惚
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Smile1,ArmR3,ArmL2,Angle01/Facial/Eyes>Eyes_Smile_Middle,Angle01/Facial/Mouth>Mouth_Smile_Open
+@PrintDebateText Text:然后诺亚她<br>完成了<br>一幅绘画。<br>那就是她人生<br>最后的遗作……|#0101Trial03_Margo006| RevealSpeed:1
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Normal1,ArmR7,ArmL3,Angle01/Facial/Eyes>Eyes_Smile_Open,Angle01/Facial/Mouth>Mouth_Smile_Open
+@PrintDebateText Text:"多么美丽的<link=\"Objection_01_01_03_01\">自杀</link>。<br>这么想的话，<br>一切都说得通了。|#0101Trial03_Margo007|" RevealSpeed:1
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,ArmR7,ArmL3,Angle01/Facial/Eyes>Eyes_Smile_Open,Angle01/Facial/Mouth>Mouth_Smile_Open
+@PrintDebateText Text:"那<link=\"Objection_01_01_03_02\">房间内的状况</link>，<br>也全都是诺亚她亲手制作的<br>艺术作品的一部分哦。|#0101Trial03_Margo008|" RevealSpeed:1
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Normal1,,ArmR5,ArmL1,Angle01/Facial/Eyes>Eyes_Surprised_Open01,Angle01/Facial/Mouth>Mouth_Surprised_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:……等一下。<br>疑似凶器的<br>那个【箭矢】<br>掉落在诺亚的尸体附近。|#0101Trial03_Sherry001| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR2,ArmL1,Angle01/Facial/Eyes>Eyes_Surprised_Open02,Angle01/Facial/Mouth>Mouth_Neutral_Open
+@PrintDebateText Text:按常理想，<br>不是她自己刺伤自己，<br>而是被人【射中】了，<br>这样想才更自然，不是吗？|#0101Trial03_Sherry002| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Normal1,,ArmR2,ArmL5,Angle01/Facial/Eyes>Eyes_Normal_Open,Angle01/Facial/Mouth>Mouth_Smile_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:哎呀，那可说不定哦？|#0101Trial03_Margo009| RevealSpeed:1 ScenePosition:40,45 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,ArmR2,ArmL5,Angle01/Facial/Eyes>Eyes_Normal_Open,Angle01/Facial/Mouth>Mouth_Normal_Open
+@PrintDebateText Text:"<link=\"Objection_01_01_03_03\">亲手刺伤自己</link>这么简单的事，<br>她当然能做到啊。<br>还是说，<br>你有<link=\"Objection_01_01_03_04\">证据</link><br>能否定这个主张吗？|#0101Trial03_Margo010|" RevealSpeed:1 ScenePosition:35,40 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Pensive1,ArmR5,ArmL7,Angle01/Facial/Eyes>Eyes_Pensive_Open,Angle01/Facial/Mouth>Mouth_Surprised_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Left ZoomLevel:3
+@PrintDebateText Text:……我觉得，<br>过着这样的监狱生活，<br>思考变得不太正常<br>也无可厚非。|#0101Trial03_Leia001| RevealSpeed:1 ScenePosition:70,50 Roll:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hanna.Pensive1,ArmR1,ArmL1,Angle01/Head01/Facial01/Mouth01>Mouth01_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hanna Composition:Right ZoomLevel:3
+@PrintDebateText Text:如果她的内心<br>已经崩溃了……<br>很难说<br>一切完全没可能……|#0101Trial03_Hanna001| RevealSpeed:1 ScenePosition:35,50 Roll:0
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+@Gosub Path:System/System_Subroutine.EndDebate-Effect
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+; 
+; 議論終了
+; ------------------------------------------------------------------------------
+
+@ResetText
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Pensive1,ArmR3,ArmL1,Angle01/Head01/Facial01/Mouth01>Mouth01_Flushed_Closed02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center ZoomLevel:2
+@Wait WaitMode:0.2
+
+[PrintTextModified Text:"（诺亚究竟是怎么死的呢……<br>　她还有很多事情<br>　我们根本都不清楚……）|#0101Trial03_Ema001|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@GosubToSplitPerspectiveStageScreens Index:1 LookCharacterId:Meruru Composition:Left RollDirection:Right
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Meruru.Normal1,ArmR8_1,ArmL8,Eyes1_Pensive_Open1,Mouth1_Angry_Open2
+[PrintTextModified Text:……艾玛小姐，你听我讲。<br>我们目前知道的事是有限的。<br>不知道的事情就是不知道，这是理所当然的。|#0101Trial03_Meruru001| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Meruru.Normal1,ArmR8_1,ArmL8,Eyes1_Pensive_Open1,Mouth1_Smile_Closed1
+[PrintTextModified Text:那么，我想……我们应该讨论的是<br>【现在已经知道的事情】才对。|#0101Trial03_Meruru002| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Normal1,ArmR3,ArmL1
+
+[PrintTextModified Text:嗯……！你说得对！|#0101Trial03_Ema002| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HidePerspectiveStageScreen Index:1 Reset:true Wait:true
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Normal1,ArmR1,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02
+
+[PrintTextModified Text:"（……重新确认一下，<br>　魔女图鉴的情报和玛格的发言<br>　有没有出入吧……！）|#0101Trial03_Ema003|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge1-3-1
+
+; 
+; 反論1
+; ------------------------------------------------------------------------------
+
+# Objection_01_01_03_01
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:诺亚没有自杀的动机|#0101Trial03_Choice001| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:Trial AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge1-3-3
+
+@AddChoice ChoiceSummary:返回|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:Trial AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; 
+; 反論2
+; ------------------------------------------------------------------------------
+
+# Objection_01_01_03_02
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:房间的状况不对劲|#0101Trial03_Choice002| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:Trial AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge1-3-2
+
+@AddChoice ChoiceSummary:返回|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:Trial AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; 
+; 反論3
+; ------------------------------------------------------------------------------
+
+# Objection_01_01_03_03
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:不可能是她自己刺伤的|#0101Trial03_Choice003| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:Trial AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge1-3-4
+
+@AddChoice ChoiceSummary:返回|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:Trial AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; 
+; 反論4
+; ------------------------------------------------------------------------------
+
+# Objection_01_01_03_04
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:有不是她自己刺伤的证据|#0101Trial03_Choice004| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:Trial AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge1-3-5
+
+@AddChoice ChoiceSummary:返回|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:Trial AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; ==============================================================================
+; MARK: ❌ 1-3-3 ノアには自殺の動機がない
+; ==============================================================================
+
+# Judge1-3-3
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Pensive1,ArmR3,ArmL1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:……真的会是这样吗。<br>诺亚她可是昨天也画了画哦……？|#0101Trial03_Ema004| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Angry1,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Pensive_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+[PrintTextModified Text:难以置信她会因绝望自杀……！|#0101Trial03_Ema005| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Normal1,ArmR1,ArmL1,Angle01/Facial/Eyes>Eyes_Normal_Open,Angle01/Facial/Mouth>Mouth_Pensive_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right
+[PrintTextModified Text:一个人的内心，旁人怎么可能琢磨得透呢？|#0101Trial03_Margo011| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Normal1,ArmR1,ArmL1,Angle01/Facial/Eyes>Eyes_Pensive_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Left
+[PrintTextModified Text:对啊。<br>怎么可能知道艺术家脑子里想什么嘛。|#0101Trial03_Coco001| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Pensive1,Arms,Angle01/Facial/Eyes>Eyes_Normal_Open02,Angle01/Facial/Mouth>Mouth_Yell_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:认为她绝对不会绝望<br>是你的自由……<br>而认为你的观点不对，也是我的自由。|#0101Trial03_Leia002| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆哀れみ
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Smile1,ArmR2,ArmL1,Angle01/Facial/Eyes>Eyes_Normal_Open03
+[PrintTextModified Text:……诺亚的死让你感到很难受吧。<br>你的悲伤由我来陪你一起承受。<br>所以请不要露出悲伤的表情了，艾玛。|#0101Trial03_Leia003| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+; ＠備考◆照れ
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Flushed1,ArmR3,ArmL1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（哇哇哇……！<br>　我被她安慰了……！？）|#0101Trial03_Ema006|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Determined2,ArmR3,ArmL1
+
+[PrintTextModified Text:"（重新认真听玛格的发言吧……！<br>　或许她的话<br>　和某些证物有矛盾……！）|#0101Trial03_Ema007|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge1-3-1
+
+; ==============================================================================
+; MARK: ❌ 1-3-4 ノアが刺す事は不可能
+; ==============================================================================
+
+# Judge1-3-4
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Pensive1,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Surprised_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:……稍等一下！<br>诺亚应该很难做到<br>把箭插进自己的胸口才对。|#0101Trial03_Ema008| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hanna.Normal1,ArmR3,ArmL2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hanna Composition:Right
+[PrintTextModified Text:这是为什么呢？|#0101Trial03_Hanna002| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Pensive1,ArmR3,ArmL1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:因为很痛呀……<br>而且手的角度……还有发力的方式……<br>不感觉很难做到吗？|#0101Trial03_Ema009| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Pensive1,ArmR2,ArmL1,Option-ArmL-Off
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left
+[PrintTextModified Text:你的描述太模糊了吧。|#0101Trial03_Alisa002| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Angry1,Arms2,Angle01/Option_Arms>Option_Arms01_03,Angle01/Option_ArmR/Option_ArmR01_01-
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Right
+[PrintTextModified Text:『认真想清楚再讲话』|#0101Trial03_AnAn001| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Pensive1,ArmR3,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Closed04,Angle01/Head01/Facial01/Mouth01>Mouth01_Flushed_Middle,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（惹、惹她们生气了……！）|#0101Trial03_Ema010| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Pensive1,ArmR2,ArmL2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left
+[PrintTextModified Text:既然箭头都插进了心脏，<br>她一个人如何拔出箭，确实还存在疑点……|#0101Trial03_Sherry003| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Normal1,ArmR2,ArmL2
+[PrintTextModified Text:不过，她用血液画画已是既成事实……<br>发生【拔出箭头血液喷出】这件事<br>也并不算奇怪。|#0101Trial03_Sherry004| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Miria.Pensive1,ArmR3,ArmL8,Angle01/Facial/Mouth>Mouth_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Miria Composition:Right
+[PrintTextModified Text:显然她有操纵过血液呢……|#0101Trial03_Miria001| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Pensive1,ArmR4,ArmL5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（这样考虑的话，自杀也算不上是不自然的状况……？）|#0101Trial03_Ema011| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR4,ArmL5,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Nervous_Closed
+[PrintTextModified Text:"（重新想一想已经调查过的事物吧……！<br>　说不定会有什么不自然的地方……！）|#0101Trial03_Ema012|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge1-3-1
+
+; ==============================================================================
+; MARK: ❌ 1-3-5 ノアが刺していない証拠がある
+; ==============================================================================
+
+# Judge1-3-5
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Pensive1,ArmR3,ArmL1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:……我说，诺亚她真的<br>自己刺伤了自己吗？<br>我不相信她会这样做……|#0101Trial03_Ema013| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:只要找到未使用过凶器的证据，<br>应该就可以否定……|#0101Trial03_Ema014| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Normal1,ArmR1,ArmL1,Angle01/Facial/Eyes>Eyes_Pensive_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Left
+[PrintTextModified Text:然后呢？<br>你说的证据在哪里？|#0101Trial03_Coco002| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Pensive1,ArmR3,ArmL1,ArmR4,ArmL5,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:证、证据就是……指纹……？|#0101Trial03_Ema015| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Smile1,ArmR3,ArmL2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:……这座宅子里能找到<br>指纹检测套组吗？|#0101Trial03_Leia004| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Normal1,ArmR1,ArmL1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left
+[PrintTextModified Text:假设可以检测指纹，<br>也最多只能找到【用过的证据】，<br>并不能找到【没用过的证据】哦！|#0101Trial03_Sherry005| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Smile1,ArmR1,ArmL4
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right
+[PrintTextModified Text:这就是所谓的恶魔的证明♡|#0101Trial03_Margo012| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Pensive1,ArmR3,ArmL2,Angle01/Head01/Facial01/Mouth01>Mouth01_Flushed_Middle,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（呜……<br>　看来我的想法果然不对……）|#0101Trial03_Ema016|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（重新思考一下吧……！<br>　诺亚的身上究竟发生了什么事……！）|#0101Trial03_Ema017|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge1-3-1
+
+; ==============================================================================
+; MARK: ⭕ 1-3-2 部屋の状況がおかしい
+; ==============================================================================
+
+# Judge1-3-2
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@HideUI UINames:DebateUI AllowToggle:false
+@ShowUI UINames:ControlPanel
+@StopBgm
+@GosubToObjectionCutIn CutInKind:Ema Index:1 VoicePath:CommonTrial_Ema06193 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Determined2,ArmR3,ArmL2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:……玛格，<br>房间里面明显有一处地方不对劲。|#0101Trial03_Ema018| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Normal1,ArmR2,ArmL1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right
+[PrintTextModified Text:不对劲？<br>哪里不对劲？|#0101Trial03_Margo013| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Normal1,ArmR8,ArmL1,Angle01/Head01/Facial01/Mouth01>Mouth01_Normal_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:请你看一下这个……|#0101Trial03_Ema019| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@PlayBgm BgmPath:Bgm_5_1 Volume:1 Loop:true FadeInDuration:0
+@SpawnExtended Path:Clue Params:1-9
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,Angle01/Facial/Eyes>Eyes_Pensive_Open,Angle01/Facial/Mouth>Mouth_Neutral_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right
+[PrintTextModified Text:这张照片是……地板的划痕……？<br>这里有什么问题吗？|#0101Trial03_Margo014| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Normal1,ArmR8,ArmL1,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Normal_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:你说，<br>【现场是一幅纯白色的画布】……<br>|#0101Trial03_Ema020| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:那么，你觉得这道划痕是什么呢？|#0101Trial03_Ema021| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Normal1,ArmR2,ArmL1,Angle01/Facial/Mouth>Mouth_Neutral_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right
+[PrintTextModified Text:这看起来不像是绘画的一部分……<br>难道不是预料之外的损伤吗？|#0101Trial03_Margo015| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Normal1,Angle01/Facial/Mouth>Mouth_Pensive_Open
+[PrintTextModified Text:诺亚她自杀以后，<br>箭被取出，掉在了地上……|#0101Trial03_Margo016| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,Angle01/Facial/Eyes>Eyes_Normal_Open,Angle01/Facial/Mouth>Mouth_Normal_Open
+[PrintTextModified Text:然后箭头就在地上留下了划痕。<br>这样想就没问题了吧？|#0101Trial03_Margo017| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@DestroySpawnedExtended Path:Clue LogWarning:true
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Pensive1,ArmR3,ArmL1,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center ZoomLevel:3
+[PrintTextModified Text:（划痕是箭头造成的……玛格的这个主张是……）|#0101Trial03_Ema022| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ==============================================================================
+; MARK: 💬 1-3-8 マーゴの説明の問題
+; ==============================================================================
+
+# Judge1-3-8
+
+@AddChoice ChoiceSummary:有问题的|#0101Trial03_Choice005| Lock:false AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @GotoModified Path:.Judge1-3-10
+
+@AddChoice ChoiceSummary:没问题的|#0101Trial03_Choice006| Lock:false AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @GotoModified Path:.Judge1-3-9
+
+@StopForChoice Clear:false
+
+; ==============================================================================
+; MARK: ❌ 1-3-9 問題ない
+; ==============================================================================
+
+# Judge1-3-9
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Pensive1,ArmR3,ArmL1,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:这样想的话，好像确实说得通……|#0101Trial03_Ema023| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,Angle01/Head01/Facial01/Eyes01>Eyes01_Surprised_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Pensive_Middle,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Left
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Meruru.Normal1,ArmR1_1,ArmL8,Eyes1_Pensive_Open1,Mouth1_Normal_Open2
+[PrintTextModified Text:……那、那个……<br>真的是这样吗？|#0101Trial03_Meruru003| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:欸……？|#0101Trial03_Ema024| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Left
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Meruru.Normal1,ArmR1_1,ArmL8,Eyes1_Pensive_Open1,Mouth1_Normal_Open2
+[PrintTextModified Text:我想说，掉在尸体旁边的箭……|#0101Trial03_Meruru004| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Meruru.Normal1,ArmR1_1,ArmL4,Eyes1_Pensive_Open1,Mouth1_Angry_Open2
+[PrintTextModified Text:箭头上面【沾了血】。<br>反过来说……<br>就是【没有沾上其他的东西】哦。|#0101Trial03_Meruru005| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Meruru.Normal2,ArmR1_2,ArmL3,Eyes2_Normal_Open1,Mouth2_Angry_Open2
+[PrintTextModified Text:可是，请你回想一下。<br>尸体所在的地板上面其实……|#0101Trial03_Meruru006| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Surprised1,ArmR1,ArmL1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（原来如此……！<br>　梅露露她说得对……！）|#0101Trial03_Ema025|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（箭在地板上造成了划痕的主张……）|#0101Trial03_Ema026| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge1-3-8
+
+; ==============================================================================
+; MARK: ⭕ 1-3-10 問題ある
+; ==============================================================================
+
+# Judge1-3-10
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Determined2,ArmR3,ArmL1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:……有问题。|#0101Trial03_Ema027| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@SpawnExtended Path:Clue Params:1-10
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Normal1,ArmR8,ArmL1,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:请你看一下这支箭……|#0101Trial03_Ema028| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Normal1,ArmR1,ArmL1,Angle01/Facial/Mouth>Mouth_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right
+[PrintTextModified Text:……是那把凶器吧？|#0101Trial03_Margo018| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Normal1,ArmR6,ArmL12,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:这支箭完全没有沾上<br>涂在地板上的颜料。|#0101Trial03_Ema029| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 素直に驚く
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Surprised1,ArmR1,ArmL1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right
+[PrintTextModified Text:哎呀……！<br>真的欸……|#0101Trial03_Margo019| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Normal1,ArmR6,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Normal_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:如果地板的划痕是这支箭造成的，<br>那么就不可能有这种状况，对吧？|#0101Trial03_Ema030| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Surprised1,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+[PrintTextModified Text:因为从地板上刮下来的颜料，<br>本应该沾在这支箭上才对……！|#0101Trial03_Ema031| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@DestroySpawnedExtended Path:Clue LogWarning:true
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Normal1,ArmR2,ArmL1,Angle01/Facial/Mouth>Mouth_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right
+[PrintTextModified Text:……这么说来，我感觉箭掉落的位置<br>离伤口稍微有些远了。|#0101Trial03_Margo020| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Normal1,Angle01/Facial/Mouth>Mouth_Normal_Open
+[PrintTextModified Text:也许正如艾玛所说，<br>那道划痕并不是<br>箭头造成的……|#0101Trial03_Margo021| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Pensive1,ArmR2,ArmL1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Left
+[PrintTextModified Text:……我说～<br>这件事可能确实不太自然……<br>可是这么细枝末节的事，和案件有什么关系吗？|#0101Trial03_Coco003| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Surprised1,ArmR3,ArmL1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:啊，呃……这个嘛……|#0101Trial03_Ema032| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@StopBgm
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Normal1,ArmR2,ArmL1,Angle01/Facial/Mouth>Mouth_Smile_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right
+[PrintTextModified Text:呵呵，当然有关系。<br>……而且还是非常大的关系哦？|#0101Trial03_Margo022| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+; ＠備考◆驚き
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Surprised1,ArmR3,ArmL1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:（玛格……！）|#0101Trial03_Ema033| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Smile1,ArmR1,ArmL3
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right
+[PrintTextModified Text:你想想看，箭头上没有沾上颜料的话……<br>这不就表明，还存在其他<br>【造成了地板划痕的东西】吗？|#0101Trial03_Margo023| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Normal1,ArmR1,ArmL3,Angle01/Facial/Mouth>Mouth_Smile_Open
+[PrintTextModified Text:可是现场却没有发现那样东西。<br>……你们认为，这件事意味着什么呢？|#0101Trial03_Margo024| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Pensive1,ArmR1,ArmL2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Center
+[PrintTextModified Text:……那你说这是怎么一回事。|#0101Trial03_Coco004| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Pensive1,ArmR2,ArmL2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left
+[PrintTextModified Text:……就是说有人<br>将造成地板划痕的东西拿走了，对吗？|#0101Trial03_Sherry006| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Smile1,ArmR2,ArmL1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right
+[PrintTextModified Text:就是这么一回事♪<br>雪莉你好聪明呀。|#0101Trial03_Margo025| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:也就是说，有并非诺亚的<br>【第三人在场】……<br>这就是这道划痕带来的结论。|#0101Trial03_Margo026| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Normal1,ArmR2,ArmL1
+[PrintTextModified Text:它明确的指示出了<br>【存在杀人犯】的可能性。|#0101Trial03_Margo027| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Normal1,ArmR9,ArmL4
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left
+[PrintTextModified Text:说得对，至少还应该存在一位<br>目击了尸体后<br>离开的人物！|#0101Trial03_Sherry007| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Smile1,ArmR2,ArmL1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right
+[PrintTextModified Text:嗯。<br>……你也是想说这一回事，对吗？<br>可爱的小艾玛。|#0101Trial03_Margo028| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Surprised1,ArmR3,ArmL1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:欸！？<br>呃……或、或许……！<br>是这样没错……！|#0101Trial03_Ema034| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; BGM変更：Sar-gedy-動-
+@PlayBgm BgmPath:Bgm_4_1 Volume:1 Loop:true FadeInDuration:0
+
+; SE・ネガティブ音
+@PlaySfxModified SfxPath:Sfx_Common_7 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Surprised1,ArmR1,ArmL1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Left
+[PrintTextModified Text:……那果然<br>是我们之中的某一个人动手杀人的！？|#0101Trial03_Coco005| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Normal1,ArmR1,ArmL1,Angle01/Facial/Eyes>Eyes_Normal_Closed,Angle01/Facial/Mouth>Mouth_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right
+[PrintTextModified Text:嗯……就是说，|#0101Trial03_Margo029| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,ArmR7,Angle01/Facial/Eyes>Eyes_Smile_Open,Angle01/Facial/Mouth>Mouth_Smile_Open
+[PrintTextModified Text:杀死了诺亚的【杀人魔】<br>就藏匿在我们之中哦。|#0101Trial03_Margo030| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・軽い衝撃音
+@PlaySfxModified SfxPath:Sfx_Common_4 Volume:1 Loop:false FadeInDuration:0
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hanna.Surprised1,ArmR3,ArmL2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hanna Composition:Center
+[PrintTextModified Text:怎、怎么会……！<br>不是真的吧！？|#0101Trial03_Hanna003| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆怯え
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Miria.Fearful1,ArmR8,ArmL7
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Miria Composition:Left
+[PrintTextModified Text:是、是是、是真的话……！<br>该、该怎么办……！？|#0101Trial03_Miria002| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆不安
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Pensive1,ArmR3,ArmL1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（玛格……！<br>　虽然是这么一回事没错……！<br>　但是也说得太过了……！）|#0101Trial03_Ema035|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Normal1,ArmR2,ArmL1,Angle01/Facial/Mouth>Mouth_Smile_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right
+[PrintTextModified Text:差点就遗漏了重要的情报呢♡<br>谢谢你，艾玛。<br>多亏有你，讨论才前进了一大步。|#0101Trial03_Margo031| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Pensive1,ArmR3,ArmL1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:嗯、嗯……|#0101Trial03_Ema036| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆笑顔
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Smile1,ArmR2,ArmL1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right
+[PrintTextModified Text:……呵呵。没错……|#0101Trial03_Margo032| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆冷たい笑い
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Smile1,ArmR1,ArmL3
+[PrintTextModified Text:就是这场【必须要将某人处死的讨论】。|#0101Trial03_Margo033| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆満面の笑み
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Smile1,ArmR1,ArmL3,Angle01/Facial/Eyes>Eyes_Smile_Closed
+[PrintTextModified Text:……你说对吧？|#0101Trial03_Margo034| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・決め音
+@PlaySfxModified SfxPath:Sfx_Common_3 Volume:1 Loop:false FadeInDuration:0
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Pensive1,ArmR3,ArmL7,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:呜……！？|#0101Trial03_Ema037| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,Angle01/Head01/Facial01/Eyes01>Eyes01_Pensive_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+[PrintTextModified Text:"（玛格说的没错，我想指出的<br>　大概就是【凶手就在我们之中】这件事……）|#0101Trial03_Ema038|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,Angle01/Head01/Facial01/Eyes01>Eyes01_Pensive_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+[PrintTextModified Text:"（明明都到了这种状况，玛格她看起来却很享受。<br>　另一方面——）|#0101Trial03_Ema039|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.ArmL5,Angle01/ArmR-,Eyes1_Flushed_Open1,Mouth1_Pensive_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right
+[PrintTextModified Text:…………|#0101Trial03_Nanoka001| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,Angle01/Head01/Facial01/Eyes01>Eyes01_Pensive_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:"（——奈叶香从刚刚开始就<br>　一直闭口不言）|#0101Trial03_Ema040|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,Angle01/Head01/Facial01/Eyes01>Eyes01_Thinking_Closed01,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+[PrintTextModified Text:"（根本搞不明白……<br>　大家到底都在想什么……！）|#0101Trial03_Ema041|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,Angle01/Head01/Facial01/Eyes01>Eyes01_Pensive_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Determined_Closed,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+[PrintTextModified Text:"（我真的可以……<br>　在这种情况下找出凶手吗……）|#0101Trial03_Ema042|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Normal1,ArmR8,ArmL8
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left
+[PrintTextModified Text:……好啦！<br>讨论越来越热烈了，<br>接下来我们聊一聊死因吧！|#0101Trial03_Sherry008| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Smile1,ArmR2,ArmL1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right
+[PrintTextModified Text:嗯。<br>大家都来交流一下吧？<br>讲一讲大家的脑袋里面在想什么……♡|#0101Trial03_Margo035| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+@AutoSave
+@StopBgm
+@GotoModified Path:Act01_Chapter01/Act01_Chapter01_Trial04 ResetState:-
+

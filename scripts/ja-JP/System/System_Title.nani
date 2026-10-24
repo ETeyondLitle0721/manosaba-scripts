@@ -1,0 +1,38 @@
+@ProcessInput InputEnabled:true SetEnabled:Continue.true,Pause.false,Skip.false,ToggleSkip.false,SkipMovie.false,AutoPlay.false,ToggleUI.false,ShowBacklog.false,Rollback.false
+@ChangeTrialMode Enable:false
+@PlayBgm BgmPath:Bgm_36_1 Volume:1 Loop:true FadeInDuration:0
+@HideUI UINames:ControlPanel,AutoToggle,WitchBookButtonUI AllowToggle:false Duration:0
+@ModifyBackgroundExtended TintColor:#000000 Duration:0 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@ModifyBackgroundExtended Id:Stills Scale:"{g_backgroundDefaultScale * 1.05}" Duration:0 Lazy:false ScenePosition:50,50 AppearanceAndTransition:"{ g_gameProgress < 6 ? \"1_1\" : \"2_1\"}" MatchScreenWidth:false
+@SpawnBlur ActorId:Stills Intensity:1 FadeDuration:0
+@WaitForNextFrame
+
+@AnimateActorExtended ActorIds:Stills Loop:false Scale:{g_backgroundDefaultScale} EasingTypeName:EaseOutQuad Duration:2.7
+@SpawnBlur ActorId:Stills Intensity:0 FadeDuration:2.7
+@ModifyBackgroundExtended TintColor:#000000 Duration:1.8 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:i3
+
+@ModifyBackgroundExtended Id:Stills Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false ScenePosition:50,50 AppearanceAndTransition:"{ g_gameProgress < 6 ? \"1_1\" : \"2_1\"}" MatchScreenWidth:false
+@ShowUI UINames:TitleUI
+
+@Stop
+
+# StartGame
+
+@StopBgm FadeOutDuration:1.8
+@HideUI UINames:TitleUI AllowToggle:false Duration:1.8
+@ModifyBackgroundExtended TintColor:#000000 Duration:1.8 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.8
+
+@GotoModified Path:{nextScenario} ResetState:IStateManager,ICustomVariableManager,IAudioManager
+
+# QuitGame
+
+@ProcessInput InputEnabled:true SetEnabled:Continue.true,Pause.false,Skip.false,ToggleSkip.false,SkipMovie.false,AutoPlay.false,ToggleUI.false,ShowBacklog.false,Rollback.false
+@StopBgm FadeOutDuration:1.2
+@HideUI UINames:TitleUI AllowToggle:false Duration:1.2
+@ModifyBackgroundExtended TintColor:#000000 Duration:1.2 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:i1.2
+
+@Quit
+

@@ -1,0 +1,404 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook IsDebugDirectJump:{isDebugDirectJump}
+@Gosub Path:System/System_Subroutine.BeginAdv
+
+# Scene2-1-11
+
+; ========================================
+; ●シーン2‐1-11
+; ========================================
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false AppearanceAndTransition:19_1
+@ModifyBackgroundExtended DissolveTexturePath:VerticalBlindGradually TintColor:#000000 Duration:0.99 Lazy:false AppearanceAndTransition:Transparent.Custom SubId:Overlay
+@Wait WaitMode:0.9
+
+; ========================================
+; ＞『水精の間』を選択
+; ========================================
+
+@PlayBgm BgmPath:Bgm_5_1 Volume:1 Loop:true FadeInDuration:0
+@AutoSave
+[PrintTextModified Text:"私とノアは正面玄関から外に出て、<br><ruby=\"いしだたみ\">石畳</ruby>の道を歩いていた。|#0201Adv16_Narrative001|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:窓から別荘のような建物が見えたのだ。<br>その場所を目指す。|#0201Adv16_Narrative002| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HidePrinter
+@AnimateActorExtended ActorIds:MainBackground Loop:false
+@SpawnExtended Path:MaskingRectangle Params:1000,30,true,0.3,#000000 ScenePosition:20,60 Rotation:,,0 SubId:Front
+@ModifyBackgroundExtended Rotation:,,0 Scale:1.75 Lazy:false ScenePosition:48,56 AppearanceAndTransition:16_1 SubId:Front
+@SpawnBlur ActorId:MainBackground-Front Intensity:0.5 FadeDuration:0
+@ChangeActorMaskability ActorIds:MainBackground-Front Enable:true
+@AnimateActorExtended ActorIds:MainBackground-Front Loop:false ScenePositionX:45 EasingTypeName:EaseOutQuad Duration:0.4
+@Wait WaitMode:0.3
+
+[PrintTextModified Text:屋敷は高台になっており、<br>遠くには見渡す限り高い塀が広がっている。|#0201Adv16_Narrative003| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:塀を見つめる間、<br>ノアの瞳はみるみる輝いていった。|#0201Adv16_Narrative004| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:たかーい。<br>たくさんお絵描きできるね～。|#0201Adv16_Noah001| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:私もこれまで何度か外に出て、<br>周辺を探索している。|#0201Adv16_Narrative005| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:高い塀でぐるりとどうやら島全体が囲まれており、<br>脱出は難しいだろう。|#0201Adv16_Narrative006| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideActors ActorIds:MainBackground-Front Lazy:false
+@SpawnBlur ActorId:MainBackground-Front Intensity:0 FadeDuration:0
+@DestroySpawnedExtended Path:MaskingRectangle SubId:Front LogWarning:true
+@Wait WaitMode:0.3
+
+[PrintTextModified Text:"（少女たちを１３人も誘拐した大それた犯行だ。<br>　おそらく裏で大きな組織が動いている）|#0201Adv16_Hiro001|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（簡単に逃すわけもないか）|#0201Adv16_Hiro002| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:――その時だった。|#0201Adv16_Narrative007| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 茂みのガサガサ音
+@PlaySfxModified SfxPath:Sfx_55 Volume:1 Loop:false FadeInDuration:0
+
+@Wait WaitMode:0.5
+
+@ModifyCharacterExtended Duration:0.2 Lazy:false ScenePosition:50 IdAndAppearance:Nanoka.Default
+
+[PrintTextModified Text:"近くの茂みから、<ruby=\"はず\">葉擦</ruby>れの音がした。<br>次の瞬間には、ナノカが勢いよく飛び出してくる。|#0201Adv16_Narrative008|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:！|#0201Adv16_Hiro003| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@SpawnBlur ActorId:MainBackground
+@PlaySfxModified SfxPath:Sfx_9 Volume:1 Loop:false FadeInDuration:0
+@ModifyCharacterExtended Scale:2 Lazy:false ScenePosition:50,10 IdAndAppearance:Nanoka
+
+[PrintTextModified Text:私に向かって、ナノカの手が<br>突き出されてきて――|#0201Adv16_Narrative009| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@SpawnShake ActorId:MainBackground
+
+@PlaySfxModified SfxPath:Sfx_116 Volume:1 Loop:false FadeInDuration:0
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:"私は<ruby=\"とっさ\">咄嗟</ruby>に身をかわした。|#0201Adv16_Narrative010|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 受け身の音
+@PlaySfxModified SfxPath:Sfx_116 Volume:1 Loop:false FadeInDuration:0
+
+@SpawnBlur ActorId:MainBackground Intensity:0 FadeDuration:0.3
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Lazy:false ScenePosition:50,50 AppearanceAndTransition:19_1
+@HideAllCharacters Lazy:false
+@Wait WaitMode:0.2
+
+[PrintTextModified Text:くっ！|#0201Adv16_Nanoka001| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:バランスを崩したナノカは、<br>その場に転がる。|#0201Adv16_Narrative011| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Hiro.Normal1
+
+[PrintTextModified Text:……運動は得意なんだ。|#0201Adv16_Hiro004| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:急襲なんてどういうつもりだ？<br>場合によっては、君を看守に差し出す。|#0201Adv16_Hiro005| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@Wait WaitMode:0.2
+@ModifyCharacterExtended Scale:1 Lazy:false ScenePosition:70,0 IdAndAppearance:Nanoka.Default
+@Wait WaitMode:0.3
+@ModifyCharacterExtended Lazy:false ScenePosition:70,25 IdAndAppearance:Nanoka.Default
+@Wait WaitMode:1
+
+[PrintTextModified Text:"ナノカは悔しげに起き上がり、<br><ruby=\"かたひざ\">片膝</ruby>をついたまま、低い声で語りだす。|#0201Adv16_Narrative012|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:……あなたに触れようとしただけよ。<br>危害を加えるつもりはなかったわ。|#0201Adv16_Nanoka002| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"触れる？ それが一体何になる。|#0201Adv16_Hiro006|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:……私の魔法は【幻視】。|#0201Adv16_Nanoka003| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:触れた対象の過去や未来がビジョンとして見えるの。<br>好きに発動させることはできないけれど……。|#0201Adv16_Nanoka004| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:……なるほど。|#0201Adv16_Hiro007| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（それにしても、わざわざ敵を作るような<br>　触り方をせずとも……）|#0201Adv16_Hiro008|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（雰囲気の割には不器用だ。<br>　立ち回りに慣れていないところがあるのか……？）|#0201Adv16_Hiro009|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Hiro.Normal1,Angle01/Head01/Facial01/Mouth01>Mouth01_Pensive_Closed
+
+[PrintTextModified Text:まあ、おおよそ検討がついてきた。|#0201Adv16_Hiro010| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:突然こんな屋敷に閉じ込められて、<br>落ち着き払った雰囲気でいられる理由がね。|#0201Adv16_Hiro011| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:……お察しのとおりね。<br>私は牢屋敷の情報を【幻視】で事前に視たの。|#0201Adv16_Nanoka005| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:聞きたいことはいくつかある。<br>その銃はなんだ？<br>教えてくれれば襲われたことはチャラだ。|#0201Adv16_Hiro012| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:この銃も、かつて牢屋敷に囚われた人が魔法で制作し、<br>隠していたことを視て、ここに捕まってすぐ回収した。|#0201Adv16_Nanoka006| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:装填数は６発。<br>１日１発自動で弾が回復する魔法の銃よ。|#0201Adv16_Nanoka007| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（なるほど……情報で有利に立てるのは<br>　この屋敷の中では大きな強みだ……）|#0201Adv16_Hiro013|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:興味深いな。他に知っていることは？|#0201Adv16_Hiro014| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:質問に答えれば襲ったことはチャラのはずよ。<br>言うつもりはないわ。|#0201Adv16_Nanoka008| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:しかし君が嘘をついている可能性もある。|#0201Adv16_Hiro015| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:そんなことをして<br>私に何のメリットがあると言うの？|#0201Adv16_Nanoka009| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Hiro.Pensive1
+
+[PrintTextModified Text:さてね。だが慎重にもなるさ。<br>私たちは知り合ったばかりだ。|#0201Adv16_Hiro016| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:数秒無言でのにらみ合いが続いたが、<br>やがてナノカは諦めたように息をついた。|#0201Adv16_Narrative013| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:……わかったわ。|#0201Adv16_Nanoka010| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:私が警戒している人物の魔法を話す。<br>ただ証明はできないから自分でやって。|#0201Adv16_Nanoka011| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:その人物の名前は【佐伯ミリア】よ……<br>今のところ、私が一番警戒している相手。|#0201Adv16_Nanoka012| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"ナノカは<ruby=\"みけん\">眉間</ruby>にしわを寄せて語りはじめた。<br>まるで汚いものでも思い出すかのようだ。|#0201Adv16_Narrative014|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:彼女……いえ、奴は少女ですらない。<br>――悪魔よ。|#0201Adv16_Nanoka013| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:元々あの子は【入れ替わり】の魔法を持っている。<br>今は男性が強制的に彼女の体を奪っているの。|#0201Adv16_Nanoka014| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆ひとりごと風にぼそりと
+
+[PrintTextModified Text:きっとあいつが【黒幕】……。|#0201Adv16_Nanoka015| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"あまりに<ruby=\"いまいま\">忌々</ruby>しげに語るナノカの様子を見るに、<br>嘘は一切混じっていないことがわかる。|#0201Adv16_Narrative015|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:……たしかにそれは重要な事実だな。<br>男性の素性はわかっているのか？|#0201Adv16_Hiro017| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:断片的なビジョンだったから、詳しくは何も。<br>視えたのは<br>奴が少女の体を奪った極悪人ということだけ。|#0201Adv16_Nanoka016| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（……視たとはいえ、断片的な情報というなら<br>　話半分に聞いておいたほうがいいか）|#0201Adv16_Hiro018|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:わかった。信じよう。<br>有益な情報に感謝する。|#0201Adv16_Hiro019| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:それに私を狙ったということは、<br>君にもまだ知らない情報はあるようだ。|#0201Adv16_Hiro020| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:一応聞いておくが、君は、最初から私のことを<br>怪しんでいたようだな？|#0201Adv16_Hiro021| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:……あなたの最初の行動は得体が知れなかった。<br>正直、黒幕かと疑っていたわ。|#0201Adv16_Nanoka017| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Hiro.Angry1,Arms3
+
+[PrintTextModified Text:断じてありえない。|#0201Adv16_Hiro022| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Hiro.Normal1,Angle01/Head01/Facial01/Mouth01>Mouth01_Pensive_Closed
+
+[PrintTextModified Text:私から言わせれば、君のほうがずっと<br>怪しい動きをしている。|#0201Adv16_Hiro023| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:銃を回収する迅速な行動や、覚悟の決まったその顔。<br>まるで事前に行動内容を準備していたようだ。|#0201Adv16_Hiro024| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"腕を組み、見下ろしながら言い放つと、<br>ナノカの暗い瞳と視線が<ruby=\"こうさく\">交錯</ruby>する。|#0201Adv16_Narrative016|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:これ以上は探っても無駄よ。組むつもりはない。<br>……どうせみんな、死ぬもの。|#0201Adv16_Nanoka018| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（どうせみんな死ぬ？<br>　幻視でその情報を得たのか……？）|#0201Adv16_Hiro025|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"<ruby=\"にら\">睨</ruby>み合いをどちらも譲る気がなく、<br>張りつめた空気が流れる。|#0201Adv16_Narrative017|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Noah.Pensive1
+
+[PrintTextModified Text:ねえねえヒロちゃん。|#0201Adv16_Noah002| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:その緊迫感に割って入ってきたのは、<br>ノアだった。|#0201Adv16_Narrative018| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Hiro.Angry1,Arms1
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Noah.Pensive1
+
+[PrintTextModified Text:"起こった出来事を気付いていないかのように、<br>私の<ruby=\"そで\">袖</ruby>を引っ張る。|#0201Adv16_Narrative019|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:もしかして自由時間にしか<br>お絵描きしちゃいけないのかな？|#0201Adv16_Noah003| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Hiro.Pensive1
+
+[PrintTextModified Text:……残念だが。<br>お絵描きは自由時間のみだ。|#0201Adv16_Hiro026| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Noah.Angry1
+
+[PrintTextModified Text:えー。|#0201Adv16_Noah004| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"ノアは不満そうに<ruby=\"うなだ\">項垂</ruby>れたが、<br>すぐに顔を上げる。|#0201Adv16_Narrative020|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Noah.Normal1
+
+[PrintTextModified Text:……ヒロちゃんと約束しなかったら、<br>のあ、ずっとお部屋にこもってお絵描きしてたと思う。|#0201Adv16_Noah005| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Noah.Smile1
+
+[PrintTextModified Text:でもヒロちゃんのおかげで、<br>いっぱい楽しそうな場所見つけちゃった！|#0201Adv16_Noah006| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:ありがとうヒロちゃん！<br>約束守ってお絵描きするね！|#0201Adv16_Noah007| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Hiro.Normal1
+
+[PrintTextModified Text:……そう。それならいい。|#0201Adv16_Hiro027| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50,50 IdAndAppearance:Nanoka
+
+[PrintTextModified Text:いつの間にかナノカが立ち上がっていた。<br>ただ、もうこれ以上手出しをしてくる様子はなさそうだ。|#0201Adv16_Narrative021| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:……あなたは悪い人じゃないみたい。|#0201Adv16_Nanoka019| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+@StopBgm FadeOutDuration:3
+
+[PrintTextModified Text:"ナノカはぽつりと<ruby=\"つぶや\">呟</ruby>きを落として、<br>茂みの向こうへと消えていった。|#0201Adv16_Narrative022|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@UpdateWitchBook Id:Nanoka Category:Profile Version:6
+@UpdateWitchBook Id:Miria Category:Profile Version:6
+
+@ResetText
+@ModifyBackgroundExtended DissolveTexturePath:VerticalBlindGradually TintColor:#000000 Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:1.5
+
+@ModifyBackgroundExtended Rotation:,,0 Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false ScenePosition:50,50 AppearanceAndTransition:22_1
+@ModifyBackgroundExtended DissolveTexturePath:VerticalBlindGradually Duration:0.9 Lazy:false AppearanceAndTransition:Transparent.Custom SubId:Overlay
+@Wait WaitMode:0.9
+
+@Wait WaitMode:1
+
+@PlayBgm BgmPath:Bgm_11_1 Volume:1 Loop:true FadeInDuration:0
+
+[PrintTextModified Text:ナノカと別れ、<br>私とノアはようやく目的地の前にたどりついた。|#0201Adv16_Narrative023| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:ログハウス風の建物が３棟並んでいる。|#0201Adv16_Narrative024| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（おそらく要人などを迎えるための<br>　ゲストハウスか）|#0201Adv16_Hiro028|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（屋敷より比較的新しいな。<br>　あまり使用はされていないようだが――）|#0201Adv16_Hiro029|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Hiro.Normal1
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Noah.Smile1
+
+[PrintTextModified Text:"ヒロちゃん！ 中に入ってみようよ。|#0201Adv16_Noah008|" AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+[PrintTextModified Text:……そうだな。開いていれば見ておきたい。|#0201Adv16_Hiro030| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@ModifyBackgroundExtended DissolveTexturePath:VerticalBlindGradually TintColor:#000000 Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:1.5
+
+@HideAllCharacters Lazy:false
+
+; 木の扉を開く音
+@PlaySfxModified SfxPath:Sfx_22 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyBackgroundExtended Rotation:,,0 Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false ScenePosition:50,50 AppearanceAndTransition:23_3
+@ModifyBackgroundExtended DissolveTexturePath:VerticalBlindGradually Duration:0.9 Lazy:false AppearanceAndTransition:Transparent.Custom SubId:Overlay
+@Wait WaitMode:0.9
+
+[PrintTextModified Text:"あっさりと扉が開いたので、<br>私たちは【<ruby=\"ウンディーネ\">水精</ruby>の間】のプレートが<ruby=\"さ\">提</ruby>げられた<br>ゲストハウスの中へと入った。|#0201Adv16_Narrative025|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Coco.Surprised1
+
+[PrintTextModified Text:すると中には、沢渡ココがいた。|#0201Adv16_Narrative026| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"私たちの出現に一瞬びくりと体を震わせたが、<br>取り<ruby=\"つくろ\">繕</ruby>うように笑顔になる。|#0201Adv16_Narrative027|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Coco.Normal1
+
+; ＠備考◆わざとらしく
+
+[PrintTextModified Text:あ、ヒロっちとノアじゃん。おつかれ～。|#0201Adv16_Coco001| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:じゃああてぃしはこれで……。|#0201Adv16_Coco002| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@AnimateActorExtended ActorIds:Coco Loop:false ScenePositionX:70
+
+[PrintTextModified Text:ココ。君はここで何を？|#0201Adv16_Hiro031| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Hiro.Normal1
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Coco.Surprised1
+
+; ＠備考◆動揺
+
+[PrintTextModified Text:べべべ、べっつに～？|#0201Adv16_Coco003| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（……何か隠し事をしているな）|#0201Adv16_Hiro032| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Coco.Pensive1,ArmL2
+
+[PrintTextModified Text:あてぃしらまだぜんぜん知り合ったばっかだしさ、<br>詮索とかそーゆーのやめてほしいんですけどー。|#0201Adv16_Coco004| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Hiro.Normal1,Angle01/Head01/Facial01/Mouth01>Mouth01_Pensive_Closed
+
+[PrintTextModified Text:君に興味がないから詮索するつもりもない。|#0201Adv16_Hiro033| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Coco.Angry1,ArmL2
+
+[PrintTextModified Text:うわウッザ。つかさ、ヒロっち<br>あてぃしの配信見てくれてる～？<br>初日からやってんだけど。|#0201Adv16_Coco005| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:配信……ああ、見たよ。|#0201Adv16_Hiro034| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:感想そんだけかよ。|#0201Adv16_Coco006| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:特に思うところがなかった。|#0201Adv16_Hiro035| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:初日の配信を思い返してみると、<br>私たちに向けて発信している風ではなく、<br>彼女はおかしな言動を繰り返していた。|#0201Adv16_Narrative028| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:正直気になってはいたが、<br>彼女はあまり関与したいタイプでもない。|#0201Adv16_Narrative029| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:くっ……明日は重大発表するからさ、<br>そん時はあてぃしに夢中になるからな！|#0201Adv16_Coco007| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:絶対見ろよ！|#0201Adv16_Coco008| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:思わせぶりな発言が妙に引っかかり、<br>私はわざと首を横に振った。|#0201Adv16_Narrative030| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:遠慮しておく。<br>何かおかしな術をかけられたらたまらない。|#0201Adv16_Hiro036| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:君の魔法を知らないし、<br>配信に関係するものかもしれない。<br>見ただけで洗脳されるとかな。|#0201Adv16_Hiro037| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Coco.Angry1,ArmL1
+
+[PrintTextModified Text:洗脳じゃねーし！<br>あてぃしの魔法は【千里眼】！|#0201Adv16_Coco009| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:千里眼……？|#0201Adv16_Hiro038| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Coco.Surprised1,ArmR9
+
+[PrintTextModified Text:思わず口にしてしまったのか、<br>ココは気まずそうに視線を逸らす。|#0201Adv16_Narrative031| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Coco.Pensive1,ArmR1,ArmL2
+
+[PrintTextModified Text:やべ……ま、まあいっか。<br>別に知られて困ることでもないし……。|#0201Adv16_Coco010| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Coco.Normal1,ArmR4
+
+[PrintTextModified Text:"配信でも写真でも、とにかく沢渡ココを認知してたら<br>あてぃしも見てるヤツのことを<ruby=\"ふかん\">俯瞰</ruby>できるってワケ。|#0201Adv16_Coco011|" AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:それは、この牢屋敷の外の情報も得られるのか？|#0201Adv16_Hiro039| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"まあね？ あてぃしのこと見てるヤツがどっかにいたらね？|#0201Adv16_Coco012|" AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Coco.Smile1,ArmR4
+
+[PrintTextModified Text:で、その千里眼で、あてぃし<br>すっごい情報を手に入れちゃったんだよねー。|#0201Adv16_Coco013| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Coco.Normal1,ArmR4
+
+[PrintTextModified Text:どう、あてぃしの魔法すごくね？<br>――配信、見ろよ。|#0201Adv16_Coco014| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:ココがゲストハウスから出ていく。|#0201Adv16_Narrative032| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@UpdateWitchBook Id:Coco Category:Profile Version:4
+
+@ModifyCharacterExtended Scale:0.5 Lazy:false ScenePosition:62 IdAndAppearance:Noah.Smile1
+
+[PrintTextModified Text:ノアはというと……ゴクチョーの置物で遊んでいた。<br>私は深くため息をついた。|#0201Adv16_Narrative033| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 消化していないイベントがある＞シーン2‐1‐7
+; 全てのイベントを消化している＞シーン2‐1‐13
+; ========================================
+
+@Gosub Path:System/System_Subroutine.EndAdv
+
+@GotoModified Path:Act02_Chapter01/Act02_Chapter01_Adv12 SoftReset:true
+

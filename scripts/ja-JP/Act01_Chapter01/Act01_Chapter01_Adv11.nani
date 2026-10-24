@@ -1,0 +1,56 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook IsDebugDirectJump:{isDebugDirectJump}
+@Gosub Path:System/System_Subroutine.BeginAdv
+
+; TODO: メニューボタンを手前に表示する
+; TODO: 魔女図鑑ボタンを非表示にする
+
+# Scene1-1-7
+
+; ========================================
+; ●シーン1‐1-7
+; ========================================
+
+; ========================================
+; マップイベント用分岐
+; ========================================
+
+; ========================================
+; 【ＭＡＰイベント】牢屋敷マップ
+; 
+; 娯楽室＞シーン1‐1‐8
+; 図書室＞シーン1‐1‐9
+; 医務室＞シーン1‐1‐10
+; 懲罰房前＞シーン1‐1‐11
+; ※全てのＭＡＰイベントを選択したら終了。
+; 選択済みの場所は消していってください。
+; ========================================
+
+@BeginIf Expression:"chosenAreaFlag == 15"
+    @SetCustomVariable Expression:"chosenAreaFlag = 0"
+    @Gosub Path:System/System_Subroutine.EndAdv
+    @GotoModified Path:Act01_Chapter01/Act01_Chapter01_Adv16 SoftReset:true
+
+@ChoiceMapArea CategoryNames:RecreationRoom,Library,Infirmary,SolitaryConfinement Back:false Global:false MapAreaNames:RecreationRoom,Library,Infirmary,SolitaryConfinement FlagVariableName:chosenAreaFlag
+
+@BeginIf Expression:"chosenAreaId==\"RecreationRoom\""
+    @SetCustomVariableAsFlag Number:0 VariableName:chosenAreaFlag
+    @Gosub Path:System/System_Subroutine.EndAdv
+    @GotoModified Path:Act01_Chapter01/Act01_Chapter01_Adv12 SoftReset:true
+
+@BeginIf Expression:"chosenAreaId==\"Library\""
+    @SetCustomVariableAsFlag Number:1 VariableName:chosenAreaFlag
+    @Gosub Path:System/System_Subroutine.EndAdv
+    @GotoModified Path:Act01_Chapter01/Act01_Chapter01_Adv13 SoftReset:true
+
+@BeginIf Expression:"chosenAreaId==\"Infirmary\""
+    @SetCustomVariableAsFlag Number:2 VariableName:chosenAreaFlag
+    @Gosub Path:System/System_Subroutine.EndAdv
+    @GotoModified Path:Act01_Chapter01/Act01_Chapter01_Adv14 SoftReset:true
+
+@BeginIf Expression:"chosenAreaId==\"SolitaryConfinement\""
+    @SetCustomVariableAsFlag Number:3 VariableName:chosenAreaFlag
+    @Gosub Path:System/System_Subroutine.EndAdv
+    @GotoModified Path:Act01_Chapter01/Act01_Chapter01_Adv15 SoftReset:true
+
+@Stop
+

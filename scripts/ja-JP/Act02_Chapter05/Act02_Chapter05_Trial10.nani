@@ -1,0 +1,487 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook Version:5
+
+@BeginIf Expression:isDebugDirectJump
+    @Gosub Path:Act02_Chapter05/Act02_Chapter05_TrialInit
+    @HidePerspectiveStageScreen Index:1 Duration:0 Reset:true
+    @ModifyBackgroundExtended TintColor:#000000 Duration:0 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+
+@SetTrialTimer Time:900
+@HideUI UINames:ControlPanel AllowToggle:false
+@ShowUI UINames:DebateUI
+
+; クリーチャー化初期化
+@HideActors ActorIds:Hiro Lazy:false
+@ModifyCharacterExtended Position:{hiroPositionX},{characterPositionY},{hiroPositionZ} Rotation:,{hiroRotationY} Scale:{characterScale},{characterScale},1 Duration:0 Lazy:false IdAndAppearance:CreatureHiro.2
+
+@HideActors ActorIds:Meruru Lazy:false
+@ModifyCharacterExtended Position:{meruruPositionX},{characterPositionY},{meruruPositionZ} Rotation:,{meruruRotationY} Scale:{characterScale},{characterScale},1 Duration:0 Lazy:false IdAndAppearance:CreatureMeruru.3-5
+
+@HideActors ActorIds:Leia Lazy:false
+@ModifyCharacterExtended Position:{leiaPositionX},{characterPositionY},{leiaPositionZ} Rotation:,{leiaRotationY} Scale:{characterScale},{characterScale},1 Duration:0 Lazy:false IdAndAppearance:CreatureLeia.0-8
+
+@HideActors ActorIds:Noah Lazy:false
+@ModifyCharacterExtended Position:{noahPositionX},{characterPositionY},{noahPositionZ} Rotation:,{noahRotationY} Scale:{characterScale},{characterScale},1 Duration:0 Lazy:false IdAndAppearance:CreatureNoah.0-3
+
+@HideActors ActorIds:Margo Lazy:false
+@ModifyCharacterExtended Position:{margoPositionX},{characterPositionY},{margoPositionZ} Rotation:,{margoRotationY} Scale:{characterScale},{characterScale},1 Duration:0 Lazy:false IdAndAppearance:CreatureMargo.0-4
+
+; ==============================================================================
+; MARK: 10-10: 💬 ナノカの追求
+; ==============================================================================
+; ＠ト書き▼議論10-10ナノカの追求
+; 議論開始カットイン
+; BGM変更：rAwTell Owk...
+@PlayBgm BgmPath:Bgm_7_1 Volume:1 Loop:true FadeInDuration:0
+
+# Judge10-10-1
+
+@Gosub Path:System/System_Subroutine.BeginDebate-First
+@Gosub Path:System/System_Subroutine.BeginDebate-Effect
+@Gosub Path:System/System_Subroutine.BeginDebate-Last
+@ChangeTrialPauseMode Enable:false ProcessTimer:true
+
+@HidePerspectiveStageScreen Index:1 Reset:true
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmL5,Angle01/ArmR-,Eyes1_Normal_Open2,Mouth1_Surprised_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:単刀直入に聞くわ。|#0205Trial10_Nanoka001| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmL5,Angle01/ArmR-,Eyes1_Normal_Open2,Mouth1_Surprised_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:この事件の<br>【黒幕】である大魔女……<br>あなたに殺せるの？|#0205Trial10_Nanoka002| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:……私が持っているのは<br>死ぬ前に<br>見聞きした情報だけで、<br>全ての情報を<br>知っているわけではない。|#0205Trial10_Hiro001| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:だから確実な情報は……<br>ない。|#0205Trial10_Hiro002| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmR1,ArmL10,Eyes1_Angry_Open1,Mouth1_Normal_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:……論外ね。|#0205Trial10_Nanoka003| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmR1,ArmL10,Eyes1_Angry_Open1,Mouth1_Normal_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:"……なら、私はべつに<br>あなたに協力する<br><link=\"Objection_02_05_10_01\">理由</link>がないわ。|#0205Trial10_Nanoka004|" RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmR2,ArmL1,Eyes1_Normal_Open3,Mouth1_Normal_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:あなたの邪魔をするつもりも<br>ないけれど……。|#0205Trial10_Nanoka005| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmR2,ArmL1,Eyes1_Normal_Open3,Mouth1_Normal_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:……でも、<br>私の邪魔をするなら<br>容赦はしない。|#0205Trial10_Nanoka006| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+
+; ==============================================================================
+; 10-10議論後独白
+; ==============================================================================
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+@Gosub Path:System/System_Subroutine.EndDebate-Effect
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+; 
+; 議論終了
+; ------------------------------------------------------------------------------
+
+@ResetText
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.17
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center ZoomLevel:2
+@Wait WaitMode:0.2
+
+[PrintTextModified Text:（ナノカは警戒心が強い）|#0205Trial10_Hiro003| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.17
+[PrintTextModified Text:"（まずは警戒を解かなくては、<br>　話すら聞いてもらえないか……）|#0205Trial10_Hiro004|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge10-10-1
+
+; 
+; 反論1
+; ------------------------------------------------------------------------------
+
+# Objection_02_05_10_01
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:家に帰れる|#0205Trial10_Choice001| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge10-10-3
+
+@AddChoice ChoiceSummary:みんなから魔女因子を取り除く|#0205Trial10_Choice002| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge10-10-4
+
+@AddChoice ChoiceSummary:君の家族も救える|#0205Trial10_Choice003| Lock:false ButtonPath:ChoiceButtons/Trial/Perjury HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge10-10-2
+
+
+@AddChoice ChoiceSummary:戻る|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; ==============================================================================
+; MARK: 10-10: ❌ 議論ミス選択肢
+; ==============================================================================
+; MARK: 10-10-3: ❌ 反論・家に帰れる
+
+# Judge10-10-3
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:ずっと<br>こんなところにいるつもりか？|#0205Trial10_Hiro005| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:私に協力してくれれば、<br>みんなをこの牢屋敷から解放してみせる……。|#0205Trial10_Hiro006| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.10
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:君も家に帰れるんだ。|#0205Trial10_Hiro007| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmR2,ArmL9,Eyes1_Normal_Open2,Mouth1_Surprised_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right
+[PrintTextModified Text:……あなたたちは、<br>勝手に帰ればいいわ。|#0205Trial10_Nanoka007| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:家が恋しくはないのか。|#0205Trial10_Hiro008| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmR2,ArmL9,Eyes1_Normal_Open2,Mouth1_Surprised_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right
+[PrintTextModified Text:私ひとりで帰ったところで、なんになると言うの？|#0205Trial10_Nanoka008| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmL5,Angle01/ArmR-,Eyes1_Normal_Open2,Mouth1_Surprised_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right
+[PrintTextModified Text:むしろ……<br>無理矢理この屋敷から連れ出されるほうが迷惑よ。|#0205Trial10_Nanoka009| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.17
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（外に興味はないようだ……）|#0205Trial10_Hiro009| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.17
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（……ナノカはこちらを警戒している。<br>　まだ本音を口にしてはくれなそうだ）|#0205Trial10_Hiro010|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.17
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（思い出そう……<br>　ナノカがどんな目的を持っていたのか）|#0205Trial10_Hiro011|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge10-10-1
+
+; MARK: 10-10-4: ❌ 反論・みんなから魔女因子を取り除く
+
+# Judge10-10-4
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.7
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:だったら……私に協力してくれないか。|#0205Trial10_Hiro012| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.7
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:私はみんなから魔女因子を取り除こうとしている。|#0205Trial10_Hiro013| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.8
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:そうすれば私たちが<br>ここに閉じ込められることもなくなる。|#0205Trial10_Hiro014| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.7
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:みんなが救われるんだ！|#0205Trial10_Hiro015| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmR2,ArmL9,Eyes1_Normal_Open3,Mouth1_Normal_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right
+[PrintTextModified Text:……救う？|#0205Trial10_Nanoka010| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmL5,Angle01/ArmR-,Eyes1_Flushed_Open1,Mouth1_Pensive_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right
+[PrintTextModified Text:誰もそんなこと頼んでいないわ。|#0205Trial10_Nanoka011| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmL5,Angle01/ArmR-,Eyes1_Flushed_Open1,Mouth1_Pensive_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right
+[PrintTextModified Text:あなたの邪魔はしないけれど、協力もしない。|#0205Trial10_Nanoka012| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmR2,ArmL9,Eyes1_Normal_Open2,Mouth1_Surprised_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right
+[PrintTextModified Text:私は私で<br>すべきことをするだけよ。|#0205Trial10_Nanoka013| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（興味ないか……）|#0205Trial10_Hiro016| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆別選択肢共通
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.17
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（……ナノカはこちらを警戒している。<br>　まだ本音を口にしてはくれなそうだ）|#0205Trial10_Hiro017|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.17
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（思い出そう……<br>　ナノカがどんな目的を持っていたのか）|#0205Trial10_Hiro018|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge10-10-1
+
+; ==============================================================================
+; MARK: 10-10-2: ⭕ 偽証・君の家族も救える
+; ==============================================================================
+
+# Judge10-10-2
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@HideUI UINames:DebateUI AllowToggle:false
+@ShowUI UINames:ControlPanel
+
+
+@StopBgm
+@GosubToObjectionCutIn CutInKind:CreatureHiro Index:3 VoicePath:CommonTrial_Hiro00032 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+; モノローグ
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（……正直に言えば）|#0205Trial10_Hiro019| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（今の私に、何も確証はない）|#0205Trial10_Hiro020| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（しかし、それでも私は<br>　歩みを止めるわけにはいかない……！）|#0205Trial10_Hiro021|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.12
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（たとえそれが……彼女を騙すことになっても）|#0205Trial10_Hiro022| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……ナノカ。<br>私であれば……。|#0205Trial10_Hiro023| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・明るい音
+@PlaySfxModified SfxPath:Sfx_Common_2 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.18
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:君の家族も、救うことができる。|#0205Trial10_Hiro024| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmR6,ArmL8,Eyes1_Confused_Open1,Mouth1_Cry_Closed1,Sweat1_1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right
+[PrintTextModified Text:……！|#0205Trial10_Nanoka014| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 気任せの蝶［チェロ無し］
+@PlayBgm BgmPath:Bgm_45_2 Volume:1 Loop:true FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.18
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:もちろん、<br>この牢屋敷にて【看守】となってしまった<br>君の【姉】もだ……。|#0205Trial10_Hiro025| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆警戒
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmR6,ArmL8,Eyes1_Flushed_Open1,Mouth1_Angry_Closed1,Sweat1_1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right
+[PrintTextModified Text:二階堂……ヒロ……！|#0205Trial10_Nanoka015| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmR6,ArmL8,Eyes1_Flushed_Open1,Mouth1_Angry_Closed1,Sweat1_1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right
+[PrintTextModified Text:そこまで言うからには、<br>あなたは救う方法に<br>何か心当たりがあるのね？|#0205Trial10_Nanoka016| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.19
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……【なれはて】となった魔女を治す方法。<br>それについての心当たりは――。|#0205Trial10_Hiro026| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@AddChoice ChoiceSummary:ない|#0205Trial10_Choice004| Lock:false AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @GotoModified Path:.Judge10-10-6
+
+@AddChoice ChoiceSummary:ある|#0205Trial10_Choice005| Lock:false AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @GotoModified Path:.Judge10-10-7
+
+@StopForChoice Clear:false
+
+; MARK: 10-10-6: ⭕ ない
+; OR選択肢1。どちらでもOK
+
+# Judge10-10-6
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.19
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:それは……<br>今はない。|#0205Trial10_Hiro027| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.20
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:だが不可能だと諦めるつもりはない。|#0205Trial10_Hiro028| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmR6,ArmL8,Eyes1_Flushed_Open1,Mouth1_Angry_Closed1,Sweat1_1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right
+[PrintTextModified Text:……精神論ね。|#0205Trial10_Nanoka017| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.18
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:君だってそうだ。|#0205Trial10_Hiro029| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+; ＠備考◆ムッ
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmR6,ArmL8,Eyes1_Confused_Open1,Mouth1_Cry_Closed1,Sweat1_1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right
+[PrintTextModified Text:………！|#0205Trial10_Nanoka018| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.10
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:君は黒幕へ復讐するために<br>ここへきたんだろう。|#0205Trial10_Hiro030| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmR6,ArmL8,Eyes1_Flushed_Open1,Mouth1_Pensive_Closed1,Sweat1_1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right
+[PrintTextModified Text:……それは……。|#0205Trial10_Nanoka019| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.11
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……なら、私たちが向かう道は繋がっている。|#0205Trial10_Hiro031| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.10
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:それに、まるっきり見当がついていないという<br>わけでもない。|#0205Trial10_Hiro032| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge10-10-8
+
+; MARK: 10-10-7: ⭕ ある
+; OR選択肢2。どちらでもOK
+
+# Judge10-10-7
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.20
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……ある。|#0205Trial10_Hiro033| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,Angry1,ArmR6,ArmL8,Mouth1_Pensive_Closed1,Sweat1_1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right
+[PrintTextModified Text:……本当かしら。|#0205Trial10_Nanoka020| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,Angry1,ArmR6,ArmL8,Mouth1_Pensive_Closed1,Sweat1_1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right
+[PrintTextModified Text:氷上メルルは【なれはて】を<br>魔女の抜け殻と言っていた……。|#0205Trial10_Nanoka021| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmR1,ArmL10,Eyes1_Normal_Open1,Mouth1_Normal_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right
+[PrintTextModified Text:それでも……戻ると言うの？|#0205Trial10_Nanoka022| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:たしかに戻らない可能性は否定できない。|#0205Trial10_Hiro034| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.8
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:けれど……<br>戻る可能性もゼロではない。|#0205Trial10_Hiro035| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.10
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:少なくとも、<br>君が漫然とここにいたとしても<br>解決する問題ではないよ。|#0205Trial10_Hiro036| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmR6,ArmL8,Eyes1_Confused_Open1,Mouth1_Cry_Closed1,Sweat1_1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right
+[PrintTextModified Text:……！|#0205Trial10_Nanoka023| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+# Judge10-10-8
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.18
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:メルルが言っていたが、<br>【なれはて】とは魔女因子により<br>肉体を蝕まれた者だ。|#0205Trial10_Hiro037| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.18
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:なら、残留した魔女因子という毒を<br>取り除けば……。|#0205Trial10_Hiro038| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.21
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:【なれはて】を治療できる可能性はある。|#0205Trial10_Hiro039| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.7
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:だから私と共に来るんだ。|#0205Trial10_Hiro040| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.7
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:君の姉も、一緒に救ってみせる。|#0205Trial10_Hiro041| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆悩み
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmR6,ArmL8,Eyes1_Uncomfortable_Open1,Mouth1_Flushed_Closed1,Sweat1_1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right
+[PrintTextModified Text:…………。|#0205Trial10_Nanoka024| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆悩み
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmR6,ArmL8,Eyes1_Angry_Closed1,Mouth1_Angry_Closed2,Sweat1_1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right
+[PrintTextModified Text:嘘ね……。|#0205Trial10_Nanoka025| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+; カットイン
+@StopBgm
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.19
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:――違う。|#0205Trial10_Hiro042| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.19
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:嘘じゃない。<br>これは最善の可能性への道……。|#0205Trial10_Hiro043| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.20
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:【希望】だ。|#0205Trial10_Hiro044| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.Normal1,ArmR6,ArmL8,Eyes1_Flushed_Open1,Mouth1_Cry_Closed1,Sweat1_1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right
+[PrintTextModified Text:……っ！|#0205Trial10_Nanoka026| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.3
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（……ナノカの心は揺らいでいる）|#0205Trial10_Hiro045| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.3
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（攻め手を止めてはいけない……！<br>　ナノカ自身の為にも！）|#0205Trial10_Hiro046|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+@AutoSave
+@GotoModified Path:Act02_Chapter05/Act02_Chapter05_Trial11 ResetState:-
+

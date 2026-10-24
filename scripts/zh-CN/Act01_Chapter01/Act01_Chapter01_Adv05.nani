@@ -1,0 +1,359 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook IsDebugDirectJump:{isDebugDirectJump}
+@Gosub Path:System/System_Subroutine.BeginAdv
+
+# Scene1-1-1
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false AppearanceAndTransition:5_1
+@ModifyBackgroundExtended TintColor:#000000 Duration:1.2 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:1.8
+@PlayBgm BgmPath:Bgm_21_1 Volume:1 Loop:true FadeInDuration:0
+@ShowToastUI Text:第１章|#Toast_101|
+@AutoSave
+[PrintTextModified Text:沾满鲜血的会客厅内，<br>少女们陷入了恐慌。|#0101Adv05_Narrative001| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Jailer
+@AnimateActorExtended ActorIds:Jailer Loop:false ScenePositionX:30|50|70 Duration:2|2|2
+
+[PrintTextModified Text:………|#0101Adv05_Jailer001| AuthorId:Jailer RevealSpeed:1 WaitForInput:true Wait:true]
+
+@PlaySfxModified SfxPath:Sfx_5 Volume:1 Loop:false FadeInDuration:0
+
+[PrintTextModified Text:唯一在室内缓慢行动的，<br>只有看守了。|#0101Adv05_Narrative002| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:看守正在打扫二阶堂希罗的尸体。<br>在此作业期间——|#0101Adv05_Narrative003| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Alisa.Fearful1,Option-ArmL-Off,ArmR2,ArmL4
+
+[PrintTextModified Text:呜……！|#0101Adv05_Alisa001| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:有一位难耐恐惧的少女<br>猛然开始狂奔。|#0101Adv05_Narrative004| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Jailer.1
+
+[PrintTextModified Text:看守对逃跑行动作出了反应。<br>它开始以迅猛之势追赶那位少女，紫藤亚里沙。|#0101Adv05_Narrative005| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:（危险！）|#0101Adv05_Ema001| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Jailer.1 SubId:Middle
+@AnimateActorExtended ActorIds:Jailer-Middle Loop:false ScenePositionX:15 ScenePositionY:8 Scale:1.4
+
+[PrintTextModified Text:跟在亚里沙身后的看守，手上的镰刀亮起寒光。|#0101Adv05_Narrative006| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:面对即将二度降临的悲剧，<br>大部分少女都捂住了眼睛，发出了惊叫声。|#0101Adv05_Narrative007| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Leia.Angry1
+
+@ResetText
+
+
+[PrintTextModified Text:等一下！|#0101Adv05_Leia001| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:一位少女用威严的声音说道。<br>在场的所有人都回过神来看着她。|#0101Adv05_Narrative008| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:那位少女——莲见蕾雅<br>拔出了腰间的刺剑，站到亚里沙和看守二位中间。|#0101Adv05_Narrative009| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:不许对她出手！<br>我不会再让悲剧发生！|#0101Adv05_Leia002| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:15 IdAndAppearance:Jailer.1 SubId:Middle
+@AnimateActorExtended ActorIds:Jailer-Middle Loop:false ScenePositionX:85 ScenePositionY:8 Scale:1.4
+
+[PrintTextModified Text:看守似乎没有听进去，<br>继续用力挥下镰刀。|#0101Adv05_Narrative010| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@PlaySfxModified SfxPath:Sfx_9 Volume:1 Loop:false FadeInDuration:0
+
+[PrintTextModified Text:（不要再这样了——！）|#0101Adv05_Ema002| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@StopBgm
+
+[PrintTextModified Text:艾玛她……|#0101Adv05_Narrative011| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 選択肢
+; 『レイアを庇った』-> 1‐1‐b1 へ
+; 『ただ見守った』
+; ========================================
+
+@AddChoice ChoiceSummary:挡在蕾雅的身前|#0101Adv05_Choice001| Lock:false ButtonPath:ChoiceButtons/Adv/Bad AutoPlay:true ShowHandler:true
+    @GotoModified Path:Act01_Chapter01/Act01_Chapter01_Bad01 ResetState:-
+
+@AddChoice ChoiceSummary:选择了旁观|#0101Adv05_Choice002| Lock:false AutoPlay:true ShowHandler:true
+    @GotoModified Path:.Choice1-1-1
+@AutoSave DelayDuration:0.3
+@StopForChoice Clear:false
+
+# Choice1-1-1
+
+@RecordCorrectChoice Number:1
+
+; ＠備考◆跳躍の気合声
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Leia.Angry1
+
+[PrintTextModified Text:——哈！|#0101Adv05_Leia003| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@PlaySfxModified SfxPath:Sfx_178 Volume:1 Loop:false FadeInDuration:0
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:蕾雅瞬间往后方跳去，<br>让看守砍了个空。|#0101Adv05_Narrative012| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Leia.Angry1
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Alisa.Surprised1,Option-ArmL-Off,ArmR2,ArmL4
+
+[PrintTextModified Text:蕾雅保持着握剑姿势，<br>以坚决的眼神直视看守。|#0101Adv05_Narrative013| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:她没有违反规定。<br>你没有理由杀她。|#0101Adv05_Leia004| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:在蕾雅身后站着的亚里沙<br>大概是丧失了逃跑的欲望，呆站在原地一动不动。|#0101Adv05_Narrative014| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:你为什么……|#0101Adv05_Alisa002| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:我想保护你们。<br>所以，我们大家都应该冷静下来。|#0101Adv05_Leia005| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Jailer.1
+
+[PrintTextModified Text:…………|#0101Adv05_Jailer002| AuthorId:Jailer RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:看守不再挥动镰刀，回到了原先的打扫作业中。<br>或许，刚才的行动只是出于警告目的。|#0101Adv05_Narrative015| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:接着，它扛起希罗的尸体离开了房间。|#0101Adv05_Narrative016| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@PlayBgm BgmPath:Bgm_5_1 Volume:1 Loop:true FadeInDuration:0
+
+[PrintTextModified Text:随着看守的离开，<br>少女之间紧绷的气氛终于有了稍许缓解。|#0101Adv05_Narrative017| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:只不过，尽管希罗的尸体已打扫干净，<br>但室内仍充满着沉闷的血液气味。|#0101Adv05_Narrative018| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:刚刚有人说过，<br>这个房间【很臭】。|#0101Adv05_Narrative019| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:会客厅装点着恶趣味装饰，散发着邪气。|#0101Adv05_Narrative020| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:如果说，这里的绒毯、沙发、窗帘，每样东西都在长年累月间<br>吮吸着少女们的鲜血——|#0101Adv05_Narrative021| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Coco.Fearful1,ArmL8
+@EmoteNod ActorIds:Coco Loop:false Speed:1
+
+[PrintTextModified Text:呜，呕呕呕……|#0101Adv05_Coco001| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:一想到这些或许就是事实，可可便吐了出来。|#0101Adv05_Narrative022| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:到现在都没人想吐，这才是怪事。<br>现在的状况，就是如此地脱离常轨。|#0101Adv05_Narrative023| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:这时有人站到了中间。<br>不用多想，那就是蕾雅。|#0101Adv05_Narrative024| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Leia.Normal1,ArmR3
+
+[PrintTextModified Text:大家，请听我说！|#0101Adv05_Leia006| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:看来，我们被迫只能在这里共同生活了。<br>虽然不知道要待到什么时候……<br>现在我们还是乖乖照做吧。|#0101Adv05_Leia007| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:尽管我们才刚认识不久，<br>但是我想尽量保护你们。|#0101Adv05_Leia008| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:像刚才希罗作出的举动，<br>还有像亚里沙刚才那样的逃跑行为，<br>有可能会危及我们所有人。|#0101Adv05_Leia009| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:我希望大家今后可以谨慎行动。|#0101Adv05_Leia010| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Alisa.Angry1,Option-ArmL-Off,ArmR2,ArmL2
+
+[PrintTextModified Text:啧……|#0101Adv05_Alisa003| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:亚里沙无法反驳，<br>只好咂了咂舌宣泄不满。|#0101Adv05_Narrative025| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Leia.Normal1
+
+[PrintTextModified Text:……首先，请大家看一下自己的口袋。<br>应该每个人都发了一部手机。|#0101Adv05_Leia011| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:听蕾雅这么讲，<br>所有人都摸了摸自己的口袋。|#0101Adv05_Narrative026| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（真的欸……虽然不是我自己的，<br>　不过确实有一部智能手机……<br>　难道可以用它联络外界！？）|#0101Adv05_Ema003|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Leia.Normal1
+
+[PrintTextModified Text:遗憾的是，没有信号，<br>不能用来和外界联络。|#0101Adv05_Leia012| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:我们是被抓来这个地方的，<br>有信号才奇怪……|#0101Adv05_Leia013| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:希望瞬间破灭，<br>艾玛失望地垂下肩膀。|#0101Adv05_Narrative027| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:在手机里面，<br>有一个叫【魔女图鉴】的APP。|#0101Adv05_Leia014| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:刚才典狱长也讲了，<br>【魔女图鉴】好像就是规则手册。<br>里面收录了监牢的地图和规定，还有我们囚犯的资料。|#0101Adv05_Leia015| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:请大家都认真去看【魔女图鉴】里面<br>记录的规定，一起生活下去吧。|#0101Adv05_Leia016| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubResetWitchBook Path:System/System_ResetWitchBook
+
+@SetCustomVariable Expression:"hasWitchBook = true"
+@ShowUI UINames:WitchBookButtonUI
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Alisa.Angry1,Option-ArmL-Off,ArmR2,ArmL7
+
+[PrintTextModified Text:……开什么玩笑！<br>我才不管什么规定不规定！|#0101Adv05_Alisa004| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:什么魔女什么囚犯都见鬼去吧！<br>我一秒都不想待在这个地方。<br>我要离开这里！|#0101Adv05_Alisa005| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:面对咬牙切齿的亚里沙，<br>蕾雅忧愁地叹了口气。|#0101Adv05_Narrative028| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Leia.Normal1,ArmR5
+
+[PrintTextModified Text:你要是再表现出反抗的态度，<br>我可不知道看守会对你做出什么事来。|#0101Adv05_Leia017| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Alisa.Angry1,Option-ArmL-Off
+
+[PrintTextModified Text:跟你没关系吧，你管我！|#0101Adv05_Alisa006| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:亚里沙咂了咂舌，离开了会客厅。<br>蕾雅无可奈何地耸了耸肩。|#0101Adv05_Narrative029| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Leia.Normal1
+
+[PrintTextModified Text:除了她，剩下来的人应该可以好好配合吧？|#0101Adv05_Leia018| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Determined2,ArmR3,ArmL7
+
+[PrintTextModified Text:……我也，不愿意。|#0101Adv05_Ema004| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:艾玛往前走出一步，开口说道。|#0101Adv05_Narrative030| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:我才不要听，杀死希罗的<br>那帮家伙讲的话！<br>我绝对不会原谅它们！|#0101Adv05_Ema005| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:双眼闪着泪花的艾玛坚定说道。<br>蕾雅露出了有些惊讶的表情。|#0101Adv05_Narrative031| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Leia.Normal1
+
+[PrintTextModified Text:是这样啊。<br>你好像认识希罗，对吗。|#0101Adv05_Leia019| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:不过在我看来，你们好像关系并不是很好？|#0101Adv05_Leia020| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Pensive1,ArmR3,ArmL7
+
+[PrintTextModified Text:因为，希罗她……<br>希罗她是一个正直的人……|#0101Adv05_Ema006| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Leia.Normal1,ArmR5
+
+[PrintTextModified Text:蕾雅轻轻叹了口气。|#0101Adv05_Narrative032| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:唉，我知道你不打算遵守了。<br>我也不会强迫你。|#0101Adv05_Leia021| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:不过，我希望大家可以温和一些。<br>我们无法和引来危险的分子一起行动。|#0101Adv05_Leia022| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Sherry.Normal1,ArmL6
+@EmoteJumpDouble ActorIds:Sherry Loop:false Speed:1
+
+[PrintTextModified Text:我也来我也来！<br>我也要选艾玛这边～！|#0101Adv05_Sherry001| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:雪莉兴奋地举起了手。|#0101Adv05_Narrative033| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:艾玛惊讶得张大了双眼，<br>事情的发展超出了她的预料。|#0101Adv05_Narrative034| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Sherry.Normal1,ArmL8
+
+[PrintTextModified Text:选边就要选有趣的一边，这就是我的信条！|#0101Adv05_Sherry002| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Sherry.Normal1,ArmR13,ArmL1
+
+[PrintTextModified Text:而艾玛你！<br>我从你的身上闻到了一股超浓郁的有趣味道！|#0101Adv05_Sherry003| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Surprised1,ArmR3,ArmL1
+
+[PrintTextModified Text:浓郁的，味道……？|#0101Adv05_Ema007| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:不知何时，艾玛的身边<br>又多了汉娜和梅露露两个人。|#0101Adv05_Narrative035| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:20 IdAndAppearance:Hanna.Normal1
+@ModifyCharacterExtended Lazy:false ScenePosition:80 IdAndAppearance:Meruru.Default
+
+[PrintTextModified Text:我也要和你站一边。<br>本小姐最讨厌那种一副大人物的样子指指点点的人了。|#0101Adv05_Hanna001| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:看样子，她并没有想着支持艾玛，<br>而只是单纯地看不惯蕾雅。<br>似乎自尊受伤一事令她十分介怀。|#0101Adv05_Narrative036| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:呜呜……艾玛小姐……|#0101Adv05_Meruru001| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:而梅露露好像有点怕生，<br>她紧紧贴住了艾玛。|#0101Adv05_Narrative037| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Sherry.Normal1,ArmR1,ArmL11
+
+[PrintTextModified Text:哎呀呀～？<br>意见分成两派了耶。|#0101Adv05_Sherry004| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Leia.Normal1,ArmR5
+
+[PrintTextModified Text:……看来的确如此。|#0101Adv05_Leia023| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:大家能齐心协力度过难关那就最好，<br>不过意见不合就没办法了。|#0101Adv05_Leia024| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:我们先回地下去吧。<br>根据规定，现在是必须待在地下牢房内的时间。|#0101Adv05_Leia025| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:蕾雅动身后，<br>决定和她坐同一条船的少女们<br>也都跟在她身后离开了。|#0101Adv05_Narrative038| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:留在会客厅内的，<br>就只剩艾玛、雪莉、汉娜和梅露露4个人。|#0101Adv05_Narrative039| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Sherry.Normal1,ArmR1,ArmL1
+@EmoteJumpDouble ActorIds:Sherry Loop:false Speed:1
+
+[PrintTextModified Text:然后呢然后呢？？我们接下来做什么？<br>大家齐心协力去弄死看守？|#0101Adv05_Sherry005| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Surprised1,ArmR1,ArmL1
+
+[PrintTextModified Text:不、不可以啦。<br>会像希罗那样被杀死的。|#0101Adv05_Ema008| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:"（不能原谅杀死希罗的看守，还有典狱长……<br>　可是……）|#0101Adv05_Ema009|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（不多加考虑冲动行事，只会落得同样的下场。<br>　我一定要冷静行动）|#0101Adv05_Ema010|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Normal1
+
+[PrintTextModified Text:……总之，我们先回地下去吧。<br>我们也应该看一下规定才对。|#0101Adv05_Ema011| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Sherry.Normal1
+
+[PrintTextModified Text:嗯说的也是呢。|#0101Adv05_Sherry006| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Determined2
+
+[PrintTextModified Text:不过我并不打算坐以待毙。<br>……它们杀死了希罗，<br>我绝不会原谅。|#0101Adv05_Ema012| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; [transition Out,Fade,1,Black]
+; ========================================
+
+@Gosub Path:System/System_Subroutine.EndAdv
+
+@GotoModified Path:Act01_Chapter01/Act01_Chapter01_Adv06 SoftReset:true
+

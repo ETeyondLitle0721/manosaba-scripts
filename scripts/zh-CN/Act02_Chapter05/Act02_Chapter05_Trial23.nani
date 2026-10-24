@@ -1,0 +1,561 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook Version:13
+
+@BeginIf Expression:isDebugDirectJump
+    @Gosub Path:Act02_Chapter05/Act02_Chapter05_TrialInit
+    @HidePerspectiveStageScreen Index:1 Duration:0 Reset:true
+    @ModifyBackgroundExtended TintColor:#000000 Duration:0 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+
+@SetTrialTimer Time:900
+@HideUI UINames:ControlPanel AllowToggle:false
+@ShowUI UINames:DebateUI
+
+; クリーチャー化初期化
+@HideActors ActorIds:Hiro Lazy:false
+@ModifyCharacterExtended Position:{hiroPositionX},{characterPositionY},{hiroPositionZ} Rotation:,{hiroRotationY} Scale:{characterScale},{characterScale},1 Duration:0 Lazy:false IdAndAppearance:CreatureHiro.2
+
+@HideActors ActorIds:Meruru Lazy:false
+@ModifyCharacterExtended Position:{meruruPositionX},{characterPositionY},{meruruPositionZ} Rotation:,{meruruRotationY} Scale:{characterScale},{characterScale},1 Duration:0 Lazy:false IdAndAppearance:CreatureMeruru.3-5
+
+@HideActors ActorIds:Leia Lazy:false
+@ModifyCharacterExtended Position:{leiaPositionX},{characterPositionY},{leiaPositionZ} Rotation:,{leiaRotationY} Scale:{characterScale},{characterScale},1 Duration:0 Lazy:false IdAndAppearance:CreatureLeia.0-8
+
+@HideActors ActorIds:Noah Lazy:false
+@ModifyCharacterExtended Position:{noahPositionX},{characterPositionY},{noahPositionZ} Rotation:,{noahRotationY} Scale:{characterScale},{characterScale},1 Duration:0 Lazy:false IdAndAppearance:CreatureNoah.0-3
+
+@HideActors ActorIds:Margo Lazy:false
+@ModifyCharacterExtended Position:{margoPositionX},{characterPositionY},{margoPositionZ} Rotation:,{margoRotationY} Scale:{characterScale},{characterScale},1 Duration:0 Lazy:false IdAndAppearance:CreatureMargo.0-4
+
+@HideActors ActorIds:Nanoka Lazy:false
+@ModifyCharacterExtended Position:{nanokaPositionX},{characterPositionY},{nanokaPositionZ} Rotation:,{nanokaRotationY} Scale:{characterScale},{characterScale},1 Duration:0 Lazy:false IdAndAppearance:CreatureNanoka.0-1
+
+@HideActors ActorIds:Coco Lazy:false
+@ModifyCharacterExtended Position:{cocoPositionX},{characterPositionY},{cocoPositionZ} Rotation:,{cocoRotationY} Scale:{characterScale},{characterScale},1 Duration:0 Lazy:false IdAndAppearance:CreatureCoco.2-3
+
+@HideActors ActorIds:AnAn Lazy:false
+@ModifyCharacterExtended Position:{ananPositionX},{characterPositionY},{ananPositionZ} Rotation:,{ananRotationY} Scale:{characterScale},{characterScale},1 Duration:0 Lazy:false IdAndAppearance:CreatureAnAn.0-3
+
+@HideActors ActorIds:Miria Lazy:false
+
+@HideActors ActorIds:Alisa Duration:0 Lazy:false
+@ModifyCharacterExtended Position:{alisaPositionX},{characterPositionY},{alisaPositionZ} Rotation:,{alisaRotationY} Scale:{characterScale},{characterScale},1 Duration:0 Lazy:false IdAndAppearance:CreatureAlisa.0-7
+
+@HideActors ActorIds:Hanna Duration:0 Lazy:false
+@ModifyCharacterExtended Position:{hannaPositionX},{characterPositionY},{hannaPositionZ} Rotation:,{hannaRotationY} Scale:{characterScale},{characterScale},1 Duration:0 Lazy:false IdAndAppearance:CreatureHanna.1_5
+
+; ==============================================================================
+; MARK: 10-23: 💬 【遠野ハンナ】
+; ==============================================================================
+; ＠ト書き▼議論10-23【遠野ハンナ】
+; 議論開始カットイン
+; BGM変更：Guil-me N'o sinruits-Vocal無-
+@PlayBgm BgmPath:Bgm_8_1 Volume:1 Loop:true FadeInDuration:0
+@PlayBgm BgmPath:Ambi_7_1 Volume:1 Loop:true FadeInDuration:0
+@ResetText
+@ModifyCharacterExtended Duration:0 Lazy:false IdAndAppearance:CreatureHiro.2
+@ModifyPerspectiveStageCamera Index:1 Height:5.6 Rotation:"0,{ (8.1 / courtStandCount * 360)},0" Distance:12 Duration:0
+@WaitForNextFrame
+@Wait WaitMode:0.1
+@ShakePerspectiveStageCamera Index:1 Force:0.01,-0.01,0 Frequency:1800 DampingRatio:0 Randomly:false Duration:180
+
+@ShowPerspectiveStageScreen Index:1
+@Wait WaitMode:1.5
+
+@ResetText
+@ModifyCharacterExtended Duration:0 Lazy:false IdAndAppearance:CreatureHanna.2_7
+@ModifyPerspectiveStageCamera Index:0 Height:5.6 Rotation:"0,{ (0.9 / courtStandCount * 360)},0" Distance:12 Duration:0
+@WaitForNextFrame
+@Wait WaitMode:0.1
+@ShakePerspectiveStageCamera Index:0 Force:0.01,-0.01,0 Frequency:1800 DampingRatio:0 Randomly:false Duration:180
+
+@HidePerspectiveStageScreen Index:1 Reset:true
+@Wait WaitMode:1.5
+
+# Judge10-23-1
+
+@Gosub Path:System/System_Subroutine.BeginDebate-First
+@Gosub Path:System/System_Subroutine.BeginDebate-Effect
+@Gosub Path:System/System_Subroutine.BeginDebate-Last
+@ChangeTrialPauseMode Enable:false ProcessTimer:true
+
+@HidePerspectiveStageScreen Index:1 Reset:true
+@PlayBgm BgmPath:Ambi_7_1 Volume:0.2 Loop:true FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHanna.2_7
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hanna Composition:Left RollDirection:Right ZoomLevel:3
+@Wait WaitMode:0.1
+@ShakePerspectiveStageCamera Index:0 Force:0.01,-0.01,0 Frequency:1800 DampingRatio:0 Randomly:false Duration:180
+@PrintDebateText Text:"我犯下的<br>罪孽，<br><link=\"Objection_02_05_23_01\">既自私又残忍</link>……！<br>|#0205Trial23_Hanna001|" RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHanna.2_7
+@PrintDebateText Text:是道歉也无法得到原谅，<br>且无可挽回的<br>重罪……|#0205Trial23_Hanna002| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHanna.2_8
+@PrintDebateText Text:她们……<br>另一个世界的我们，<br>应该都是拼尽全力<br>想活下去的。|#0205Trial23_Hanna003| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHanna.2_8
+@PrintDebateText Text:"怎么可以把那一切<br><link=\"Objection_02_05_23_02\">当作没发生过</link><br>呢……！|#0205Trial23_Hanna004|" RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHanna.1_7
+@PrintDebateText Text:如果忘记了<br>她们……<br>还有谁能<br>为她们哀悼……？|#0205Trial23_Hanna005| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHanna.1_7
+@PrintDebateText Text:我必须<br>永远记住……|#0205Trial23_Hanna006| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHanna.1_5
+@PrintDebateText Text:"如果<link=\"Objection_02_05_23_03\">抛弃</link>了<br>她们……<br>我就<br>没资格<br>继续当人了！！|#0205Trial23_Hanna007|" RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+; ==============================================================================
+; 10-23議論後独白
+; ==============================================================================
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+@Gosub Path:System/System_Subroutine.EndDebate-Effect
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+; 
+; 議論終了
+; ------------------------------------------------------------------------------
+@PlayBgm BgmPath:Ambi_7_1 Volume:1 Loop:true FadeInDuration:0
+
+@ResetText
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.13
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center ZoomLevel:2
+@Wait WaitMode:0.2
+@ShakePerspectiveStageCamera Index:0 Force:0.01,-0.01,0 Frequency:1800 DampingRatio:0 Randomly:false Duration:180
+
+[PrintTextModified Text:（汉娜已经深陷在绝望当中了……）|#0205Trial23_Hiro001| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.13
+[PrintTextModified Text:"（如果不阻止她，<br>　最后大家都会死……！）|#0205Trial23_Hiro002|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.13
+[PrintTextModified Text:"（汉娜的心理创伤……<br>　就是说服她的关键所在）|#0205Trial23_Hiro003|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.13
+[PrintTextModified Text:"（我得回想起<br>　得到米莉亚的魔法共享的【记忆】……！）|#0205Trial23_Hiro004|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge10-23-1
+
+; 
+; 反論1
+; ------------------------------------------------------------------------------
+
+# Objection_02_05_23_01
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:杀人的不是只有你|#0205Trial23_Choice001| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge10-23-3
+
+
+@AddChoice ChoiceSummary:返回|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; 
+; 反論2
+; ------------------------------------------------------------------------------
+
+# Objection_02_05_23_02
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:不会当作没发生过的|#0205Trial23_Choice002| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge10-23-4
+
+
+@AddChoice ChoiceSummary:返回|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; 
+; 反論3
+; ------------------------------------------------------------------------------
+
+# Objection_02_05_23_03
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:你没有抛弃|#0205Trial23_Choice003| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge10-23-2
+
+
+@AddChoice ChoiceSummary:返回|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; ==============================================================================
+; MARK: 10-23: ❌ ミス選択肢
+; ==============================================================================
+
+; MARK: 10-23-3: ❌ 反論・ハンナだけじゃない
+
+# Judge10-23-3
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@PlayBgm BgmPath:Ambi_7_1 Volume:1 Loop:true FadeInDuration:0
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+@Wait WaitMode:0.1
+@ShakePerspectiveStageCamera Index:0 Force:0.01,-0.01,0 Frequency:1800 DampingRatio:0 Randomly:false Duration:180
+[PrintTextModified Text:汉娜你冷静点！|#0205Trial23_Hiro005| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.6
+[PrintTextModified Text:凶杀案又不是现在才开始的。<br>在全世界范围内已经发生过无数次了！|#0205Trial23_Hiro006| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.6
+[PrintTextModified Text:你的案子，<br>不过是微不足道的其中之一而已。|#0205Trial23_Hiro007| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.8
+[PrintTextModified Text:而且当时的你，<br>内心受到了魔女因子的杀人冲动的侵蚀……！|#0205Trial23_Hiro008| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.8
+[PrintTextModified Text:所以你没必要太在意……！|#0205Trial23_Hiro009| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHanna.2_4
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hanna Composition:Right
+@Wait WaitMode:0.1
+@ShakePerspectiveStageCamera Index:0 Force:0.01,-0.01,0 Frequency:1800 DampingRatio:0 Randomly:false Duration:180
+[PrintTextModified Text:……所以你想说，杀了人也不要紧吗？|#0205Trial23_Hanna008| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHanna.2_5
+[PrintTextModified Text:这种道理，我无法接受啊！|#0205Trial23_Hanna009| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆怯え
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHanna.1_5
+@Wait WaitMode:0.1
+@ShakePerspectiveStageCamera Index:0 Force:0.01,-0.01,0 Frequency:1800 DampingRatio:0 Randomly:false Duration:180
+[PrintTextModified Text:如果靠这种道理就原谅了自己，<br>那就不只是身体，连心灵都会变成怪物的……|#0205Trial23_Hanna010| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHanna.1_5
+[PrintTextModified Text:我绝对不想变成怪物……！|#0205Trial23_Hanna011| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.13
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+@Wait WaitMode:0.1
+@ShakePerspectiveStageCamera Index:0 Force:0.01,-0.01,0 Frequency:1800 DampingRatio:0 Randomly:false Duration:180
+[PrintTextModified Text:（看来我刚刚说的话无法触及汉娜的内心……）|#0205Trial23_Hiro010| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.13
+[PrintTextModified Text:"（汉娜现在<br>　快要被自责感压垮了）|#0205Trial23_Hiro011|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.13
+[PrintTextModified Text:"（为了稍微减轻她的心理负担，我得想想<br>　有没有什么能对她说的话……）|#0205Trial23_Hiro012|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+
+@GotoModified Path:.Judge10-23-1
+
+; MARK: 10-23-4: ❌ 反論・なかったことにはしない
+
+# Judge10-23-4
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@PlayBgm BgmPath:Ambi_7_1 Volume:1 Loop:true FadeInDuration:0
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+@Wait WaitMode:0.1
+@ShakePerspectiveStageCamera Index:0 Force:0.01,-0.01,0 Frequency:1800 DampingRatio:0 Randomly:false Duration:180
+[PrintTextModified Text:汉娜，不是这样的……！|#0205Trial23_Hiro013| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.8
+[PrintTextModified Text:已经过去的事情无法改变……<br>那么，重要的应该是【现在】才对。|#0205Trial23_Hiro014| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.6
+[PrintTextModified Text:为了下次不再失败，<br>把过去当作教训就好了！|#0205Trial23_Hiro015| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.6
+[PrintTextModified Text:没必要当作没发生过。|#0205Trial23_Hiro016| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHanna.2_8
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hanna Composition:Right
+@Wait WaitMode:0.1
+@ShakePerspectiveStageCamera Index:0 Force:0.01,-0.01,0 Frequency:1800 DampingRatio:0 Randomly:false Duration:180
+[PrintTextModified Text:……希罗你有办法重来，<br>所以才说得出这种话吧……|#0205Trial23_Hanna012| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHanna.2_8
+[PrintTextModified Text:人的生命只有一次啊。<br>死了就什么都没了……|#0205Trial23_Hanna013| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHanna.2_7
+[PrintTextModified Text:不可能说放下就能放下的！|#0205Trial23_Hanna014| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHanna.2_7
+[PrintTextModified Text:生命并不是那么轻贱的东西！|#0205Trial23_Hanna015| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.13
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+@Wait WaitMode:0.1
+@ShakePerspectiveStageCamera Index:0 Force:0.01,-0.01,0 Frequency:1800 DampingRatio:0 Randomly:false Duration:180
+[PrintTextModified Text:（看来我的观点缺乏说服力……）|#0205Trial23_Hiro017| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 別選択肢共通
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.13
+[PrintTextModified Text:"（汉娜现在<br>　快要被自责感压垮了）|#0205Trial23_Hiro018|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.13
+[PrintTextModified Text:"（为了稍微减轻她的心理负担，我得想想<br>　有没有什么能对她说的话……）|#0205Trial23_Hiro019|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+
+@GotoModified Path:.Judge10-23-1
+
+; ==============================================================================
+; MARK: 10-23-2: ⭕ 反論・見捨てていない
+; ==============================================================================
+
+# Judge10-23-2
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@GosubToObjectionCutIn CutInKind:CreatureHiro Index:2 VoicePath:CommonTrial_Hiro00032 Volume:1
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+@HideUI UINames:DebateUI AllowToggle:false
+@ShowUI UINames:ControlPanel
+
+@PlayBgm BgmPath:Ambi_7_1 Volume:1 Loop:true FadeInDuration:0
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.7
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+@Wait WaitMode:0.1
+@ShakePerspectiveStageCamera Index:0 Force:0.01,-0.01,0 Frequency:1800 DampingRatio:0 Randomly:false Duration:180
+[PrintTextModified Text:不对，汉娜！|#0205Trial23_Hiro020| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.7
+[PrintTextModified Text:你并没有抛弃……！|#0205Trial23_Hiro021| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.7
+[PrintTextModified Text:主动抛弃，<br>和没能抓住正在坠落之人的手，是两回事！|#0205Trial23_Hiro022| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+; ＠備考◆ハッとする
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHanna.2_5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hanna Composition:Right
+@Wait WaitMode:0.1
+@ShakePerspectiveStageCamera Index:0 Force:0.01,-0.01,0 Frequency:1800 DampingRatio:0 Randomly:false Duration:180
+[PrintTextModified Text:………！|#0205Trial23_Hanna016| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.8
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+@Wait WaitMode:0.1
+@ShakePerspectiveStageCamera Index:0 Force:0.01,-0.01,0 Frequency:1800 DampingRatio:0 Randomly:false Duration:180
+[PrintTextModified Text:……一个人的手，能触及的范围十分有限。|#0205Trial23_Hiro023| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.8
+[PrintTextModified Text:我能理解……凭你一个人的力量，或许没办法拯救他人。|#0205Trial23_Hiro024| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.8
+[PrintTextModified Text:但是，你并非作出了抛弃……|#0205Trial23_Hiro025| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.8
+[PrintTextModified Text:只不过是你无论如何都无法拯救……<br>仅此而已。|#0205Trial23_Hiro026| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆トラウマを思い出し、悔いる
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHanna.1_5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hanna Composition:Right
+@Wait WaitMode:0.1
+@ShakePerspectiveStageCamera Index:0 Force:0.01,-0.01,0 Frequency:1800 DampingRatio:0 Randomly:false Duration:180
+[PrintTextModified Text:啊啊………啊啊啊……！|#0205Trial23_Hanna017| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+@Wait WaitMode:0.1
+@ShakePerspectiveStageCamera Index:0 Force:0.01,-0.01,0 Frequency:1800 DampingRatio:0.01 Randomly:false Duration:180
+[PrintTextModified Text:……当然了，不能把一切都归咎于他人和环境。|#0205Trial23_Hiro027| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.6
+[PrintTextModified Text:但是，你也没必要承担所有的责任……！|#0205Trial23_Hiro028| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.9
+[PrintTextModified Text:……汉娜！<br>抓住我的手吧！|#0205Trial23_Hiro029| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.9
+[PrintTextModified Text:这次，不要再抛弃我……<br>不要再抛弃我们了！|#0205Trial23_Hiro030| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Scale:1.5 Duration:0 Lazy:false ScenePosition:50,50 IdAndAppearance:CreatureHanna.1_6 SubId:Middle
+@ModifyBackgroundExtended Scale:1.5 TintColor:#FFFFFF Duration:0 Lazy:false ScenePosition:50,50 AppearanceAndTransition:14_1 SubId:Middle
+@SpawnShake ActorId:Camera ShakeCount:8 ShakeDuration:0.4 ShakeAmplitude:0.05
+[PrintTextModified Text:…………希罗……！|#0205Trial23_Hanna018| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@StopBgm
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHanna.2_6 SubId:Middle
+[PrintTextModified Text:……啊啊……|#0205Trial23_Hanna019| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHanna.2_6 SubId:Middle
+[PrintTextModified Text:这次……我……|#0205Trial23_Hanna020| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHanna.2_6 SubId:Middle
+[PrintTextModified Text:到底能不能……稳稳地握住呢……|#0205Trial23_Hanna021| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@Wait WaitMode:0.5
+
+; 転倒SE・ドサッ
+@PlaySfxModified SfxPath:Sfx_6 Volume:1 Loop:false FadeInDuration:0
+@ModifyCharacterExtended Duration:0.3 Lazy:false ScenePosition:50,20 IdAndAppearance:CreatureHanna.2_6 SubId:Middle
+@HideActors ActorIds:CreatureHanna-Middle Duration:0.3 Lazy:false
+@Wait WaitMode:0.8
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.3
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+@HideActors ActorIds:MainBackground-Middle Duration:0.5 Lazy:false
+[PrintTextModified Text:……停下来了吗。|#0205Trial23_Hiro031| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@UpdateWitchBook Id:Hanna Category:Profile Version:11
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} TintColor:#FFFFFF Duration:0 Lazy:false ScenePosition:50,50 AppearanceAndTransition:14_1 SubId:Middle
+@ModifyCharacterExtended Duration:0 Lazy:false ScenePosition:50,50 IdAndAppearance:Warden.8 SubId:Middle
+[PrintTextModified Text:……目前岛屿高度正在缓慢下降中。<br>安全着水后，必须重绘地图了啊。|#0205Trial23_Warden001| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.14
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+@HideActors ActorIds:MainBackground-Middle,Warden-Middle Duration:0 Lazy:false
+[PrintTextModified Text:……真亏你能一点都不紧张。|#0205Trial23_Hiro032| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.13
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（……看来物理上的毁灭算是成功避免了）|#0205Trial23_Hiro033| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.13
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（剩下的预备魔女，还剩两人……）|#0205Trial23_Hiro034| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（是艾玛和……）|#0205Trial23_Hiro035| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+; ＠備考◆「ふふ～」と仁王立ちして待ち構えるようなイメージ
+
+@ResetText
+@ModifyCharacterExtended Duration:0 Lazy:false IdAndAppearance:Sherry.Default,ArmR3,ArmL4,Angle01/Facial/Eyes>Eyes_Normal_Closed01,Angle01/Facial/Mouth>Mouth_Smile_Closed
+@ModifyPerspectiveStageCamera Index:1 Height:5.6 Rotation:"0,{ (2 / courtStandCount * 360)},0" Distance:12 Duration:0
+@WaitForNextFrame
+
+@ModifyPerspectiveStageCamera Index:1 Rotation:"0,{ (1.9 / courtStandCount * 360)},0" Duration:1 EaseName:OutQuad
+@ShowPerspectiveStageScreen Index:1
+@Wait WaitMode:1.5
+
+[PrintTextModified Text:…………|#0205Trial23_Sherry001| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+@HidePerspectiveStageScreen Index:1 Reset:true
+[PrintTextModified Text:（……雪莉）|#0205Trial23_Hiro036| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……我已经完成了其他人的魔女化。|#0205Trial23_Hiro037| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:我之所以发起这场讨论，<br>就是为了揪出真正的幕后黑手。|#0205Trial23_Hiro038| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.3
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:很抱歉，我只能打马后炮了……<br>但都走到这一步了，请问你是否愿意协助我呢？|#0205Trial23_Hiro039| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR3,ArmL4,Angle01/Facial/Eyes>Eyes_Normal_Closed01,Angle01/Facial/Mouth>Mouth_Smile_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right
+[PrintTextModified Text:……嗯，可以哦。|#0205Trial23_Sherry002| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR3,ArmL4,Angle01/Facial/Eyes>Eyes_Normal_Open04,Angle01/Facial/Mouth>Mouth_Normal_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right
+[PrintTextModified Text:我本来就<br>没打算反对你。|#0205Trial23_Sherry003| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR3,ArmL12,Angle01/Facial/Eyes>Eyes_Normal_Open04,Angle01/Facial/Mouth>Mouth_Normal_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right
+[PrintTextModified Text:……而且，<br>你所经历的过去我都看见了，<br>我没理由不帮你。|#0205Trial23_Sherry004| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.3
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……谢谢你。|#0205Trial23_Hiro040| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR2,ArmL2,Angle01/Facial/Eyes>Eyes_Pensive_Open01,Angle01/Facial/Mouth>Mouth_Neutral_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right
+[PrintTextModified Text:——但是。|#0205Trial23_Sherry005| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+; ＠備考◆ムッ
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.15
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:——！|#0205Trial23_Hiro041| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; BGM変更：Guil-me N'o sinruits-Vocal無-
+@PlayBgm BgmPath:Bgm_8_1 Volume:1 Loop:true FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR2,ArmL5,Angle01/Facial/Eyes>Eyes_Pensive_Open01,Angle01/Facial/Mouth>Mouth_Normal_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right
+[PrintTextModified Text:你有办法触发我的魔女化吗？|#0205Trial23_Sherry006| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.14
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……是这么一回事啊。<br>的确很棘手。|#0205Trial23_Hiro042| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR12,ArmL14,Angle01/Facial/Eyes>Eyes_Normal_Closed04,Angle01/Facial/Mouth>Mouth_Neutral_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right
+[PrintTextModified Text:没错，我是——|#0205Trial23_Sherry007| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@ModifyBackgroundExtended TintColor:#00000000 Duration:0 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@ModifyBackgroundExtended TintColor:#000000FF Duration:0.4 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:0.2
+; スチル・シェリー処刑シーン
+@ModifyBackgroundExtended Id:Stills Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false AppearanceAndTransition:50_1
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR12,ArmL14,Angle01/Facial/Eyes>Eyes_Normal_Open03,Angle01/Facial/Mouth>Mouth_Flushed_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Right ZoomLevel:4
+@ModifyBackgroundExtended TintColor:#00000000 Duration:0.4 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:0.2
+@Wait WaitMode:1.5
+@ModifyBackgroundExtended TintColor:#000000FF Duration:0.4 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:0.4
+@HideActors ActorIds:Stills Duration:0 Lazy:false
+@ModifyBackgroundExtended TintColor:#00000000 Duration:0.4 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:0.4
+
+[PrintTextModified Text:——无法成为魔女的。|#0205Trial23_Sherry008| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+@AutoSave
+@GotoModified Path:Act02_Chapter05/Act02_Chapter05_Trial24 ResetState:-
+

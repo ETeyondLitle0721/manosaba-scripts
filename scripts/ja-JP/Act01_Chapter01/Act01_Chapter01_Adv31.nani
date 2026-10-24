@@ -1,0 +1,357 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook IsDebugDirectJump:{isDebugDirectJump}
+@Gosub Path:System/System_Subroutine.BeginAdv
+
+# Scene1-1-27
+
+; ========================================
+; ●シーン1-1‐27
+; [back 6]
+; ========================================
+
+; ========================================
+; ＞『食堂』を選択
+; ========================================
+
+; ========================================
+; [bgm Bgm_005_001_Loop]
+; ========================================
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false AppearanceAndTransition:6_1
+@ModifyBackgroundExtended TintColor:#000000 Duration:1.2 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:1.8
+@PlayBgm BgmPath:Bgm_5_1 Volume:1 Loop:true FadeInDuration:0
+@AutoSave
+[PrintTextModified Text:エマたちは食堂の調査にやってきた。|#0101Adv31_Narrative001| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:20 IdAndAppearance:Hanna.Normal1
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Normal1
+@ModifyCharacterExtended Lazy:false ScenePosition:80 IdAndAppearance:Sherry.Normal1
+
+[PrintTextModified Text:さすがに食欲はないですわ。|#0101Adv31_Hanna001| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:この料理ってずっと置きっぱなしなんですかね？|#0101Adv31_Sherry001| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:さすがに定期的に入れ替えてるんじゃないかな。|#0101Adv31_Ema001| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:ビュッフェカウンターに並ぶ料理の数々を前に、<br>それぞれが言う。|#0101Adv31_Narrative002| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:あの看守が入れ替えてるんですかね。<br>私たちは厨房に入れないですが、やっぱり料理も看守が？|#0101Adv31_Sherry002| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:20 IdAndAppearance:Hanna.Pensive1
+
+[PrintTextModified Text:あの、あまり想像させないでくれませんこと？<br>これから何も喉を通らなくなりそう。|#0101Adv31_Hanna002| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:３人は散り散りになって、<br>食堂をひととおり見てまわることにする。|#0101Adv31_Narrative003| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HidePrinter
+@SpawnExtended Path:MaskingRectangle Params:40,200,true,0.3,#000000 ScenePosition:20,50 Rotation:,,0 SubId:Front
+@ModifyBackgroundExtended Rotation:,,0 Scale:1.5 Lazy:false ScenePosition:-20,36 AppearanceAndTransition:6_1 SubId:Front
+@ModifyCharacterExtended Rotation:,,0 Scale:1.1 Lazy:false ScenePosition:20,32 IdAndAppearance:Sherry.Normal1,ArmR2 SubId:Front
+@ChangeActorMaskability ActorIds:MainBackground-Front,Sherry-Front Enable:true
+@AnimateActorExtended ActorIds:MainBackground-Front Loop:false ScenePositionY:40 EasingTypeName:EaseOutQuad Duration:0.5
+@AnimateActorExtended ActorIds:Sherry-Front Loop:false ScenePositionY:45 EasingTypeName:EaseOutQuad Duration:0.5
+@WaitForNextFrame
+
+[PrintTextModified Text:犯人は何故、<br>ノアさんを殺そうって思ったのでしょうか。|#0101Adv31_Sherry003| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:テーブルの下を調査中に、<br>ふとシェリーが投げかけてきた。|#0101Adv31_Narrative004| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:ノアさんは、<br>一体どういう人物だったのでしょうね？|#0101Adv31_Sherry004| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@AnimateActorExtended ActorIds:MainBackground-Front,Sherry-Front Loop:false
+@HideAllCharacters Lazy:false
+@WaitForNextFrame
+
+@HidePrinter
+@SpawnExtended Path:MaskingRectangle Params:40,200,true,0.3,#000000 ScenePosition:50,50 Rotation:,,0 SubId:Front
+@ModifyBackgroundExtended Rotation:,,0 Scale:1.5 Lazy:false ScenePosition:10,36 AppearanceAndTransition:6_1 SubId:Front
+@ModifyCharacterExtended Rotation:,,0 Scale:1.1 Lazy:false ScenePosition:50,32 IdAndAppearance:Ema.Pensive1,ArmR3 SubId:Front
+@ChangeActorMaskability ActorIds:MainBackground-Front,Ema-Front Enable:true
+@AnimateActorExtended ActorIds:MainBackground-Front Loop:false ScenePositionY:40 EasingTypeName:EaseOutQuad Duration:0.5
+@AnimateActorExtended ActorIds:Ema-Front Loop:false ScenePositionY:45 EasingTypeName:EaseOutQuad Duration:0.5
+@WaitForNextFrame
+
+[PrintTextModified Text:関わった時間が短すぎて……いい子だったとは思うけど、<br>ほかにはお絵描きが好きだった、ってことくらいしか。|#0101Adv31_Ema002| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（ボクが接したノアちゃんは、<br>　無邪気で素直ないい子って、印象だった）|#0101Adv31_Ema003|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（でもたった数回会話を交わしただけだし、<br>　本当のところはわからない……）|#0101Adv31_Ema004|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:ただ、殺される理由があるような子には思えないよ。|#0101Adv31_Ema005| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@AnimateActorExtended ActorIds:MainBackground-Front,Ema-Front Loop:false
+@HideAllCharacters Lazy:false
+@WaitForNextFrame
+
+@HidePrinter
+@SpawnExtended Path:MaskingRectangle Params:40,200,true,0.3,#000000 ScenePosition:20,50 Rotation:,,0 SubId:Front
+@ModifyBackgroundExtended Rotation:,,0 Scale:1.5 Lazy:false ScenePosition:-20,36 AppearanceAndTransition:6_1 SubId:Front
+@ModifyCharacterExtended Rotation:,,0 Scale:1.1 Lazy:false ScenePosition:20,32 IdAndAppearance:Sherry.Normal1,ArmR2 SubId:Front
+@ChangeActorMaskability ActorIds:MainBackground-Front,Sherry-Front Enable:true
+@AnimateActorExtended ActorIds:MainBackground-Front Loop:false ScenePositionY:40 EasingTypeName:EaseOutQuad Duration:0.5
+@AnimateActorExtended ActorIds:Sherry-Front Loop:false ScenePositionY:45 EasingTypeName:EaseOutQuad Duration:0.5
+@WaitForNextFrame
+
+[PrintTextModified Text:有名なストリートアーティストでもありますね。<br>それも何か関係があるのか……。|#0101Adv31_Sherry005| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@AnimateActorExtended ActorIds:MainBackground-Front,Sherry-Front Loop:false
+@HideAllCharacters Lazy:false
+@WaitForNextFrame
+
+@HidePrinter
+@SpawnExtended Path:MaskingRectangle Params:40,200,true,0.3,#000000 ScenePosition:80,50 Rotation:,,0 SubId:Front
+@ModifyBackgroundExtended Rotation:,,0 Scale:1.5 Lazy:false ScenePosition:40,36 AppearanceAndTransition:6_1 SubId:Front
+@ModifyCharacterExtended Rotation:,,0 Scale:1.1 Lazy:false ScenePosition:80,32 IdAndAppearance:Hanna.Normal1 SubId:Front
+@ChangeActorMaskability ActorIds:MainBackground-Front,Hanna-Front Enable:true
+@AnimateActorExtended ActorIds:MainBackground-Front Loop:false ScenePositionY:40 EasingTypeName:EaseOutQuad Duration:0.5
+@AnimateActorExtended ActorIds:Hanna-Front Loop:false ScenePositionY:45 EasingTypeName:EaseOutQuad Duration:0.5
+@WaitForNextFrame
+
+[PrintTextModified Text:【バルーン】に恨みを抱いていた人物…？<br>ありえますわね。<br>有名人はどこで恨みを買うかわからないもの。|#0101Adv31_Hanna003| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@AnimateActorExtended ActorIds:MainBackground-Front,Hanna-Front Loop:false
+@HideAllCharacters Lazy:false
+@DestroySpawnedExtended Path:MaskingRectangle SubId:Front LogWarning:true
+
+[PrintTextModified Text:"（どんな理由があるにせよ、殺人は許せない。<br>　でも、誰かが殺したんだ。誰がそんなことを……）|#0101Adv31_Ema006|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HidePrinter
+@SpawnExtended Path:MaskingRectangle Params:40,200,true,0.3,#000000 ScenePosition:20,50 Rotation:,,0 SubId:Front
+@ModifyBackgroundExtended Rotation:,,0 Scale:1.5 Lazy:false ScenePosition:-20,36 AppearanceAndTransition:6_1 SubId:Front
+@ModifyCharacterExtended Rotation:,,0 Scale:1.1 Lazy:false ScenePosition:20,32 IdAndAppearance:Sherry.Normal1,ArmR2 SubId:Front
+@ChangeActorMaskability ActorIds:MainBackground-Front,Sherry-Front Enable:true
+@AnimateActorExtended ActorIds:MainBackground-Front Loop:false ScenePositionY:40 EasingTypeName:EaseOutQuad Duration:0.5
+@AnimateActorExtended ActorIds:Sherry-Front Loop:false ScenePositionY:45 EasingTypeName:EaseOutQuad Duration:0.5
+@WaitForNextFrame
+
+[PrintTextModified Text:ひとつ不思議なのは、<br>おそらく外出禁止時間に殺害が行われたと思われることですね。|#0101Adv31_Sherry006| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@AnimateActorExtended ActorIds:MainBackground-Front,Sherry-Front Loop:false
+@HideAllCharacters Lazy:false
+@WaitForNextFrame
+
+@HidePrinter
+@SpawnExtended Path:MaskingRectangle Params:40,200,true,0.3,#000000 ScenePosition:50,50 Rotation:,,0 SubId:Front
+@ModifyBackgroundExtended Rotation:,,0 Scale:1.5 Lazy:false ScenePosition:10,36 AppearanceAndTransition:6_1 SubId:Front
+@ModifyCharacterExtended Rotation:,,0 Scale:1.1 Lazy:false ScenePosition:50,32 IdAndAppearance:Ema.Pensive1,ArmR3 SubId:Front
+@ChangeActorMaskability ActorIds:MainBackground-Front,Ema-Front Enable:true
+@AnimateActorExtended ActorIds:MainBackground-Front Loop:false ScenePositionY:40 EasingTypeName:EaseOutQuad Duration:0.5
+@AnimateActorExtended ActorIds:Ema-Front Loop:false ScenePositionY:45 EasingTypeName:EaseOutQuad Duration:0.5
+@WaitForNextFrame
+
+[PrintTextModified Text:ボクもそれは思った。外出禁止時間に殺害が起こったんなら、<br>囚人は全員アリバイがある。|#0101Adv31_Ema007| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@AnimateActorExtended ActorIds:MainBackground-Front,Ema-Front Loop:false
+@HideAllCharacters Lazy:false
+@WaitForNextFrame
+
+@HidePrinter
+@SpawnExtended Path:MaskingRectangle Params:40,200,true,0.3,#000000 ScenePosition:20,50 Rotation:,,0 SubId:Front
+@ModifyBackgroundExtended Rotation:,,0 Scale:1.5 Lazy:false ScenePosition:-20,36 AppearanceAndTransition:6_1 SubId:Front
+@ModifyCharacterExtended Rotation:,,0 Scale:1.1 Lazy:false ScenePosition:20,32 IdAndAppearance:Sherry.Pensive1,ArmR2 SubId:Front
+@ChangeActorMaskability ActorIds:MainBackground-Front,Sherry-Front Enable:true
+@AnimateActorExtended ActorIds:MainBackground-Front Loop:false ScenePositionY:40 EasingTypeName:EaseOutQuad Duration:0.5
+@AnimateActorExtended ActorIds:Sherry-Front Loop:false ScenePositionY:45 EasingTypeName:EaseOutQuad Duration:0.5
+@WaitForNextFrame
+
+[PrintTextModified Text:ほぼ全員、ですかね。<br>アンアンさんは医務室にいましたから。|#0101Adv31_Sherry007| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@AnimateActorExtended ActorIds:MainBackground-Front,Ema-Front Loop:false
+@HideAllCharacters Lazy:false
+@DestroySpawnedExtended Path:MaskingRectangle SubId:Front LogWarning:true
+
+[PrintTextModified Text:（あ、そうか……医務室は施錠されるわけじゃない）|#0101Adv31_Ema008| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"エマは思い当たることがあったのか、<br>ハッと表情を<ruby=\"こわば\">強張</ruby>らせる。|#0101Adv31_Narrative005|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（ボクもひとりで寝てたから、<br>　自室にいたって証明してくれる人がいない……）|#0101Adv31_Ema009|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（もしかして夜間のアリバイ証明ができないのって<br>　ボクとアンアンちゃんだけ…？）|#0101Adv31_Ema010|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（で、でもノアちゃんがいつ殺害されたのかは、<br>　明確になってない。就寝前と早朝にアンアンちゃんとボクは<br>　顔を合わせてる）|#0101Adv31_Ema011|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（殺害時間によっては、お互いのアリバイ証明はできる、よね。<br>　アンアンちゃんがボクに協力的だったら、だけど……）|#0101Adv31_Ema012|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"胸にもやもやと不安が満ちていったのか、<br>エマはますます<ruby=\"そうはく\">蒼白</ruby>になっていく。|#0101Adv31_Narrative006|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（もしかして、ボクも犯人だって<br>　投票される可能性が高い……？）|#0101Adv31_Ema013|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:そこまで考えて、頭を振った。|#0101Adv31_Narrative007| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HidePrinter
+@SpawnExtended Path:MaskingRectangle Params:40,200,true,0.3,#000000 ScenePosition:50,50 Rotation:,,0 SubId:Front
+@ModifyBackgroundExtended Rotation:,,0 Scale:1.5 Lazy:false ScenePosition:10,36 AppearanceAndTransition:6_1 SubId:Front
+@ModifyCharacterExtended Rotation:,,0 Scale:1.1 Lazy:false ScenePosition:50,32 IdAndAppearance:Ema.Pensive1,ArmR3 SubId:Front
+@ChangeActorMaskability ActorIds:MainBackground-Front,Ema-Front Enable:true
+@AnimateActorExtended ActorIds:MainBackground-Front Loop:false ScenePositionY:40 EasingTypeName:EaseOutQuad Duration:0.5
+@AnimateActorExtended ActorIds:Ema-Front Loop:false ScenePositionY:45 EasingTypeName:EaseOutQuad Duration:0.5
+@WaitForNextFrame
+
+[PrintTextModified Text:で、でも、朝になったら鍵は開錠されてる。<br>朝のうちにノアちゃんの部屋に行けば、<br>誰でも可能だよ。|#0101Adv31_Ema014| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@AnimateActorExtended ActorIds:MainBackground-Front,Ema-Front Loop:false
+@HideAllCharacters Lazy:false
+@WaitForNextFrame
+
+@HidePrinter
+@SpawnExtended Path:MaskingRectangle Params:40,200,true,0.3,#000000 ScenePosition:20,50 Rotation:,,0 SubId:Front
+@ModifyBackgroundExtended Rotation:,,0 Scale:1.5 Lazy:false ScenePosition:-20,36 AppearanceAndTransition:6_1 SubId:Front
+@ModifyCharacterExtended Rotation:,,0 Scale:1.1 Lazy:false ScenePosition:20,32 IdAndAppearance:Sherry.Normal1,ArmR10,ArmL3 SubId:Front
+@ChangeActorMaskability ActorIds:MainBackground-Front,Sherry-Front Enable:true
+@AnimateActorExtended ActorIds:MainBackground-Front Loop:false ScenePositionY:40 EasingTypeName:EaseOutQuad Duration:0.5
+@AnimateActorExtended ActorIds:Sherry-Front Loop:false ScenePositionY:45 EasingTypeName:EaseOutQuad Duration:0.5
+@WaitForNextFrame
+
+[PrintTextModified Text:宙に浮けたら更に簡単ですね。|#0101Adv31_Sherry008| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@AnimateActorExtended ActorIds:MainBackground-Front,Sherry-Front Loop:false
+@HideAllCharacters Lazy:false
+@WaitForNextFrame
+
+@HidePrinter
+@SpawnExtended Path:MaskingRectangle Params:40,200,true,0.3,#000000 ScenePosition:80,50 Rotation:,,0 SubId:Front
+@ModifyBackgroundExtended Rotation:,,0 Scale:1.5 Lazy:false ScenePosition:40,36 AppearanceAndTransition:6_1 SubId:Front
+@ModifyCharacterExtended Rotation:,,0 Scale:1.1 Lazy:false ScenePosition:80,32 IdAndAppearance:Hanna.Pensive1,ArmR4 SubId:Front
+@ChangeActorMaskability ActorIds:MainBackground-Front,Hanna-Front Enable:true
+@AnimateActorExtended ActorIds:MainBackground-Front Loop:false ScenePositionY:40 EasingTypeName:EaseOutQuad Duration:0.5
+@AnimateActorExtended ActorIds:Hanna-Front Loop:false ScenePositionY:45 EasingTypeName:EaseOutQuad Duration:0.5
+@WaitForNextFrame
+
+[PrintTextModified Text:うぅ……。|#0101Adv31_Hanna004| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"ハンナはしばらく<ruby=\"うなだ\">項垂</ruby>れていたが、<br>やがて意を決したように、顔をあげた。|#0101Adv31_Narrative008|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hanna.Normal1,ArmR3 SubId:Front
+
+[PrintTextModified Text:わたくし、実は浮ける時間は<br>１分程度ですの。|#0101Adv31_Hanna005| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"自分の魔法を<ruby=\"ほこ\">誇</ruby>り高く思っているのだろう、<br>ハンナは悔しそうに<ruby=\"うめ\">呻</ruby>いた。|#0101Adv31_Narrative009|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@AnimateActorExtended ActorIds:MainBackground-Front,Hanna-Front Loop:false
+@HideAllCharacters Lazy:false
+@WaitForNextFrame
+
+@HidePrinter
+@SpawnExtended Path:MaskingRectangle Params:40,200,true,0.3,#000000 ScenePosition:20,50 Rotation:,,0 SubId:Front
+@ModifyBackgroundExtended Rotation:,,0 Scale:1.5 Lazy:false ScenePosition:-20,36 AppearanceAndTransition:6_1 SubId:Front
+@ModifyCharacterExtended Rotation:,,0 Scale:1.1 Lazy:false ScenePosition:20,32 IdAndAppearance:Sherry.Smile1,ArmR14,ArmL1 SubId:Front
+@ChangeActorMaskability ActorIds:MainBackground-Front,Sherry-Front Enable:true
+@AnimateActorExtended ActorIds:MainBackground-Front Loop:false ScenePositionY:40 EasingTypeName:EaseOutQuad Duration:0.5
+@AnimateActorExtended ActorIds:Sherry-Front Loop:false ScenePositionY:45 EasingTypeName:EaseOutQuad Duration:0.5
+@WaitForNextFrame
+
+[PrintTextModified Text:ああそれは、良い情報ですね！|#0101Adv31_Sherry009| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:短時間しか浮けないのなら、<br>足跡残さず殺すのは無理だって言えるかも！|#0101Adv31_Sherry010| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@AnimateActorExtended ActorIds:MainBackground-Front,Sherry-Front Loop:false
+@HideAllCharacters Lazy:false
+@WaitForNextFrame
+
+@HidePrinter
+@SpawnExtended Path:MaskingRectangle Params:40,200,true,0.3,#000000 ScenePosition:80,50 Rotation:,,0 SubId:Front
+@ModifyBackgroundExtended Rotation:,,0 Scale:1.5 Lazy:false ScenePosition:40,36 AppearanceAndTransition:6_1 SubId:Front
+@ModifyCharacterExtended Rotation:,,0 Scale:1.1 Lazy:false ScenePosition:80,32 IdAndAppearance:Hanna.Angry1 SubId:Front
+@ChangeActorMaskability ActorIds:MainBackground-Front,Hanna-Front Enable:true
+@AnimateActorExtended ActorIds:MainBackground-Front Loop:false ScenePositionY:40 EasingTypeName:EaseOutQuad Duration:0.5
+@AnimateActorExtended ActorIds:Hanna-Front Loop:false ScenePositionY:45 EasingTypeName:EaseOutQuad Duration:0.5
+@WaitForNextFrame
+
+[PrintTextModified Text:ぜんぜん良い情報じゃねーですわ……<br>で、できれば言いたくねーですわ。|#0101Adv31_Hanna006| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"<ruby=\"じたんだ\">地団太</ruby>を踏みそうな表情のハンナだが、<br>シェリーはキャッキャと嬉しそうだ。|#0101Adv31_Narrative010|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@AnimateActorExtended ActorIds:MainBackground-Front,Hanna-Front Loop:false
+@HideAllCharacters Lazy:false
+@WaitForNextFrame
+
+@HidePrinter
+@SpawnExtended Path:MaskingRectangle Params:40,200,true,0.3,#000000 ScenePosition:20,50 Rotation:,,0 SubId:Front
+@ModifyBackgroundExtended Rotation:,,0 Scale:1.5 Lazy:false ScenePosition:-20,36 AppearanceAndTransition:6_1 SubId:Front
+@ModifyCharacterExtended Rotation:,,0 Scale:1.1 Lazy:false ScenePosition:20,32 IdAndAppearance:Sherry.Smile1,ArmR3,ArmL4 SubId:Front
+@ChangeActorMaskability ActorIds:MainBackground-Front,Sherry-Front Enable:true
+@AnimateActorExtended ActorIds:MainBackground-Front Loop:false ScenePositionY:40 EasingTypeName:EaseOutQuad Duration:0.5
+@AnimateActorExtended ActorIds:Sherry-Front Loop:false ScenePositionY:45 EasingTypeName:EaseOutQuad Duration:0.5
+@WaitForNextFrame
+
+[PrintTextModified Text:いえいえ、積極的に言いましょうよ！<br>ハンナさんの魔法は大したことないって！|#0101Adv31_Sherry011| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@AnimateActorExtended ActorIds:MainBackground-Front,Sherry-Front Loop:false
+@HideAllCharacters Lazy:false
+@WaitForNextFrame
+
+@HidePrinter
+@SpawnExtended Path:MaskingRectangle Params:40,200,true,0.3,#000000 ScenePosition:80,50 Rotation:,,0 SubId:Front
+@ModifyBackgroundExtended Rotation:,,0 Scale:1.5 Lazy:false ScenePosition:40,36 AppearanceAndTransition:6_1 SubId:Front
+@ModifyCharacterExtended Rotation:,,0 Scale:1.1 Lazy:false ScenePosition:80,32 IdAndAppearance:Hanna.Angry1 SubId:Front
+@ChangeActorMaskability ActorIds:MainBackground-Front,Hanna-Front Enable:true
+@AnimateActorExtended ActorIds:MainBackground-Front Loop:false ScenePositionY:40 EasingTypeName:EaseOutQuad Duration:0.5
+@AnimateActorExtended ActorIds:Hanna-Front Loop:false ScenePositionY:45 EasingTypeName:EaseOutQuad Duration:0.5
+@WaitForNextFrame
+
+[PrintTextModified Text:あなたわざと言っているでしょう！？|#0101Adv31_Hanna007| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@AnimateActorExtended ActorIds:MainBackground-Front,Hanna-Front Loop:false
+@HideAllCharacters Lazy:false
+@WaitForNextFrame
+
+@HidePrinter
+@SpawnExtended Path:MaskingRectangle Params:40,200,true,0.3,#000000 ScenePosition:50,50 Rotation:,,0 SubId:Front
+@ModifyBackgroundExtended Rotation:,,0 Scale:1.5 Lazy:false ScenePosition:10,36 AppearanceAndTransition:6_1 SubId:Front
+@ModifyCharacterExtended Rotation:,,0 Scale:1.1 Lazy:false ScenePosition:50,32 IdAndAppearance:Ema.Surprised1,ArmR3 SubId:Front
+@ChangeActorMaskability ActorIds:MainBackground-Front,Ema-Front Enable:true
+@AnimateActorExtended ActorIds:MainBackground-Front Loop:false ScenePositionY:40 EasingTypeName:EaseOutQuad Duration:0.5
+@AnimateActorExtended ActorIds:Ema-Front Loop:false ScenePositionY:45 EasingTypeName:EaseOutQuad Duration:0.5
+@WaitForNextFrame
+
+[PrintTextModified Text:と、とにかく今は調査を続けようよ！|#0101Adv31_Ema015| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@AnimateActorExtended ActorIds:MainBackground-Front,Ema-Front Loop:false
+@HideAllCharacters Lazy:false
+@DestroySpawnedExtended Path:MaskingRectangle SubId:Front LogWarning:true
+
+[PrintTextModified Text:その後も広い食堂内を歩き回ってみたが、<br>結局何も手がかりは得られそうになかった。|#0101Adv31_Narrative011| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@ModifyCamera Offset:8,-1 Zoom:0.5 EasingTypeName:SmoothStep Duration:0.9 Lazy:false
+@Wait WaitMode:0.9
+
+[PrintTextModified Text:"ふと、エマの目にビュッフェカウンターにある、<br>フルーツ盛りが<ruby=\"と\">留</ruby>まった。|#0101Adv31_Narrative012|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@ModifyCamera Offset:0,0 Zoom:0 EasingTypeName:SmoothStep Duration:0.9 Lazy:false
+@Wait WaitMode:0.9
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Pensive1,ArmR3
+
+[PrintTextModified Text:ここに置いてある料理、少なくとも<br>毎日は入れ替えてはないのかもしれないね。|#0101Adv31_Ema016| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:80 IdAndAppearance:Sherry.Normal1,ArmR1,ArmL1
+
+[PrintTextModified Text:どうしてです？|#0101Adv31_Sherry012| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:下の方のリンゴが腐ってる。|#0101Adv31_Ema017| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:20 IdAndAppearance:Hanna.Pensive1,ArmR4
+
+[PrintTextModified Text:げっ|#0101Adv31_Hanna008| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:ハンナが青ざめて後ずさる。|#0101Adv31_Narrative013| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:ううううぅ……もう断食するしかありませんわ……<br>でも飢え死には嫌ですわぁぁ～。|#0101Adv31_Hanna009| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:べそをかくハンナを連れて、<br>エマたちは食堂を出た。|#0101Adv31_Narrative014| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 消化していないイベントがある＞シーン1‐1‐21
+; 全てのイベントを消化している＞シーン1‐1‐30
+; ========================================
+
+@Gosub Path:System/System_Subroutine.EndAdv
+
+@GotoModified Path:Act01_Chapter01/Act01_Chapter01_Adv25 SoftReset:true
+

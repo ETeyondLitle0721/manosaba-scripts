@@ -1,0 +1,682 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook Version:8
+
+@BeginIf Expression:isDebugDirectJump
+    @Gosub Path:Act02_Chapter05/Act02_Chapter05_TrialInit
+    @HidePerspectiveStageScreen Index:1 Duration:0 Reset:true
+    @ModifyBackgroundExtended TintColor:#000000 Duration:0 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+
+@SetTrialTimer Time:900
+@HideUI UINames:ControlPanel AllowToggle:false
+@ShowUI UINames:DebateUI
+
+; クリーチャー化初期化
+@HideActors ActorIds:Hiro Lazy:false
+@ModifyCharacterExtended Position:{hiroPositionX},{characterPositionY},{hiroPositionZ} Rotation:,{hiroRotationY} Scale:{characterScale},{characterScale},1 Duration:0 Lazy:false IdAndAppearance:CreatureHiro.2
+
+@HideActors ActorIds:Meruru Lazy:false
+@ModifyCharacterExtended Position:{meruruPositionX},{characterPositionY},{meruruPositionZ} Rotation:,{meruruRotationY} Scale:{characterScale},{characterScale},1 Duration:0 Lazy:false IdAndAppearance:CreatureMeruru.3-5
+
+@HideActors ActorIds:Leia Lazy:false
+@ModifyCharacterExtended Position:{leiaPositionX},{characterPositionY},{leiaPositionZ} Rotation:,{leiaRotationY} Scale:{characterScale},{characterScale},1 Duration:0 Lazy:false IdAndAppearance:CreatureLeia.0-8
+
+@HideActors ActorIds:Noah Lazy:false
+@ModifyCharacterExtended Position:{noahPositionX},{characterPositionY},{noahPositionZ} Rotation:,{noahRotationY} Scale:{characterScale},{characterScale},1 Duration:0 Lazy:false IdAndAppearance:CreatureNoah.0-3
+
+@HideActors ActorIds:Margo Lazy:false
+@ModifyCharacterExtended Position:{margoPositionX},{characterPositionY},{margoPositionZ} Rotation:,{margoRotationY} Scale:{characterScale},{characterScale},1 Duration:0 Lazy:false IdAndAppearance:CreatureMargo.0-4
+
+@HideActors ActorIds:Nanoka Lazy:false
+@ModifyCharacterExtended Position:{nanokaPositionX},{characterPositionY},{nanokaPositionZ} Rotation:,{nanokaRotationY} Scale:{characterScale},{characterScale},1 Duration:0 Lazy:false IdAndAppearance:CreatureNanoka.0-1
+
+@HideActors ActorIds:Coco Lazy:false
+@ModifyCharacterExtended Position:{cocoPositionX},{characterPositionY},{cocoPositionZ} Rotation:,{cocoRotationY} Scale:{characterScale},{characterScale},1 Duration:0 Lazy:false IdAndAppearance:CreatureCoco.2-3
+
+; ==============================================================================
+; MARK: 10-16: 💬 アンアンの主張
+; ==============================================================================
+; ＠ト書き▼議論10-16アンアンの主張
+; 議論開始カットイン
+@SetCustomVariable Expression:Skip10_16_3flag1=false
+; BGM変更：HirO（Voなし）
+@PlayBgm BgmPath:Bgm_37_1_Loop IntroBgmPath:Bgm_37_1_Intro Volume:1 Loop:true FadeInDuration:0
+
+# Judge10-16-1
+
+@Gosub Path:System/System_Subroutine.BeginDebate-First
+@Gosub Path:System/System_Subroutine.BeginDebate-Effect
+@Gosub Path:System/System_Subroutine.BeginDebate-Last
+@ChangeTrialPauseMode Enable:false ProcessTimer:true
+
+@HidePerspectiveStageScreen Index:1 Reset:true
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,ArmR5,ArmL5,Angle01/Head/Facial/Eyes>Eyes_Cry_Open01,Angle01/Head/Facial/Mouth>Mouth_Angry_Closed01,Angle01/Head/Facial/Sweat>Sweat01,Angle01/Option_Arms-,ArmR-Option-Off
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:"どうせ外に出ても<br><link=\"Objection_02_05_16_01\">何も変わりはしない</link>。|#0205Trial16_AnAn001|" RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,ArmR5,ArmL11,Angle01/Head/Facial/Eyes>Eyes_Cry_Open02,Angle01/Head/Facial/Mouth>Mouth_Uncomfortable_Open,Angle01/Head/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:お前たちだって<br>魔法を使えるというだけで<br>迫害にあったことも<br>あるはずだ！|#0205Trial16_AnAn002| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,ArmR2,ArmL5,Angle01/Head/Facial/Eyes>Eyes_Cry_Open02,Angle01/Head/Facial/Mouth>Mouth_Uncomfortable_Open,Angle01/Head/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:"ただ人より少しだけ<br><link=\"Objection_02_05_16_02\">優れていた</link>だけなのに、<br>どうしてわがはいたちが<br>虐げられなければならない！|#0205Trial16_AnAn003|" RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,ArmR2,ArmL1,Angle01/Head/Facial/Eyes>Eyes_Pensive_Open,Angle01/Head/Facial/Mouth>Mouth_Cry_Closed,Angle01/Head/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:"ならばそんな<br>愚かな奴らの目がない分、<br>監獄の中の方が<br>幾分か<link=\"Objection_02_05_16_03\">マシ</link>なのではないか？|#0205Trial16_AnAn004|" RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,ArmR2,ArmL1,Angle01/Head/Facial/Eyes>Eyes_Pensive_Open,Angle01/Head/Facial/Mouth>Mouth_Yell_Open,Angle01/Head/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:"外への未練など<br><link=\"Objection_02_05_16_04\">過去</link>に縛られている者の<br>妄言に過ぎない！|#0205Trial16_AnAn005|" RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+; IF 10-16-3通過時のみ選択肢追加
+@BeginIf Expression:Skip10_16_3flag1=false
+    @GotoModified Path:.Judge10-16-1Skip
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,ArmR5,ArmL11,Angle01/Head/Facial/Eyes>Eyes_Cry_Open02,Angle01/Head/Facial/Mouth>Mouth_Yell_Open,Angle01/Head/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:"すべて<link=\"Objection_02_05_16_05\">忘れて</link>しまえばいいんだ！<br>外の世界など<link=\"Objection_02_05_16_06\">見る</link>必要はない！<br>わがはいはここにいる！|#0205Trial16_AnAn006|" RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+# Judge10-16-1Skip
+
+; ==============================================================================
+; 10-16議論後独白
+; ==============================================================================
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+@Gosub Path:System/System_Subroutine.EndDebate-Effect
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+; 
+; 議論終了
+; ------------------------------------------------------------------------------
+
+@ResetText
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.17
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center ZoomLevel:2
+@Wait WaitMode:0.2
+
+[PrintTextModified Text:（アンアンの言葉はまるで自分に言い聞かせているかのようだ）|#0205Trial16_Hiro001| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（彼女の言葉の裏に潜む心の闇……）|#0205Trial16_Hiro002| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（……魔女化のために心の傷を抉るなら、<br>　それを暴くのが一番の近道か）|#0205Trial16_Hiro003|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge10-16-1
+
+; 
+; 反論1
+; ------------------------------------------------------------------------------
+
+# Objection_02_05_16_01
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:未来は変えられる|#0205Trial16_Choice001| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge10-16-4
+
+
+@AddChoice ChoiceSummary:戻る|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; 
+; 反論2
+; ------------------------------------------------------------------------------
+
+# Objection_02_05_16_02
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:他の人も同じ|#0205Trial16_Choice002| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge10-16-5
+
+
+@AddChoice ChoiceSummary:戻る|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; 
+; 反論3
+; ------------------------------------------------------------------------------
+
+# Objection_02_05_16_03
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:外の方がマシ|#0205Trial16_Choice003| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge10-16-6
+
+
+@AddChoice ChoiceSummary:戻る|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; 
+; 反論4
+; ------------------------------------------------------------------------------
+
+# Objection_02_05_16_04
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:【幻視】|#0205Trial16_Choice004| Lock:false ButtonPath:ChoiceButtons/Trial/MagicNanoka HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge10-16-3
+
+
+@AddChoice ChoiceSummary:戻る|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; 
+; 反論5
+; ------------------------------------------------------------------------------
+
+# Objection_02_05_16_05
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:忘れてはいけない|#0205Trial16_Choice005| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge10-16-7
+
+
+@AddChoice ChoiceSummary:戻る|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; 
+; 反論6
+; ------------------------------------------------------------------------------
+
+# Objection_02_05_16_06
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:【視線誘導】|#0205Trial16_Choice006| Lock:false ButtonPath:ChoiceButtons/Trial/MagicLeia HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge10-16-2
+
+
+@AddChoice ChoiceSummary:戻る|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; ==============================================================================
+; MARK: 10-16: ❌ 議論ミス選択肢
+; ==============================================================================
+; MARK: 10-16-4: ❌ 反論・未来は変えられる
+
+# Judge10-16-4
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:そんなことはない。|#0205Trial16_Hiro004| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:外に出て自分の足で踏み出せば、<br>未来を変えることはできる。|#0205Trial16_Hiro005| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.7
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:だがここにいては停滞してしまうんだ！|#0205Trial16_Hiro006| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,ArmR1,ArmL1,Angle01/Head/Facial/Eyes>Eyes_Cry_Open01,Angle01/Head/Facial/Mouth>Mouth_Angry_Closed01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Right
+[PrintTextModified Text:……貴様らには未来があるかもしれない。|#0205Trial16_AnAn007| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,ArmR1,ArmL7,Angle01/Head/Facial/Eyes>Eyes_Cry_Open01,Angle01/Head/Facial/Mouth>Mouth_Angry_Closed01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Right
+[PrintTextModified Text:だがわがはいには<br>幸福など存在しない！|#0205Trial16_AnAn008| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,ArmR2,ArmL7,Angle01/Head/Facial/Eyes>Eyes_Cry_Open02,Angle01/Head/Facial/Mouth>Mouth_Fearful_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Right
+[PrintTextModified Text:未来にはただ絶望が口を開けて<br>待っているに過ぎない……。|#0205Trial16_AnAn009| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,ArmR2,ArmL5,Angle01/Head/Facial/Eyes>Eyes_Cry_Open02,Angle01/Head/Facial/Mouth>Mouth_Yell_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Right
+[PrintTextModified Text:だからわがはいがそれまでに何をしても<br>無駄でしかないんだ！|#0205Trial16_AnAn010| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,ArmR4,ArmL5,Angle01/Head/Facial/Eyes>Eyes_Cry_Open02,Angle01/Head/Facial/Mouth>Mouth_Cry_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Right
+[PrintTextModified Text:貴様には……わからんだろう……。|#0205Trial16_AnAn011| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,ArmR4,ArmL11,Angle01/Head/Facial/Eyes>Eyes_Angry_Open02,Angle01/Head/Facial/Mouth>Mouth_Yell_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Right
+[PrintTextModified Text:――恵まれた貴様には！！|#0205Trial16_AnAn012| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.14
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（くっ……！<br>　アンアンは将来を悲観しているのか）|#0205Trial16_Hiro007|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.17
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（今のアンアンは、<br>　強固な妄想に囚われていると言ってもいい）|#0205Trial16_Hiro008|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.17
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（彼女を説得するには……<br>　無理やりにでも【前を向かせる】必要があるか）|#0205Trial16_Hiro009|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+
+@GotoModified Path:.Judge10-16-1
+
+; MARK: 10-16-5: ❌ 反論・他の人も同じ
+
+# Judge10-16-5
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:それは他の人間だって同じだ。|#0205Trial16_Hiro010| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:私たちのような魔女候補だけが特別なんじゃない。|#0205Trial16_Hiro011| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:それにそんな他人を排斥する人間なんて<br>相手にしなくていい……。|#0205Trial16_Hiro012| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.7
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:自分のことを大事にしてくれる人間にこそ<br>目を向けるべきなんだ！|#0205Trial16_Hiro013| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,ArmR2,ArmL1,Angle01/Head/Facial/Eyes>Eyes_Cry_Open01,Angle01/Head/Facial/Mouth>Mouth_Cry_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Right
+[PrintTextModified Text:わがはいの魔法は……<br>そんな人間から意思を奪ってしまう魔法なのだ。|#0205Trial16_AnAn013| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆言葉に詰まる
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.23
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……！|#0205Trial16_Hiro014| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,ArmR2,ArmL1,Angle01/Head/Facial/Eyes>Eyes_Cry_Open01,Angle01/Head/Facial/Mouth>Mouth_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Right
+[PrintTextModified Text:貴様もまた、<br>わがはいの苦悩などわからない者の１人だ。|#0205Trial16_AnAn014| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,ArmR4,ArmL11,Angle01/Head/Facial/Eyes>Eyes_Cry_Open02,Angle01/Head/Facial/Mouth>Mouth_Yell_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Right
+[PrintTextModified Text:わがはいの前から<color=#9c8eff><b>【去れ】</b></color>！<br>貴様の話など聞きたくない！|#0205Trial16_AnAn015| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.14
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（くっ……！<br>　このままでは話を打ち切られてしまう……！）|#0205Trial16_Hiro015|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.17
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（今のアンアンは、<br>　強固な妄想に囚われていると言ってもいい）|#0205Trial16_Hiro016|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.17
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（彼女を説得するには……<br>　無理やりにでも【前を向かせる】必要があるか）|#0205Trial16_Hiro017|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+
+@GotoModified Path:.Judge10-16-1
+
+; MARK: 10-16-6: ❌ 反論・外の方がマシ
+
+# Judge10-16-6
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:いいや、外の方がマシだ。|#0205Trial16_Hiro018| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:こんなところにいては精神も衰弱してしまう。|#0205Trial16_Hiro019| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.7
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:外に出るんだ！|#0205Trial16_Hiro020| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,ArmR2,ArmL7,Angle01/Head/Facial/Eyes>Eyes_Cry_Open02,Angle01/Head/Facial/Mouth>Mouth_Fearful_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Right
+[PrintTextModified Text:……この屋敷にだって空はある。|#0205Trial16_AnAn016| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,ArmR2,ArmL7,Angle01/Head/Facial/Eyes>Eyes_Cry_Open02,Angle01/Head/Facial/Mouth>Mouth_Fearful_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Right
+[PrintTextModified Text:太陽の光だって浴びることができるし、<br>世界は繋がっている……！|#0205Trial16_AnAn017| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆わかってくれよ…ぐらいのテンション
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,ArmR2,ArmL1,Angle01/Head/Facial/Eyes>Eyes_Cry_Open02,Angle01/Head/Facial/Mouth>Mouth_Fearful_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Right
+[PrintTextModified Text:……それでいいじゃないか……。|#0205Trial16_AnAn018| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,ArmR2,ArmL1,Angle01/Head/Facial/Eyes>Eyes_Cry_Open02,Angle01/Head/Facial/Mouth>Mouth_Yell_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Right
+[PrintTextModified Text:わがはいには外の世界など必要ない。<br>……ここで十分なんだ！|#0205Trial16_AnAn019| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.14
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（くっ……！<br>　自分の殻に閉じこもっているな……）|#0205Trial16_Hiro021|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.17
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（今のアンアンは、<br>　強固な妄想に囚われていると言ってもいい）|#0205Trial16_Hiro022|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.17
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（彼女を説得するには……<br>　無理やりにでも【前を向かせる】必要があるか）|#0205Trial16_Hiro023|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+
+@GotoModified Path:.Judge10-16-1
+
+; MARK: 10-16-7: ❌ 反論・忘れてはいけない
+
+# Judge10-16-7
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:今の君を作っているのは、<br>過去の出来事だ……。|#0205Trial16_Hiro024| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.7
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:過去を忘れて、<br>なかったことにしてはいけない！|#0205Trial16_Hiro025| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,ArmR2,ArmL1,Angle01/Head/Facial/Eyes>Eyes_Cry_Open02,Angle01/Head/Facial/Mouth>Mouth_Fearful_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Right
+[PrintTextModified Text:このわがはいを作ったのが過去であるというなら、<br>そんな過去は焼却し忘却すべきだ！|#0205Trial16_AnAn020| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,ArmR2,ArmL1,Angle01/Head/Facial/Eyes>Eyes_Cry_Open02,Angle01/Head/Facial/Mouth>Mouth_Yell_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Right
+[PrintTextModified Text:わがはいにはこんな失敗作を構成する過去など、<br>必要ない！|#0205Trial16_AnAn021| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.14
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（過去の自分を否定するか、アンアン……！）|#0205Trial16_Hiro026| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.17
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（今のアンアンは、<br>　強固な妄想に囚われていると言ってもいい）|#0205Trial16_Hiro027|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.17
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（彼女を説得するには……<br>　無理やりにでも【前を向かせる】必要があるか）|#0205Trial16_Hiro028|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge10-16-1
+
+; MARK: 10-16-3: ⭕ 魔法・幻視
+; 通過必須選択肢。
+
+# Judge10-16-3
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（……アンアンがこの牢屋敷にこだわる理由）|#0205Trial16_Hiro029| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（それは何らかの過去に<br>　縛られているからだろう）|#0205Trial16_Hiro030|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.3
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（なら……それを知る手段は）|#0205Trial16_Hiro031| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.18
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……ナノカ、頼みがある。|#0205Trial16_Hiro032| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureNanoka.0-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:…………。|#0205Trial16_Nanoka001| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.18
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:アンアンの過去を幻視できないだろうか。|#0205Trial16_Hiro033| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureNanoka.2-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:……できるわ。|#0205Trial16_Nanoka002| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureNanoka.2-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:この姿になったことで、<br>魔法をある程度自由に<br>扱えるようになった感覚がある……。|#0205Trial16_Nanoka003| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureNanoka.2-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:他人の過去を覗き見るなんて趣味の悪い魔法だけど。|#0205Trial16_Nanoka004| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureNanoka.1-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:でも……これが大魔女を倒すために、<br>必要なことなら……。|#0205Trial16_Nanoka005| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,ArmR5,ArmL11,Angle01/Head/Facial/Eyes>Eyes_Fearful_Open,Angle01/Head/Facial/Mouth>Mouth_Fearful_Open,Angle01/Head/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Right
+[PrintTextModified Text:"貴様……やめろっ！ 何をするつもりだ……！|#0205Trial16_AnAn022|" AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ナノカ魔法エフェクト（手を触れたりかざした想定）
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+; ＠備考◆息を呑む
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureNanoka.1-6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:……！|#0205Trial16_Nanoka006| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,ArmR5,ArmL7,Angle01/Head/Facial/Eyes>Eyes_Fearful_Open,Angle01/Head/Facial/Mouth>Mouth_Fearful_Open,Angle01/Head/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Right
+[PrintTextModified Text:ぐっ……！？|#0205Trial16_AnAn023| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureNanoka.1-6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:……【魔法の暴走】ね。|#0205Trial16_Nanoka007| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,ArmR4,ArmL7,Angle01/Head/Facial/Eyes>Eyes_Fearful_Open,Angle01/Head/Facial/Mouth>Mouth_Fearful_Open,Angle01/Head/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Right
+[PrintTextModified Text:ぐっ……！？|#0205Trial16_AnAn024| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureNanoka.1-6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:あなたは……恐れているのね。|#0205Trial16_Nanoka008| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,ArmR4,ArmL7,Angle01/Head/Facial/Eyes>Eyes_Fearful_Open,Angle01/Head/Facial/Mouth>Mouth_Fearful_Open,Angle01/Head/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Right
+[PrintTextModified Text:……違う。|#0205Trial16_AnAn025| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureNanoka.1-6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:洗脳の魔法に常時晒され続けてきたあなたの家族は、<br>みんな自我を失い操り人形と化してしまった……。|#0205Trial16_Nanoka009| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,ArmR4,ArmL7,Angle01/Head/Facial/Eyes>Eyes_Fearful_Open,Angle01/Head/Facial/Mouth>Mouth_Yell_Open,Angle01/Head/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Right
+[PrintTextModified Text:"違う！ わがはいは望んで<ruby=\"かいらい\">傀儡</ruby>とした！<br>それがみんなにとっての幸せだったんだ！|#0205Trial16_AnAn026|" AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureNanoka.2-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:意思のない人形となった両親を見て、<br>あなたは人と関わりを持つことをやめた。|#0205Trial16_Nanoka010| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureNanoka.2-1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Left
+[PrintTextModified Text:たしかに……賢明な判断と言えるわね。|#0205Trial16_Nanoka011| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,ArmR4,ArmL7,Angle01/Head/Facial/Eyes>Eyes_Cry_Open02,Angle01/Head/Facial/Mouth>Mouth_Cry_Closed,Angle01/Head/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Right
+[PrintTextModified Text:"うるさい……！ 黙れ！|#0205Trial16_AnAn027|" AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,ArmR4,ArmL3,Angle01/Head/Facial/Eyes>Eyes_Cry_Open02,Angle01/Head/Facial/Mouth>Mouth_Cry_Closed,Angle01/Head/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Right
+[PrintTextModified Text:わがはいのことを……<br>知ったような気になるな！！|#0205Trial16_AnAn028| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@BeginIf Expression:Skip10_16_3flag1=true
+    @GotoModified Path:.Judge10-16-3Skip
+
+@UpdateWitchBook Id:AnAn Category:Profile Version:8
+@ShowToastUI Text:"魔女図鑑 更新…|#Toast_001|"
+@Wait WaitMode:i1.2
+@ShowToastUI Text:議論発展…|#Toast_002|
+@SetCustomVariable Expression:Skip10_16_3flag1=true
+
+# Judge10-16-3Skip
+
+@GotoModified Path:.Judge10-16-1
+
+; ==============================================================================
+; MARK: 10-16-2: ⭕ 魔法：視線誘導
+; ==============================================================================
+
+# Judge10-16-2
+
+; カットイン
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@GosubToObjectionCutIn CutInKind:CreatureHiro Index:2 VoicePath:CommonTrial_Hiro00032 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+@HideUI UINames:DebateUI AllowToggle:false
+@ShowUI UINames:ControlPanel
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……罪は消えない。|#0205Trial16_Hiro034| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:君は忘れたいのかもしれないが、<br>君が両親を壊した事実は残り続ける。|#0205Trial16_Hiro035| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,ArmR7,ArmL11,Angle01/Head/Facial/Eyes>Eyes_Fearful_Open,Angle01/Head/Facial/Mouth>Mouth_Yell_Open,Angle01/Head/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Right
+[PrintTextModified Text:うるさい！<br>そんなことなど……<br>わがはいは知らない……！|#0205Trial16_AnAn029| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.7
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:向き合わなくてはいけないんだ。<br>自分の罪と……。|#0205Trial16_Hiro036| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.7
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"……己の罪から目を逸らすな！ アンアン。|#0205Trial16_Hiro037|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,ArmR4,ArmL3,Angle01/Head/Facial/Eyes>Eyes_Cry_Open02,Angle01/Head/Facial/Mouth>Mouth_Cry_Closed,Angle01/Head/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Right
+[PrintTextModified Text:ぐっ……！？|#0205Trial16_AnAn030| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE：指パッチン（イメージとして。演出はお任せ）
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureLeia.1-5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Left
+[PrintTextModified Text:……その通りだ。|#0205Trial16_Leia001| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureLeia.3-8
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Left ZoomLevel:4
+; レイア魔法エフェクト
+; フラッシュ
+@ResetText
+@ModifyBackgroundExtended TintColor:#FFFFFFAA Duration:0.2 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:0.2
+@ModifyBackgroundExtended TintColor:#FFFFFF00 Duration:0.2 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:0.2
+
+[PrintTextModified Text:君は１度、自身の心を【直視】すべきだね！|#0205Trial16_Leia002| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Fearful1,ArmR4,ArmL7,Angle01/Head/Facial/Eyes>Eyes_Fearful_Open,Angle01/Head/Facial/Mouth>Mouth_Fearful_Open,Angle01/Head/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Right
+[PrintTextModified Text:ぐっ……！？|#0205Trial16_AnAn031| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（……何も言わずとも、合わせてくれたか。<br>　レイア）|#0205Trial16_Hiro038|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+; ＠備考◆ヒロに目配せするイメージ
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureLeia.1-6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Left
+[PrintTextModified Text:……ふふ。|#0205Trial16_Leia003| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureHiro.3
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（…………。<br>　感謝はしておこう）|#0205Trial16_Hiro039|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@StopBgm
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Fearful1,ArmR5,ArmL7,Angle01/Head/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Right
+[PrintTextModified Text:う……うう………！|#0205Trial16_AnAn032| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Fearful1,ArmR5,ArmL7,Angle01/Head/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Right
+[PrintTextModified Text:違う……！<br>わがはいは……わがはい、は……！！|#0205Trial16_AnAn033| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+@AutoSave
+
+@GotoModified Path:Act02_Chapter05/Act02_Chapter05_Trial17 ResetState:-
+

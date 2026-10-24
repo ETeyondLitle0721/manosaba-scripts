@@ -1,0 +1,179 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook IsDebugDirectJump:{isDebugDirectJump}
+@Gosub Path:System/System_Subroutine.BeginAdv
+
+# Scene1-1-28
+
+; ========================================
+; ●シーン1-1‐28
+; [back 11]
+; ========================================
+
+; ========================================
+; ＞『娯楽室』を選択
+; ========================================
+
+; ========================================
+; [bgm Bgm_005_001_Loop]
+; ========================================
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false AppearanceAndTransition:11_1
+@ModifyBackgroundExtended TintColor:#000000 Duration:1.2 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:1.8
+@PlayBgm BgmPath:Bgm_5_1 Volume:1 Loop:true FadeInDuration:0
+@AutoSave
+[PrintTextModified Text:艾玛她们来到了娱乐室，<br>看见正靠在沙发上的可可。|#0101Adv32_Narrative001| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Normal1,ArmR9
+
+[PrintTextModified Text:可可一边打着哈欠，一边看着手机。|#0101Adv32_Narrative002| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hanna.Angry1
+
+[PrintTextModified Text:喂，我说你，<br>这时候大家都在拼命调查，为什么你却在玩手机？|#0101Adv32_Hanna001| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Angry1,ArmR2
+
+[PrintTextModified Text:哈？烦不烦。<br>我现在很忙啦，别管我。|#0101Adv32_Coco001| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:她那副说话口吻<br>惹得艾玛也有些生气。|#0101Adv32_Narrative003| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Ema.Angry1
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Coco.Angry1,ArmR2
+
+[PrintTextModified Text:现在可是有人死了欸？|#0101Adv32_Ema001| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:怎么，要我对一个不认识的死人一把鼻涕一把泪？<br>啊我受不了了，也太肉麻了。|#0101Adv32_Coco002| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:我觉得除了我和我推之外，<br>这世上的所有人都该去死。|#0101Adv32_Coco003| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:就是说，爱调查还是怎样随便你们。|#0101Adv32_Coco004| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:"（总感觉她有点……令人讨厌……<br>　感觉跟她聊不来）|#0101Adv32_Ema002|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Sherry.Smile1
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Coco.Angry1
+
+[PrintTextModified Text:你说你很忙，那可可你在忙什么？|#0101Adv32_Sherry001| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:雪莉没有对可可的态度作出明显反应，<br>只是笑着向她问道。|#0101Adv32_Narrative004| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Coco.Normal1,ArmR2,ArmL1
+
+[PrintTextModified Text:我在确认昨天直播的回放。|#0101Adv32_Coco005| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（说起来，昨天可可她们好像是办了直播）|#0101Adv32_Ema003| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Sherry.Surprised1
+
+[PrintTextModified Text:哦！竟然还可以保存回放。<br>功能还蛮全的耶。|#0101Adv32_Sherry002| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 証拠品：『配信アーカイブ』入手
+; ========================================
+
+@ResetText
+@SpawnExtended Path:Clue Params:1-7
+@ShowToastUI Text:"魔女图鉴 更新…|#Toast_001|"
+@UpdateWitchBook Id:1-7 Category:Clue Version:1
+@Wait WaitMode:i1.2
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Sherry.Normal1
+
+[PrintTextModified Text:直播也只有我们才能看到，<br>回放究竟有什么意义呢……|#0101Adv32_Sherry003| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:反正对我有意义。<br>总之你们以后也要看我直播。|#0101Adv32_Coco006| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@DestroySpawnedExtended Path:Clue LogWarning:true
+@Wait WaitMode:0.6
+
+[PrintTextModified Text:"（可可的魔法<br>　会不会和直播有关呢……？）|#0101Adv32_Ema004|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:看来雪莉也在想同样的事情。|#0101Adv32_Narrative005| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:可可的魔法，<br>是不是和直播有关系呀？|#0101Adv32_Sherry004| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Coco.Angry1,ArmR2,ArmL1
+
+[PrintTextModified Text:恶心死。为什么我一定要<br>跟你们讲我会什么魔法？|#0101Adv32_Coco007| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Pensive1
+
+[PrintTextModified Text:明明在直播里滔滔不绝讲自己的事……？|#0101Adv32_Ema005| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Coco.Angry1,ArmR2,ArmL2
+
+[PrintTextModified Text:那是两码事。<br>唉你们好烦啊！|#0101Adv32_Coco008| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; [sfx 32：テーブルを叩く音]
+; ========================================
+
+@PlaySfxModified SfxPath:Sfx_32 Volume:1 Loop:false FadeInDuration:0
+
+[PrintTextModified Text:可可“砰”地<br>砸了一下桌子，表露出了明显的焦躁。|#0101Adv32_Narrative006| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:我一个人直播的时候<br>观众几乎都是零蛋，根本就是完蛋好不好？|#0101Adv32_Coco009| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:和蕾雅联动的时候你们倒是会来看！|#0101Adv32_Coco010| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:我连蕾雅都不如吗？<br>算什么那家伙烦死了。能不能给我去死。|#0101Adv32_Coco011| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Coco.Angry1
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Hanna.Angry1
+
+[PrintTextModified Text:她都答应跟你联动了，<br>没必要说得这么过分吧！？|#0101Adv32_Hanna002| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:我根本没求过她！是她来邀我的好不好！|#0101Adv32_Coco012| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:跟你真是没话好说！哼！|#0101Adv32_Hanna003| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Sherry.Smile1,ArmR18,ArmL13
+
+[PrintTextModified Text:算啦算啦。|#0101Adv32_Sherry005| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:雪莉把涨红了脸<br>十分生气的汉娜拖走了。|#0101Adv32_Narrative007| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:显然，再待在娱乐室，<br>吵架只会进一步升级。|#0101Adv32_Narrative008| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Normal1,ArmR1,ArmL1
+
+[PrintTextModified Text:我看这里也没其他线索了，<br>走吧。|#0101Adv32_Sherry006| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Pensive1,ArmR3
+
+[PrintTextModified Text:嗯……|#0101Adv32_Ema006| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Normal1
+
+[PrintTextModified Text:到头来也只搞懂了<br>可可是坏人这件事。|#0101Adv32_Sherry007| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Pensive1
+
+[PrintTextModified Text:嗯。|#0101Adv32_Ema007| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:艾玛也不由得点了点头。|#0101Adv32_Narrative009| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 消化していないイベントがある＞シーン1‐1‐21
+; 全てのイベントを消化している＞シーン1‐1‐30
+; ========================================
+
+@Gosub Path:System/System_Subroutine.EndAdv
+
+@GotoModified Path:Act01_Chapter01/Act01_Chapter01_Adv25 SoftReset:true
+

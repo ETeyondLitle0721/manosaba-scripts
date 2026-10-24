@@ -1,0 +1,185 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook Version:4
+@SetCustomVariable Expression:"isReenact = true"
+@ModifyTextPrinter Duration:0 Lazy:false IdAndAppearance:Normal.Simple MakeDefault:true HideOther:true
+@Gosub Path:System/System_Subroutine.BeginAdv
+
+; ==============================================================================
+; 遠野ハンナの物語
+; ==============================================================================
+; ＠ト書き▼議論9 絵本パート
+
+# Judge9-11-1
+
+@ModifyBackgroundExtended TintColor:#000000 Duration:1.2 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:1.8
+
+; BGM変更：ボクとワタシの
+@PlayBgm BgmPath:Bgm_19_1 Volume:1 Loop:true FadeInDuration:0
+
+; 【1P目イラスト】
+; 3P目を流用？ 苦悩するハンナを表現
+@SpawnExtended Path:Reenact_Ch02_E04_S01 Wait:false
+@Wait WaitMode:1.5
+
+; @備考◆ここから心が壊れた状態で、独白するように
+@AutoSave
+[PrintTextModified Text:我——所做的事情……|#0204Trial11_Hanna001| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:我，到底……做了什么？|#0204Trial11_Hanna002| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:不是的，我……没有错。|#0204Trial11_Hanna003| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:嗯，错的是……她。|#0204Trial11_Hanna004| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆ここから一人称「私（わたし）」／心神喪失でキャラ作りが解けた素のハンナ
+
+[PrintTextModified Text:一切的一切……都是那个人的错。<br>本小姐……【我】，没有错……|#0204Trial11_Hanna005| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@DestroySpawnedExtended Path:Reenact_Ch02_E04_S01 Wait:false LogWarning:true
+@Wait WaitMode:1.5
+
+; 【2P目イラスト】
+; ハンナが氷塊を持っている
+; その前に倒れているレイア
+; （あとから差分でエマが登場する）
+@SpawnExtended Path:Reenact_Ch02_E04_S02 Wait:false
+@Wait WaitMode:1.5
+
+[PrintTextModified Text:我……杀了蕾雅。|#0204Trial11_Hanna006| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:在地下捡起冰块。<br>从后面……袭击了她。|#0204Trial11_Hanna007| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:在电梯出口处，<br>蕾雅流着血倒下……|#0204Trial11_Hanna008| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 【2P目】差分エマ＋脚立が登場
+
+[PrintTextModified Text:然后……艾玛拿着人字梯走过来……|#0204Trial11_Hanna009| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:不等她出声喊我，<br>我，就拿起了蕾雅的剑……|#0204Trial11_Hanna010| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@DestroySpawnedExtended Path:Reenact_Ch02_E04_S02 Wait:false LogWarning:true
+@ModifyBackgroundExtended TintColor:#00000000 Duration:0 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@ModifyBackgroundExtended TintColor:#000000ff Duration:1 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:1.5
+
+; 赤フラッシュ
+@ModifyBackgroundExtended TintColor:#FF0000FF Duration:0 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@ModifyBackgroundExtended TintColor:#000000FF Duration:0.5 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+; SE・刺す音（グシャッ）
+@PlaySfxModified SfxPath:Sfx_12 Volume:1 Loop:false FadeInDuration:0
+
+@Wait WaitMode:1
+
+@ModifyBackgroundExtended TintColor:#000000 Duration:1.2 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:0.6
+
+; 【3P目イラスト】
+; 頭を抱えるハンナ。
+; 上記のように顔を手で覆って指の隙間から目を見開いているようなイメージなものの、人形だと難しいかも……。
+; あくまでも「絶望感として表現したい」イメージ例なので、「苦悩するハンナ・絶望するハンナ」という様子が描けたらOKです。
+; 「2人の死体の前に途方にくれるハンナ」とかもアリです。（自由…！）
+@SpawnExtended Path:Reenact_Ch02_E04_S03 Wait:false
+@Wait WaitMode:1.5
+
+[PrintTextModified Text:等我回过神来，那里只剩……两具尸体。|#0204Trial11_Hanna011| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆このへん追い詰められるような情緒不安定感
+
+[PrintTextModified Text:所以我，满脑子都是……把尸体藏起来……|#0204Trial11_Hanna012| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:我把蕾雅……藏在电梯顶上。|#0204Trial11_Hanna013| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:可是，集合时间快到了……<br>到时如果我不在的话会被怀疑……|#0204Trial11_Hanna014| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:所以想把艾玛，藏在人字梯挡住的地方……|#0204Trial11_Hanna015| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:但是之后大家来了的话，马上就会暴露……|#0204Trial11_Hanna016| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:必须想办法……<br>让别人找不到艾玛的尸体……|#0204Trial11_Hanna017| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:所以……我想让尸体消失……<br>就把碰巧带着的舞台服……<br>给艾玛穿上了……|#0204Trial11_Hanna018| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:为了让换上了舞台服的艾玛不令人怀疑，<br>我给蕾雅戴上了她带来的王冠……|#0204Trial11_Hanna019| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:再次回到地下，<br>我就第一个乘上电梯……|#0204Trial11_Hanna020| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@DestroySpawnedExtended Path:Reenact_Ch02_E04_S03 Wait:false LogWarning:true
+@Wait WaitMode:1.5
+
+; ドレスを着せられふよふよ宙に浮かぶエマ
+; エマドレス
+; シルエットがドレスっぽく（ワンピースっぽく）なってさえいれば細部は沿っていなくて大丈夫です（あくまでも人形劇として）
+@SpawnExtended Path:Reenact_Ch02_E04_S04 Wait:false
+@Wait WaitMode:1.5
+
+[PrintTextModified Text:然后对尸体穿着的礼服、上面的刺绣……<br>对缝进刺绣的自己的头发，施了魔法……|#0204Trial11_Hanna021| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:头发把她的尸体抬了起来……|#0204Trial11_Hanna022| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:然后尸体向着电梯顶板上方飘浮……<br>被空无一物的黑暗吞没……|#0204Trial11_Hanna023| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:如果能一直这样飘浮下去，<br>就不会被任何人发现了……我这么想着。|#0204Trial11_Hanna024| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:所以我拼命地念着魔法。<br>祈求魔法能一直持续……|#0204Trial11_Hanna025| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:……但是。|#0204Trial11_Hanna026| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆ここから涙まじり
+
+[PrintTextModified Text:凭我这半吊子的魔法，根本做不到。|#0204Trial11_Hanna027| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:她的尸体失去浮力，坠落下来。|#0204Trial11_Hanna028| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:然后……在地下，被发现了。|#0204Trial11_Hanna029| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@DestroySpawnedExtended Path:Reenact_Ch02_E04_S04 Wait:false LogWarning:true
+@Wait WaitMode:1.5
+
+; 【5P目イラスト】
+; 腹部にレイピアを刺され、エレベーターの中央で倒れているエマ
+; 劇場のカーテンを彷彿とさせるエレベーターの扉。
+; スポットライトがエマの死体に当たる。
+@SpawnExtended Path:Reenact_Ch02_E04_S05 Wait:false
+@Wait WaitMode:1.5
+
+; ※ただドレスデザインが必要かも（現状こちら側でまだ）なので、ちょっとここだけご相談＆待ってもらう方が良さそう
+
+[PrintTextModified Text:一切……一切都完了。|#0204Trial11_Hanna030| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆ここから泣きながら
+
+[PrintTextModified Text:……不是的。<br>我根本不想杀人的。|#0204Trial11_Hanna031| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:我不想骗人的。<br>我不想撒谎的。|#0204Trial11_Hanna032| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:我不想嫁祸别人的。<br>我不想做个坏孩子的……！|#0204Trial11_Hanna033| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:不是我的错……不是、我的、错……！|#0204Trial11_Hanna034| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆少し落ち着きつつ涙声のイメージ
+
+[PrintTextModified Text:……呐，我呀。|#0204Trial11_Hanna035| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:真的、把两条人命都……杀死了吗……？|#0204Trial11_Hanna036| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:……骗人，怎么会……|#0204Trial11_Hanna037| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:我……<br>【本小姐】我……|#0204Trial11_Hanna038| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:明明这么可爱……明明是最完美的……|#0204Trial11_Hanna039| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:【大小姐】……却……竟然……|#0204Trial11_Hanna040| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@DestroySpawnedExtended Path:Reenact_Ch02_E04_S05 Wait:false LogWarning:true
+@Wait WaitMode:0.5
+
+@SetCustomVariable Expression:"isReenact = false"
+@Gosub Path:System/System_Subroutine.EndAdv
+
+@GotoModified Path:Act02_Chapter04/Act02_Chapter04_Adv14 SoftReset:true
+

@@ -1,0 +1,42 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook IsDebugDirectJump:{isDebugDirectJump}
+@Gosub Path:System/System_Subroutine.BeginAdv
+
+@ModifyBackgroundExtended TintColor:#000000 Duration:1.2 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+
+# Scene1-5-2
+
+; ========================================
+; ●シーン1‐5-2
+; ========================================
+
+; ========================================
+; マップイベント用分岐
+; ========================================
+
+; ========================================
+; 【ＭＡＰイベント】牢屋敷マップ
+; 殺人現場＞シーン1‐5‐3
+; 秘密の地下施設＞1‐5‐4※ここで初めてマップが登場する
+; ※全てのＭＡＰイベントを選択したら終了。
+; 選択済みの場所は消していってください。
+; ========================================
+
+@BeginIf Expression:"chosenAreaFlag == 3"
+    @SetCustomVariable Expression:"chosenAreaFlag = 0"
+    @Gosub Path:System/System_Subroutine.EndAdv
+    @GotoModified Path:Act01_Chapter05/Act01_Chapter05_Adv05 SoftReset:true
+
+@ChoiceMapArea CategoryNames:Courtroom,ChamberUndine Back:false Global:false MapAreaNames:Courtroom,ChamberUndine FlagVariableName:chosenAreaFlag
+
+@BeginIf Expression:"chosenAreaId==\"Courtroom\""
+    @SetCustomVariableAsFlag Number:0 VariableName:chosenAreaFlag
+    @Gosub Path:System/System_Subroutine.EndAdv
+    @GotoModified Path:Act01_Chapter05/Act01_Chapter05_Adv03 SoftReset:true
+
+@BeginIf Expression:"chosenAreaId==\"ChamberUndine\""
+    @SetCustomVariableAsFlag Number:1 VariableName:chosenAreaFlag
+    @Gosub Path:System/System_Subroutine.EndAdv
+    @GotoModified Path:Act01_Chapter05/Act01_Chapter05_Adv04 SoftReset:true
+
+@Stop
+

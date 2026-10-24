@@ -1,0 +1,205 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook IsDebugDirectJump:{isDebugDirectJump}
+@Gosub Path:System/System_Subroutine.BeginAdv
+
+# Scene1-1-11
+
+; ========================================
+; ●シーン1‐1-11
+; [back 3]
+; ========================================
+
+; ========================================
+; ＞『懲罰房前』を選択
+; ========================================
+
+; ========================================
+; [bgm Bgm_022_001_Loop]
+; ========================================
+@AutoSave
+[PrintTextModified Text:エマたちが地下を歩き回っていると、<br>気になる場所にたどりついた。|#0101Adv15_Narrative001| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false AppearanceAndTransition:3_1
+@ModifyBackgroundExtended TintColor:#000000 Duration:1.2 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:1.8
+@PlayBgm BgmPath:Bgm_22_1 Volume:1 Loop:true FadeInDuration:0
+
+[PrintTextModified Text:"奥まった通路に<ruby=\"じゅうこう\">重厚</ruby>な扉がずらりと並び、<br>囚人の房より厳戒な<ruby=\"なんきんじょう\">南京錠</ruby>で閉ざされている。|#0101Adv15_Narrative002|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Ema.Normal1
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Sherry.Normal1
+
+[PrintTextModified Text:ここってなんですかね？<br>中には入れないようですが……。|#0101Adv15_Sherry001| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:覗き窓があるから、見てみようか。|#0101Adv15_Ema001| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Ema.Pensive1
+
+[PrintTextModified Text:"エマはおそるおそるといった風に、<br><ruby=\"のぞ\">覗</ruby>き窓から室内を<ruby=\"のぞ\">覗</ruby>いた。|#0101Adv15_Narrative003|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; [back 21]
+; ========================================
+; ========================================
+; 演出：覗き窓から中を見ている
+; ========================================
+
+@HideAllCharacters Lazy:false
+@Wait WaitMode:0.2
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Lazy:false AppearanceAndTransition:21_1
+@ModifyCamera Offset:-5,0 Zoom:0.5 Duration:0 Lazy:false
+@Wait WaitMode:0.2
+
+[PrintTextModified Text:うわぁっ！|#0101Adv15_Ema002| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCamera Offset:0,0 Zoom:0 Duration:0 Lazy:false
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Lazy:false AppearanceAndTransition:3_1
+
+[PrintTextModified Text:"――<ruby=\"かいま\">垣間</ruby>見えた<ruby=\"まがまが\">禍々</ruby>しい道具類に、<br><ruby=\"そうはく\">蒼白</ruby>になったエマは後ずさり、尻もちをつく。|#0101Adv15_Narrative004|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Sherry.Surprised1
+
+[PrintTextModified Text:大丈夫ですか、エマさん。<br>一体何をそんなに驚いて――。|#0101Adv15_Sherry002| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Sherry.Normal1
+
+[PrintTextModified Text:"シェリーも続いて中を<ruby=\"のぞ\">覗</ruby>き込み、<br>しばし固まっている。|#0101Adv15_Narrative005|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆冷静に感心している
+
+[PrintTextModified Text:これは……またまた……えぐいですねぇ。|#0101Adv15_Sherry003| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; [back 3]
+; ========================================
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Ema.Pensive1,ArmR3,ArmL1
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Sherry.Normal1
+
+[PrintTextModified Text:"（よく見えなかったけど、拷問器具みたいだった。<br>　逆らったら拷問されるってこと……？）|#0101Adv15_Ema003|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:ここがゴクチョーさんの言ってた懲罰房でしょうね。<br>規則を破った囚人はここに入れられる、と。|#0101Adv15_Sherry004| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:――その時だった。|#0101Adv15_Narrative006| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+; ボイス加工：ドア越しの声
+
+[PrintTextModified Text:ぐぅ……クッソ、ざけんな……。|#0101Adv15_Alisa001| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ボイス加工：ドア越しの声
+
+[PrintTextModified Text:"出せよぉぉ！！ おああああ！！|#0101Adv15_Alisa002|" AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"並ぶ懲罰房のどこかから、<br>獣のようなアリサの<ruby=\"うめ\">呻</ruby>き声が、エマたちの耳に届いた。|#0101Adv15_Narrative007|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆ハッと息を呑む
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Ema.Surprised1
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Sherry.Surprised1
+
+[PrintTextModified Text:！|#0101Adv15_Ema004| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:やっぱりアリサさんは懲罰房行きになったんですね。|#0101Adv15_Sherry005| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:探そう！|#0101Adv15_Ema005| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:"エマとシェリーは片端から<br><ruby=\"のぞ\">覗</ruby>き窓を確認していく。|#0101Adv15_Narrative008|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; [back 21]
+; ========================================
+
+[PrintTextModified Text:すると、その中のひとつに<br>アリサが捕まっている姿を発見した。|#0101Adv15_Narrative009| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Surprised1
+
+[PrintTextModified Text:アリサちゃん！|#0101Adv15_Ema006| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 演出：アリサカットイン
+; ========================================
+
+@HidePrinter
+@SpawnExtended Path:MaskingRectangle Params:40,200,true,0.3,#000000 ScenePosition:20,50 Rotation:,,0 SubId:Front
+@ModifyBackgroundExtended Rotation:,,0 Scale:1.8 Lazy:false ScenePosition:-20,36 AppearanceAndTransition:21_1 SubId:Front
+@ModifyCharacterExtended Rotation:,,0 Scale:1.8 Lazy:false ScenePosition:20,32 IdAndAppearance:Alisa.Angry1,Option-ArmL-Off SubId:Front
+@ChangeActorMaskability ActorIds:MainBackground-Front,Alisa-Front Enable:true
+@AnimateActorExtended ActorIds:MainBackground-Front Loop:false ScenePositionY:40 EasingTypeName:EaseOutQuad Duration:0.5
+@AnimateActorExtended ActorIds:Alisa-Front Loop:false ScenePositionY:35 EasingTypeName:EaseOutQuad Duration:0.5
+@Wait WaitMode:0.4
+
+[PrintTextModified Text:"あ……？ 誰だてめえら……。|#0101Adv15_Alisa003|" AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"アリサは<ruby=\"たっけいだい\">磔刑台</ruby>に拘束されており、<br>ずいぶん消耗している様子だった。|#0101Adv15_Narrative010|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:あまりに痛々しい光景に、エマは息を呑む。|#0101Adv15_Narrative011| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:80 IdAndAppearance:Sherry.Normal1
+
+[PrintTextModified Text:大丈夫ですか？<br>ひどいことをされたのでしょうか？|#0101Adv15_Sherry006| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"アリサのぎらぎらした瞳が、<br>エマとシェリーを強く<ruby=\"にら\">睨</ruby>む。|#0101Adv15_Narrative012|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:てめえらに関係ねーだろ……。|#0101Adv15_Alisa004| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:……ああでも、ひとつ忠告しといてやる。<br>屋敷から遠くまで逃げると、<br>監視のバケモンフクロウが大量に飛んでやがったよ。|#0101Adv15_Alisa005| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:そいつらに見つかった途端、<br>看守が飛んできた。脱獄は難しいってことだ。|#0101Adv15_Alisa006| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:高い塀があったから燃やそうとしたんだが、<br>それも無理だった。不思議な力で炎がかき消えちまって……<br>どうなってんだよ、クソッ。|#0101Adv15_Alisa007| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（へ、塀を燃やそうとした……？ 過激なことするなぁ……）|#0101Adv15_Ema007|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:80 IdAndAppearance:Sherry.Normal1,ArmR2,ArmL1
+
+[PrintTextModified Text:ふむ……私たちは囚人として捕まっているので、<br>この監獄もやすやすと私たちを逃がすわけありません。<br>難しくて当然なのでは。|#0101Adv15_Sherry007| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"っ……笑いに来やがったのかてめえ！<br>あっち行けよ！ 消えろ！！|#0101Adv15_Alisa008|" AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HidePrinter
+@AnimateActorExtended ActorIds:MainBackground-Front,Alisa-Front Loop:false
+@WaitForNextFrame
+@AnimateActorExtended ActorIds:MainBackground-Front Loop:false ScenePositionY:44 EasingTypeName:EaseOutQuad Duration:0.5
+@AnimateActorExtended ActorIds:Alisa-Front Loop:false ScenePositionY:48 EasingTypeName:EaseOutQuad Duration:0.5
+@HideActors ActorIds:MainBackground-Front,Alisa-Front Lazy:false
+@DestroySpawnedExtended Path:MaskingRectangle SubId:Front LogWarning:true
+
+[PrintTextModified Text:"感情的に<ruby=\"わめ\">喚</ruby>きだしたアリサに、<br>エマとシェリーは仕方なく引き下がる。|#0101Adv15_Narrative013|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; [back 3]
+; ========================================
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Pensive1
+@ModifyCharacterExtended Lazy:false ScenePosition:80 IdAndAppearance:Sherry.Normal1,ArmR1,ArmL1
+
+[PrintTextModified Text:どうやら元気そうですね。|#0101Adv15_Sherry008| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:規則によれば明日には出られるでしょうし、<br>とりあえず無事が確認できて良かったです。|#0101Adv15_Sherry009| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:うん、そうだね……。|#0101Adv15_Ema008| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:80 IdAndAppearance:Sherry.Normal1,ArmR2,ArmL1
+
+[PrintTextModified Text:足枷までつけられてかわいそうに……。|#0101Adv15_Sherry010| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"ん？ アリサちゃんって、<br>最初から足枷をつけられていたような。|#0101Adv15_Ema009|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:80 IdAndAppearance:Sherry.Smile1,ArmR1,ArmL1
+
+[PrintTextModified Text:ああそうでしたっけ！<br>いきなりハードモード囚人だったんですね。<br>要注意人物だと思われてたんでしょうか。|#0101Adv15_Sherry011| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:そうかも……。|#0101Adv15_Ema010| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 消化していないイベントがある＞シーン1‐1‐7
+; 全てのイベントを消化している＞シーン1‐1‐12
+; ========================================
+
+@Gosub Path:System/System_Subroutine.EndAdv
+
+@GotoModified Path:Act01_Chapter01/Act01_Chapter01_Adv11 SoftReset:true
+

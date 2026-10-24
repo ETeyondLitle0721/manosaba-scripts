@@ -1,0 +1,275 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook IsDebugDirectJump:{isDebugDirectJump}
+@Gosub Path:System/System_Subroutine.BeginAdv
+
+# Scene2-1-8
+
+; ========================================
+; ●シーン2‐1-8
+; ========================================
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false AppearanceAndTransition:12_1
+@ModifyBackgroundExtended DissolveTexturePath:VerticalBlindGradually TintColor:#000000 Duration:0.99 Lazy:false AppearanceAndTransition:Transparent.Custom SubId:Overlay
+@Wait WaitMode:0.9
+
+; ========================================
+; ＞『図書室』を選択
+; ========================================
+
+@PlayBgm BgmPath:Bgm_11_1 Volume:1 Loop:true FadeInDuration:0
+@AutoSave
+[PrintTextModified Text:牢屋敷２階の図書室に行ってみると、<br>読書スペースにはシェリー、ハンナ、エマがいた。|#0201Adv13_Narrative001| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"ノアは図書室中央の大木に目を奪われて、<br>何やらお絵描きの構想を<ruby=\"ね\">練</ruby>りだしたので、<br>私はひとり、シェリーたちへ近寄っていく。|#0201Adv13_Narrative002|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:何をしている。|#0201Adv13_Hiro001| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:80 IdAndAppearance:Hanna.Angry1
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Surprised1
+@ModifyCharacterExtended Lazy:false ScenePosition:20 IdAndAppearance:Sherry.Normal1
+@Wait WaitMode:1
+
+[PrintTextModified Text:出ましたわね。風紀委員……。|#0201Adv13_Hanna001| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:風紀委員ではないが？|#0201Adv13_Hiro002| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:80 IdAndAppearance:Hanna.Pensive1
+
+[PrintTextModified Text:毎日何度も私たちの部屋の見回りまでしておいて、<br>風紀委員じゃなくてなんだって言うんですの……。|#0201Adv13_Hanna002| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"ああヒロさん！ 今日は私たち、<br>図書室の本を色々調べまわっているんです！|#0201Adv13_Sherry001|" AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Normal1
+
+[PrintTextModified Text:うん、何かこの牢屋敷のこと、<br>もっとわかるんじゃないかと思って。|#0201Adv13_Ema001| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Normal1,ArmR3
+
+[PrintTextModified Text:でも読めない本ばっかりで、<br>困ったねって話してたところだよ。|#0201Adv13_Ema002| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:法則さえつかめば、<br>なんとなく解読できる気はするんですけどねぇ～。|#0201Adv13_Sherry002| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（私も図書室の本はざっと目を通したが、<br>　たしかに読めない本ばかりだったな……）|#0201Adv13_Hiro003|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:あ、あとそうそう。<br>ヒロさん、これを見てください！|#0201Adv13_Sherry003| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:シェリーが、机の上の分厚い本を指差した。|#0201Adv13_Narrative003| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; アイテムスチル：『魔女の本』表示
+; ========================================
+@HideAllCharacters Lazy:false
+; 番号仮入れ。魔女の本を表示する
+; @spawn Clue params:10-1
+@Wait WaitMode:0.5
+
+[PrintTextModified Text:"豪華な<ruby=\"そうてい\">装丁</ruby>のいかにも<ruby=\"いわ\">曰</ruby>くありげな本だった。|#0201Adv13_Narrative004|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Sherry
+
+[PrintTextModified Text:この本には<br>どうやら魔女や魔法のことが書かれているようなんです。|#0201Adv13_Sherry004| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+; @despawn Clue
+@Wait WaitMode:0.5
+
+@StopBgm FadeOutDuration:1
+
+; 本のページをぱらぱらめくる音
+@PlaySfxModified SfxPath:Sfx_43 Volume:1 Loop:false FadeInDuration:0
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:開かれていたページに、私も注目する。|#0201Adv13_Narrative005| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@PlayBgm BgmPath:Bgm_36_1 Volume:1 Loop:true FadeInDuration:0
+
+@ModifyBackgroundExtended Id:Stills Scale:{g_backgroundDefaultScale} Lazy:false AppearanceAndTransition:510_1
+
+[PrintTextModified Text:独自の文字で書かれたこれだけの書物……<br>見せかけの飾りというわけではなさそうだ。|#0201Adv13_Hiro004| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:どうやら運営側は私たちと異なる<br>文化や歴史をもっているらしい。|#0201Adv13_Hiro005| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（恐らく、魔女……に関係するものなのだろう）|#0201Adv13_Hiro006| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Id:Stills Scale:2 Duration:0.3 Lazy:false ScenePosition:80,30 AppearanceAndTransition:510_1 SubId:Middle
+
+[PrintTextModified Text:……特にこの絵が気になるな。|#0201Adv13_Hiro007| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"私が指差したのは、<br>たくさんの魔女が手を<ruby=\"つな\">繋</ruby>いで囲み、<br>偉そうな魔女が<ruby=\"こうりん\">降臨</ruby>している風の図解。|#0201Adv13_Narrative006|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:これは【サバト】の絵じゃないでしょうかね？<br>魔女が大魔女を召喚する儀式的な。|#0201Adv13_Sherry005| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:……なるほど？<br>詳しくはないが、たしかに一般的な伝承でも、<br>魔女にはリーダーがいるらしい。|#0201Adv13_Hiro008| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:魔女にとって【大魔女】は、<br>なくてはならない存在……そう、つまり！|#0201Adv13_Sherry006| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:つまり……！|#0201Adv13_Sherry007| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideActors ActorIds:Stills,Stills-Middle Lazy:false
+@Wait WaitMode:0.6
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Sherry.Normal1,ArmR3,ArmL3
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Hiro.Normal1
+
+[PrintTextModified Text:シェリーはずばりと人差し指を立てたが、<br>それきり静止してから、むむむとうなり始めた。|#0201Adv13_Narrative007| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Sherry.Pensive1,ArmR3,ArmL3
+
+[PrintTextModified Text:"ん～！ 文字さえ解読できたら、<br>もっと詳細に内容がわかるんですけどね～。|#0201Adv13_Sherry008|" AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:安易な推理は危険だが……<br>この本に沿って考えるなら<br>運営もまた、魔女側ということかもしれないな。|#0201Adv13_Hiro009| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:ゴクチョーは、大魔女さえ見つかったら呪いが……<br>と言いかけていた。|#0201Adv13_Hiro010| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:なら、このバカげたゲームは<br>大魔女を召喚するために行われている<br>魔女側の儀式、と考えられる。|#0201Adv13_Hiro011| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Sherry.Smile1
+@EmoteJumpDouble ActorIds:Sherry Loop:false Speed:1
+@Wait WaitMode:0.2
+
+[PrintTextModified Text:"あ～！ それです～！<br>私もそれが言いたかったんです！|#0201Adv13_Sherry009|" AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@AnimateActorExtended ActorIds:Sherry Loop:false ScenePositionX:50 ScenePositionY:50
+
+[PrintTextModified Text:ヒロさんやりますね～！<br>いっしょに名探偵コンビになれるかもしれません！|#0201Adv13_Sherry010| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:遠慮しておく。|#0201Adv13_Hiro012| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:なれなれしくすり寄られたが、<br>別に悪い気はしない。|#0201Adv13_Narrative008| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Hanna.Pensive1
+
+[PrintTextModified Text:しっかし、それにしたって……<br>なんでわたくしたちが拉致されなきゃなりませんの？|#0201Adv13_Hanna003| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"別の本を読んでいたハンナが<br><ruby=\"いまいま\">忌々</ruby>しそうに口を開く。|#0201Adv13_Narrative009|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Hiro.Normal1
+
+[PrintTextModified Text:それについても仮説は立てられる。|#0201Adv13_Hiro013| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:大魔女を召喚したい運営が<br>わざわざ多くの魔女候補を集める理由……。|#0201Adv13_Hiro014| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:私はシェリーとハンナの注意を引くように、<br>人差し指を立てた。|#0201Adv13_Narrative010| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:ひとつめは、大魔女の召喚に少女の死が必要。<br>単純だが――生け贄というやつだな。|#0201Adv13_Hiro015| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:シンプルに最悪ですわ～……。|#0201Adv13_Hanna004| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:ぞっとした表情のハンナをよそに、<br>私は淡々と２本目の指を立てた。|#0201Adv13_Narrative011| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:ふたつめは……少し飛躍するが。<br>殺すことが目的ではなく<br>少女を集めることが目的、という線だ。|#0201Adv13_Hiro016| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Hiro.Angry1
+
+[PrintTextModified Text:例えば、奴らが大魔女を呼ぶために必要な<br>【魔法を探している】としたらどうだ？|#0201Adv13_Hiro017| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Hanna.Surprised1
+
+[PrintTextModified Text:ちょっと待ってくださいまし。<br>ふたつめは、ありえますの？|#0201Adv13_Hanna005| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Hanna.Angry1
+
+[PrintTextModified Text:魔法が知りたいだけなら<br>わざわざ手間暇かけて<br>こんな場所に監禁までしなくたって……！|#0201Adv13_Hanna006| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Hiro.Normal1
+
+[PrintTextModified Text:ルールブックにあっただろう。<br>魔女化が進むことで、魔法は進化する。|#0201Adv13_Hiro018| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:見たところ魔法はひとりひとり違う。<br>どんな魔法に進化するかは、きっと運営も知らない。|#0201Adv13_Hiro019| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:もし私たちの魔法が進化した先に<br>運営が期待する魔法があるとしたら？|#0201Adv13_Hiro020| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:この屋敷は、<br>私たちの魔女化を進めるための家畜小屋……。<br>そう考えれば辻褄が合う部分もある。|#0201Adv13_Hiro021| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Sherry.Normal1,ArmR2,ArmL2
+
+[PrintTextModified Text:んー……魔法や魔女にわからないことが多いので<br>断定はできませんが、否定もできませんね。|#0201Adv13_Sherry011| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:"ハンナは言い返す言葉を失ったようで、<br><ruby=\"あき\">呆</ruby>れ半分の視線を私に向けてくる。|#0201Adv13_Narrative012|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Hanna.Angry1
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Hiro.Normal1
+
+[PrintTextModified Text:……ヒロさん。<br>あなた、それ、いつ気付いたんですの？|#0201Adv13_Hanna007| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:大魔女を呼ぶ儀式については今知ったんだ。<br>今考えたに決まっている。|#0201Adv13_Hiro022| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Hanna.Pensive1
+
+[PrintTextModified Text:て、敵には回したくないお方ですわね……。|#0201Adv13_Hanna008| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Normal1,ArmR3
+
+@StopBgm FadeOutDuration:3
+
+[PrintTextModified Text:……そう。<br>ヒロちゃんは、すごいんだ。|#0201Adv13_Ema003| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:ずっと黙りこくっていたエマが口を開く。<br>私はエマに視線を送って……外した。|#0201Adv13_Narrative013| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Hiro.Normal1
+
+[PrintTextModified Text:敵に回したくないのは私も同じことだ。<br>私はもう行こう。時間も限られて――。|#0201Adv13_Hiro023| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:私は彼女たちに別れを告げながら、<br>大木の前にいるノアの方へと歩いていく。|#0201Adv13_Narrative014| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Scale:0.1 Lazy:false ScenePosition:53 IdAndAppearance:Noah
+
+[PrintTextModified Text:"ノアはスプレーを<ruby=\"かか\">掲</ruby>げ、<br>大木に色をつけようとしていた。|#0201Adv13_Narrative015|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Wait WaitMode:0.3
+@ModifyBackgroundExtended Scale:3.5 Duration:1 Lazy:false AppearanceAndTransition:12_1 SubId:Middle
+@PlayBgm BgmPath:Bgm_34_1 Volume:1 Loop:true FadeInDuration:0
+@Wait WaitMode:1
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Hiro.Normal1 SubId:Middle
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Noah.Normal1 SubId:Middle
+
+[PrintTextModified Text:――おいノア、何をするつもりだ？|#0201Adv13_Hiro024| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Noah.Smile1 SubId:Middle
+
+[PrintTextModified Text:あ、ヒロちゃん。<br>えへへ、あのね、この木をカラフルにしたら<br>きっとすごいことになるなーって思うんだあ。|#0201Adv13_Noah001| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:絶対みんな大喜びだよ～！|#0201Adv13_Noah002| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:却下。|#0201Adv13_Hiro025| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Noah.Pensive1 SubId:Middle
+
+[PrintTextModified Text:"えーダメかなー？ 絶対綺麗になるのにー。|#0201Adv13_Noah003|" AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:……早く出よう。<br>図書室は静粛にするものだ。|#0201Adv13_Hiro026| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:"<ruby=\"なごりお\">名残惜</ruby>しそうなノアを半ば引きずるようにして、<br>図書室を後にした。|#0201Adv13_Narrative016|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@StopBgm FadeOutDuration:1.2
+
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+
+[PrintTextModified Text:（魔法は強くなる……か）|#0201Adv13_Hiro027| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（予想外の強い魔法が<br>　私たちの中に生まれることもある……）|#0201Adv13_Hiro028|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"微かなざわめきが、私の胸に<ruby=\"うずま\">渦巻</ruby>き始めていた。|#0201Adv13_Narrative017|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 消化していないイベントがある＞シーン2‐1‐7
+; 全てのイベントを消化している＞シーン2‐1‐13
+; ========================================
+
+@Gosub Path:System/System_Subroutine.EndAdv
+
+@GotoModified Path:Act02_Chapter01/Act02_Chapter01_Adv12 SoftReset:true
+

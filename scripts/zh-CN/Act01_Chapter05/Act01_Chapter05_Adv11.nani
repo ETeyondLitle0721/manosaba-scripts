@@ -1,0 +1,29 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook IsDebugDirectJump:{isDebugDirectJump}
+@Gosub Path:System/System_Subroutine.BeginAdv
+
+# Scene1-5-11
+
+; ========================================
+; ●シーン1‐5-11
+; ========================================
+
+@ModifyBackgroundExtended Id:Stills Rotation:,,0 Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false ScenePosition:50,50 AppearanceAndTransition:370_1
+@ModifyBackgroundExtended TintColor:#000000 Duration:1.2 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:3.2
+
+@ModifyBackgroundExtended Id:Stills Scale:{g_backgroundDefaultScale} Duration:0.2 Lazy:false AppearanceAndTransition:370_2
+@Wait WaitMode:1.8
+@AutoSave
+[PrintTextModified Text:——这是【回溯了】吗……|#0105Adv11_Hiro001| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:那就得从头开始了。|#0105Adv11_Hiro002| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; ＞魔法少女ノ魔女裁判 2章へ
+; ========================================
+
+@SetCustomVariable Expression:"g_gameProgress = max(6, g_gameProgress)"
+@Gosub Path:System/System_Subroutine.EndAdv
+
+@GotoModified Path:Act02_Chapter01/Act02_Chapter01_Adv01
+

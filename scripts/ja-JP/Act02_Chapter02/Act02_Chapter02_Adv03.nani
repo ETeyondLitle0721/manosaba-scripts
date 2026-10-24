@@ -1,0 +1,48 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook IsDebugDirectJump:{isDebugDirectJump}
+@Gosub Path:System/System_Subroutine.BeginAdv
+
+# Scene2-2-3
+
+; ●シーン2‐2‐3
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false AppearanceAndTransition:1_1
+@ModifyBackgroundExtended TintColor:#000000 Duration:1.2 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:1.8
+
+@PlayBgm BgmPath:Bgm_22_1 Volume:1 Loop:true FadeInDuration:0
+@AutoSave
+[PrintTextModified Text:翌朝。|#0202Adv03_Narrative001| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:私は目を覚ますと同時に起き上がり、<br>ベッドから降り立つ。|#0202Adv03_Narrative002| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:どうやらエマはまだ眠っているようだった。<br>そっと息を吐く。|#0202Adv03_Narrative003| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（顔を合わせたくない者と同室なのは、<br>　どうにも息苦しいな）|#0202Adv03_Hiro001|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 牢の施錠音
+@PlaySfxModified SfxPath:Sfx_4 Volume:1 Loop:false FadeInDuration:0
+@StopSfx
+
+@ResetText
+@ModifyBackgroundExtended DissolveTexturePath:VerticalBlindGradually TintColor:#000000 Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:1.5
+
+; 牢の扉が開く音
+@PlaySfxModified SfxPath:Sfx_119 Volume:1 Loop:false FadeInDuration:0
+@Wait WaitMode:1
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Lazy:false AppearanceAndTransition:2_1
+@ModifyBackgroundExtended DissolveTexturePath:VerticalBlindGradually TintColor:#000000 Duration:0.99 Lazy:false AppearanceAndTransition:Transparent.Custom SubId:Overlay
+@Wait WaitMode:0.9
+
+[PrintTextModified Text:"牢の<ruby=\"かいじょうじかん\">開錠時間</ruby>と共に、通路に出た。<br>今日は朝から、牢屋敷を探索すると決めていた。|#0202Adv03_Narrative004|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（私はエマを殺す。<br>　そのためには正しい計画が必要だ）|#0202Adv03_Hiro002|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:あちこち見て回れば、<br>何かいい方法を思いつくかもしれない。|#0202Adv03_Narrative005| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@SetCustomVariable Expression:"chosenAreaFlag = 0"
+@Gosub Path:System/System_Subroutine.EndAdv
+
+@GotoModified Path:Act02_Chapter02/Act02_Chapter02_Adv04 SoftReset:true
+

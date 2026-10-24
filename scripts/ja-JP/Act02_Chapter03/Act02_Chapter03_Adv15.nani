@@ -1,0 +1,71 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook IsDebugDirectJump:{isDebugDirectJump}
+@Gosub Path:System/System_Subroutine.BeginAdv
+
+# Scene2-3-15
+
+; ========================================
+; ●シーン2‐3‐15
+; ========================================
+
+@ModifyBackgroundExtended Scale:2 Lazy:false ScenePosition:50,70 AppearanceAndTransition:27_1
+@ModifyBackgroundExtended TintColor:#000000 Duration:1.2 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+
+@PlayBgm BgmPath:Bgm_24_1 Volume:1 Loop:true FadeInDuration:0
+@AutoSave
+[PrintTextModified Text:裁判の後、<br>私はひとりで地下の焼却炉室に来ていた。|#0203Adv15_Narrative001| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"焼却炉の扉を開くと中は暗く、<br>焦げた<ruby=\"ざんがい\">残骸</ruby>が不規則に積み重なっている。|#0203Adv15_Narrative002|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:まだ焼却前のゴミもいくつかあったし、<br>燃え切っていない物もある。|#0203Adv15_Narrative003| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:特に紙類は燃えにくく、<br>重なっているとそのまま残りやすい。|#0203Adv15_Narrative004| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 焼却炉の中を漁る音
+@PlaySfxModified SfxPath:Sfx_143 Volume:1 Loop:false FadeInDuration:0
+
+[PrintTextModified Text:"私は焼け焦げた灰の山に構わず手を入れ、<br>中を<ruby=\"あさ\">漁</ruby>っていく。|#0203Adv15_Narrative005|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（きっと、きっとあるはずだ）|#0203Adv15_Hiro001| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:何ひとつ確かではない。<br>それでも探る手は止まらなかった。|#0203Adv15_Narrative006| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"私は無我夢中で、必死で、<br>焦げた紙片や金属片を次々と<ruby=\"つか\">掴</ruby>み、外へ放り投げる。|#0203Adv15_Narrative007|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:そして――それを見つけた。|#0203Adv15_Narrative008| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+
+; ぬいぐるみの中で紙がカサリと鳴る音
+@PlaySfxModified SfxPath:Sfx_66 Volume:1 Loop:false FadeInDuration:0
+
+@Wait WaitMode:1
+
+[PrintTextModified Text:"<ruby=\"はいまみ\">灰塗</ruby>れになった手で、薄汚れた自身で、<br>それ以上<ruby=\"けが\">穢</ruby>さないように<br>折りたたまれたその紙を開く。|#0203Adv15_Narrative009|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:そこにあったのは――ノアの本当の絵。|#0203Adv15_Narrative010| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:見つけられたのは、<br>奇跡のようなものかもしれない。|#0203Adv15_Narrative011| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:なるほど……たしかにへたくそだ。|#0203Adv15_Hiro002| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:くすりと微笑を浮かべながら、<br>私はノアの絵を見下ろす。|#0203Adv15_Narrative012| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:その紙の上に、<br>ぱたり、ぱたりと雫が落ちた。|#0203Adv15_Narrative013| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"いくつも、いくつも、<br><ruby=\"ふ\">降</ruby>り<ruby=\"そそ\">注</ruby>ぐ<ruby=\"しずく\">雫</ruby>が止まらない。|#0203Adv15_Narrative014|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:まるで雨が降ったかのように。|#0203Adv15_Narrative015| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 次話への引継ぎアイテム：『万年筆』
+; ========================================
+
+; ========================================
+; ＞魔法少女ノ魔女裁判 第2章4話へ
+; ========================================
+
+@SetCustomVariable Expression:"g_gameProgress = max(9, g_gameProgress)"
+@Gosub Path:System/System_Subroutine.EndAdv
+
+@GotoModified Path:Act02_Chapter04/Act02_Chapter04_Adv01 SoftReset:true
+

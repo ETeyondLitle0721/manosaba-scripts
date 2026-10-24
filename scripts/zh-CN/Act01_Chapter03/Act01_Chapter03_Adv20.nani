@@ -1,0 +1,178 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook IsDebugDirectJump:{isDebugDirectJump}
+@Gosub Path:System/System_Subroutine.BeginAdv
+
+# Scene1-3-20
+
+; ========================================
+; ●シーン１‐3-20
+; ========================================
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false AppearanceAndTransition:23_5
+@ModifyBackgroundExtended TintColor:#000000 Duration:1.2 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:1.8
+
+; ========================================
+; ＞『殺人現場』を選択
+; ========================================
+
+@PlayBgm BgmPath:Bgm_26_1 Volume:1 Loop:true FadeInDuration:0
+@AutoSave
+[PrintTextModified Text:艾玛走进了招待所中最靠前的，<br>也就是发生了火灾的那一间——<br>【火精之室】。|#0103Adv20_Narrative001| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:玛格已经先到一步。|#0103Adv20_Narrative002| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Margo.Normal1
+
+[PrintTextModified Text:啊，艾玛，你也来了。|#0103Adv20_Margo001| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:现场的火势早已扑灭，<br>室内仍飘荡着焦糊的气味。|#0103Adv20_Narrative003| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:看样子，内部结构基本完好，没遭受太大的损害。|#0103Adv20_Narrative004| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:家具虽然覆盖着黑色的烟灰，<br>却依然保持着原有的形状。|#0103Adv20_Narrative005| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:在狭小的室内，<br>那幅无法逃避的景象映入眼帘。|#0103Adv20_Narrative006| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Id:Stills Scale:{g_backgroundDefaultScale} Lazy:false AppearanceAndTransition:290_2
+
+[PrintTextModified Text:汉娜的遗体仍被绳索<br>悬挂在天花板的横梁上。|#0103Adv20_Narrative007| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:汉娜……|#0103Adv20_Ema001| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:艾玛咬紧牙关，强迫自己冷静下来，<br>开始用手机拍摄现场。|#0103Adv20_Narrative008| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HidePrinter
+@PlaySfxModified SfxPath:Sfx_28 Volume:1 Loop:false FadeInDuration:0
+
+@Wait WaitMode:1.2
+@PlaySfxModified SfxPath:Sfx_28 Volume:1 Loop:false FadeInDuration:0
+
+; ==============================================================================
+; ☆証拠品：『殺人現場の写真』入手
+; ==============================================================================
+@SpawnExtended Path:Clue Params:3-10
+@UpdateWitchBook Id:3-10 Category:Clue Version:1
+@DestroySpawnedExtended Path:Clue LogWarning:true
+
+; ==============================================================================
+; ☆証拠品：『ハンナの死体写真』入手
+; ==============================================================================
+@SpawnExtended Path:Clue Params:3-4
+@UpdateWitchBook Id:3-4 Category:Clue Version:1
+@DestroySpawnedExtended Path:Clue LogWarning:true
+
+@Wait WaitMode:0.6
+
+[PrintTextModified Text:烟雾散去后，<br>一切都变得清晰可见。|#0103Adv20_Narrative009| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:横梁上悬挂着汉娜的尸体。|#0103Adv20_Narrative010| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:在她的身旁，还悬挂着许多<br>以囚犯少女们为原型<br>制作的人偶，簇拥着她。|#0103Adv20_Narrative011| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:这该不会是，<br>汉娜一直在手工制作的人偶……？|#0103Adv20_Ema002| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:是啊。她为每个人都做了。<br>虽然她不太坦率，<br>但真的很关心同伴呢。|#0103Adv20_Margo002| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:即使咬着嘴唇，<br>艾玛的眼泪还是快要夺眶而出。|#0103Adv20_Narrative012| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（不能哭！我已经下定决心要查明<br>　汉娜死亡的真相！）|#0103Adv20_Ema003|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideActors ActorIds:Stills Lazy:false
+
+[PrintTextModified Text:艾玛强迫自己冷静下来，<br>环视房间四周。|#0103Adv20_Narrative013| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（房间里一片狼藉……<br>　这里到底发生了什么……？）|#0103Adv20_Ema004|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 写真撮影音
+@PlaySfxModified SfxPath:Sfx_28 Volume:1 Loop:false FadeInDuration:0
+
+; ========================================
+; ☆証拠品：『ロープ』入手
+; ========================================
+@SpawnExtended Path:Clue Params:3-14
+@UpdateWitchBook Id:3-14 Category:Clue Version:1
+@DestroySpawnedExtended Path:Clue LogWarning:true
+
+[PrintTextModified Text:正在拍摄现场时，<br>玛格走到艾玛身边。|#0103Adv20_Narrative014| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Margo.Normal1
+
+[PrintTextModified Text:艾玛，火灾中好像只有这个<br>掉下来了，我就交给你了。|#0103Adv20_Margo003| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:玛格递过来的，<br>是一个做成艾玛模样的人偶。|#0103Adv20_Narrative015| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; ☆証拠品：『焦げた人形』入手
+; ========================================
+@SpawnExtended Path:Clue Params:3-7
+@UpdateWitchBook Id:3-7 Category:Clue Version:1
+@DestroySpawnedExtended Path:Clue LogWarning:true
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Pensive1,ArmR3
+
+[PrintTextModified Text:"（汉娜说过，<br>　她在准备礼物）|#0103Adv20_Ema005|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（一定就是这个——）|#0103Adv20_Ema006| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:手工缝制的，<br>以艾玛为原型的人偶传来温暖的触感。<br>接过人偶的艾玛双手颤抖。|#0103Adv20_Narrative016| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Margo.Pensive1,ArmR2
+
+[PrintTextModified Text:奇怪了……|#0103Adv20_Margo004| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:听到这句低语，<br>艾玛转头望去。<br>玛格正困惑地歪着头。|#0103Adv20_Narrative017| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Ema.Pensive1,ArmR3
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Margo.Pensive1,ArmR2
+
+[PrintTextModified Text:……怎么了？发现什么可疑的地方了吗？|#0103Adv20_Ema007| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:不，虽然调查了现场还什么都不清楚，<br>但是……其实我昨晚来过这里。<br>|#0103Adv20_Margo005| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Ema.Surprised1,ArmR1
+
+[PrintTextModified Text:欸！？|#0103Adv20_Ema008| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:因为说出来可能会显得很可疑，<br>所以不太想说……<br>但我在这里举行了魔法仪式。|#0103Adv20_Margo006| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Ema.Normal1,ArmR1
+
+[PrintTextModified Text:仪式？<br>是之前说的那本魔女的书上记载的……？|#0103Adv20_Ema009| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Margo.Normal1,ArmR2
+
+[PrintTextModified Text:是的。而且这个房间在就寝时间前，<br>应该被看守锁上了才对。<br>然后当我们因火灾赶来的时候……|#0103Adv20_Margo007| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Ema.Pensive1,ArmR3
+
+[PrintTextModified Text:……门是锁着的。|#0103Adv20_Ema010| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（又来了。又是密室杀人……！<br>　为什么总是这样……！）|#0103Adv20_Ema011|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Margo.Pensive1,ArmR2
+
+[PrintTextModified Text:汉娜的尸体状况，<br>现场悬挂的人偶，<br>火灾、密室……全都充满谜团呢。|#0103Adv20_Margo008| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:是啊……|#0103Adv20_Ema012| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:初步调查结束后，<br>没有发现其他线索，于是艾玛离开了现场。|#0103Adv20_Narrative018| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 消化していないイベントがある＞シーン1‐3‐19
+; 全てのイベントを消化している＞シーン1‐3‐26
+; ========================================
+
+@Gosub Path:System/System_Subroutine.EndAdv
+
+@GotoModified Path:Act01_Chapter03/Act01_Chapter03_Adv19 SoftReset:true
+

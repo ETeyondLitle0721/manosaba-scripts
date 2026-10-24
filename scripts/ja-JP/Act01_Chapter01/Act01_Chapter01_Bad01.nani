@@ -1,0 +1,88 @@
+@BeginIf Expression:isDebugDirectJump
+    @Gosub Path:System/System_Subroutine.BeginAdv
+    @ModifyBackgroundExtended TintColor:#000000 Duration:0 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+
+; ========================================
+; ＞『レイアを庇った』を選択→1‐1‐b1へ
+; ========================================
+
+# Scene1-1-b1
+
+; ========================================
+; ●シーン1-1‐b1
+; ========================================
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false AppearanceAndTransition:5_1
+
+[PrintTextModified Text:"レイアを<ruby=\"かば\">庇</ruby>った。|#0101Bad01_Narrative001|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Scale:1.8 Duration:0 Lazy:false AppearanceAndTransition:5_1 SubId:Middle
+@ModifyCharacterExtended Scale:1.4 Duration:0 Lazy:false ScenePosition:50,30 IdAndAppearance:Ema.Determined2,ArmR3,ArmL7 SubId:Middle
+
+[PrintTextModified Text:看守とレイアの間に、エマが飛び込む。|#0101Bad01_Narrative002| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:エマくん！？|#0101Bad01_Leia001| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Jailer.1 SubId:Middle
+@AnimateActorExtended ActorIds:Jailer-Middle Loop:false ScenePositionX:15 ScenePositionY:8 Scale:1.4
+
+[PrintTextModified Text:看守の鎌がエマに振り下ろされて――|#0101Bad01_Narrative003| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ざんっと肉が切れる音
+@HidePrinter
+@PlaySfxModified SfxPath:Sfx_12 Volume:1 Loop:false FadeInDuration:0
+@HideAllCharacters Lazy:false
+@ModifyBackgroundExtended TintColor:#ff0000 Duration:0.2 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@HideActors ActorIds:MainBackground-Middle Lazy:false
+
+[PrintTextModified Text:エマの体が左右に分かれて倒れた。|#0101Bad01_Narrative004| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@PlayBgm BgmPath:Bgm_20_1 Volume:1 Loop:true FadeInDuration:0
+
+[PrintTextModified Text:間も置かず唐突に訪れた悲劇に、<br>多くの少女が恐怖を顔に張りつかせている。|#0101Bad01_Narrative005| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:悲鳴も、看守に抗う声も上がらない。|#0101Bad01_Narrative006| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@ModifyBackgroundExtended Duration:0 Lazy:false AppearanceAndTransition:5_1
+@ModifyCharacterExtended Duration:0 Lazy:false ScenePosition:50 IdAndAppearance:Leia.Pensive1
+@ModifyBackgroundExtended TintColor:#000000 Duration:1.2 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:1.2
+
+[PrintTextModified Text:どうして私を庇ったりしたんだ……<br>あれくらいなら、避けられたのに……。|#0101Bad01_Leia002| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+; フクロウの羽ばたき音
+@PlaySfxModified SfxPath:Sfx_8 Volume:1 Loop:false FadeInDuration:0
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Warden.1
+
+[PrintTextModified Text:あ～……また死んじゃいました？<br>さっきも死んだばっかりなのに……。|#0101Bad01_Warden001| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:はぁ～～……色々手間が増えちゃうんで……<br>みなさんほんと、逆らわないでくれると助かります。|#0101Bad01_Warden002| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:ゴクチョーが面倒くさそうにため息をつく。|#0101Bad01_Narrative007| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Jailer
+@AnimateActorExtended ActorIds:Jailer Loop:false ScenePositionX:30|50|70 Duration:2|2|2
+
+[PrintTextModified Text:"看守がヒロとエマの死体を片付ける中、<br>少女たちはただ<ruby=\"ぼうぜん\">呆然</ruby>と立ち尽くしていた。|#0101Bad01_Narrative008|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended TintColor:#000000 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+
+[PrintTextModified Text:"未来への道が閉ざされて悔やむような表情の少女もいれば、<br>暗いトンネルを歩いているみたいに<ruby=\"おび\">怯</ruby>えきった様子の少女もいる。|#0101Bad01_Narrative009|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:きっと、トンネルの先に光はない。<br>ただ絶望が待っているだけ。|#0101Bad01_Narrative010| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:残念だけど、もう終わりだ。|#0101Bad01_Narrative011| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 『END～愚行～』
+; ========================================
+
+@ProcessBadEnd Number:1 BadEndPartKind:Adv
+

@@ -1,0 +1,76 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook IsDebugDirectJump:{isDebugDirectJump}
+@Gosub Path:System/System_Subroutine.BeginAdv
+
+# Scene1-1-21
+
+; ========================================
+; ●シーン1‐1-21
+; ========================================
+
+; ========================================
+; マップイベント用分岐
+; ========================================
+
+; ========================================
+; 【ＭＡＰイベント】牢屋敷マップ
+; 死体現場＞シーン1‐1‐22
+; 湖方面＞シーン1‐1‐23
+; ラウンジ＞シーン1‐1‐24
+; 玄関ホール＞シーン1‐1‐25
+; 医務室＞シーン1-1-26
+; 食堂＞シーン1‐1‐27
+; 娯楽室＞シーン1‐1‐28
+; シャワールーム＞シーン1‐1‐29
+; ※全てのＭＡＰイベントを選択したら終了。
+; 選択済みの場所は消していってください。
+; ========================================
+
+@BeginIf Expression:"chosenAreaFlag == 255"
+    @SetCustomVariable Expression:"chosenAreaFlag = 0"
+    @Gosub Path:System/System_Subroutine.EndAdv
+    @GotoModified Path:Act01_Chapter01/Act01_Chapter01_Adv34 SoftReset:true
+
+@ChoiceMapArea CategoryNames:BasementHallway,Lake,Lounge,EntranceHall,Infirmary,MessHall,RecreationRoom,Showers Back:false Global:false MapAreaNames:BasementHallway,Lake,Lounge,EntranceHall,Infirmary,MessHall,RecreationRoom,Showers FlagVariableName:chosenAreaFlag
+
+@BeginIf Expression:"chosenAreaId==\"BasementHallway\""
+    @SetCustomVariableAsFlag Number:0 VariableName:chosenAreaFlag
+    @Gosub Path:System/System_Subroutine.EndAdv
+    @GotoModified Path:Act01_Chapter01/Act01_Chapter01_Adv26 SoftReset:true
+
+@BeginIf Expression:"chosenAreaId==\"Lake\""
+    @SetCustomVariableAsFlag Number:1 VariableName:chosenAreaFlag
+    @Gosub Path:System/System_Subroutine.EndAdv
+    @GotoModified Path:Act01_Chapter01/Act01_Chapter01_Adv27 SoftReset:true
+
+@BeginIf Expression:"chosenAreaId==\"Lounge\""
+    @SetCustomVariableAsFlag Number:2 VariableName:chosenAreaFlag
+    @Gosub Path:System/System_Subroutine.EndAdv
+    @GotoModified Path:Act01_Chapter01/Act01_Chapter01_Adv28 SoftReset:true
+
+@BeginIf Expression:"chosenAreaId==\"EntranceHall\""
+    @SetCustomVariableAsFlag Number:3 VariableName:chosenAreaFlag
+    @Gosub Path:System/System_Subroutine.EndAdv
+    @GotoModified Path:Act01_Chapter01/Act01_Chapter01_Adv29 SoftReset:true
+
+@BeginIf Expression:"chosenAreaId==\"Infirmary\""
+    @SetCustomVariableAsFlag Number:4 VariableName:chosenAreaFlag
+    @Gosub Path:System/System_Subroutine.EndAdv
+    @GotoModified Path:Act01_Chapter01/Act01_Chapter01_Adv30 SoftReset:true
+
+@BeginIf Expression:"chosenAreaId==\"MessHall\""
+    @SetCustomVariableAsFlag Number:5 VariableName:chosenAreaFlag
+    @Gosub Path:System/System_Subroutine.EndAdv
+    @GotoModified Path:Act01_Chapter01/Act01_Chapter01_Adv31 SoftReset:true
+
+@BeginIf Expression:"chosenAreaId==\"RecreationRoom\""
+    @SetCustomVariableAsFlag Number:6 VariableName:chosenAreaFlag
+    @Gosub Path:System/System_Subroutine.EndAdv
+    @GotoModified Path:Act01_Chapter01/Act01_Chapter01_Adv32 SoftReset:true
+
+@BeginIf Expression:"chosenAreaId==\"Showers\""
+    @SetCustomVariableAsFlag Number:7 VariableName:chosenAreaFlag
+    @Gosub Path:System/System_Subroutine.EndAdv
+    @GotoModified Path:Act01_Chapter01/Act01_Chapter01_Adv33 SoftReset:true
+
+@Stop
+

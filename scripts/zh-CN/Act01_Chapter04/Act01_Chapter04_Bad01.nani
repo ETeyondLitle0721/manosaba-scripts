@@ -1,0 +1,148 @@
+@BeginIf Expression:isDebugDirectJump
+    @Gosub Path:System/System_Subroutine.BeginAdv
+
+; ========================================
+; ＞『身を任せた』を選択→1‐4‐b1へ
+; ========================================
+
+# Scene1-4-b1
+
+; ========================================
+; ●シーン1-4-b1
+; ========================================
+
+@ModifyBackgroundExtended Rotation:,,-8 Scale:2.5 Duration:0 Lazy:false ScenePosition:25,5 AppearanceAndTransition:17_2
+@SpawnBlur ActorId:MainBackground
+@ModifyCharacterExtended Scale:2 Lazy:false ScenePosition:50,30 IdAndAppearance:Alisa.Angry,Option-ArmL-Off
+@ModifyBackgroundExtended TintColor:#000000 Duration:1.2 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:1.8
+
+@PlayBgm BgmPath:Bgm_24_1 Volume:1 Loop:true FadeInDuration:0
+
+[PrintTextModified Text:"（啊啊，但只要任由她处置……<br>　我就不会再变得孤单了）|#0104Bad01_Ema001|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:艾玛卸下全身的力气，<br>乖乖地接受亚里沙对她施加的暴力。|#0104Bad01_Narrative001| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:你没有反抗，是因为明白自己不会死吗？<br>快说，是不是这样！？|#0104Bad01_Alisa001| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:……|#0104Bad01_Ema002| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:随着亚里沙手上的力气加重，<br>艾玛显得十分难受，嘴巴一张一合地颤动。|#0104Bad01_Narrative002| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:就算痛苦难受，艾玛也绝对不会挣扎。<br>她甚至——|#0104Bad01_Narrative003| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:……|#0104Bad01_Ema003| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Pensive
+
+[PrintTextModified Text:你……为什么在笑。|#0104Bad01_Alisa002| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:看到亚里沙稍稍露怯的神情，<br>艾玛轻轻触碰了她的手。|#0104Bad01_Narrative004| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆首絞め状態
+
+[PrintTextModified Text:这……不是……<br>亚里、沙……的错……|#0104Bad01_Ema004| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:……哈？|#0104Bad01_Alisa003| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆首絞め状態
+
+[PrintTextModified Text:是我……自己、做的、选择……<br>谢……谢、你……|#0104Bad01_Ema005| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@StopBgm
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Pensive
+
+[PrintTextModified Text:你这……什么意思。|#0104Bad01_Alisa004| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@PlayBgm BgmPath:Bgm_12_1_Loop IntroBgmPath:Bgm_12_1_Intro Volume:1 Loop:true FadeInDuration:0
+
+; ========================================
+; 立ち絵：アリサ半クリーチャーでお願いします。
+; ========================================
+
+@HideAllCharacters Duration:0.3 Lazy:false
+@ModifyCharacterExtended Scale:2 Duration:0.3 Lazy:false ScenePosition:50,30 IdAndAppearance:CreatureAlisa.1-4
+
+[PrintTextModified Text:为什么……<br>为什么为什么为什么为什么为什么为什么！！|#0104Bad01_Alisa005| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:亚里沙越发用力，<br>把艾玛的颈椎骨掐得咯吱咯吱响。|#0104Bad01_Narrative005| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆首絞め状態
+
+[PrintTextModified Text:……呜、咳……|#0104Bad01_Ema006| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 首の骨が折れる音
+@PlaySfxModified SfxPath:Sfx_108 Volume:1 Loop:false FadeInDuration:0
+
+[PrintTextModified Text:随着一声骨折的声音，<br>艾玛整个身体瘫软下来，完全失去了动静。|#0104Bad01_Narrative006| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureAlisa.1-5
+
+[PrintTextModified Text:死，了……？|#0104Bad01_Alisa006| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 倒れる音
+@PlaySfxModified SfxPath:Sfx_19 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureAlisa.0-5
+
+[PrintTextModified Text:亚里沙松开手后，<br>艾玛直接跌倒在地上。|#0104Bad01_Narrative007| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:CreatureAlisa.0-3
+
+[PrintTextModified Text:哈哈，啊哈哈……<br>啊哈哈哈哈哈哈！|#0104Bad01_Alisa007| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 炎をぼっと点す音
+@PlaySfxModified SfxPath:Sfx_30 Volume:1 Loop:false FadeInDuration:0
+
+[PrintTextModified Text:发出一阵疯癫的狂笑后，<br>亚里沙在自己的手心点起火苗。|#0104Bad01_Narrative008| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:小小的火苗徐徐增大，<br>亚里沙把这团火球凑近艾玛。|#0104Bad01_Narrative009| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended TintColor:#000000 Lazy:false AppearanceAndTransition:SolidColor
+
+[PrintTextModified Text:火焰蔓延到艾玛的衣服上越烧越旺，<br>不消一会便将艾玛的尸骸完全吞没。|#0104Bad01_Narrative010| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:看着熊熊燃烧的火焰，亚里沙带着无神的双眸笑了。|#0104Bad01_Narrative011| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:烧吧，都给我烧起来！<br>给我烧得更猛烈！给我把一切都烧成灰烬！！|#0104Bad01_Alisa008| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 炎をぼっと点す音
+@PlaySfxModified SfxPath:Sfx_30 Volume:1 Loop:false FadeInDuration:0
+
+[PrintTextModified Text:有如回应亚里沙的号叫一般，<br>她周围的树木也开始烧了起来。|#0104Bad01_Narrative012| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:火势是如此地凶猛，<br>瞬间就把地面的积雪全部融化，<br>四周顿时变成一片火海。|#0104Bad01_Narrative013| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:呵呵，哈哈哈……<br>这样就能挨骂了。|#0104Bad01_Alisa009| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:就能让他们骂我，让他们爱我！<br>啊哈哈，哈哈哈哈哈！|#0104Bad01_Alisa010| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:狂笑不已的亚里沙。<br>这阵笑声却突然戛然而止。|#0104Bad01_Narrative014| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:可是，如果他们不骂我呢……？<br>做到这个地步还是会原谅我呢……？|#0104Bad01_Alisa011| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:不行，不能这样……<br>那我就……我就要当一个更加更加坏的女孩。|#0104Bad01_Alisa012| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:我要……杀更多的人才行。|#0104Bad01_Alisa013| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:亚里沙嘟哝着，望向了监牢——|#0104Bad01_Narrative015| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:啊啊，是啊……我就知道。|#0104Bad01_Alisa014| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:只要所有人都死了……<br>就没有人能够原谅我。|#0104Bad01_Alisa015| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:我早就该这么做……|#0104Bad01_Alisa016| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:只要把一切都烧毁……呵呵，<br>哈哈哈哈哈！|#0104Bad01_Alisa017| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:任由汹涌的火海泛滥，<br>亚里沙带着一脸的愉悦走向监牢。|#0104Bad01_Narrative016| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 『END～本当の愛～』
+; ========================================
+
+@ProcessBadEnd Number:13 BadEndPartKind:Adv
+

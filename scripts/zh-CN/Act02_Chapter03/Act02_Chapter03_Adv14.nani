@@ -1,0 +1,792 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook IsDebugDirectJump:{isDebugDirectJump}
+@Gosub Path:System/System_Subroutine.BeginAdv
+
+# Scene2-3-14
+
+; ========================================
+; ●シーン2‐3‐14
+; ========================================
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false AppearanceAndTransition:13_1
+@ModifyBackgroundExtended TintColor:#000000 Duration:1.2 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:1.8
+
+@PlayBgm BgmPath:Bgm_42_1 Volume:1 Loop:true FadeInDuration:0
+@AutoSave
+[PrintTextModified Text:制定可怕的计划杀害夏目安安的人，<br>就是城崎诺亚——|#0203Adv14_Narrative001| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:在魔女表决中，所有人都把票投给了诺亚。|#0203Adv14_Narrative002| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+@ModifyBackgroundExtended Scale:1.5 Duration:0 Lazy:false ScenePosition:70,40 AppearanceAndTransition:14_1 SubId:Middle
+@ModifyCharacterExtended Scale:1.15 Lazy:false ScenePosition:60,30 IdAndAppearance:Noah.Pensive1 SubId:Middle
+@ModifyBackgroundExtended Duration:0.8 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:0.9
+
+
+[PrintTextModified Text:在场的每一名少女<br>按下按钮时都充满了痛苦，肝肠寸断。|#0203Adv14_Narrative003| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:我也一样。|#0203Adv14_Narrative004| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HidePrinter
+@SpawnExtended Path:MaskingRectangle Params:40,200,true,0.3,#000000 ScenePosition:20,50 Rotation:,,0 SubId:Front
+@ModifyBackgroundExtended Rotation:,,0 Scale:1.5 Lazy:false ScenePosition:-20,36 AppearanceAndTransition:14_1 SubId:Front
+@ModifyCharacterExtended Rotation:,,0 Scale:1.1 Lazy:false ScenePosition:20,32 IdAndAppearance:Ema.Pensive1,ArmR3,ArmL7 SubId:Front
+@ChangeActorMaskability ActorIds:MainBackground-Front,Ema-Front Enable:true
+@AnimateActorExtended ActorIds:MainBackground-Front Loop:false ScenePositionY:40 EasingTypeName:EaseOutQuad Duration:0.5
+@AnimateActorExtended ActorIds:Ema-Front Loop:false ScenePositionY:45 EasingTypeName:EaseOutQuad Duration:0.5
+@Wait WaitMode:0.4
+
+[PrintTextModified Text:我还有疑问。|#0203Adv14_Ema001| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:在这个令人难以忍受的氛围之下，<br>艾玛突然开口说道。|#0203Adv14_Narrative005| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:诺亚跟安安……<br>她们为什么会想到要做这种<br>像恶作剧似的事情呢……？|#0203Adv14_Ema002| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:诺亚，你问过安安为什么，<br>对吗……？|#0203Adv14_Ema003| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@AnimateActorExtended ActorIds:MainBackground-Front,Ema-Front Loop:false
+@HideActors ActorIds:Ema-Front Lazy:false
+@DestroySpawnedExtended Path:MaskingRectangle SubId:Front LogWarning:true
+
+[PrintTextModified Text:嗯……|#0203Adv14_Noah001| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:诺亚看起来很落寞。<br>她低着头，向我们说出了当时跟安安的对话。|#0203Adv14_Narrative006| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; ◎回想シーン（新規）
+; ========================================
+
+@ResetText
+
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+
+@HideAllCharacters Lazy:false
+@HideActors ActorIds:MainBackground,MainBackground-Middle Lazy:false
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false AppearanceAndTransition:1_1
+
+@ModifyCharacterExtended Duration:0 Lazy:false ScenePosition:30 IdAndAppearance:AnAn.Smile1,Angle01/Option_Arms-
+@ModifyCharacterExtended Duration:0 Lazy:false ScenePosition:70 IdAndAppearance:Noah.Smile
+
+@ModifyBackgroundExtended Duration:0.8 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:0.9
+
+[PrintTextModified Text:当只有两个人待在地下的房间时，<br>安安经常都会想办法<br>逗诺亚开心。|#0203Adv14_Narrative007| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:就是在那个时候，<br>安安说出了装死这个恶作剧计划。|#0203Adv14_Narrative008| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:——怎么样？很好玩对吧！|#0203Adv14_AnAn001| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:嗯嗯嗯！<br>这肯定能吓到大家！|#0203Adv14_Noah002| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:安安真厉害！<br>诺亚可想不出来这种恶作剧。|#0203Adv14_Noah003| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Flushed
+
+[PrintTextModified Text:哼哼。|#0203Adv14_AnAn002| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Pensive1
+
+[PrintTextModified Text:大家每天都在为不知何时会发生的凶杀案担惊受怕。|#0203Adv14_AnAn003| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Smile
+
+[PrintTextModified Text:就让吾辈来打破这种氛围。<br>吾辈要弄一场虚假的凶杀案，让大家一笑了之。|#0203Adv14_AnAn004| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:得意洋洋一番以后，<br>安安带着些许羞涩的神情别过头。|#0203Adv14_Narrative009| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:AnAn.Flushed
+
+[PrintTextModified Text:……吾辈不是说过了吗，一定会让你笑起来的。|#0203Adv14_AnAn005| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+@HideAllCharacters Lazy:false
+
+@ModifyBackgroundExtended Scale:1.5 Duration:0 Lazy:false ScenePosition:70,40 AppearanceAndTransition:14_1 SubId:Middle
+@ModifyCharacterExtended Scale:1.15 Lazy:false ScenePosition:60,30 IdAndAppearance:Noah.Pensive1 SubId:Middle
+
+@ModifyBackgroundExtended Duration:0.8 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:0.9
+
+; ========================================
+; 回想ここまで
+; ========================================
+
+[PrintTextModified Text:安安不过是想让诺亚开心而已，<br>诺亚却利用了安安的这份感情……|#0203Adv14_Noah004| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:诺亚知道自己做了坏事。<br>诺亚杀死了安安，<br>真的很对不起。|#0203Adv14_Noah005| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:尽管诺亚本人坦然接受并承认了自己的罪行，<br>但我仍然无法相信。|#0203Adv14_Narrative010| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:但更多的是，不愿意相信。|#0203Adv14_Narrative011| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:有这种想法的人肯定不止我一个。<br>在场各位或许都有同感。|#0203Adv14_Narrative012| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HidePrinter
+@SpawnExtended Path:MaskingRectangle Params:40,200,true,0.3,#000000 ScenePosition:20,50 Rotation:,,0 SubId:Front
+@ModifyBackgroundExtended Rotation:,,0 Scale:1.5 Lazy:false ScenePosition:-20,36 AppearanceAndTransition:14_1 SubId:Front
+@ModifyCharacterExtended Rotation:,,0 Scale:1.1 Lazy:false ScenePosition:20,32 IdAndAppearance:Leia.Pensive1 SubId:Front
+@ChangeActorMaskability ActorIds:MainBackground-Front,Leia-Front Enable:true
+@AnimateActorExtended ActorIds:MainBackground-Front Loop:false ScenePositionY:40 EasingTypeName:EaseOutQuad Duration:0.5
+@AnimateActorExtended ActorIds:Leia-Front Loop:false ScenePositionY:45 EasingTypeName:EaseOutQuad Duration:0.5
+@Wait WaitMode:0.4
+
+[PrintTextModified Text:……诺亚，<br>为什么，你为什么要杀了安安？|#0203Adv14_Leia001| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@AnimateActorExtended ActorIds:MainBackground-Front,Leia-Front Loop:false
+@HideActors ActorIds:Leia-Front Lazy:false
+@DestroySpawnedExtended Path:MaskingRectangle SubId:Front LogWarning:true
+
+[PrintTextModified Text:蕾雅平心定气地问道。<br>可是诺亚听到这个问题，却像在闹别扭似的撇着嘴不说话。|#0203Adv14_Narrative013| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Scale:1.15 Lazy:false ScenePosition:60,30 IdAndAppearance:Noah.Angry1 SubId:Middle
+
+[PrintTextModified Text:…………|#0203Adv14_Noah006| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HidePrinter
+@SpawnExtended Path:MaskingRectangle Params:40,200,true,0.3,#000000 ScenePosition:20,50 Rotation:,,0 SubId:Front
+@ModifyBackgroundExtended Rotation:,,0 Scale:1.5 Lazy:false ScenePosition:-20,36 AppearanceAndTransition:14_1 SubId:Front
+@ModifyCharacterExtended Rotation:,,0 Scale:1.1 Lazy:false ScenePosition:20,32 IdAndAppearance:Alisa.Angry1,Option-ArmL-Off SubId:Front
+@ChangeActorMaskability ActorIds:MainBackground-Front,Alisa-Front Enable:true
+@AnimateActorExtended ActorIds:MainBackground-Front Loop:false ScenePositionY:40 EasingTypeName:EaseOutQuad Duration:0.5
+@AnimateActorExtended ActorIds:Alisa-Front Loop:false ScenePositionY:45 EasingTypeName:EaseOutQuad Duration:0.5
+@Wait WaitMode:0.4
+
+[PrintTextModified Text:喂，你不说我们怎么知道你怎么想！|#0203Adv14_Alisa001| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@AnimateActorExtended ActorIds:MainBackground-Front,Alisa-Front Loop:false
+@HideActors ActorIds:Alisa-Front Lazy:false
+@WaitForNextFrame
+
+@HidePrinter
+@SpawnExtended Path:MaskingRectangle Params:40,200,true,0.3,#000000 ScenePosition:20,50 Rotation:,,0 SubId:Front
+@ModifyBackgroundExtended Rotation:,,0 Scale:1.5 Lazy:false ScenePosition:-20,36 AppearanceAndTransition:14_1 SubId:Front
+@ModifyCharacterExtended Rotation:,,0 Scale:1.1 Lazy:false ScenePosition:20,32 IdAndAppearance:Hanna SubId:Front
+@ChangeActorMaskability ActorIds:MainBackground-Front,Hanna-Front Enable:true
+@AnimateActorExtended ActorIds:MainBackground-Front Loop:false ScenePositionY:40 EasingTypeName:EaseOutQuad Duration:0.5
+@AnimateActorExtended ActorIds:Hanna-Front Loop:false ScenePositionY:45 EasingTypeName:EaseOutQuad Duration:0.5
+@Wait WaitMode:0.4
+
+[PrintTextModified Text:如果这背后有什么内情，<br>希望你能好好说出来！|#0203Adv14_Hanna001| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@AnimateActorExtended ActorIds:MainBackground-Front,Hanna-Front Loop:false
+@HideActors ActorIds:Hanna-Front Lazy:false
+@WaitForNextFrame
+
+@HidePrinter
+@SpawnExtended Path:MaskingRectangle Params:40,200,true,0.3,#000000 ScenePosition:20,50 Rotation:,,0 SubId:Front
+@ModifyBackgroundExtended Rotation:,,0 Scale:1.5 Lazy:false ScenePosition:-20,36 AppearanceAndTransition:14_1 SubId:Front
+@ModifyCharacterExtended Rotation:,,0 Scale:1.1 Lazy:false ScenePosition:20,32 IdAndAppearance:Sherry.Angry1 SubId:Front
+@ChangeActorMaskability ActorIds:MainBackground-Front,Sherry-Front Enable:true
+@AnimateActorExtended ActorIds:MainBackground-Front Loop:false ScenePositionY:40 EasingTypeName:EaseOutQuad Duration:0.5
+@AnimateActorExtended ActorIds:Sherry-Front Loop:false ScenePositionY:45 EasingTypeName:EaseOutQuad Duration:0.5
+@Wait WaitMode:0.4
+
+[PrintTextModified Text:没错！<br>不说清楚我接受不了这事实！|#0203Adv14_Sherry001| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@AnimateActorExtended ActorIds:MainBackground-Front,Sherry-Front Loop:false
+@HideActors ActorIds:Sherry-Front Lazy:false
+@DestroySpawnedExtended Path:MaskingRectangle SubId:Front LogWarning:true
+
+@ModifyCharacterExtended Scale:1.15 Lazy:false ScenePosition:60,30 IdAndAppearance:Noah.Pensive1 SubId:Middle
+
+[PrintTextModified Text:因为……|#0203Adv14_Noah007| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:脸上依然挂着不服神情的诺亚垂下了眼。|#0203Adv14_Narrative014| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Scale:1.15 Lazy:false ScenePosition:60,30 IdAndAppearance:Noah.Cry1 SubId:Middle
+
+[PrintTextModified Text:因为安安她……<br>看到了诺亚的画……|#0203Adv14_Noah008| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:在场的少女都陷入了困惑。|#0203Adv14_Narrative015| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HidePrinter
+@SpawnExtended Path:MaskingRectangle Params:40,200,true,0.3,#000000 ScenePosition:20,50 Rotation:,,0 SubId:Front
+@ModifyBackgroundExtended Rotation:,,0 Scale:1.5 Lazy:false ScenePosition:-20,36 AppearanceAndTransition:14_1 SubId:Front
+@ModifyCharacterExtended Rotation:,,0 Scale:1.1 Lazy:false ScenePosition:20,32 IdAndAppearance:Miria.Pensive1 SubId:Front
+@ChangeActorMaskability ActorIds:MainBackground-Front,Miria-Front Enable:true
+@AnimateActorExtended ActorIds:MainBackground-Front Loop:false ScenePositionY:40 EasingTypeName:EaseOutQuad Duration:0.5
+@AnimateActorExtended ActorIds:Miria-Front Loop:false ScenePositionY:45 EasingTypeName:EaseOutQuad Duration:0.5
+@Wait WaitMode:0.4
+
+[PrintTextModified Text:诺亚的画……<br>大家平时都在看呀？|#0203Adv14_Miria001| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+@AnimateActorExtended ActorIds:MainBackground-Front,Miria-Front Loop:false
+@HideActors ActorIds:Miria-Front Lazy:false
+@DestroySpawnedExtended Path:MaskingRectangle SubId:Front LogWarning:true
+
+[PrintTextModified Text:不管是监牢随处可见的涂鸦，<br>还是素描本上的插画，<br>甚至舞台背景。|#0203Adv14_Narrative016| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:诺亚平时就总是自豪地向大家炫耀自己的画作。<br>|#0203Adv14_Narrative017| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:但这时候她却把“安安看到她的画”作为杀人理由——<br>简直无法理解。|#0203Adv14_Narrative018| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Scale:1.15 Lazy:false ScenePosition:60,30 IdAndAppearance:Noah.Pensive1 SubId:Middle
+
+[PrintTextModified Text:……那些啊，其实都不是诺亚画的。|#0203Adv14_Noah009| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:突如其来的是一句轻声的自白。|#0203Adv14_Narrative019| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:安安清清楚楚地坦白了，<br>所以诺亚也得说出来才行呢。|#0203Adv14_Noah010| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:对不起，诺亚骗了大家。<br>可是呢，那都是因为，诺亚画的画其实都很难看。|#0203Adv14_Noah011| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:她泫然欲泣地笑着说。|#0203Adv14_Narrative020| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:诺亚实在说不出口……|#0203Adv14_Noah012| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:带着一定要在这里说出来的决心。|#0203Adv14_Narrative021| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:诺亚不是有意去害人，<br>也不是在闹别扭。|#0203Adv14_Narrative022| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Scale:1.15 Lazy:false ScenePosition:60,30 IdAndAppearance:Noah.Cry1 SubId:Middle
+
+[PrintTextModified Text:诺亚……好害怕。|#0203Adv14_Noah013| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:诺亚就这样，<br>把她的【禁忌】曝光在我们面前。|#0203Adv14_Narrative023| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:她那漆黑的感情，逐渐把我们的心也染上阴暗的颜色。|#0203Adv14_Narrative024| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+@HideActors ActorIds:MainBackground-Middle,MainBackground Lazy:false
+@StopBgm FadeOutDuration:2
+@HideAllCharacters Lazy:false
+
+; ========================================
+; トラウマシーン
+; ========================================
+
+@PlayBgm BgmPath:Bgm_1_1 Volume:1 Loop:true FadeInDuration:0
+
+@ModifyTextPrinter Lazy:false IdAndAppearance:Normal.Simple MakeDefault:true HideOther:true
+
+[PrintTextModified Text:城崎诺亚从很久以前开始<br>就非常喜欢画画。|#0203Adv14_Narrative025| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:她总是在狭小的房间里，<br>拿传单的背面当画纸，终日画画度过一整天。|#0203Adv14_Narrative026| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:有一次，她苦苦哀求妈妈，<br>给她买了一些画具。|#0203Adv14_Narrative027| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Id:Stills Scale:4.8 Lazy:false ScenePosition:0,-10 AppearanceAndTransition:240_1
+@ModifyBackgroundExtended Duration:0.8 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:0.9
+
+[PrintTextModified Text:她非常珍惜这些画具，<br>用它们画出了各种各样的画作。|#0203Adv14_Narrative028| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:——画画真开心！最喜欢画画了！|#0203Adv14_Narrative029| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:房间里放满了自己的画作，<br>诺亚幸福得笑容满面。|#0203Adv14_Narrative030| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+
+[PrintTextModified Text:可是，她的身上突然发生了巨变。<br>诺亚觉醒了魔法。|#0203Adv14_Narrative031| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:某天外出的时候，<br>诺亚看到几个人在建筑物的墙面上画画。|#0203Adv14_Narrative032| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:她请求人家让自己动手试试，那几个人答应了。<br>那时的诺亚充满了信心。|#0203Adv14_Narrative033| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:诺亚自信的来源，就是魔法。<br>魔法会让诺亚的画变好看。|#0203Adv14_Narrative034| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:自那以后，没过多久。|#0203Adv14_Narrative035| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:诺亚用魔法画出来的画作成为了热门话题，<br>就连媒体也报道了她的画。|#0203Adv14_Narrative036| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:诺亚的画作转眼间就闻名于世。|#0203Adv14_Narrative037| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:诺亚很骄傲。诺亚很开心。<br>所有人都会夸奖她的画。|#0203Adv14_Narrative038| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:——可是，不管诺亚的画作名气有多大，<br>她都从未公开宣布自己就是作者。|#0203Adv14_Narrative039| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:因为在她心底的某个角落里一直有一份担忧。|#0203Adv14_Narrative040| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:每次回到家，<br>她都不得不面对摆在眼前的现实。|#0203Adv14_Narrative041| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:摆放在房间里的，以前自己亲手画的画。<br>没有使用魔法的，自己的画。|#0203Adv14_Narrative042| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Id:Stills Scale:2 Lazy:false ScenePosition:100,50 AppearanceAndTransition:240_1 SubId:Middle
+@Wait WaitMode:0.2
+@ModifyBackgroundExtended Duration:0.8 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:0.9
+
+[PrintTextModified Text:每当诺亚想要画出新的画作时，<br>诺亚的魔法就会把她之前的画作一张一张涂黑。|#0203Adv14_Narrative043| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:丑死了。<br>丑死了。|#0203Adv14_Narrative044| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:丑死了。丑死了。丑死了。丑死了。|#0203Adv14_Narrative045| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:魔法把现实推到诺亚面前。<br>诺亚亲手画的画无人需要。|#0203Adv14_Narrative046| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:就这样，<br>诺亚亲手画的画全都被涂成一片黑色了。|#0203Adv14_Narrative047| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Id:Stills Scale:{g_backgroundDefaultScale} Lazy:false ScenePosition:50,50 AppearanceAndTransition:240_1 SubId:Front
+
+[PrintTextModified Text:——啊哈哈，没错。<br>——诺亚不需要这种看了就羞愧的画。诺亚最讨厌这些画了。|#0203Adv14_Narrative048| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:诺亚与魔法产生共鸣，发出空洞的笑声。<br>在笑容的掩盖下，她的心也感到阵阵刺痛。|#0203Adv14_Narrative049| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:已经不需要这些亲手一笔笔画出来的画了。|#0203Adv14_Narrative050| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:——没有人会喜欢这么丑的画。|#0203Adv14_Narrative051| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:绝对不会有人喜欢。因为连诺亚本人都变得不喜欢了。|#0203Adv14_Narrative052| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HidePrinter
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+
+@HideActors ActorIds:Stills,Stills-Middle,Stills-Front Lazy:false
+@Wait WaitMode:0.2
+
+@ModifyBackgroundExtended Scale:1.5 Duration:0 Lazy:false ScenePosition:70,35 AppearanceAndTransition:14_1 SubId:Middle
+@ModifyCharacterExtended Scale:1.15 Lazy:false ScenePosition:60,30 IdAndAppearance:Noah.Pensive1 SubId:Middle
+@ModifyBackgroundExtended Duration:0.8 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:0.9
+
+; ========================================
+; トラウマシーンここまで
+; ========================================
+
+@ModifyTextPrinter Lazy:false IdAndAppearance:Normal.Default MakeDefault:true HideOther:true
+
+[PrintTextModified Text:诺亚画的画全都被魔法涂改了。<br>|#0203Adv14_Noah014| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:可是，偶尔魔法会失效，<br>诺亚画的画会保留下来……|#0203Adv14_Noah015| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:安安看到的，就是那样的画。|#0203Adv14_Noah016| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:被其他人看到诺亚的画，诺亚好痛苦、好害怕……<br>所以诺亚才会想到，<br>要杀了安安。|#0203Adv14_Noah017| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:诺亚……|#0203Adv14_Ema004| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:诺亚站在原地，<br>我们只能怀着心痛默默注视着她。|#0203Adv14_Narrative053| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:我该说什么。<br>我该跟她说什么。<br>我该怎样看待她。|#0203Adv14_Narrative054| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（我不知道，我真的不知道……）|#0203Adv14_Hiro001| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@StopBgm FadeOutDuration:3
+
+[PrintTextModified Text:典狱长大概等得不耐烦了，<br>开始催促我们按下处刑按钮。|#0203Adv14_Narrative055| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@AnimateActorExtended ActorIds:MainBackground,Warden Loop:false
+@ModifyBackgroundExtended Id:Stills Scale:{g_backgroundDefaultScale} Duration:0.6 Lazy:false AppearanceAndTransition:590_3 SubId:Forefront
+@Wait WaitMode:0.6
+
+[PrintTextModified Text:我们不得不在还未找到正确答案的情况下<br>把诺亚送上处刑台。|#0203Adv14_Narrative056| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; TODO: ループ再生化する
+@PlaySfxModified SfxPath:Sfx_35 Volume:1 Loop:false FadeInDuration:0
+
+@ProcessInput InputEnabled:false
+@HidePrinter
+@HideUI UINames:ControlPanel,AutoToggle,WitchBookButtonUI AllowToggle:false
+@ShowUI UINames:ExecutionButton
+@HideActors ActorIds:MainBackground-Middle Duration:0 Lazy:false
+@HideAllCharacters Duration:0 Lazy:false
+
+@BeginIf Expression:!enableDebugSkip
+    @Skip Enable:false
+    @Stop
+
+# ExecutionConfirmed
+
+@PlayBgm BgmPath:Bgm_31_1 Volume:1 Loop:true FadeInDuration:0
+@ModifyBackgroundExtended Rotation:,,0 Scale:3 Duration:0 Lazy:false ScenePosition:30,15 AppearanceAndTransition:14_1
+@ModifyCharacterExtended Rotation:,,0 Scale:3.8 Duration:0 Lazy:false ScenePosition:35,10 IdAndAppearance:Warden.1
+@HideUI UINames:ExecutionButton AllowToggle:false Duration:0.6
+@HideActors ActorIds:Stills-Forefront Duration:0.6 Lazy:false
+@Wait WaitMode:0.9
+
+@ProcessInput InputEnabled:true
+@ShowUI UINames:ControlPanel,AutoToggle,WitchBookButtonUI
+[PrintTextModified Text:谢谢各位。<br>现在开始处刑魔女～！|#0203Adv14_Warden001| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:在典狱长宣告处刑开始的同时，<br>中央的机关开始运作。|#0203Adv14_Narrative057| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HidePrinter
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+
+@AnimateActorExtended ActorIds:MainBackground,Warden Loop:false
+@HideAllCharacters Lazy:false
+
+; 歯車がまわる音
+@PlaySfxModified SfxPath:Sfx_36 Volume:1 Loop:false FadeInDuration:0
+
+@Wait WaitMode:3
+
+[PrintTextModified Text:底座移位交换，出现在我们面前的是……|#0203Adv14_Narrative058| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HidePrinter
+
+@ModifyBackgroundExtended Id:Stills Scale:2.5 Duration:0 Lazy:false ScenePosition:85,85 AppearanceAndTransition:460_1
+@AnimateActorExtended ActorIds:Stills Loop:false ScenePositionX:60 EasingTypeName:EaseOutQuad Duration:1.5
+@ModifyBackgroundExtended Duration:1.2 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:2.4
+
+@AnimateActorExtended ActorIds:Stills Loop:false
+@ModifyBackgroundExtended Id:Stills Scale:3 Duration:0.6 Lazy:false ScenePosition:5,-30 AppearanceAndTransition:460_1 SubId:Middle
+@AnimateActorExtended ActorIds:Stills-Middle Loop:false ScenePositionX:30 EasingTypeName:EaseOutQuad Duration:1.5
+@Wait WaitMode:2.4
+
+@AnimateActorExtended ActorIds:Stills-Middle Loop:false
+@ModifyBackgroundExtended Id:Stills Scale:1.5 Duration:0 Lazy:false ScenePosition:50,50 AppearanceAndTransition:460_1
+@SpawnBlur ActorId:Stills FadeDuration:0
+@AnimateActorExtended ActorIds:Stills Loop:false Scale:1.15 EasingTypeName:EaseOutQuad Duration:2.4
+@SpawnBlur ActorId:Stills Intensity:0 FadeDuration:1.8
+@HideActors ActorIds:Stills-Middle Duration:0.6 Lazy:false
+@Wait WaitMode:3
+
+[PrintTextModified Text:像是一个水族箱一般的——水槽。|#0203Adv14_Narrative059| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:大小看起来能轻松容纳一名少女。<br>里面大概装了八成满的水。|#0203Adv14_Narrative060| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:——诺亚即将被处死。<br>这个事实就像一块巨石，重重地压在我的心头。|#0203Adv14_Narrative061| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:如果能做到，我真想马上制止。<br>感情正在激烈地波动。|#0203Adv14_Narrative062| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:不能原谅典狱长和看守。<br>不，就连其他少女，甚至我自己，我都无法原谅。|#0203Adv14_Narrative063| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:对诺亚处以死刑，是错误的——|#0203Adv14_Narrative064| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:事到如今也不用我多说了吧？<br>请各位留在原地，切勿乱动。|#0203Adv14_Warden002| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:仿佛看透我此时的心境一般，<br>典狱长这般说道。|#0203Adv14_Narrative065| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:一旦谁做出妨碍或介入处刑的行为，<br>就会被看守当场处死。|#0203Adv14_Warden003| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:若轻举妄动，<br>说不定会让更多人牺牲。|#0203Adv14_Narrative066| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:我咬紧牙关。<br>不能再这样下去了。|#0203Adv14_Narrative067| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:希——|#0203Adv14_Noah018| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:被看守带上处刑台的诺亚，<br>往我这边瞥了一眼。|#0203Adv14_Narrative068| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:她的嘴巴张了张，仿佛有话要说，<br>但结果还是没能说出任何话。|#0203Adv14_Narrative069| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:就在前阵子，<br>我见到过诺亚做出同样的举动。|#0203Adv14_Narrative070| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（诺亚到底想对我说什么……）|#0203Adv14_Hiro002| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 鎖が垂れ下がる音
+@PlayBgm BgmPath:Ambi_10_1 Volume:1 Loop:true FadeInDuration:0
+
+@Wait WaitMode:2
+@StopBgm BgmPath:Ambi_10_1
+
+[PrintTextModified Text:悬垂的锁链扣住了诺亚。|#0203Adv14_Narrative071| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 鎖が垂れ下がる音
+@PlayBgm BgmPath:Ambi_10_1 Volume:1 Loop:true FadeInDuration:0
+
+@ModifyBackgroundExtended Id:Stills Scale:1.5 Duration:0.6 Lazy:false ScenePosition:50,50 AppearanceAndTransition:460_2 SubId:Middle
+
+[PrintTextModified Text:在受到拘束的状态下，<br>诺亚的身体逐渐没入水槽之中。|#0203Adv14_Narrative072| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@StopBgm BgmPath:Ambi_10_1
+
+[PrintTextModified Text:和诺亚共度的无数回忆犹如走马灯一般<br>在脑海中浮现。|#0203Adv14_Narrative073| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@StopBgm
+
+[PrintTextModified Text:就在这时候——我终于明白过来。|#0203Adv14_Narrative074| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; ◎回想シーン（2-1-3からの流用）
+; ========================================
+
+@HidePrinter
+
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+
+@HideAllCharacters Lazy:false
+@HideActors ActorIds:Stills,Stills-Middle Lazy:false
+@Wait WaitMode:0.2
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} TintColor:#ff0000 Lazy:false ScenePosition:50,50 AppearanceAndTransition:1_1 SubId:Middle
+
+@ModifyCharacterExtended Scale:1 Lazy:false ScenePosition:50,50 IdAndAppearance:Noah.Flushed,ArmL1 SubId:Middle
+
+@PlayBgm BgmPath:Bgm_42_2 Volume:1 Loop:true FadeInDuration:0
+
+@ModifyBackgroundExtended Duration:0.8 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:0.9
+
+[PrintTextModified Text:把它清理掉！立刻！|#0203Adv14_Hiro003| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Noah.Normal1,ArmL1 SubId:Middle
+
+[PrintTextModified Text:欸～为什么啊？<br>诺亚只是在画画而已啊？|#0203Adv14_Noah019| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:不论这对你来说是爱好还是艺术，<br>熏人的气味已经飘到过道里了，<br>这对其他人来说就是一种骚扰行为。|#0203Adv14_Hiro004| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+@HideAllCharacters Lazy:false
+
+; ========================================
+; ◎回想シーン（2-1-3からの流用）
+; ========================================
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} TintColor:#FFFFFF Duration:0 Lazy:false ScenePosition:50,50 AppearanceAndTransition:1_1 SubId:Middle
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Noah.Normal1,ArmR4,ArmL2 SubId:Middle
+
+@ModifyBackgroundExtended Duration:0.8 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:0.9
+
+[PrintTextModified Text:不能在这里画吗？|#0203Adv14_Noah020| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:不行。|#0203Adv14_Hiro005| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Noah.Angry1,ArmR1,ArmL2 SubId:Middle
+
+[PrintTextModified Text:小气鬼～|#0203Adv14_Noah021| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:随你怎么说。只要我在，<br>就不许你恣意妄为。|#0203Adv14_Hiro006| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+@HideAllCharacters Duration:0 Lazy:false
+
+; ========================================
+; ◎回想シーン（2-1-4からの流用）
+; ========================================
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false AppearanceAndTransition:9_1 SubId:Middle
+
+@ModifyCharacterExtended Scale:1 Lazy:false ScenePosition:50 IdAndAppearance:Noah.Pensive1 SubId:Middle
+
+@ModifyBackgroundExtended Duration:0.8 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:0.9
+
+[PrintTextModified Text:……诺亚画画了。希罗会生诺亚的气吗……？|#0203Adv14_Noah022| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:……并不是在生你的气。<br>只是因为问题还没解决而已。|#0203Adv14_Hiro007| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+@HideAllCharacters Duration:0 Lazy:false
+
+; ========================================
+; ◎回想シーン（2-1-15からの流用）
+; ========================================
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Lazy:false ScenePosition:50 AppearanceAndTransition:7_1 SubId:Middle
+
+@ModifyCharacterExtended Duration:0 Lazy:false ScenePosition:50 IdAndAppearance:Noah.Angry1 SubId:Middle
+
+@ModifyBackgroundExtended Duration:0.8 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:0.9
+
+[PrintTextModified Text:……最讨厌希罗了。|#0203Adv14_Noah023| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:讨厌就讨厌吧。<br>这都怪诺亚做出不正确的行为！|#0203Adv14_Hiro008| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+
+@HideActors ActorIds:MainBackground-Middle Lazy:false
+@HideAllCharacters Lazy:false
+@StopBgm
+
+; ========================================
+; 回想シーンここまで
+; ========================================
+
+@ModifyBackgroundExtended Id:Stills Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false ScenePosition:50,50 AppearanceAndTransition:460_3
+
+@ModifyBackgroundExtended Duration:0.8 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:0.9
+
+@PlayBgm BgmPath:Bgm_43_2 Volume:1 Loop:true FadeInDuration:0
+
+[PrintTextModified Text:——诺亚！！|#0203Adv14_Hiro009| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:我无法忍耐，飞奔出去，大喊起来。|#0203Adv14_Narrative075| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:厚厚的玻璃像一道天堑把我们隔开，<br>我只能隔着玻璃和诺亚对视。|#0203Adv14_Narrative076| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:我……我……|#0203Adv14_Hiro010| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:曾经诺亚连饭也不吃，<br>一直闷在地下牢房。<br>带着她走出牢房，到外面去的，是我。|#0203Adv14_Narrative077| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:牵着她的手，<br>一直守护着她的，是我。|#0203Adv14_Narrative078| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:诺亚总是欲言又止，那一定是因为——<br>诺亚在等待我走近她的身边。|#0203Adv14_Narrative079| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:她一直在等我。|#0203Adv14_Narrative080| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Id:Stills Scale:2 Lazy:false ScenePosition:60,60 AppearanceAndTransition:460_4 SubId:Middle
+
+[PrintTextModified Text:我不会不管你！！|#0203Adv14_Hiro011| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:我直视着诺亚，声嘶力竭地大喊起来。<br>|#0203Adv14_Narrative081| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:朋友做了坏事，我会斥责她；<br>朋友做了错误的事，就算她反感，我也会帮助她改正！|#0203Adv14_Hiro012| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:觉得我烦人也好，觉得我讨厌也好，<br>但我就是这样的人！|#0203Adv14_Hiro013| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:如果你愿意的话，我们就言归于好——！|#0203Adv14_Hiro014| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:希罗……|#0203Adv14_Noah024| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:就算你不愿意……<br>我也绝对不会不管你……！！|#0203Adv14_Hiro015| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:不会放弃你！！|#0203Adv14_Hiro016| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:诺亚的脸颊划过一丝泪痕。|#0203Adv14_Narrative082| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:她流着泪，无声地，<br>一次又一次地点头。|#0203Adv14_Narrative083| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Id:Stills Scale:2 Lazy:false ScenePosition:60,60 AppearanceAndTransition:460_5 SubId:Middle
+
+[PrintTextModified Text:谢谢你，希罗。|#0203Adv14_Noah025| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:其实诺亚，一直想，能好好地，<br>跟希罗和好……|#0203Adv14_Noah026| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:一直想，跟希罗说一声，对不起……|#0203Adv14_Noah027| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:还有安安，<br>诺亚好害怕，害怕得受不了……|#0203Adv14_Noah028| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:明明不希望再有人死去……<br>却想着一定要杀死她不可……！|#0203Adv14_Noah029| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Id:Stills Scale:2 Lazy:false ScenePosition:60,60 AppearanceAndTransition:460_6 SubId:Middle
+
+[PrintTextModified Text:心里明明抗拒……却无法抑制这些感情……！|#0203Adv14_Noah030| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:对不起，对不起！！<br>真的，对不起……！！|#0203Adv14_Noah031| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:诺亚心里一直有我。<br>她一直在等我。|#0203Adv14_Narrative084| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:痛苦袭来的同时，也深刻感受到我们之间的联结。|#0203Adv14_Narrative085| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:我终于能感受到，我们的心是如此地靠近。|#0203Adv14_Narrative086| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Id:Stills Scale:2 Lazy:false ScenePosition:60,60 AppearanceAndTransition:460_7 SubId:Middle
+
+[PrintTextModified Text:水位越来越满，诺亚逐渐下沉。|#0203Adv14_Narrative087| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:隔着玻璃，摇曳的水光让她的轮廓变得模糊。<br>|#0203Adv14_Narrative088| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:每一分每一秒都漫长得宛如永恒。|#0203Adv14_Narrative089| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:……可是啊，其实诺亚也有高兴过。|#0203Adv14_Noah032| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:安安对诺亚说，<br>她喜欢诺亚亲手画的画……|#0203Adv14_Noah033| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Id:Stills Scale:2 Lazy:false ScenePosition:60,60 AppearanceAndTransition:460_8 SubId:Middle
+
+[PrintTextModified Text:所以，其实诺亚也很想给希罗看一看。|#0203Adv14_Noah034| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:看看诺亚画的画，夸夸真正属于诺亚的画作。|#0203Adv14_Noah035| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:诺亚……！|#0203Adv14_Hiro017| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:我不禁挥起拳头<br>试图打碎玻璃。|#0203Adv14_Narrative090| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:希罗，不行……！|#0203Adv14_Ema005| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:身后，艾玛抓住我的手腕，阻止了我。|#0203Adv14_Narrative091| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:……！|#0203Adv14_Hiro018| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:我知道。<br>已经无法阻止处刑了。|#0203Adv14_Narrative092| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Id:Stills Scale:{g_backgroundDefaultScale} Lazy:false AppearanceAndTransition:460_9 SubId:Front
+
+[PrintTextModified Text:我咬紧嘴唇，目不转睛地看着诺亚。|#0203Adv14_Narrative093| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（我再也不会从你身上移开视线。<br>　我会看着你，直到最后一刻）|#0203Adv14_Hiro019|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Id:Stills Scale:{g_backgroundDefaultScale} Lazy:false AppearanceAndTransition:460_10 SubId:Front
+
+@ResetText
+
+; 水が泡立つ音
+@PlaySfxModified SfxPath:Sfx_142 Volume:1 Loop:false FadeInDuration:0
+@Wait WaitMode:1
+
+[PrintTextModified Text:喂，这不对劲……|#0203Adv14_Alisa002| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:水中突然翻涌出大量的泡沫，<br>逐渐掩盖诺亚全身。|#0203Adv14_Narrative094| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:不。看起来像是诺亚的身体正在化成泡沫，<br>逐渐溶解。|#0203Adv14_Narrative095| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:难不成……这不是普通的水？|#0203Adv14_Leia002| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+
+; 水が泡立つ音
+@PlaySfxModified SfxPath:Sfx_142 Volume:1 Loop:false FadeInDuration:0
+@Wait WaitMode:1
+
+[PrintTextModified Text:诺亚微笑着，看着我的眼睛。<br>那是她留给我最后的画面。|#0203Adv14_Narrative096| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:诺亚的嘴唇缓缓地动作。|#0203Adv14_Narrative097| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:——希罗。|#0203Adv14_Narrative098| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:——诺亚最喜欢你了。|#0203Adv14_Narrative099| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:——说讨厌你，都是假的。|#0203Adv14_Narrative100| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:都这个时候了……！|#0203Adv14_Hiro020| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:就算你不说……<br>我也知道……！|#0203Adv14_Hiro021| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@StopBgm
+
+@ModifyBackgroundExtended Id:Stills Scale:{g_backgroundDefaultScale} Lazy:false AppearanceAndTransition:460_11 SubId:Front
+
+[PrintTextModified Text:终于，泡沫消散——|#0203Adv14_Narrative101| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:水槽里早已不见诺亚的身影。|#0203Adv14_Narrative102| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:她就像融化在水里一般，没有留下一点痕迹。|#0203Adv14_Narrative103| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@PlayBgm BgmPath:Bgm_44_1 Volume:1 Loop:true FadeInDuration:0
+
+[PrintTextModified Text:……这可麻烦了。<br>就当处刑已经执行完毕好了。|#0203Adv14_Warden004| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:似乎连典狱长也没有想到，<br>诺亚竟然会完全消失。|#0203Adv14_Narrative104| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:……算了，就当是那么一回事吧。<br>魔女审判，就此闭庭！|#0203Adv14_Warden005| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 歯車がまわる音
+@PlaySfxModified SfxPath:Sfx_36 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+
+[PrintTextModified Text:机关随即动作起来，缓缓地把水槽移动至地下。|#0203Adv14_Narrative105| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（诺亚……你在那里面吗？）|#0203Adv14_Hiro022| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:我只能呆呆望着不断摇晃的水面。|#0203Adv14_Narrative106| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@UpdateWitchBook Id:AnAn Category:Profile Version:7
+@UpdateWitchBook Id:Noah Category:Profile Version:11
+
+@Gosub Path:System/System_Subroutine.EndAdv
+
+@GotoModified Path:Act02_Chapter03/Act02_Chapter03_Adv15 SoftReset:true
+

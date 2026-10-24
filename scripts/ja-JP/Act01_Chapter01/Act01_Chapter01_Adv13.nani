@@ -1,0 +1,234 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook IsDebugDirectJump:{isDebugDirectJump}
+@Gosub Path:System/System_Subroutine.BeginAdv
+
+# Scene1-1-9
+
+; ========================================
+; ＞『図書室』を選択
+; ========================================
+@AutoSave
+[PrintTextModified Text:牢屋敷２階で入れる部屋は、２つあった。<br>図書室と、娯楽室だ。|#0101Adv13_Narrative001| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false AppearanceAndTransition:12_1
+@ModifyBackgroundExtended TintColor:#000000 Duration:1.2 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:1.8
+@PlayBgm BgmPath:Bgm_11_1 Volume:1 Loop:true FadeInDuration:0
+
+[PrintTextModified Text:エマとシェリーは、<br>図書室の方へと踏み込んでみる。|#0101Adv13_Narrative002| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"そこは本棚がずらりと並び、<br>古い紙のにおいが漂う<ruby=\"せいひつ\">静謐</ruby>な空間だった。|#0101Adv13_Narrative003|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Normal1
+
+[PrintTextModified Text:どんな本が置いてあるのかな。|#0101Adv13_Ema001| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"エマは適当に抜き取ってぱらぱらと<ruby=\"めく\">捲</ruby>ってみるが、<br>読めない文字が並んでいる。|#0101Adv13_Narrative004|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Pensive1
+
+[PrintTextModified Text:うーん……読めない……。|#0101Adv13_Ema002| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Ema.Pensive1
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Sherry.Normal1
+
+[PrintTextModified Text:私たちの国の文字じゃありませんね。<br>この牢屋敷って、どこの国にあるんでしょうね？<br>というか……まさか異世界！？|#0101Adv13_Sherry001| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Ema.Surprised1
+
+[PrintTextModified Text:そっ、そんな絶望するようなこと言わないで！|#0101Adv13_Ema003| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:シェリーも本棚の本を取り出し、<br>何気なくぱらぱらと捲っていく。|#0101Adv13_Narrative005| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Ema.Normal1
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Sherry.Surprised1
+
+[PrintTextModified Text:エマさん、エマさん！<br>これ、これ見てください！|#0101Adv13_Sherry002| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@StopBgm
+@ModifyCharacterExtended Lazy:false ScenePosition:40 IdAndAppearance:Ema.Normal1
+
+[PrintTextModified Text:"シェリーが手招きしたので、<br>エマも本を<ruby=\"のぞ\">覗</ruby>き込む。<br>開かれたページには――|#0101Adv13_Narrative006|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:<color=#ff0000>たすけて</color>|#0101Adv13_Narrative007| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Ema.Fearful1,ArmR3,ArmL1
+
+[PrintTextModified Text:"と、血文字で書かれていた。<br>エマは息を<ruby=\"の\">呑</ruby>んだ。|#0101Adv13_Narrative008|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@PlayBgm BgmPath:Bgm_27_1 Volume:1 Loop:true FadeInDuration:2
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Sherry.Smile1
+
+[PrintTextModified Text:これって、前捕まってた魔女候補の子たちの<br>誰かが書いたんですかね！？|#0101Adv13_Sherry003| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:そうかも……。|#0101Adv13_Ema004| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:高まりますね～！|#0101Adv13_Sherry004| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Ema.Surprised1
+
+[PrintTextModified Text:ちっとも高まらないよ！|#0101Adv13_Ema005| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Sherry.Normal1
+
+@ResetText
+
+
+[PrintTextModified Text:他の本にも、こういうメッセージが<br>残されていたりするんですかね。<br>ちょっと調べてみませんか？|#0101Adv13_Sherry005| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@StopBgm
+
+[PrintTextModified Text:エマはシェリーの提案に――|#0101Adv13_Narrative009| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@AddChoice ChoiceSummary:賛成した|#0101Adv13_Choice001| Lock:false ButtonPath:ChoiceButtons/Adv/Bad AutoPlay:true ShowHandler:true
+    @GotoModified Path:Act01_Chapter01/Act01_Chapter01_Bad03 ResetState:-
+
+@AddChoice ChoiceSummary:首を横に振った|#0101Adv13_Choice002| Lock:false AutoPlay:true ShowHandler:true
+    @GotoModified Path:.Choice1-1-3
+@AutoSave DelayDuration:0.3
+@StopForChoice Clear:false
+
+# Choice1-1-3
+
+@RecordCorrectChoice Number:3
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Ema.Pensive1
+
+[PrintTextModified Text:首を横に振った。|#0101Adv13_Narrative010| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:今はやめとこう。さっきの血文字、<br>なんだか怖いよ……。|#0101Adv13_Ema006| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:それにこの数の本を調べるなら、<br>もっと人手もあったほうがいいと思うし……。|#0101Adv13_Ema007| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:――あら。|#0101Adv13_Margo001| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Margo.Normal1
+
+[PrintTextModified Text:並ぶ本棚の陰から、少女が１人、<br>ひょっこりと顔をのぞかせた。|#0101Adv13_Narrative011| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Ema.Normal1,ArmR1,ArmL1
+@PlayBgm BgmPath:Bgm_11_1 Volume:1 Loop:true FadeInDuration:0
+
+[PrintTextModified Text:マーゴちゃん……だよね。いたんだ。|#0101Adv13_Ema008| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Margo.Normal1,ArmR5,ArmL3
+
+[PrintTextModified Text:ええ。可愛いさえずりが聞こえたから、<br>ちょっとのぞきにきたの。|#0101Adv13_Margo002| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Ema.Pensive1
+
+[PrintTextModified Text:う、うるさくしてごめん。|#0101Adv13_Ema009| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:いいのよ。<br>読める本も見当たらないし、暇してたところだったの。|#0101Adv13_Margo003| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:そう言って、彼女はふらりと歩いていく。<br>誘われるように、エマとシェリーもついていってしまう。|#0101Adv13_Narrative012| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:読書スペースの小さな机には、<br>カードがひろがっていた。|#0101Adv13_Narrative013| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:20 IdAndAppearance:Margo.Normal1
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Normal1
+@ModifyCharacterExtended Lazy:false ScenePosition:80 IdAndAppearance:Sherry.Normal1
+
+[PrintTextModified Text:これってタロットカードですよね？|#0101Adv13_Sherry006| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:ええ。娯楽室に置いてあったからもらったの。<br>もともと好きだったのよ。|#0101Adv13_Margo004| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:あなたたちのことも、<br>占ってさしあげましょうか？|#0101Adv13_Margo005| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:80 IdAndAppearance:Sherry.Surprised1
+
+[PrintTextModified Text:マーゴさんはもしかして、<br>タロットカードで魔法を使うんですか？|#0101Adv13_Sherry007| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"マーゴは椅子に腰掛け、<ruby=\"ようえん\">妖艶</ruby>に<ruby=\"ほほえ\">微笑</ruby>む。|#0101Adv13_Narrative014|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:20 IdAndAppearance:Margo.Smile1
+
+[PrintTextModified Text:いいえ。なんでそんなことを聞くのかしら？|#0101Adv13_Margo006| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:80 IdAndAppearance:Sherry.Smile1
+
+[PrintTextModified Text:私、みんながどんな魔法を使うのか<br>気になっちゃって、気になっちゃって！|#0101Adv13_Sherry008| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:くすくすと、マーゴは笑った。|#0101Adv13_Narrative015| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:20 IdAndAppearance:Margo.Smile1,ArmR5,ArmL3
+
+[PrintTextModified Text:可愛いわね。|#0101Adv13_Margo007| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:すんなり教えてくれるのかと思ったが、<br>笑顔のままマーゴは首を横に振った。|#0101Adv13_Narrative016| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:でも、ごめんなさい。<br>どんな魔法を使えるのか教えたくないわ。|#0101Adv13_Margo008| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:この牢屋敷でこれから殺人事件が起こるとしたら、<br>手持ちカードを晒すのは、愚かだと思わない？|#0101Adv13_Margo009| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Pensive1
+@ModifyCharacterExtended Lazy:false ScenePosition:80 IdAndAppearance:Sherry.Normal1
+
+[PrintTextModified Text:"エマはマーゴの言い分に、<br>むっと<ruby=\"まゆね\">眉根</ruby>を寄せてしまう。|#0101Adv13_Narrative017|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:殺人事件なんて、起こるはずないよ。|#0101Adv13_Ema010| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"マーゴは１枚のカードを、<br>エマとシェリーに<ruby=\"かざ\">翳</ruby>してみせた。|#0101Adv13_Narrative018|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:20 IdAndAppearance:Margo.Normal1,ArmR1,ArmL1
+
+[PrintTextModified Text:【塔】の正位置。<br>……近い未来、誰か死ぬわ。|#0101Adv13_Margo010| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:たかだか占いなのに、<br>マーゴの言葉は妙な説得力がある。|#0101Adv13_Narrative019| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:あなたたちも身辺に気を付けて。<br>誰が殺意を抱いているかわからないもの。|#0101Adv13_Margo011| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:そんな……みんなを疑うようなこと……。|#0101Adv13_Ema011| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:20 IdAndAppearance:Margo.Smile1,ArmR5,ArmL3
+
+[PrintTextModified Text:あら。昨日知り合ったばかりなのに、<br>ずいぶん優しいのね。甘い、と言った方がいいかしら。|#0101Adv13_Margo012| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:お互いのことまだ何も知らないのに、<br>どうして信じられるの？|#0101Adv13_Margo013| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Determined2
+
+[PrintTextModified Text:それは……で、でも！<br>少なくともボクは、殺人をするような子はいないと思う！|#0101Adv13_Ema012| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:あなたが唯一親しかった二階堂ヒロは、<br>誰より早く殺意を剥き出しにしていたようだけど？|#0101Adv13_Margo014| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆言葉に詰まる
+
+[PrintTextModified Text:……っ|#0101Adv13_Ema013| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:マーゴはあくまで満面の笑みを崩さない。<br>それなのに、言葉は鋭利な刃物のようにエマに突き刺さる。|#0101Adv13_Narrative020| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Sherry.Normal1
+@ModifyCharacterExtended Lazy:false ScenePosition:80 IdAndAppearance:Ema.Determined2
+
+[PrintTextModified Text:穏やかではない空気が、エマとマーゴの間に漂う。<br>察したようにシェリーが間に立ってきた。|#0101Adv13_Narrative021| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Sherry.Smile1
+
+[PrintTextModified Text:あーっと、そろそろ行きましょうか、<br>エマさん！|#0101Adv13_Sherry009| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:80 IdAndAppearance:Ema.Pensive1
+
+[PrintTextModified Text:うん……。|#0101Adv13_Ema014| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:お邪魔しましたっ！<br>またマーゴさんのこと詳しく聞かせてくださいねっ|#0101Adv13_Sherry010| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:ウフフ……占ってほしかったら、<br>いつでも言ってちょうだい。|#0101Adv13_Margo015| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 消化していないイベントがある＞シーン1‐1‐7
+; 全てのイベントを消化している＞シーン1‐1‐12
+; ========================================
+
+@Gosub Path:System/System_Subroutine.EndAdv
+
+@GotoModified Path:Act01_Chapter01/Act01_Chapter01_Adv11 SoftReset:true
+

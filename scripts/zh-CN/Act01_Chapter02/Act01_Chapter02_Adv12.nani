@@ -1,0 +1,104 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook IsDebugDirectJump:{isDebugDirectJump}
+@Gosub Path:System/System_Subroutine.BeginAdv
+
+# Scene1-2-12
+
+; ========================================
+; ●シーン1‐2-12
+; ========================================
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false AppearanceAndTransition:17_1
+@ModifyBackgroundExtended TintColor:#000000 Duration:1.2 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:1.8
+
+; ========================================
+; ＞『湖方面』を選択
+; ========================================
+
+@PlayBgm BgmPath:Bgm_28_1 Volume:1 Loop:true FadeInDuration:0
+@AutoSave
+[PrintTextModified Text:如果在其他地方找不到亚里沙，<br>那她多半会在森林的湖畔。|#0102Adv12_Narrative001| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:艾玛参照以往的经验去了湖边，<br>但今天谁也不在。|#0102Adv12_Narrative002| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（扑了个空啊）|#0102Adv12_Ema001| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:这一带阴森森的，<br>让艾玛有些害怕。|#0102Adv12_Narrative003| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Pensive1,ArmR3
+
+[PrintTextModified Text:亚里沙为什么喜欢这个地方呢。|#0102Adv12_Ema002| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:她自言自语道。|#0102Adv12_Narrative004| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:——她觉得自己很可怕，<br>所以才总是呆在水边。|#0102Adv12_Nanoka001| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:不知从哪里传来了声音，<br>艾玛吓了一跳，一下子抬起头来。|#0102Adv12_Narrative005| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HidePrinter
+@AnimateActorExtended ActorIds:MainBackground Loop:false
+@SpawnExtended Path:MaskingRectangle Params:1000,30,true,0.3,#000000 ScenePosition:20,60 Rotation:,,0 SubId:Front
+@ModifyBackgroundExtended Rotation:,,0 Scale:1.75 Lazy:false ScenePosition:28,16 AppearanceAndTransition:17_1 SubId:Front
+@SpawnBlur ActorId:MainBackground-Front FadeDuration:0
+@ModifyCharacterExtended Rotation:,,0 Scale:1.5 Duration:0 Lazy:false ScenePosition:40,25 IdAndAppearance:Nanoka.Default SubId:Front
+@ChangeActorMaskability ActorIds:MainBackground-Front,Nanoka-Front Enable:true
+@AnimateActorExtended ActorIds:MainBackground-Front Loop:false ScenePositionX:25 EasingTypeName:EaseOutQuad Duration:0.4
+@AnimateActorExtended ActorIds:Nanoka-Front Loop:false ScenePositionX:35 EasingTypeName:EaseOutQuad Duration:0.4
+@Wait WaitMode:0.3
+
+[PrintTextModified Text:她从树丛间隐隐瞥见了奈叶香的身影。|#0102Adv12_Narrative006| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:奈叶香！你之前都去哪了——|#0102Adv12_Ema003| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideActors ActorIds:Nanoka-Front,MainBackground-Front Lazy:false
+@SpawnBlur ActorId:MainBackground-Front Intensity:0 FadeDuration:0
+@DestroySpawnedExtended Path:MaskingRectangle SubId:Front LogWarning:true
+@Wait WaitMode:0.3
+
+[PrintTextModified Text:奈叶香的身影立马消失了。|#0102Adv12_Narrative007| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Surprised1,ArmR3
+
+[PrintTextModified Text:奈叶香！你听我说——！|#0102Adv12_Ema004| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:米莉亚不是幕后黑手！<br>她是个很好的女孩，不，是个很好的人！|#0102Adv12_Ema005| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Normal1,ArmR3
+
+[PrintTextModified Text:安安和可可<br>都特别黏着她。|#0102Adv12_Ema006| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:不只是她们。<br>米莉亚拯救了我们所有人！|#0102Adv12_Ema007| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:求求你，不要再盯着米莉亚的性命<br>不放了！！|#0102Adv12_Ema008| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:和我们一起<br>离开这里吧！！|#0102Adv12_Ema009| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:……我的目的不是离开这里。<br>无论是搭上这条命，还是要化身魔女，<br>我都要完成复仇——|#0102Adv12_Nanoka002| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:艾玛循着奈叶香的声音跑了过去。|#0102Adv12_Narrative008| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:然而，<br>那里已经空无一人。|#0102Adv12_Narrative009| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Pensive1,ArmR3
+
+[PrintTextModified Text:（奈叶香……）|#0102Adv12_Ema010| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:我想……和大家一起，活着离开这里啊。|#0102Adv12_Ema011| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:无人回应她的低语。|#0102Adv12_Narrative010| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 消化していないイベントがある＞シーン1‐2‐8
+; 全てのイベントを消化している＞シーン1‐2‐14
+; ========================================
+
+@Gosub Path:System/System_Subroutine.EndAdv
+
+@GotoModified Path:Act01_Chapter02/Act01_Chapter02_Adv08 SoftReset:true
+

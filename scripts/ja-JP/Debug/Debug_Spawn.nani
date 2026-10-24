@@ -1,0 +1,585 @@
+@Gosub Path:System/System_Subroutine.BeginAdv
+
+@ModifyBackgroundExtended TintColor:#000000 Duration:0 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+
+; @gosub .Emoticon
+; @gosub .Matte
+@Gosub Path:.Text
+; @gosub .BadEnd
+; @gosub .VFX
+; @gosub .Front
+; @gosub .Cancellation
+; @gosub .Multipliable
+; @gosub .MatchScreenWidth
+; @gosub .Map
+; @gosub .Clue
+; @gosub .CutIn
+
+@Stop
+
+; ==============================================================================
+; 絵文字
+; ==============================================================================
+
+# Emoticon
+
+[PrintTextModified Text:"Debug_Spawn # Emoticon|#~f7dafd9b|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@SpawnExtended Path:Question
+@WaitForInput
+
+@SpawnExtended Path:Exclamation
+@WaitForInput
+
+@SpawnExtended Path:Happy
+@WaitForInput
+
+@SpawnExtended Path:Joyful
+@WaitForInput
+
+@SpawnExtended Path:Notice
+@WaitForInput
+
+@SpawnExtended Path:Shy
+@WaitForInput
+
+@SpawnExtended Path:Sigh
+@WaitForInput
+
+@SpawnExtended Path:Sweat
+@WaitForInput
+
+@SpawnExtended Path:Troubled
+@WaitForInput
+
+@Return
+
+; ==============================================================================
+; マット
+; ==============================================================================
+
+# Matte
+
+[PrintTextModified Text:"Debug_Spawn # Matte|#~bd2095ba|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ShowMattes Width:10,0 PositionZ:81 TintColor:#ff0000 Duration:2 EasingTypeName:EaseOutQuad
+@ShowMattes Width:0,10 TintColor:#00ff00 Duration:2 EasingTypeName:EaseInOutCubic SubId:Another
+@WaitForInput
+
+@HideMattes Duration:2 SubId:Another
+@WaitForInput
+
+@HideMattes Duration:2
+@WaitForInput
+
+@ShowMattes Width:30,0 PositionZ:81 Duration:2
+@WaitForInput
+
+@HideMattes Duration:2
+@WaitForInput
+
+@Return
+
+; ==============================================================================
+; テキスト
+; ==============================================================================
+
+# Text
+
+@ModifyBackgroundExtended TintColor:#00ff00 Duration:0 Lazy:false ScenePosition:50,50 AppearanceAndTransition:SolidColor
+@ModifyCharacterExtended Duration:0 Lazy:false ScenePosition:50,50 IdAndAppearance:Ema
+
+[PrintTextModified Text:"Debug_Spawn # Text|#~4dd3245e|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+; @spawn SpawnableText params:"\"Spawnable Text\",128,50,50,,0.5"
+; @i
+
+; @despawn SpawnableText params:0.5
+; @i
+
+; @spawn TitleCutIn params:"\"Title Cut In\",128,50,50,0.5"
+; @i
+
+; @despawn TitleCutIn params:0.5
+; @i
+
+@ResetText
+@SpawnExtended Path:BeginDebateText Wait:true
+@DestroySpawnedExtended Path:BeginDebateText Wait:true LogWarning:true
+
+[PrintTextModified Text:"BeginDebateText (1)|#~c9a64179|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@SpawnExtended Path:BeginDebateText Wait:true
+@DestroySpawnedExtended Path:BeginDebateText Wait:true LogWarning:true
+
+[PrintTextModified Text:"BeginDebateText (2)|#~8bc470e4|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@SpawnExtended Path:EndDebateText Wait:true
+@DestroySpawnedExtended Path:EndDebateText Wait:true LogWarning:true
+
+[PrintTextModified Text:"EndDebateText (1)|#~591ad8c8|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@SpawnExtended Path:EndDebateText Wait:true
+@DestroySpawnedExtended Path:EndDebateText Wait:true LogWarning:true
+
+[PrintTextModified Text:"EndDebateText (2)|#~7b34957|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Return
+
+; ==============================================================================
+; バッドエンド演出
+; ==============================================================================
+
+# BadEnd
+
+@ModifyBackgroundExtended TintColor:#00ff00 Duration:0 Lazy:false ScenePosition:50,50 AppearanceAndTransition:SolidColor
+@ModifyCharacterExtended Duration:0 Lazy:false ScenePosition:50,50 IdAndAppearance:Ema
+
+[PrintTextModified Text:"Debug_Spawn # BadEnd|#~dbafe420|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Gosub Path:System/System_Subroutine.BadEnd
+
+[PrintTextModified Text:"Debug_Spawn # BadEnd Ends.|#~b43a883d|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Return
+
+; ==============================================================================
+; VFX
+; ==============================================================================
+
+# VFX
+
+[PrintTextModified Text:"Debug_Spawn # VFX|#~210e42b1|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Lazy:false ScenePosition:50,50 AppearanceAndTransition:2_1
+@ModifyCharacterExtended Scale:1.5 Lazy:false ScenePosition:70,40 IdAndAppearance:Hanna.Default
+
+[PrintTextModified Text:エフェクトオフ|#~bd0c4ff4| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HidePrinter
+@SpawnBlur ActorId:MainBackground Intensity:0.75
+@SpawnExtended Path:VfxSample_1 Params:1,0
+
+[PrintTextModified Text:エフェクトオン|#~b739aaa| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"「ちょっとあなた、神経どうにかしてるんじゃありません？<br>　よくスキップなんかできますわね」|#~916e99d2|" AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HidePrinter
+@WaitForInput
+
+@HideAllCharacters Lazy:false
+@SpawnBlur ActorId:MainBackground Intensity:0
+@DestroySpawnedExtended Path:VfxSample_1 Params:1 LogWarning:true
+@ModifyBackgroundExtended Lazy:false ScenePosition:50,50 AppearanceAndTransition:3_1
+@ModifyCharacterExtended Scale:1 Lazy:false ScenePosition:30,50 IdAndAppearance:Ema.Fearful
+@ModifyCharacterExtended Scale:1 Lazy:false ScenePosition:70,50 IdAndAppearance:Sherry.Default
+
+[PrintTextModified Text:エフェクトオフ|#~bd0c4ff4| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HidePrinter
+@SpawnBlur ActorId:MainBackground Intensity:0.25
+@SpawnExtended Path:VfxSample_2 Params:1,0
+
+[PrintTextModified Text:エフェクトオン|#~b739aaa| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"「ここが獄長の言ってた懲罰房でしょうね。<br>　規則を破った囚人はここに入れられる、と」|#~8e0dd839|" AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HidePrinter
+@WaitForInput
+
+@Return
+
+; ==============================================================================
+; 手前
+; ==============================================================================
+
+# Front
+
+@ModifyBackgroundExtended Scale:2 Lazy:false ScenePosition:,,50 AppearanceAndTransition:SolidColor SubId:Front
+@ModifyCharacterExtended Scale:1.5 Lazy:false ScenePosition:50,30 IdAndAppearance:Ema SubId:Front
+
+[PrintTextModified Text:"Debug_Spawn # Front|#~b4f0244f|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ShowMattes Width:20,0 SubId:Front
+
+[PrintTextModified Text:showMattes_Front|#~8f9c2d82| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; @spawn Joyful params:60,50,20,2
+; @i
+
+; @spawn Notice params:60,50,20,2
+; @i
+
+@HideMattes SubId:Front
+
+[PrintTextModified Text:hideMattes_Front|#~1c92ab75| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ShowMattes Width:20,0 SubId:Forefront
+
+[PrintTextModified Text:showMattes_Forefront|#~f93958f4| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideMattes SubId:Forefront
+
+[PrintTextModified Text:hideMattes_Forefront|#~610af01e| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideActors ActorIds:MainBackground-Front,Sorako-Front Lazy:false
+
+@Return
+
+; ==============================================================================
+; キャンセル
+; ==============================================================================
+
+# Cancellation
+
+[PrintTextModified Text:"Debug_Spawn # Cancellation|#~65e4397|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@SpawnExtended Path:Troubled Params:,,,,true
+@Wait WaitMode:0.1
+@SpawnExtended Path:Troubled
+@Wait WaitMode:0.1
+@SpawnExtended Path:Troubled
+@Wait WaitMode:0.1
+@SpawnExtended Path:Troubled Params:,,,,true
+@Wait WaitMode:0.1
+@SpawnExtended Path:Troubled Params:,,,,true
+@Wait WaitMode:0.1
+@SpawnExtended Path:Troubled
+@Wait WaitMode:0.1
+@SpawnExtended Path:Troubled
+@Wait WaitMode:0.1
+@SpawnExtended Path:Troubled Params:,,,,true
+@WaitForInput
+
+@Return
+
+; ==============================================================================
+; Multipliable
+; ==============================================================================
+
+# Multipliable
+
+[PrintTextModified Text:"Debug_Spawn # Multipliable|#~b7b40baf|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@SpawnExtended Path:Sweat Params:50,50
+@Wait WaitMode:0.1
+@SpawnExtended Path:Sweat Params:25,50 SubId:Left
+@Wait WaitMode:0.1
+@SpawnExtended Path:Sweat Params:75,50 SubId:Right
+
+[PrintTextModified Text:a|#~cafae02c| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@SpawnExtended Path:Sweat Params:10,50 SubId:Sub01
+@SpawnExtended Path:Sweat Params:14,50,,,,true SubId:Sub02
+@SpawnExtended Path:Sweat Params:18,50,,,,true SubId:Sub03
+@SpawnExtended Path:Sweat Params:22,50,,,,true SubId:Sub04
+@SpawnExtended Path:Sweat Params:26,50,,,,true SubId:Sub05
+@SpawnExtended Path:Sweat Params:30,50,,,,true SubId:Sub06
+@SpawnExtended Path:Sweat Params:34,50,,,,true SubId:Sub07
+@SpawnExtended Path:Sweat Params:38,50,,,,true SubId:Sub08
+@SpawnExtended Path:Sweat Params:42,50,,,,true SubId:Sub09
+@SpawnExtended Path:Sweat Params:46,50,,,,true SubId:Sub10
+@SpawnExtended Path:Sweat Params:50,50,,,,true SubId:Sub11
+@SpawnExtended Path:Sweat Params:54,50,,,,true SubId:Sub12
+@SpawnExtended Path:Sweat Params:58,50,,,,true SubId:Sub13
+@SpawnExtended Path:Sweat Params:62,50,,,,true SubId:Sub14
+@SpawnExtended Path:Sweat Params:66,50,,,,true SubId:Sub15
+@SpawnExtended Path:Sweat Params:70,50,,,,true SubId:Sub16
+@SpawnExtended Path:Sweat Params:74,50,,,,true SubId:Sub17
+@SpawnExtended Path:Sweat Params:78,50,,,,true SubId:Sub18
+@SpawnExtended Path:Sweat Params:82,50,,,,true SubId:Sub19
+@SpawnExtended Path:Sweat Params:86,50,,,,true SubId:Sub20
+@WaitForInput
+
+[PrintTextModified Text:b|#~d726795c| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:c|#~e74489bc| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:d|#~9cf79de| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:e|#~7779945a| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Return
+
+; ==============================================================================
+; MatchScreenWidth
+; ==============================================================================
+
+# MatchScreenWidth
+
+[PrintTextModified Text:"Debug_Spawn # MatchScreenWidth|#~6de7f3f5|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@SpawnExtended Path:MaskingBubble ScenePosition:75,75
+@SpawnExtended Path:MaskingBubble ScenePosition:75,25 SubId:Sub MatchScreenWidth:true
+@WaitForInput
+
+@Return
+
+; ==============================================================================
+; 証拠品
+; ==============================================================================
+
+# Clue
+
+[PrintTextModified Text:"Debug_Spawn # Clue|#~b53b979f|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@SpawnExtended Path:Clue Params:1-13 Wait:false
+@Wait WaitMode:0.2
+
+[PrintTextModified Text:1-13|#~741bb7b3| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@SpawnExtended Path:Clue Params:1-14 Wait:false
+@Wait WaitMode:0.2
+
+[PrintTextModified Text:1-14|#~b5312538| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@DestroySpawnedExtended Path:Clue Wait:false LogWarning:true
+@Wait WaitMode:0.2
+
+[PrintTextModified Text:"Debug_Spawn # Clue end.|#~c0bf9f8d|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Return
+
+; ==============================================================================
+; CutIn
+; ==============================================================================
+
+# CutIn
+
+[PrintTextModified Text:"Debug_Spawn # CutIn|#~f98d8c92|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToObjectionCutIn CutInKind:Ema Index:1 VoicePath:CommonTrial_Ema06193 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+[PrintTextModified Text:a|#~cafae02c| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@PlayVoice VoicePath:CommonTrial_Ema05120 Volume:1
+[PrintTextModified Text:b|#~d726795c| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToObjectionCutIn CutInKind:Ema Index:1 VoicePath:CommonTrial_Ema05117 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+[PrintTextModified Text:a|#~cafae02c| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToObjectionCutIn CutInKind:Ema Index:1 VoicePath:CommonTrial_Ema05119 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+[PrintTextModified Text:a|#~cafae02c| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToObjectionCutIn CutInKind:Ema Index:2 VoicePath:CommonTrial_Ema05119 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+[PrintTextModified Text:a|#~cafae02c| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToObjectionCutIn CutInKind:Ema Index:1 VoicePath:CommonTrial_Ema05120 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+[PrintTextModified Text:a|#~cafae02c| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToObjectionCutIn CutInKind:Ema Index:1 VoicePath:CommonTrial_Ema05122 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+[PrintTextModified Text:a|#~cafae02c| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToObjectionCutIn CutInKind:Ema Index:2 VoicePath:CommonTrial_Ema05120 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+[PrintTextModified Text:a|#~cafae02c| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToObjectionCutIn CutInKind:Ema Index:1 VoicePath:CommonTrial_Ema06192 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+[PrintTextModified Text:a|#~cafae02c| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToObjectionCutIn CutInKind:Ema Index:1 VoicePath:CommonTrial_Ema06197 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+[PrintTextModified Text:a|#~cafae02c| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToObjectionCutIn CutInKind:Ema Index:2 VoicePath:CommonTrial_Ema05117 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+[PrintTextModified Text:a|#~cafae02c| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToObjectionCutIn CutInKind:Hiro Index:3 VoicePath:CommonTrial_Hiro00024 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+[PrintTextModified Text:a|#~cafae02c| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToObjectionCutIn CutInKind:Hiro Index:1 VoicePath:CommonTrial_Hiro00024 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+[PrintTextModified Text:a|#~cafae02c| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToObjectionCutIn CutInKind:Hiro Index:3 VoicePath:CommonTrial_Hiro00032 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+[PrintTextModified Text:a|#~cafae02c| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToObjectionCutIn CutInKind:Hiro Index:2 VoicePath:CommonTrial_Hiro00027 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+[PrintTextModified Text:a|#~cafae02c| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToObjectionCutIn CutInKind:Hiro Index:1 VoicePath:CommonTrial_Hiro06080 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+[PrintTextModified Text:a|#~cafae02c| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToObjectionCutIn CutInKind:Hiro Index:3 VoicePath:CommonTrial_Hiro00027 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+[PrintTextModified Text:a|#~cafae02c| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToObjectionCutIn CutInKind:Hiro Index:1 VoicePath:CommonTrial_Hiro06081 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+[PrintTextModified Text:a|#~cafae02c| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToObjectionCutIn CutInKind:Hiro Index:1 VoicePath:CommonTrial_Hiro00032 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+[PrintTextModified Text:a|#~cafae02c| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToObjectionCutIn CutInKind:Hiro Index:2 VoicePath:CommonTrial_Hiro06081 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+[PrintTextModified Text:a|#~cafae02c| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToObjectionCutIn CutInKind:Hiro Index:2 VoicePath:CommonTrial_Hiro00024 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+[PrintTextModified Text:a|#~cafae02c| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToObjectionCutIn CutInKind:Hiro Index:3 VoicePath:CommonTrial_Hiro00028 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+[PrintTextModified Text:a|#~cafae02c| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToObjectionCutIn CutInKind:Ema Index:2 VoicePath:CommonTrial_Ema06193 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+[PrintTextModified Text:a|#~cafae02c| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToObjectionCutIn CutInKind:Hiro Index:3 VoicePath:CommonTrial_Hiro06081 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+[PrintTextModified Text:a|#~cafae02c| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToObjectionCutIn CutInKind:Hiro Index:1 VoicePath:CommonTrial_Hiro00027 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+[PrintTextModified Text:a|#~cafae02c| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToObjectionCutIn CutInKind:Hiro Index:1 VoicePath:CommonTrial_Hiro00028 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+[PrintTextModified Text:a|#~cafae02c| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToObjectionCutIn CutInKind:CreatureHiro Index:3 VoicePath:CommonTrial_Hiro00024 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+[PrintTextModified Text:a|#~cafae02c| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToObjectionCutIn CutInKind:CreatureHiro Index:1 VoicePath:CommonTrial_Hiro00024 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+[PrintTextModified Text:a|#~cafae02c| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToObjectionCutIn CutInKind:CreatureHiro Index:1 VoicePath:CommonTrial_Hiro00027 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+[PrintTextModified Text:a|#~cafae02c| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToObjectionCutIn CutInKind:CreatureHiro Index:1 VoicePath:CommonTrial_Hiro00032 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+[PrintTextModified Text:a|#~cafae02c| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToObjectionCutIn CutInKind:CreatureHiro Index:1 VoicePath:CommonTrial_Hiro00028 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+[PrintTextModified Text:a|#~cafae02c| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToObjectionCutIn CutInKind:CreatureHiro Index:3 VoicePath:CommonTrial_Hiro00033 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+[PrintTextModified Text:a|#~cafae02c| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToObjectionCutIn CutInKind:CreatureHiro Index:2 VoicePath:CommonTrial_Hiro00033 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+[PrintTextModified Text:a|#~cafae02c| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToObjectionCutIn CutInKind:CreatureHiro Index:3 VoicePath:CommonTrial_Hiro00032 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+[PrintTextModified Text:a|#~cafae02c| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToObjectionCutIn CutInKind:CreatureHiro Index:2 VoicePath:CommonTrial_Hiro00024 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+[PrintTextModified Text:a|#~cafae02c| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToObjectionCutIn CutInKind:CreatureHiro Index:1 VoicePath:CommonTrial_Hiro00033 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+[PrintTextModified Text:a|#~cafae02c| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToObjectionCutIn CutInKind:CreatureHiro Index:2 VoicePath:CommonTrial_Hiro00032 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+[PrintTextModified Text:a|#~cafae02c| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToObjectionCutIn CutInKind:CreatureHiro Index:3 VoicePath:CommonTrial_Hiro00025 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+[PrintTextModified Text:a|#~cafae02c| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToObjectionCutIn CutInKind:CreatureHiro Index:3 VoicePath:CommonTrial_Hiro06080 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+[PrintTextModified Text:a|#~cafae02c| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToObjectionCutIn CutInKind:CreatureHiro Index:2 VoicePath:CommonTrial_Hiro00027 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+[PrintTextModified Text:a|#~cafae02c| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToObjectionCutIn CutInKind:Hiro Index:2 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+[PrintTextModified Text:a|#~cafae02c| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToObjectionCutIn CutInKind:Ema Index:2 VoicePath:CommonTrial_Ema06192 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+[PrintTextModified Text:a|#~cafae02c| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToObjectionCutIn CutInKind:Ema Index:2 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+[PrintTextModified Text:a|#~cafae02c| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToObjectionCutIn CutInKind:Hiro Index:2 VoicePath:CommonTrial_Hiro06083 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+[PrintTextModified Text:a|#~cafae02c| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToObjectionCutIn CutInKind:Ema Index:2 VoicePath:CommonTrial_Ema05122 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+[PrintTextModified Text:a|#~cafae02c| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToObjectionCutIn CutInKind:Ema Index:2 VoicePath:CommonTrial_Ema06197,CommonTrial_Hiro06086 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+[PrintTextModified Text:a|#~cafae02c| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:ObjectionCutIn_Ema<br>index:0|#~194318fe| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@SpawnExtended Path:ObjectionCutIn_Ema Params:0 Wait:true
+@DestroySpawnedExtended Path:ObjectionCutIn_Ema LogWarning:true
+
+[PrintTextModified Text:ObjectionCutIn_Ema<br>index:1|#~a976a5ae| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@SpawnExtended Path:ObjectionCutIn_Ema Params:1 Wait:true
+@DestroySpawnedExtended Path:ObjectionCutIn_Ema LogWarning:true
+
+[PrintTextModified Text:ObjectionCutIn_Ema<br>index:2|#~339fea61| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@SpawnExtended Path:ObjectionCutIn_Ema Params:2 Wait:true
+@DestroySpawnedExtended Path:ObjectionCutIn_Ema LogWarning:true
+
+[PrintTextModified Text:ObjectionCutIn_Hiro<br>index:0|#~ff3c5507| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@SpawnExtended Path:ObjectionCutIn_Hiro Params:0 Wait:true
+@DestroySpawnedExtended Path:ObjectionCutIn_Hiro LogWarning:true
+
+[PrintTextModified Text:ObjectionCutIn_Hiro<br>index:1|#~7b2e9e45| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@SpawnExtended Path:ObjectionCutIn_Hiro Params:1 Wait:true
+@DestroySpawnedExtended Path:ObjectionCutIn_Hiro LogWarning:true
+
+[PrintTextModified Text:ObjectionCutIn_Hiro<br>index:2|#~f0f2793a| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@SpawnExtended Path:ObjectionCutIn_Hiro Params:2 Wait:true
+@DestroySpawnedExtended Path:ObjectionCutIn_Hiro LogWarning:true
+
+[PrintTextModified Text:ObjectionCutIn_CreatureHiro<br>index:0|#~ee17f5c6| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@SpawnExtended Path:ObjectionCutIn_CreatureHiro Params:0 Wait:true
+@DestroySpawnedExtended Path:ObjectionCutIn_CreatureHiro LogWarning:true
+
+[PrintTextModified Text:ObjectionCutIn_CreatureHiro<br>index:1|#~bb4c8665| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@SpawnExtended Path:ObjectionCutIn_CreatureHiro Params:1 Wait:true
+@DestroySpawnedExtended Path:ObjectionCutIn_CreatureHiro LogWarning:true
+
+[PrintTextModified Text:ObjectionCutIn_CreatureHiro<br>index:2|#~3f6e6891| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@SpawnExtended Path:ObjectionCutIn_CreatureHiro Params:2 Wait:true
+@DestroySpawnedExtended Path:ObjectionCutIn_CreatureHiro LogWarning:true
+
+[PrintTextModified Text:"Debug_Spawn # CutIn end.|#~1d2ab6e3|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Return
+

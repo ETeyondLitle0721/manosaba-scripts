@@ -1,0 +1,66 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook Version:2
+@Gosub Path:System/System_Subroutine.BeginAdv
+
+# Scene2-5-8
+
+; ========================================
+; ●シーン2-5‐8
+; ========================================
+
+; フクロウの羽ばたき音
+@PlaySfxModified SfxPath:Sfx_8 Volume:1 Loop:false FadeInDuration:0
+
+@Wait WaitMode:3
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false AppearanceAndTransition:25_1
+@ModifyBackgroundExtended TintColor:#000000 Duration:1.8 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:2
+
+; モニター音
+@PlaySfxModified SfxPath:Sfx_3 Volume:1 Loop:false FadeInDuration:0
+
+; 配信フレームIN
+@ModifyTextPrinter Lazy:false IdAndAppearance:Normal.Stream MakeDefault:true HideOther:true
+@ModifyBackgroundExtended Scale:1.3 TintColor:#000000 Lazy:false AppearanceAndTransition:SolidColor SubId:Middle
+@ModifyCharacterExtended Scale:1.4 Lazy:false IdAndAppearance:Warden.1 SubId:Middle
+@Wait WaitMode:0.3
+@AutoSave
+[PrintTextModified Text:あー、そちらのゴクチョーさん、<br>ご機嫌はいかがでしょうか？|#0205Adv09_Warden001| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+@PlayBgm BgmPath:Bgm_23_1 Volume:1 Loop:true FadeInDuration:20
+
+[PrintTextModified Text:なんとか元気です。<br>本当鳥使い荒くて長期休暇ほしいですよまったく。|#0205Adv09_Warden002| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:こちらはなんと、<br>呪いから解放されてほとんど帰っちゃいましてね……<br>ずいぶん暇になってしまいました。|#0205Adv09_Warden003| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:へえ、そんなパターンあるんですね。|#0205Adv09_Warden004| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:滅多にないと思いますよ。<br>ほとんど皆さん殺し合いばっかりですからね。|#0205Adv09_Warden005| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:最近他の監獄島から聞いた話では、<br>初日からマックスで殺し合いだったそうですよ……。<br>そちらは【次の魔女候補】を探すんです？|#0205Adv09_Warden006| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:そうしないといけませんよねぇ……。<br>何せ魔女因子はまだまだ世界中に<br>広がり続けているわけですから。|#0205Adv09_Warden007| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:健闘を祈ります。お互い頑張りましょう。|#0205Adv09_Warden008| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:ええ。魔女の駆逐を目指して。<br>それが私たちの役目ですからね。|#0205Adv09_Warden009| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HidePrinter
+@HideActors ActorIds:MainBackground-Middle,Warden-Middle Duration:0 Lazy:false
+@StopBgm FadeOutDuration:3
+
+; モニター音
+@PlaySfxModified SfxPath:Sfx_3 Volume:1 Loop:false FadeInDuration:0
+
+@Wait WaitMode:3
+
+; ========================================
+; ＞END
+; ========================================
+
+@SetCustomVariable Expression:"g_gameProgress = max(12, g_gameProgress)"
+@Gosub Path:System/System_Subroutine.EndAdv
+
+@ClearBacklog
+@ReturnToTitle FadeDuration:1.8 MinDelayDuration:0.9 Wait:true
+

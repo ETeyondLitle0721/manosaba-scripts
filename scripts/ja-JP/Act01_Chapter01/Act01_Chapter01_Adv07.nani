@@ -1,0 +1,254 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook IsDebugDirectJump:{isDebugDirectJump}
+@Gosub Path:System/System_Subroutine.BeginAdv
+
+# Scene1-1-3
+
+; ========================================
+; ●シーン1-1‐3
+; [back 1]
+; ========================================
+
+@ModifyBackgroundExtended Scale:1.8 Duration:0 Lazy:false ScenePosition:10,70 AppearanceAndTransition:1_1 SubId:Front
+@ModifyBackgroundExtended TintColor:#000000 Duration:1.2 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@SpawnBlur ActorId:MainBackground-Front FadeDuration:0
+@Wait WaitMode:1.8
+
+; ========================================
+; [sfx 14：フクロウの通知音]
+; ========================================
+
+@PlaySfxModified SfxPath:Sfx_14 Volume:1 Loop:false FadeInDuration:0
+
+; ========================================
+; [bgm Bgm_035_001_Loop]
+; ========================================
+
+@PlayBgm BgmPath:Bgm_35_1 Volume:1 Loop:true FadeInDuration:0
+@AutoSave
+[PrintTextModified Text:スマホの通知音が、室内に響いた。|#0101Adv07_Narrative001| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@PlaySfxModified SfxPath:Sfx_1 Volume:1 Loop:false FadeInDuration:0
+@SpawnBlur ActorId:MainBackground-Front Intensity:0 FadeDuration:0
+
+[PrintTextModified Text:まどろんでいたエマはがばりと頭を上げ、<br>急いでスマホを確認した。|#0101Adv07_Narrative002| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:内容はゴクチョーからの通知だった。|#0101Adv07_Narrative003| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"『皆さん、夕食の時間です。<br>　速やかに食堂へ集合してください』|#0101Adv07_Narrative004|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; [sfx 4：牢の施錠音]
+; ========================================
+
+@PlaySfxModified SfxPath:Sfx_4 Volume:1 Loop:false FadeInDuration:0
+
+[PrintTextModified Text:並ぶ牢屋が、一斉に開錠されていく。|#0101Adv07_Narrative005| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:夕食……。|#0101Adv07_Ema001| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（そういえば起きてから何も食べてない……。<br>　お腹は空いてる……）|#0101Adv07_Ema002|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（こんな生活受け入れたくないけど……<br>　食べないと考えがまとまらない）|#0101Adv07_Ema003|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Lazy:false AppearanceAndTransition:1_1
+@HideActors ActorIds:MainBackground-Front Lazy:false
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Pensive1
+
+[PrintTextModified Text:エマはため息をつき、立ち上がった。|#0101Adv07_Narrative006| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ResetText
+@ModifyBackgroundExtended DissolveTexturePath:VerticalBlindGradually TintColor:#000000 Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:1.5
+
+; ========================================
+; [back 2]
+; ========================================
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Lazy:false AppearanceAndTransition:2_1 SubId:Middle
+@ModifyBackgroundExtended DissolveTexturePath:VerticalBlindGradually Duration:0.9 Lazy:false AppearanceAndTransition:Transparent.Custom SubId:Overlay
+@Wait WaitMode:0.9
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Ema.Normal1 SubId:Middle
+
+[PrintTextModified Text:食堂ってどこだろ……。|#0101Adv07_Ema004| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:エマは【魔女図鑑】のマップを思い出し、<br>スマホを開いた。|#0101Adv07_Narrative007| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:あ、あったあった、食堂は……。|#0101Adv07_Ema005| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:マップを頼りに歩きだそうとした足は、<br>すぐに止まってしまう。|#0101Adv07_Narrative008| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:隣の房に誰かが残っている気配がし、<br>気になったエマは中を覗き込んだ。|#0101Adv07_Narrative009| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（城ケ崎、ノアちゃん……）|#0101Adv07_Ema006| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@AnimateActorExtended ActorIds:MainBackground Loop:false
+@SpawnExtended Path:MaskingRectangle Params:200,200,true,0.5,#000000cc ScenePosition:-7,50 Rotation:,,-10 SubId:Front
+@ModifyBackgroundExtended Scale:1.5 Lazy:false ScenePosition:10,80 AppearanceAndTransition:1_1 SubId:Front
+@ModifyCharacterExtended Scale:1.15 Lazy:false ScenePosition:25,45 IdAndAppearance:Noah.Smile1,ArmL5 SubId:Front
+@ChangeActorMaskability ActorIds:MainBackground-Front,Noah-Front Enable:true
+@ModifyBackgroundExtended TintColor:#000000 Duration:0 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:0.3
+
+; ========================================
+; [sfx 15：カラースプレー噴出音]
+; ========================================
+@Wait WaitMode:1.0
+@PlaySfxModified SfxPath:Sfx_15 Volume:1 Loop:false FadeInDuration:0
+
+; ＠備考◆童謡『ちょうちょ』の鼻歌
+
+[PrintTextModified Text:ふんふふ～ん♪|#0101Adv07_Noah001| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:ノアはぺたりと地面に座り込み、<br>熱心に何かをしている様子だった。エマには背中を向けている。|#0101Adv07_Narrative010| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Ema.Normal1,ArmR3 SubId:Middle
+
+[PrintTextModified Text:あの、あのさ、ごはんだけど行かないの？|#0101Adv07_Ema007| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"<ruby=\"てつごうし\">鉄格子</ruby>越しに、エマが声をかけた。|#0101Adv07_Narrative011|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Scale:1.15 Lazy:false ScenePosition:25,45 IdAndAppearance:Noah.Normal1,ArmL1 SubId:Front
+
+[PrintTextModified Text:くるんと、ノアは顔を振り向かせた。<br>手にはカラースプレーを持っている。|#0101Adv07_Narrative012| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Ema.Normal1 SubId:Middle
+
+[PrintTextModified Text:のあは今日、ごはん食べないんだよ？<br>まだお絵描きの途中だから。|#0101Adv07_Noah002| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Ema.Pensive1 SubId:Middle
+
+[PrintTextModified Text:"（この子、捕まってる自覚あるのかな？<br>　なんかやたら呑気だけど……）|#0101Adv07_Ema008|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Ema.Normal1,ArmR1 SubId:Middle
+
+[PrintTextModified Text:お絵描きって、何を描いてるのかな。|#0101Adv07_Ema009| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:んー……ちょっと待ってね。|#0101Adv07_Noah003| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:ノアは立ち上がり、<br>エマに地面が見えるように、少し横に移動する。|#0101Adv07_Narrative013| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Ema.Surprised1,ArmR13 SubId:Middle
+
+[PrintTextModified Text:えっ……！|#0101Adv07_Ema010| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"エマは<ruby=\"きょうがく\">驚愕</ruby>の声を上げる。<br>地面に描かれた絵が――動いていた。|#0101Adv07_Narrative014|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"カラースプレーで描かれた何かは、<br>ぐねぐねと動き、形を<ruby=\"な\">成</ruby>していく。|#0101Adv07_Narrative015|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:それはあっという間に、蛇になっていた。|#0101Adv07_Narrative016| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"カラフルに<ruby=\"いろど\">彩</ruby>られた蛇は地面を<ruby=\"は\">這</ruby>うように動き、<br>リアルであまりに気味が悪い。|#0101Adv07_Narrative017|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:な、な、何で！|#0101Adv07_Ema011| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Scale:1.15 Lazy:false ScenePosition:25,45 IdAndAppearance:Noah.Smile1 SubId:Front
+
+[PrintTextModified Text:"ノアは首を<ruby=\"かし\">傾</ruby>げ、困ったように<ruby=\"ほほえ\">微笑</ruby>む。|#0101Adv07_Narrative018|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:ええとね、のあの絵、勝手に動いちゃうんだ。<br>絵だけじゃなくて、液体はね、全部勝手に動くの。|#0101Adv07_Noah004| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Scale:1.15 Lazy:false ScenePosition:25,45 IdAndAppearance:Noah.Pensive1 SubId:Front
+
+[PrintTextModified Text:蛇なんて描くつもりなかったのにな。<br>やり直さなきゃ。|#0101Adv07_Noah005| AuthorId:Noah RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideActors ActorIds:Noah-Front,MainBackground-Front Lazy:false
+@DestroySpawnedExtended Path:MaskingRectangle SubId:Front LogWarning:true
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Ema.Surprised1 SubId:Middle
+@Wait WaitMode:0.3
+
+[PrintTextModified Text:"（勝手に動くって……<br>　それって、魔法、だよね？）|#0101Adv07_Ema012|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ShowToastUI Text:"魔女図鑑 更新…|#Toast_001|"
+@UpdateWitchBook Id:Noah Category:Profile Version:2
+
+[PrintTextModified Text:"再び背を向け地面にぺたりと座ったノアを、<br>エマはしばし<ruby=\"ぼうぜん\">呆然</ruby>と見つめていた。|#0101Adv07_Narrative019|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Ema.Pensive1,ArmR3 SubId:Middle
+
+[PrintTextModified Text:"（さっき、メルルちゃんの手が光って、<br>　ボクの血を止めてくれたのと同じだ）|#0101Adv07_Ema013|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（魔法は本当に、存在する……？）|#0101Adv07_Ema014| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:不思議な現象を目の当たりにしても、<br>どうしても信じがたいのか、エマは首を振る。|#0101Adv07_Narrative020| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（今は考える余裕がないや……）|#0101Adv07_Ema015| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Ema.Normal1,ArmR1 SubId:Middle
+
+[PrintTextModified Text:……じゃ、じゃあボクは行くね。|#0101Adv07_Ema016| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+
+
+[PrintTextModified Text:ノアの背に声をかけてから、<br>１階へと続く階段へと向かいはじめたところで――|#0101Adv07_Narrative021| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:"離せ！ クソッ！ 離せよバケモンがよぉ！|#0101Adv07_Alisa001|" AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@AnimateActorExtended ActorIds:MainBackground Loop:false
+@SpawnExtended Path:MaskingRectangle Params:40,200,true,0.3,#000000 ScenePosition:20,50 Rotation:,,0 SubId:Front
+@ModifyBackgroundExtended Rotation:,,0 Scale:1.5 Lazy:false ScenePosition:-20,36 AppearanceAndTransition:2_1 SubId:Front
+@ModifyCharacterExtended Rotation:,,40 Scale:1.8 Lazy:false ScenePosition:33,52 IdAndAppearance:Alisa.Angry1,Option-ArmL-Off,ArmR3 SubId:Front
+@ChangeActorMaskability ActorIds:MainBackground-Front,Alisa-Front Enable:true
+@AnimateActorExtended ActorIds:MainBackground-Front Loop:false ScenePositionY:40 EasingTypeName:EaseOutQuad Duration:0.5
+@AnimateActorExtended ActorIds:Alisa-Front Loop:false ScenePositionY:45 EasingTypeName:EaseOutQuad Duration:0.5
+@Wait WaitMode:0.4
+
+[PrintTextModified Text:階下へと降りてきた看守と、<br>脇に抱えられているアリサを目撃する。|#0101Adv07_Narrative022| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:60 IdAndAppearance:Ema.Surprised1 SubId:Middle
+
+[PrintTextModified Text:（あの子は、確か紫藤アリサちゃん！？）|#0101Adv07_Ema017| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"ふざけんな！ なんでウチが！|#0101Adv07_Alisa002|" AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:口では抵抗しているものの、<br>アリサは抱えられたままになって暴れたりはしていない。|#0101Adv07_Narrative023| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:60 IdAndAppearance:Ema.Fearful1,ArmR3 SubId:Middle
+
+[PrintTextModified Text:（抵抗したら……殺されるかも）|#0101Adv07_Ema018| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:エマは――|#0101Adv07_Narrative024| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 選択肢
+; 『その場から動かない』
+; 『看守とアリサの後を追った』-> 1‐1‐b2へ
+; ========================================
+
+@AddChoice ChoiceSummary:看守とアリサの後を追った|#0101Adv07_Choice001| Lock:false ButtonPath:ChoiceButtons/Adv/Bad AutoPlay:true ShowHandler:true
+    @GotoModified Path:Act01_Chapter01/Act01_Chapter01_Bad02 ResetState:-
+
+@AddChoice ChoiceSummary:その場から動かない|#0101Adv07_Choice002| Lock:false AutoPlay:true ShowHandler:true
+    @GotoModified Path:.Choice1-1-2
+@AutoSave DelayDuration:0.3
+@StopForChoice Clear:false
+
+# Choice1-1-2
+
+@RecordCorrectChoice Number:2
+
+[PrintTextModified Text:その場から動かない。|#0101Adv07_Narrative025| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"つい数時間前に見たおぞましい光景が<ruby=\"のうり\">脳裏</ruby>を<ruby=\"よぎ\">過</ruby>ったのか、<br>エマは立ち尽くし、震えている。|#0101Adv07_Narrative026|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideActors ActorIds:Alisa-Front,MainBackground-Front,Ema-Middle Lazy:false
+@DestroySpawnedExtended Path:MaskingRectangle SubId:Front LogWarning:true
+@Wait WaitMode:0.3
+
+[PrintTextModified Text:看守はアリサを抱えて、<br>通路の向こうへと消えていった。|#0101Adv07_Narrative027| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（アリサちゃんを連れて、一体どこへ……？）|#0101Adv07_Ema019| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; [transition Out,Fade,1,Black]
+; ========================================
+
+@Gosub Path:System/System_Subroutine.EndAdv
+
+@GotoModified Path:Act01_Chapter01/Act01_Chapter01_Adv08 SoftReset:true
+

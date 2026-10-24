@@ -1,0 +1,103 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook IsDebugDirectJump:{isDebugDirectJump}
+@Gosub Path:System/System_Subroutine.BeginAdv
+
+# Scene1-1-25
+
+; ========================================
+; ●シーン1-1‐25
+; [back 4]
+; ========================================
+
+; ========================================
+; ＞『玄関ホール』を選択
+; ========================================
+
+; ========================================
+; [bgm Bgm_005_001_Loop]
+; ========================================
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false AppearanceAndTransition:4_1
+@ModifyBackgroundExtended TintColor:#000000 Duration:1.2 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:1.8
+@PlayBgm BgmPath:Bgm_5_1 Volume:1 Loop:true FadeInDuration:0
+@AutoSave
+[PrintTextModified Text:（我还是有点害怕在这附近走动）|#0101Adv29_Ema001| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:看守经常会来玄关大厅这边巡逻站岗。<br>它什么时候悄悄出现在这里都不出奇。|#0101Adv29_Narrative001| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（现、现在不是害怕的时候……！<br>　我要调查才行！）|#0101Adv29_Ema002|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Sherry.Pensive1,ArmR3,ArmL4
+
+[PrintTextModified Text:……呼。|#0101Adv29_Sherry001| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:这时雪莉竟大大地叹了一口气。很少见她会有这种反应。|#0101Adv29_Narrative002| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:20 IdAndAppearance:Hanna.Normal1
+
+[PrintTextModified Text:你怎么了？<br>天不怕地不怕的雪莉竟然会叹气。|#0101Adv29_Hanna001| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:总感觉最近好容易变累啊。|#0101Adv29_Sherry002| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:我可是无限体力的怪人耶，<br>怎么会这样呢。|#0101Adv29_Sherry003| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:80 IdAndAppearance:Ema.Pensive1,ArmR3
+
+[PrintTextModified Text:先是希罗死了，接着连诺亚也死了……<br>目击了这些残忍的事，怎么还可能保持正常……|#0101Adv29_Ema003| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:但雪莉却把手指抵在唇尖上，歪头表示疑问。|#0101Adv29_Narrative003| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Sherry.Pensive1,ArmR3,ArmL11
+
+[PrintTextModified Text:唔～……不过尸体我倒是看习惯了耶。|#0101Adv29_Sherry004| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（欸……？那是什么意思……？）|#0101Adv29_Ema004| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:艾玛正准备张嘴回问，<br>但汉娜抢先发言了。|#0101Adv29_Narrative004| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:这边的清扫工具柜<br>没有关上欸。|#0101Adv29_Hanna002| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Sherry.Normal1,ArmR1,ArmL1
+
+[PrintTextModified Text:啊，真的耶！|#0101Adv29_Sherry005| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:三人来到了楼梯附近的<br>清扫工具柜跟前。|#0101Adv29_Narrative005| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:你们有没有亲眼见过<br>看守打扫的样子？|#0101Adv29_Sherry006| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:80 IdAndAppearance:Ema.Normal1,ArmR3
+
+[PrintTextModified Text:没见过。是谁打扫的呢？|#0101Adv29_Ema005| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:清扫工具柜的柜门处露出了扫帚的长柄。<br>仔细一看，扫帚的接头部分也被人拆开了。|#0101Adv29_Narrative006| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（感觉有些可疑）|#0101Adv29_Ema006| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 証拠品：『ほうきの柄』入手
+; ========================================
+
+@ResetText
+@SpawnExtended Path:Clue Params:1-4
+@ShowToastUI Text:"魔女图鉴 更新…|#Toast_001|"
+@UpdateWitchBook Id:1-4 Category:Clue Version:1
+@Wait WaitMode:i1.2
+
+@DestroySpawnedExtended Path:Clue LogWarning:true
+@Wait WaitMode:0.6
+
+[PrintTextModified Text:虽然这里确实到处都是灰尘，<br>可大家也不至于有心情打扫吧。|#0101Adv29_Hanna003| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（这里没有其他令人在意的事了）|#0101Adv29_Ema007| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:为了躲避看守的视线，<br>艾玛她们慌忙离开了玄关大厅。|#0101Adv29_Narrative007| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 消化していないイベントがある＞シーン1‐1‐21
+; 全てのイベントを消化している＞シーン1‐1‐30
+; ========================================
+
+@Gosub Path:System/System_Subroutine.EndAdv
+
+@GotoModified Path:Act01_Chapter01/Act01_Chapter01_Adv25 SoftReset:true
+

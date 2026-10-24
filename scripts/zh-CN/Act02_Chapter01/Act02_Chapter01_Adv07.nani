@@ -1,0 +1,420 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook IsDebugDirectJump:{isDebugDirectJump}
+@Gosub Path:System/System_Subroutine.BeginAdv
+
+# Scene2-1-2
+
+; ========================================
+; ●シーン2‐1‐2
+; ========================================
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false AppearanceAndTransition:1_1
+@ModifyBackgroundExtended TintColor:#000000 Duration:1.2 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:1.8
+
+@PlayBgm BgmPath:Bgm_21_1 Volume:1 Loop:true FadeInDuration:0
+@AutoSave
+[PrintTextModified Text:手机上弹出了典狱长发出的通知，<br>用餐时间到了。|#0201Adv07_Narrative001| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:牢房一开锁，<br>我就迅速动身前往食堂，<br>甚至没有回头看一眼正在打盹的艾玛。|#0201Adv07_Narrative002| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@ModifyBackgroundExtended DissolveTexturePath:VerticalBlindGradually TintColor:#000000 Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:1.5
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false AppearanceAndTransition:4_1
+@ModifyBackgroundExtended DissolveTexturePath:VerticalBlindGradually TintColor:#000000 Duration:0.99 Lazy:false AppearanceAndTransition:Transparent.Custom SubId:Overlay
+@Wait WaitMode:0.9
+
+[PrintTextModified Text:我已经完全记住了<br>时间表和监牢的地图。|#0201Adv07_Narrative003| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:哪怕一秒钟我都不想浪费，<br>正打算疾步走向食堂，途中——|#0201Adv07_Narrative004| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆はっと息を呑む
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Hiro.Surprised1
+
+[PrintTextModified Text:——|#0201Adv07_Hiro001| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@AnimateActorExtended ActorIds:MainBackground Loop:false
+@SpawnExtended Path:MaskingRectangle Params:40,200,true,0.3,#000000 ScenePosition:20,50 Rotation:,,0 SubId:Front
+@ModifyBackgroundExtended Rotation:,,0 Scale:1.5 Lazy:false ScenePosition:-20,36 AppearanceAndTransition:4_1 SubId:Front
+@ModifyCharacterExtended Rotation:,,40 Scale:1.8 Lazy:false ScenePosition:33,52 IdAndAppearance:Alisa.Angry1,Option-ArmL-Off,ArmR3 SubId:Front
+@ChangeActorMaskability ActorIds:MainBackground-Front,Alisa-Front Enable:true
+@AnimateActorExtended ActorIds:MainBackground-Front Loop:false ScenePositionY:40 EasingTypeName:EaseOutQuad Duration:0.5
+@AnimateActorExtended ActorIds:Alisa-Front Loop:false ScenePositionY:45 EasingTypeName:EaseOutQuad Duration:0.5
+@Wait WaitMode:0.4
+
+[PrintTextModified Text:在玄关大厅，<br>看守从玄关方向突然出现。|#0201Adv07_Narrative005| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:异形怪物就在眼前，<br>我身体瞬间僵硬起来，不由得停下脚步。|#0201Adv07_Narrative006| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆一章より強気の反抗
+
+[PrintTextModified Text:你这混蛋，恶心死了放开我！|#0201Adv07_Alisa001| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆一章より強気の反抗
+
+[PrintTextModified Text:可别小看我啊！？<br>当心我弄死你！！|#0201Adv07_Alisa002| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Hiro.Pensive1
+
+[PrintTextModified Text:紫藤亚里沙被看守扛了起来，<br>正在挥动四肢拼命挣扎。|#0201Adv07_Narrative007| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:我和亚里沙对上了视线。|#0201Adv07_Narrative008| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:看、看什么看！你那是什么眼神！<br>你小子给我记住了！！|#0201Adv07_Alisa003| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:…………|#0201Adv07_Hiro002| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideActors ActorIds:Hiro Lazy:false
+
+; さらさらと紙にペンを走らせる書き音
+@PlaySfxModified SfxPath:Sfx_111 Volume:1 Loop:false FadeInDuration:0
+
+[PrintTextModified Text:我默默拿出笔记本，<br>飞快记下几笔。|#0201Adv07_Narrative009| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（典型的不良少女，还有改造的余地）|#0201Adv07_Hiro003| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideActors ActorIds:Alisa-Front,MainBackground-Front Lazy:false
+@DestroySpawnedExtended Path:MaskingRectangle SubId:Front LogWarning:true
+@Wait WaitMode:0.3
+
+; 足音
+@PlaySfxModified SfxPath:Sfx_97 Volume:1 Loop:false FadeInDuration:0
+
+[PrintTextModified Text:看守把亚里沙拖到了地下层。|#0201Adv07_Narrative010| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（她还想做逃跑这种愚蠢的事）|#0201Adv07_Hiro004| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:按照规则，<br>在规定的放风时间之外走出监牢的人，<br>会被关进惩罚室。|#0201Adv07_Narrative011| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（这就是为什么不遵守规则的人令人厌烦）|#0201Adv07_Hiro005| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@StopBgm FadeOutDuration:3
+
+[PrintTextModified Text:无语地叹了口气。<br>我不再多想这件事，继续向食堂走去。|#0201Adv07_Narrative012| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@ModifyBackgroundExtended DissolveTexturePath:VerticalBlindGradually TintColor:#000000 Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:1.5
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Lazy:false AppearanceAndTransition:6_1
+@ModifyBackgroundExtended DissolveTexturePath:VerticalBlindGradually TintColor:#000000 Duration:0.99 Lazy:false AppearanceAndTransition:Transparent.Custom SubId:Overlay
+@Wait WaitMode:0.9
+
+[PrintTextModified Text:我站在食堂入口，<br>逐个指着陆续进来的少女们开始点数。|#0201Adv07_Narrative013| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@PlayBgm BgmPath:Bgm_5_1 Volume:1 Loop:true FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Hiro.Normal1
+
+[PrintTextModified Text:……橘雪莉、远野汉娜，OK。|#0201Adv07_Hiro006| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Duration:0.2 Lazy:false ScenePosition:30 IdAndAppearance:Hiro.Normal1
+@Wait WaitMode:0.2
+
+[PrintTextModified Text:莲见蕾雅、佐伯米莉亚、宝生玛格，OK。|#0201Adv07_Hiro007| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Hiro.Normal1
+@Wait WaitMode:0.4
+
+[PrintTextModified Text:冰上梅露露、樱羽艾玛、泽渡可可，可以进去了。|#0201Adv07_Hiro008| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Coco.Pensive
+
+[PrintTextModified Text:喂喂，她那是把自己当什么人了啊？|#0201Adv07_Coco001| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Ema.Pensive
+
+[PrintTextModified Text:我想，希罗大概是在点名吧……|#0201Adv07_Ema001| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Pensive
+
+[PrintTextModified Text:点什么鬼名啦。|#0201Adv07_Coco002| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Hiro.Normal1
+@Wait WaitMode:0.3
+
+[PrintTextModified Text:黑部奈叶香、夏目安安……就没人了吗？|#0201Adv07_Hiro009| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:我看向入口，<br>似乎不会再有人进来了。|#0201Adv07_Narrative014| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:刚才我有看到，紫藤亚里沙被关进惩罚室了。<br>那么现在还少一个人。|#0201Adv07_Narrative015| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:城崎诺亚去哪了？|#0201Adv07_Hiro010| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Normal1,ArmR3
+
+[PrintTextModified Text:啊，城崎诺亚说她不吃饭了。|#0201Adv07_Ema002| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:……是吗。|#0201Adv07_Hiro011| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:既然不来那也没办法。<br>我环视一圈聚集在食堂的少女们。|#0201Adv07_Narrative016| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:大家都是初次来到食堂，都一样感到困惑。<br>当然，我也是第一次来，但已经调查好各种信息了。|#0201Adv07_Narrative017| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Hiro.Normal1
+
+[PrintTextModified Text:这边的取餐处上摆放着食物，<br>大家自行取餐就好。|#0201Adv07_Hiro012| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:虽然卖相不佳，但我已经提前试毒了。<br>没有混入奇怪的东西。可以放心食用。|#0201Adv07_Hiro013| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Coco.Pensive1
+
+[PrintTextModified Text:所以你到底当自己是谁啊？校长吗你。|#0201Adv07_Coco003| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Hiro.Normal1
+
+[PrintTextModified Text:啊，还有座位似乎没有特别规定，<br>可以随意就座。|#0201Adv07_Hiro014| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:除了我和艾玛，其他人都是第一次见面。|#0201Adv07_Narrative018| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:刚才听完典狱长的讲话后，<br>大家也没怎么聊天，<br>就回到了标有各自囚犯编号的房间。|#0201Adv07_Narrative019| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:不过她们似乎凭直觉感受到了彼此的气场，<br>大家自然而然三三两两地聚集起来。|#0201Adv07_Narrative020| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:我迅速取了食物，独自坐下。<br>这时——|#0201Adv07_Narrative021| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 机にトレイを置く音
+@PlaySfxModified SfxPath:Sfx_112 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Leia.Smile1
+
+[PrintTextModified Text:可以坐你旁边吗？|#0201Adv07_Leia001| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:蕾雅面带柔和的微笑，<br>在我旁边放下托盘。|#0201Adv07_Narrative022| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Leia.Smile1
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Hiro.Normal1
+
+[PrintTextModified Text:无所谓。你看起来还算个能沟通的人。|#0201Adv07_Hiro015| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:我大致能猜到蕾雅<br>为什么会来我这里。|#0201Adv07_Narrative023| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:蕾雅和我一样，她也具有团队领头人的气质，<br>大概是在警惕我这个属性相近的人吧。|#0201Adv07_Narrative024| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:不过是首领互争地盘而已。<br>这种情况我经历过几次。|#0201Adv07_Narrative025| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:不过，还有一个意想不到的人<br>也坐到了我旁边。|#0201Adv07_Narrative026| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Nanoka.Default
+
+[PrintTextModified Text:是黑部奈叶香。|#0201Adv07_Narrative027| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Hiro.Normal1
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Nanoka.Default
+
+[PrintTextModified Text:我也要坐在这里吃。行吗？|#0201Adv07_Nanoka001| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:行，请便。|#0201Adv07_Hiro016| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:奈叶香并没有开始用餐，<br>而是用阴沉的眼神紧盯着我。|#0201Adv07_Narrative028| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（是在怀疑我吗……有意思）|#0201Adv07_Hiro017| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:我故意不理会她的视线，<br>优雅地开始用餐。|#0201Adv07_Narrative029| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Hiro.Normal1
+@ModifyCharacterExtended Lazy:false ScenePosition:20 IdAndAppearance:Nanoka.Default
+@ModifyCharacterExtended Lazy:false ScenePosition:80 IdAndAppearance:Leia.Fearful1
+
+[PrintTextModified Text:呃……这味道真够呛的。<br>你居然能面不改色地吃下去。|#0201Adv07_Leia002| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:无论味道多么糟糕，都不应该表现在脸上，这样有失礼节。|#0201Adv07_Hiro018| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:80 IdAndAppearance:Leia.Pensive1
+
+[PrintTextModified Text:啊，确实，你说得对。抱歉。|#0201Adv07_Leia003| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:80 IdAndAppearance:Leia.Normal1
+
+[PrintTextModified Text:话说回来，希罗，<br>你对这座监牢有什么看法？|#0201Adv07_Leia004| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:有没有什么逃脱的方法呢？|#0201Adv07_Leia005| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Hiro.Pensive1
+
+[PrintTextModified Text:看守比你想像的要危险得多。<br>不应该违抗它们。|#0201Adv07_Hiro019| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:应该优先掌握<br>关于这座监牢和魔女的知识。<br>啊，还有一点。|#0201Adv07_Hiro020| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:我习惯在用餐时保持安静。<br>请不要向我搭话。|#0201Adv07_Hiro021| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@ModifyCharacterExtended Lazy:false ScenePosition:80 IdAndAppearance:Leia.Surprised1
+@Wait WaitMode:1
+@ModifyCharacterExtended Lazy:false ScenePosition:80 IdAndAppearance:Leia.Pensive1
+@Wait WaitMode:0.2
+
+[PrintTextModified Text:…………|#0201Adv07_Leia006| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:…………|#0201Adv07_Nanoka002| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:冷清的餐桌上，<br>我们三人沉默着进食。|#0201Adv07_Narrative030| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:我一边往嘴里送着浓稠的饭菜，<br>一边用余光迅速观察着各个座位。|#0201Adv07_Narrative031| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+@ModifyCharacterExtended Lazy:false ScenePosition:20 IdAndAppearance:Coco.Normal1
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Miria.Normal1
+@ModifyCharacterExtended Lazy:false ScenePosition:80 IdAndAppearance:Margo.Normal1
+
+[PrintTextModified Text:——可可和米莉亚、玛格坐在一起。|#0201Adv07_Narrative032| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:AnAn.Normal1,Angle01/Option_Arms-
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Meruru.Smile
+
+[PrintTextModified Text:——安安和梅露露坐在一起。|#0201Adv07_Narrative033| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:20 IdAndAppearance:Sherry.Normal1
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Normal1
+@ModifyCharacterExtended Lazy:false ScenePosition:80 IdAndAppearance:Hanna.Normal1
+
+[PrintTextModified Text:——艾玛和雪莉、汉娜坐在一起。|#0201Adv07_Narrative034| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:在彼此之间互相试探的<br>尴尬氛围中——|#0201Adv07_Narrative035| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:突然，<br>汉娜站了起来。|#0201Adv07_Narrative036| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50,50 IdAndAppearance:Hanna.Smile
+
+[PrintTextModified Text:这就是我的魔法哇哇哇～|#0201Adv07_Hanna001| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Hanna.Smile1
+@AnimateActorExtended ActorIds:Hanna Loop:false ScenePositionY:70|65|70 Duration:1|0.5|3
+
+[PrintTextModified Text:话音刚落，<br>她的身体就轻飘飘地浮了起来。|#0201Adv07_Narrative037| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:虽然只有大约10厘米高，<br>但亲眼目睹她确实飘浮在空中，<br>她口中的【魔法】一词顿时具有了说服力。|#0201Adv07_Narrative038| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（原来如此。<br>　远野汉娜拥有【飘浮】魔法）|#0201Adv07_Hiro022|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+@UpdateWitchBook Id:Hanna Category:Profile Version:6
+
+[PrintTextModified Text:我迅速扫视了一圈所有人的表情。|#0201Adv07_Narrative039| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:虽然有几个少女显得很惊讶，<br>但看起来，几乎所有人都接受了魔法的存在。|#0201Adv07_Narrative040| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:当然也包括我在内。|#0201Adv07_Narrative041| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Sherry.Normal1
+
+[PrintTextModified Text:是魔法展示会吗！<br>那么我也要来一个厉害的！|#0201Adv07_Sherry001| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:似乎受到刺激，雪莉一边宣布着，一边站了起来。<br>她拿起托盘上的苹果——|#0201Adv07_Narrative042| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Surprised1,ArmR3
+
+[PrintTextModified Text:啊……|#0201Adv07_Ema003| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ResetText
+@SpawnBlur ActorId:MainBackground FadeDuration:0
+@ModifyCharacterExtended Scale:2 Lazy:false ScenePosition:70,30 IdAndAppearance:Sherry.Normal1,ArmR8 SubId:Middle
+
+; リンゴ粉砕音
+@PlaySfxModified SfxPath:Sfx_16 Volume:1 Loop:false FadeInDuration:0
+
+[PrintTextModified Text:干净利落地把苹果捏得粉碎。|#0201Adv07_Narrative043| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@SpawnBlur ActorId:MainBackground Intensity:0 FadeDuration:0
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Sherry.Smile1,ArmR8
+
+[PrintTextModified Text:震惊！<br>雪莉的魔法竟然是【怪力】！|#0201Adv07_Sherry002| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@UpdateWitchBook Id:Sherry Category:Profile Version:6
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Sherry.Smile1,ArmR8
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Ema.Pensive1,ArmR3
+
+; ＠備考◆哀しげ
+
+[PrintTextModified Text:我的苹果……|#0201Adv07_Ema004| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Sherry.Smile1,ArmR1
+
+[PrintTextModified Text:大家也来展示自己的魔法吧～！|#0201Adv07_Sherry003| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:当然，没有人回应雪莉的提议。<br>所有人都不发一言。|#0201Adv07_Narrative044| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Hiro.Normal1
+
+[PrintTextModified Text:我不能使用魔法。因为我不是魔女。|#0201Adv07_Hiro023| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Sherry.Pensive1
+
+[PrintTextModified Text:啊，是这样啊……|#0201Adv07_Sherry004| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:雪莉垂头丧气地回到座位上，<br>这时我站了起来。|#0201Adv07_Narrative045| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Hiro.Normal1
+
+[PrintTextModified Text:我吃好了。|#0201Adv07_Hiro024| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+[PrintTextModified Text:说完，我走向取餐处，<br>开始往盘子里盛食物。|#0201Adv07_Narrative046| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Hiro.Normal1
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Leia.Normal1
+
+[PrintTextModified Text:希罗，你不是已经吃完了吗？|#0201Adv07_Leia007| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:啊，这不是我的。<br>是给城崎诺亚的。|#0201Adv07_Hiro025| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:啊……原来如此。|#0201Adv07_Leia008| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Leia.Smile1
+
+[PrintTextModified Text:蕾雅轻轻一笑。|#0201Adv07_Narrative047| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:你真是个体贴的人啊。|#0201Adv07_Leia009| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:（……体贴？我吗？）|#0201Adv07_Hiro026| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:我差点冷哼一声。<br>我只是想保持自己的正确而已。|#0201Adv07_Narrative048| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（城崎诺亚没有来吃饭。<br>　人应该要吃饭。仅此而已）|#0201Adv07_Hiro027|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:我端着盛好食物的托盘，<br>离开了食堂。|#0201Adv07_Narrative049| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Gosub Path:System/System_Subroutine.EndAdv
+
+@GotoModified Path:Act02_Chapter01/Act02_Chapter01_Adv08 SoftReset:true
+

@@ -1,0 +1,49 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook IsDebugDirectJump:{isDebugDirectJump}
+@Gosub Path:System/System_Subroutine.BeginAdv
+
+# Scene2-3-13
+
+; ========================================
+; ●シーン2‐3‐13
+; ========================================
+
+@PlayBgm BgmPath:Bgm_2_1_Loop IntroBgmPath:Bgm_2_1_Intro Volume:1 Loop:true FadeInDuration:0
+
+@ModifyBackgroundExtended Scale:2 Duration:0 Lazy:false ScenePosition:75,60 AppearanceAndTransition:13_1
+@Wait WaitMode:0.9
+
+@ModifyBackgroundExtended TintColor:#000000 Duration:1.8 Lazy:false ScenePosition:50,50 AppearanceAndTransition:Transparent SubId:Overlay
+@WaitForNextFrame
+
+@AnimateActorExtended ActorIds:MainBackground Loop:false ScenePositionX:25 Duration:20
+@Wait WaitMode:1.5
+@AutoSave
+[PrintTextModified Text:跟往常一样，<br>由看守把我带到审判庭。|#0203Adv13_Narrative001| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:幸存的少女们早已聚集在此。<br>|#0203Adv13_Narrative002| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:艾玛、雪莉、汉娜。<br>蕾雅、诺亚、米莉亚、亚里沙。|#0203Adv13_Narrative003| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:站上证人席的每个人都向我投来难以言喻的目光。<br>|#0203Adv13_Narrative004| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false AppearanceAndTransition:13_1 SubId:Middle
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Warden.1 SubId:Middle
+
+[PrintTextModified Text:那么，审判可以开始了吧？<br>最好这次能干脆利落地结束。|#0203Adv13_Warden001| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:…………|#0203Adv13_Hiro001| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Warden.1 SubId:Middle
+
+[PrintTextModified Text:那么，魔女审判现在开庭！|#0203Adv13_Warden002| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; ＞議論パートへ
+; ========================================
+
+@Gosub Path:System/System_Subroutine.EndAdv
+
+@GotoModified Path:Act02_Chapter03/Act02_Chapter03_Trial00 SoftReset:true
+

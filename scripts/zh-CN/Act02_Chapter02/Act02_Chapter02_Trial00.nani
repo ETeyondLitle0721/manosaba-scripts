@@ -1,0 +1,234 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook Version:1
+@Gosub Path:Act02_Chapter02/Act02_Chapter02_TrialInit
+
+; 議論パート2章2話（議論7）
+
+# Judge7-1-0
+
+; ==============================================================================
+; 議論スタート
+; ==============================================================================
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Angry1,Option-ArmL-Off
+
+; 回転背景の立ち絵
+@ModifyCharacterExtended Duration:0 Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@ModifyCharacterExtended Duration:0 Lazy:false IdAndAppearance:Ema.Pensive1,ArmR4,ArmL5
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.ArmL5,Angle01/ArmR-,Eyes1_Flushed_Open1,Mouth1_Pensive_Closed1
+@ModifyCharacterExtended Duration:0 Lazy:false IdAndAppearance:AnAn.Default,ArmR2,ArmL6,Angle01/Head/Facial/Eyes>Eyes_Normal_Closed,Angle01/Head/Facial/Mouth>Mouth_Surprised_Open,Angle01/Option_Arms-,ArmR-Option-Off
+
+@ModifyPerspectiveStageCamera Index:0 Height:5 Distance:7 Duration:0
+@ModifyPerspectiveStageCamera Index:1 Height:3 Rotation:"-2,{ (7.7 / courtStandCount * 360)},-2" Distance:4 Duration:0
+@WaitForNextFrame
+
+@ModifyPerspectiveStageCamera Index:1 Height:4 Rotation:"-1,{ (13.2 / courtStandCount * 360)}" Duration:40
+@ModifyBackgroundExtended TintColor:#000000 Duration:0.9 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:0.6
+
+@ProcessInput InputEnabled:true
+
+; BGM変更：Kei-Plne Co-Jundic
+@PlayBgm BgmPath:Bgm_25_1 Volume:1 Loop:true FadeInDuration:0
+@AutoSave
+[PrintTextModified Text:（第二次魔女审判……）|#0202Trial00_Hiro001| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（嫌疑人是我和艾玛两人）|#0202Trial00_Hiro002| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（既然我不是凶手，<br>　那我就必须得举证艾玛的罪行，送她上处刑台）|#0202Trial00_Hiro003|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（然而……我的手上目前还没有证据）|#0202Trial00_Hiro004| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（看来得积极参与讨论，以套取情报了）|#0202Trial00_Hiro005| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR5,ArmL7,Angle01/Facial/Eyes>Eyes_Smile_Open,Angle01/Facial/Mouth>Mouth_Smile_Open01
+@ModifyPerspectiveStageCamera Index:0 Height:5.6 Rotation:"0,{ (3 / courtStandCount * 360)},0" Distance:12 Duration:0
+@WaitForNextFrame
+@HidePerspectiveStageScreen Index:1 Reset:true
+@ModifyPerspectiveStageCamera Index:0 Rotation:"0,{ (3.1 / courtStandCount * 360)},0" Duration:0.6 EaseName:OutQuad
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+@Wait WaitMode:0.2
+
+[PrintTextModified Text:唉。<br>居然又召开这种审判大会，真叫人遗憾啊……|#0202Trial00_Leia001| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:没想到又发生了凶杀案。|#0202Trial00_Leia002| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Angry1
+@ModifyPerspectiveStageCamera Index:1 Height:5.6 Rotation:"0,{ (4 / courtStandCount * 360)},0" Distance:12 Duration:0
+@ShowPerspectiveStageScreen Index:1
+@WaitForNextFrame
+@ModifyPerspectiveStageCamera Index:1 Rotation:"0,{ (3.9 / courtStandCount * 360)},0" Duration:0.6 EaseName:OutQuad
+@Wait WaitMode:0.2
+
+[PrintTextModified Text:……但你看上去<br>没你嘴上说得那么难过啊。|#0202Trial00_Alisa001| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HidePerspectiveStageScreen Index:1 Reset:true
+; ＠備考◆余裕そうに。露悪的・口だけ感
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR4,ArmL6,Angle01/Facial/Eyes>Eyes_Normal_Open03,Angle01/Facial/Mouth>Mouth_Smile_Open01
+[PrintTextModified Text:怎么会不难过。|#0202Trial00_Leia003| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:我们的伙伴被杀了，<br>我自然很心痛。|#0202Trial00_Leia004| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ShowPerspectiveStageScreen Index:1
+[PrintTextModified Text:……谁知道呢。|#0202Trial00_Alisa002| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・明るい音
+@PlaySfxModified SfxPath:Sfx_Common_2 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Normal1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left
+@HidePerspectiveStageScreen Index:1 Reset:true
+
+[PrintTextModified Text:嗯嗯！蕾雅的心情<br>我可太懂啦！|#0202Trial00_Sherry001| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・軽い衝撃音
+@PlaySfxModified SfxPath:Sfx_Common_4 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR15,ArmL4,Angle01/Facial/Eyes>Eyes_Wink_Open01,Angle01/Facial/Mouth>Mouth_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left ZoomLevel:3
+[PrintTextModified Text:——新的被害人！<br>新的谜题！<br>新的嫌疑犯！|#0202Trial00_Sherry002| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・決め音
+@PlaySfxModified SfxPath:Sfx_Common_3 Volume:1 Loop:false FadeInDuration:0
+
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left ZoomLevel:4
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR6,ArmL8,Angle01/Facial/Eyes>Eyes_Surprised_Open03,Angle01/Facial/Mouth>Mouth_Normal_Middle
+[PrintTextModified Text:真是激动人心啊！<br>我好爱悬疑！|#0202Trial00_Sherry003| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・ネガティブ音
+@PlaySfxModified SfxPath:Sfx_Common_7 Volume:1 Loop:false FadeInDuration:0
+
+; ＠備考◆露悪的に振る舞ってたら本当にやばいヤツいた・たじたじ
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Pensive1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+@Wait WaitMode:0.5
+[PrintTextModified Text:……嗯，看来你<br>根本听不进别人的话。|#0202Trial00_Leia005| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Angry1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:言归正传，我先来<br>简单报告一下验尸结果。|#0202Trial00_Leia006| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@SpawnExtended Path:Clue Params:7-1
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Angry1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:死者是泽渡可可。<br>尸体是在下雨时的中庭被发现的……|#0202Trial00_Leia007| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Angry1,ArmR6,ArmL5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:死因是枪杀。<br>额头中弹身亡。|#0202Trial00_Leia008| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Angry1,ArmR6,ArmL5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:毫无疑问，当场死亡。<br>发现尸体时，应该离死亡时刻<br>没过多久。|#0202Trial00_Leia009| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+@DestroySpawnedExtended Path:Clue LogWarning:true
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR5,ArmL5,Angle01/Facial/Eyes>Eyes_Angry_Open02,Angle01/Facial/Mouth>Mouth_Yell_Open02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:尸体的第一目击者是艾玛——|#0202Trial00_Leia010| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR5,ArmL5,Angle01/Facial/Eyes>Eyes_Angry_Open02,Angle01/Facial/Mouth>Mouth_Yell_Open02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:——这点没错吧？|#0202Trial00_Leia011| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Pensive1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Left
+[PrintTextModified Text:……嗯。|#0202Trial00_Ema001| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Normal1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+
+; ☆アイテム追加
+; 【ココの検死結果】
+; レイアによる検死結果。
+; 死因は銃殺。
+; 額には正面から弾丸が撃ち込まれた痕跡。
+; 即死。
+; 死亡時刻は発見前のごく直近。
+; エマが第一発見者で、凶器の拳銃とともに雨の降る中庭で発見したと主張。
+; 周囲には血の蝶が舞っている。
+
+@ResetText
+@SpawnExtended Path:Clue Params:7-1
+@ShowToastUI Text:"魔女图鉴 更新…|#Toast_001|"
+@UpdateWitchBook Id:7-1 Category:Clue Version:1
+@Wait WaitMode:i1.2
+@DestroySpawnedExtended Path:Clue Wait:true LogWarning:true
+
+@SpawnExtended Path:Clue Params:7-2
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR1,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open02,Angle01/Facial/Mouth>Mouth_Smile_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:此外，我们还同时找到了<br>可可的手机。|#0202Trial00_Leia012| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ☆アイテム追加
+; 【ココのスマホ】
+; ココが持っていたスマホ。
+; 中身はココのもので間違いないようだ。
+; 彼女が能力で見たことについての音声メモの記録がある。
+; また、シャワールームを撮影した写真が残されている。
+
+@ResetText
+@ShowToastUI Text:"魔女图鉴 更新…|#Toast_001|"
+@UpdateWitchBook Id:7-2 Category:Clue Version:1
+@Wait WaitMode:i1.2
+@DestroySpawnedExtended Path:Clue Wait:true LogWarning:true
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR1,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open02,Angle01/Facial/Mouth>Mouth_Smile_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:这些东西也都是从案发现场找到的——|#0202Trial00_Leia013| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@StopBgm
+
+@Wait WaitMode:0.1
+@StopVoice
+@Wait WaitMode:0.1
+
+@PlaySfxModified SfxPath:Sfx_Common_5 Volume:1 Loop:false FadeInDuration:0
+
+@ResetText
+@PlayVoice VoicePath:CommonTrial_Alisa01178 Volume:1
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Surprised1
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Angry1
+@GosubToSplitPerspectiveStageScreens Index:1 LookCharacterId:Alisa Composition:Left RollDirection:Over
+@Wait WaitMode:1.5
+
+@HidePerspectiveStageScreen Index:1 Reset:true
+@Wait WaitMode:0.3
+@StopVoice
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Angry1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left
+[PrintTextModified Text:——废话就不要多说了。|#0202Trial00_Alisa003| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Smile1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:……什么意思？|#0202Trial00_Leia014| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Angry1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left
+[PrintTextModified Text:直接说结论呗。|#0202Trial00_Alisa004| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Angry1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left
+[PrintTextModified Text:不管二阶堂跟樱羽吵什么都好……|#0202Trial00_Alisa005| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Angry1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left
+[PrintTextModified Text:最可疑的人只有一个。|#0202Trial00_Alisa006| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR5,ArmL7,Angle01/Facial/Eyes>Eyes_Smile_Open,Angle01/Facial/Mouth>Mouth_Smile_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:……这样啊。|#0202Trial00_Leia015| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR9,ArmL8,Angle01/Facial/Eyes>Eyes_Smile_Open,Angle01/Facial/Mouth>Mouth_Smile_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right
+[PrintTextModified Text:那亚里沙，你不妨说说看吧。<br>……说出你的高见！|#0202Trial00_Leia016| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+@AutoSave
+
+@GotoModified Path:Act02_Chapter02/Act02_Chapter02_Trial01 ResetState:-
+

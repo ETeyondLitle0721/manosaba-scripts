@@ -1,0 +1,659 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook Version:1
+
+@BeginIf Expression:isDebugDirectJump
+    @Gosub Path:Act02_Chapter06/Act02_Chapter06_TrialInit
+    @HidePerspectiveStageScreen Index:1 Duration:0 Reset:true
+    @ModifyBackgroundExtended TintColor:#000000 Duration:0 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+
+@SetTrialTimer Time:900
+@HideUI UINames:ControlPanel AllowToggle:false
+@ShowUI UINames:DebateUI
+
+@SetBadId CommonBadEndId:13
+
+; ==============================================================================
+; MARK: 11-3: 💬 口頭弁論
+; ==============================================================================
+; ＠ト書き▼議論11-3口頭弁論
+; 議論開始カットイン
+; BGM継続：yUki
+@SetCustomVariable Expression:Judge11_3_3flag=false
+@PlayBgm BgmPath:Bgm_48_1 Volume:1 Loop:true FadeInDuration:0
+
+# Judge11-3-1
+
+@Gosub Path:System/System_Subroutine.BeginDebate-First
+@Gosub Path:System/System_Subroutine.BeginDebate-Effect
+@Gosub Path:System/System_Subroutine.BeginDebate-Last
+@ChangeTrialPauseMode Enable:false ProcessTimer:true
+
+@HidePerspectiveStageScreen Index:1 Reset:true
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.9
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:刚才你们问，<br>【我的裁决<br>是否有正当性】<br>……对吧。|#0206Trial03_Yuki001| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.3
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:关于这点<br>我也解释一下吧。|#0206Trial03_Yuki002| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.7
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:实际上我们魔女<br>是被人类残忍地<br>驱逐出了<br>这个世界。|#0206Trial03_Yuki003| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.4
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:"那是<link=\"Objection_02_06_03_01\">单方面</link>的屠杀。<br>爱好和平的我们，<br>几乎没能进行<br>像样的反击……|#0206Trial03_Yuki004|" RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.15
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:由于人类的暴行，<br>导致我们魔女<br>从这个世界上<br>消失了。|#0206Trial03_Yuki005| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:"……那么，<br>我<link=\"Objection_02_06_03_02\">反过来灭绝</link>人类<br>又有什么问题呢？<br>|#0206Trial03_Yuki006|" RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.14
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:这既是<br>具有正当性的复仇……|#0206Trial03_Yuki007| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:也意味着<br>魔女和人类，<br>平等拥有着<br>相同的权利。|#0206Trial03_Yuki008| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.10
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:"——那就是<br>【<link=\"Objection_02_06_03_03\">灭绝</link>其他种族】的<link=\"Objection_02_06_03_04\">权利</link>。|#0206Trial03_Yuki009|" RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+; IF 11-3-3通過で解放
+@BeginIf Expression:Judge11_3_3flag=false
+    @GotoModified Path:.Judge11-3-1Skip
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.4
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:所谓魔女因子，<br>原本就是我自身……<br>无论我身在何处，<br>都能操纵<br>魔女因子。|#0206Trial03_Yuki010| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:"因此我会让魔女因子失控，<br>令全人类变作架空的怪物——<br>【<link=\"Objection_02_06_03_05\">魔女</link>】，<br>再将人类杀死。|#0206Trial03_Yuki011|" RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+; ENDIF ここまで
+# Judge11-3-1Skip
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.3
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:不过话说回来，<br>【平等的权利】……<br>真是个好词。|#0206Trial03_Yuki012| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.8
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:不但可以<br>随心所欲使用……<br>还体现出了人类的本质，<br>一个简单粗暴的词语。|#0206Trial03_Yuki013| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+
+; ==============================================================================
+; 11-3議論後独白
+; ==============================================================================
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+@Gosub Path:System/System_Subroutine.EndDebate-Effect
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+; 
+; 議論終了
+; ------------------------------------------------------------------------------
+
+@ResetText
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Angry_Open1,Mouth1_Angry_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center ZoomLevel:2
+@Wait WaitMode:0.2
+
+[PrintTextModified Text:（这就是大魔女策划的人类灭绝计划……）|#0206Trial03_Hiro001| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+
+[PrintTextModified Text:"（要找出她的破绽，<br>　得先掌握关于大魔女这个存在的更多详情才行）|#0206Trial03_Hiro002|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Angry_Open1,Mouth1_Angry_Closed1
+
+[PrintTextModified Text:"（为了问出更多细节，<br>　先听听她怎么说）|#0206Trial03_Hiro003|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge11-3-1
+
+; 
+; 反論1
+; ------------------------------------------------------------------------------
+
+# Objection_02_06_03_01
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:这是自作自受|#0206Trial03_Choice001| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge11-3-4
+
+
+@AddChoice ChoiceSummary:返回|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; 
+; 反論2
+; ------------------------------------------------------------------------------
+
+# Objection_02_06_03_02
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:复仇是不对的|#0206Trial03_Choice002| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge11-3-5
+
+
+@AddChoice ChoiceSummary:返回|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; 
+; 反論3
+; ------------------------------------------------------------------------------
+
+# Objection_02_06_03_03
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:你要如何灭绝？|#0206Trial03_Choice003| Lock:false ButtonPath:ChoiceButtons/Trial/Question HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge11-3-3
+
+
+@AddChoice ChoiceSummary:返回|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; 
+; 反論4
+; ------------------------------------------------------------------------------
+
+# Objection_02_06_03_04
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:没有这种权利|#0206Trial03_Choice004| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge11-3-6
+
+
+@AddChoice ChoiceSummary:返回|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; 
+; 反論5
+; ------------------------------------------------------------------------------
+
+# Objection_02_06_03_05
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:真是老掉牙的方法|#0206Trial03_Choice005| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge11-3-7
+
+@AddChoice ChoiceSummary:魔女不会死|#0206Trial03_Choice006| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @StopVoice
+    @CancelGosub
+    @GotoModified Path:.Judge11-3-2
+
+
+@AddChoice ChoiceSummary:返回|#Common_Return| Lock:false ButtonPath:ChoiceButtons/Trial/Cancel HandlerId:TrialHiro AutoPlay:true ShowHandler:true
+    @ChangeTrialPauseMode Enable:false ProcessTimer:true
+    @Wait WaitMode:i{debateWaitTime}
+    @Return
+
+@StopForChoice Clear:false
+
+; ==============================================================================
+; MARK: 11-3-3: ❌ 追求・どうやって絶滅させる？
+; ==============================================================================
+
+# Judge11-3-3
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:【灭绝人类】……|#0206Trial03_Hiro004| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Angry_Open1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:你要怎么做才能完成这个目标呢？|#0206Trial03_Hiro005| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:虽然能想到各种各样的方法，<br>但总不会是逐个逐个地杀吧。|#0206Trial03_Hiro006| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.9
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:当然。<br>那也太费时间了。|#0206Trial03_Yuki014| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.3
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:所以我，已经提前在全世界播撒了武器——<br>那就是【魔女因子】。|#0206Trial03_Yuki015| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Angry_Open1,Mouth1_Angry_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:………！|#0206Trial03_Hiro007| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.4
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:那就像瘟疫一样——|#0206Trial03_Yuki016| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.3
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:人类群体<br>早已被我播撒的魔女因子深深浸透。|#0206Trial03_Yuki017| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:这是我耗费漫长岁月，逐步取得的成果……<br>不但要保证散播的效果，还要小心不被人类察觉……|#0206Trial03_Yuki018| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:我曾融入世界各地的人类社会，<br>四处散播魔女因子。|#0206Trial03_Yuki019| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:从我传给人类……<br>人类又传给其他人类……<br>再从父母传给孩子……|#0206Trial03_Yuki020| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.12
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:如今几乎所有的人类，<br>体内都携带了所需的魔女因子数量。|#0206Trial03_Yuki021| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:现在我立刻就可以让潜藏在全世界人类体内的魔女因子失控，<br>还可以令人类变为魔女。|#0206Trial03_Yuki022| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.14
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:人类们会被噩梦笼罩：<br>在一无所知的情况下，<br>忽然眼睁睁看着自己的肉体化作异形的怪物。|#0206Trial03_Yuki023| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.4
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:于是人类就这样，<br>变成过去自己妄想中捏造出来的<br>丑恶化身——|#0206Trial03_Yuki024| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:——变成长生不死的怪物【魔女】，<br>陷入无尽绝望。|#0206Trial03_Yuki025| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.3
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:……我会为大家带来非常美妙的末日哦。<br>|#0206Trial03_Yuki026| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（长生不死的怪物……吗）|#0206Trial03_Hiro008| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@BeginIf Expression:Judge11_3_3flag=true
+    @GotoModified Path:.Judge11-3-1
+
+@SetCustomVariable Expression:Judge11_3_3flag=true
+@ShowToastUI Text:讨论前进…|#Toast_002|
+
+@GotoModified Path:.Judge11-3-1
+
+; ==============================================================================
+; MARK: 11-3: ❌ 議論ミス選択肢
+; ==============================================================================
+; MARK: 11-3-4: ❌ 反論・自業自得だ
+
+# Judge11-3-4
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:【魔女没有反击】……<br>也就是说接受了人类的征服。|#0206Trial03_Hiro009| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR8,ArmL4,Eyes1_Angry_Open1,Mouth1_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:那你们就是自作自受！<br>后果自负！|#0206Trial03_Hiro010| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:那么，请人类也自负起灭亡的后果吧。|#0206Trial03_Yuki027| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.3
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:没有怨言吧？|#0206Trial03_Yuki028| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Angry_Open1,Mouth1_Angry_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（可恶……！<br>　要把魔女说成是恶人，有点牵强了……！）|#0206Trial03_Hiro011|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（目前很难否定她的主张……）|#0206Trial03_Hiro012| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（会不会有什么单纯的【错误】……<br>　或者提出能让对方继续说下去的【疑问】呢）|#0206Trial03_Hiro013|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Angry_Open1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（通过指出这些，<br>　来打探她的情报吧……！）|#0206Trial03_Hiro014|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge11-3-1
+
+; MARK: 11-3-5: ❌ 反論・復讐なんて間違っている
+
+# Judge11-3-5
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR8,ArmL4,Eyes1_Angry_Open1,Mouth1_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……等等！<br>复仇这种想法，是错误的……！|#0206Trial03_Hiro015| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:如果你将自己受到的非人待遇<br>原样奉还回去，<br>这样永远无法斩断仇恨的连锁！|#0206Trial03_Hiro016| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Angry_Open1,Mouth1_Angry_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:虽然很痛苦……但应该忍耐！|#0206Trial03_Hiro017| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.3
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:不用担心。|#0206Trial03_Yuki029| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:人类的历史会在这里画上句号，<br>而我也会迎来灭亡。|#0206Trial03_Yuki030| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:仇恨的连锁不会再有【下次】。|#0206Trial03_Yuki031| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.3
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:所以……请放心地接受死亡吧。|#0206Trial03_Yuki032| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Angry_Open1,Mouth1_Angry_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（可恶……！<br>　双方的话题完全对不上……！）|#0206Trial03_Hiro018|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Pensive1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（目前很难否定她的主张……）|#0206Trial03_Hiro019| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（会不会有什么单纯的【错误】……<br>　或者提出能让对方继续说下去的【疑问】呢）|#0206Trial03_Hiro020|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（通过指出这些，<br>　来打探她的情报吧……！）|#0206Trial03_Hiro021|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@GotoModified Path:.Judge11-3-1
+
+; MARK: 11-3-6: ❌ 反論・そんな権利はない
+
+# Judge11-3-6
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:【灭绝其他种族的权利】……？<br>没有这种东西。|#0206Trial03_Hiro022| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL3,Eyes2_Angry_Open1,Mouth2_Determined_Open2
+[PrintTextModified Text:我倒想知道，究竟谁能为这种权利作担保！|#0206Trial03_Hiro023| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:我。|#0206Trial03_Yuki033| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.12
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:权利是由力量保障的……|#0206Trial03_Yuki034| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.8
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:我会作出担保，并行使这份权利。|#0206Trial03_Yuki035| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Angry_Open1,Mouth1_Angry_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（可恶……！<br>　靠这种文字游戏，是无法阻止她的……！）|#0206Trial03_Hiro024|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Pensive1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（目前很难否定她的主张……）|#0206Trial03_Hiro025| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（会不会有什么单纯的【错误】……<br>　或者提出能让对方继续说下去的【疑问】呢）|#0206Trial03_Hiro026|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（通过指出这些，<br>　来打探她的情报吧……！）|#0206Trial03_Hiro027|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+
+@GotoModified Path:.Judge11-3-1
+
+; MARK: 11-3-7: ❌ 反論・陳腐な方法だ
+
+# Judge11-3-7
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:【让人类变成异形再杀死他们】……？|#0206Trial03_Hiro028| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Painful_Open1,Mouth1_Smile_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:简直就像童话故事里的【邪恶魔女】一样。|#0206Trial03_Hiro029| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Angry_Open1,Mouth1_Angry_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:竟然还用这种老掉牙的方法，<br>就像自投罗网，宣称自己就是邪恶一方……|#0206Trial03_Hiro030| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL3,Eyes2_Angry_Open1,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:这是不【正确】的！！|#0206Trial03_Hiro031| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.14
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:没错，我就是邪恶的魔女……|#0206Trial03_Yuki036| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.8
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:并且，将我逼入邪道的正是人类。|#0206Trial03_Yuki037| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:所以，人类必须接受自己的报应。|#0206Trial03_Yuki038| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.3
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:……用【不正确】的方法。|#0206Trial03_Yuki039| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Damage
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Angry_Open1,Mouth1_Angry_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（可恶……！<br>　谴责她没有意义……）|#0206Trial03_Hiro032|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Pensive1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（目前很难否定她的主张……）|#0206Trial03_Hiro033| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（会不会有什么单纯的【错误】……<br>　或者提出能让对方继续说下去的【疑问】呢）|#0206Trial03_Hiro034|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:"（通过指出这些，<br>　来打探她的情报吧……！）|#0206Trial03_Hiro035|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+
+@GotoModified Path:.Judge11-3-1
+
+; ==============================================================================
+; MARK: 11-3-2: ⭕ 反論・魔女は死なない
+; ==============================================================================
+
+# Judge11-3-2
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@GosubToObjectionCutIn CutInKind:Hiro Index:3 VoicePath:CommonTrial_Hiro00024 Volume:1
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+@HideUI UINames:DebateUI AllowToggle:false
+@ShowUI UINames:ControlPanel
+
+
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR8,ArmL4,Eyes1_Angry_Open1,Mouth1_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:……等等。<br>你的话有矛盾。|#0206Trial03_Hiro036| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:【魔女】是不会死的。|#0206Trial03_Hiro037| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:长生不死的魔女会死，<br>这是怎么回事呢。|#0206Trial03_Hiro038| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.9
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:……看来我的解释有遗漏。|#0206Trial03_Yuki040| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:魔女不死的性质是一种副作用。<br>是因为被植入了大魔女——也就是我——的因子<br>而产生的。|#0206Trial03_Yuki041| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.15
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:这种副作用在魔女化程度加深后才会显现……|#0206Trial03_Yuki042| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.4
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:……不过，正因为魔女因子足够险恶，<br>它也有高危漏洞。|#0206Trial03_Yuki043| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:那就是——【杀死魔女的魔法】。|#0206Trial03_Yuki044| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+; ＠備考◆息を呑む
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Surprised1,Angle01/Head01/Facial01/Eyes01>Eyes01_Surprised_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Pensive_Open,ArmR3,ArmL7
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Left
+[PrintTextModified Text:……！|#0206Trial03_Ema001| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:"这种魔法能逆转魔女因子带来的不死性质，<br>引导肉体步向<ruby=\"apoptosis\">自灭</ruby>。|#0206Trial03_Yuki045|" AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.7
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:不管有没有化为【魔女】，<br>只要让全人类的魔女因子失控，<br>再用【杀死魔女的魔法】扑灭他们就行了。|#0206Trial03_Yuki046| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Center
+[PrintTextModified Text:（杀死魔女的魔法……）|#0206Trial03_Hiro039| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@ModifyBackgroundExtended TintColor:#FFFFFF00 Duration:0 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@ModifyBackgroundExtended TintColor:#FFFFFFFF Duration:0.2 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:0.2
+; ========================================
+@ModifyBackgroundExtended Id:Stills Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false AppearanceAndTransition:20_1
+; ========================================
+@ModifyBackgroundExtended TintColor:#FFFFFF00 Duration:0.2 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:0.2
+
+[PrintTextModified Text:"（在另一个世界的艾玛的记忆里，<br>　她的魔法就是这个）|#0206Trial03_Hiro040|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（原来艾玛是被小雪利用，<br>　成为了灭绝人类计划的帮凶）|#0206Trial03_Hiro041|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@ModifyBackgroundExtended TintColor:#FFFFFFFF Duration:0.2 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:0.2
+; ========================================
+@HideActors ActorIds:Stills Duration:0 Lazy:false
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+; ========================================
+@ModifyBackgroundExtended TintColor:#FFFFFF00 Duration:0.2 Lazy:false AppearanceAndTransition:SolidColor.Custom SubId:Overlay
+@Wait WaitMode:0.2
+
+[PrintTextModified Text:……这个国家的政府为了杀死【魔女】，<br>似乎也开发了具有相同作用的药物……|#0206Trial03_Yuki047| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.14
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:但他们仍未找到<br>对付魔女因子的办法。|#0206Trial03_Yuki048| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.8
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:只不过，继续坐视不管的话，<br>也有可能被人类研发出对策。|#0206Trial03_Yuki049| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.12
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:果然人类还是差不多该灭绝了。<br>|#0206Trial03_Yuki050| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.11
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:所以……还请各位理解。|#0206Trial03_Yuki051| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+@AutoSave
+
+@GotoModified Path:Act02_Chapter06/Act02_Chapter06_Trial04 ResetState:-
+

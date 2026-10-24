@@ -1,0 +1,178 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook IsDebugDirectJump:{isDebugDirectJump}
+@Gosub Path:System/System_Subroutine.BeginAdv
+
+# Scene1-3-20
+
+; ========================================
+; ●シーン１‐3-20
+; ========================================
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false AppearanceAndTransition:23_5
+@ModifyBackgroundExtended TintColor:#000000 Duration:1.2 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:1.8
+
+; ========================================
+; ＞『殺人現場』を選択
+; ========================================
+
+@PlayBgm BgmPath:Bgm_26_1 Volume:1 Loop:true FadeInDuration:0
+@AutoSave
+[PrintTextModified Text:"エマは火事の起こったゲストハウスの並ぶ棟、<br>一番手前にある【<ruby=\"サラマンダー\">火精</ruby>の間】の中へ<br>立ち入った。|#0103Adv20_Narrative001|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:するとマーゴが先に来ていた。|#0103Adv20_Narrative002| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Margo.Normal1
+
+[PrintTextModified Text:ああ、エマちゃんも来たのね。|#0103Adv20_Margo001| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:"消火された後の室内は、<br>焦げ臭いにおいが<ruby=\"ざんし\">残滓</ruby>のように漂っていた。|#0103Adv20_Narrative003|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:内部はさほど被害を受けずに済んだらしい。|#0103Adv20_Narrative004| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"黒い<ruby=\"すす\">煤</ruby>が薄くかぶった家具等は、<br>ほぼそのままの形で残っている。|#0103Adv20_Narrative005|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:見たくない光景だったが、<br>狭い室内では嫌でもエマの視界に入ってくる。|#0103Adv20_Narrative006| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Id:Stills Scale:{g_backgroundDefaultScale} Lazy:false AppearanceAndTransition:290_2
+
+[PrintTextModified Text:"ハンナは先ほど見たまま、<br>天井の<ruby=\"はり\">梁</ruby>からロープで<ruby=\"つ\">吊</ruby>り下げられていた。|#0103Adv20_Narrative007|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:ハンナちゃん……。|#0103Adv20_Ema001| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:エマは歯を食いしばり、<br>スマホで現場の撮影をはじめる。|#0103Adv20_Narrative008| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HidePrinter
+@PlaySfxModified SfxPath:Sfx_28 Volume:1 Loop:false FadeInDuration:0
+
+@Wait WaitMode:1.2
+@PlaySfxModified SfxPath:Sfx_28 Volume:1 Loop:false FadeInDuration:0
+
+; ==============================================================================
+; ☆証拠品：『殺人現場の写真』入手
+; ==============================================================================
+@SpawnExtended Path:Clue Params:3-10
+@UpdateWitchBook Id:3-10 Category:Clue Version:1
+@DestroySpawnedExtended Path:Clue LogWarning:true
+
+; ==============================================================================
+; ☆証拠品：『ハンナの死体写真』入手
+; ==============================================================================
+@SpawnExtended Path:Clue Params:3-4
+@UpdateWitchBook Id:3-4 Category:Clue Version:1
+@DestroySpawnedExtended Path:Clue LogWarning:true
+
+@Wait WaitMode:0.6
+
+[PrintTextModified Text:煙が排出されたことで、<br>ハンナの状況は見やすくなっている。|#0103Adv20_Narrative009| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"ハンナの首<ruby=\"つ\">吊</ruby>り死体。|#0103Adv20_Narrative010|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"そして、ハンナを取り囲むように<br>天井の<ruby=\"はり\">梁</ruby>から<ruby=\"つ\">吊</ruby>り下げられているのは、<br>囚人の少女たちを模した人形だった。|#0103Adv20_Narrative011|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:これって、ひょっとして<br>ハンナちゃんが手作りしてたっていうお人形……？|#0103Adv20_Ema002| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:ええ。みんなの分を作ってくれていたの。<br>素直じゃなかったけれど、<br>とっても仲間想いの子だったのね。|#0103Adv20_Margo002| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"唇を<ruby=\"か\">噛</ruby>んでも、<br>エマの瞳からは涙がこぼれ落ちそうになる。|#0103Adv20_Narrative012|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（泣くな！ ボクはハンナちゃんの<br>　死の真相を突き止めるって決めたんだ！）|#0103Adv20_Ema003|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideActors ActorIds:Stills Lazy:false
+
+[PrintTextModified Text:エマは心を無理に押し殺し、<br>室内を見回す。|#0103Adv20_Narrative013| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（部屋が荒れている……<br>　ここで何が起こったんだろう……？）|#0103Adv20_Ema004|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 写真撮影音
+@PlaySfxModified SfxPath:Sfx_28 Volume:1 Loop:false FadeInDuration:0
+
+; ========================================
+; ☆証拠品：『ロープ』入手
+; ========================================
+@SpawnExtended Path:Clue Params:3-14
+@UpdateWitchBook Id:3-14 Category:Clue Version:1
+@DestroySpawnedExtended Path:Clue LogWarning:true
+
+[PrintTextModified Text:撮影をしていると、<br>マーゴがエマの傍らへ近寄ってきた。|#0103Adv20_Narrative014| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Margo.Normal1
+
+[PrintTextModified Text:エマちゃん、炎で焼けてこれだけ<br>落ちたんでしょうけど、渡しておくわね。|#0103Adv20_Margo003| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:マーゴが差し出したのは、<br>エマを模した人形だった。|#0103Adv20_Narrative015| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; ☆証拠品：『焦げた人形』入手
+; ========================================
+@SpawnExtended Path:Clue Params:3-7
+@UpdateWitchBook Id:3-7 Category:Clue Version:1
+@DestroySpawnedExtended Path:Clue LogWarning:true
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Pensive1,ArmR3
+
+[PrintTextModified Text:"（ハンナちゃん、<br>　プレゼントを用意してるって言ってた）|#0103Adv20_Ema005|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（きっとそれが、この――）|#0103Adv20_Ema006| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:手作りで縫い合わせた、<br>エマの姿を模した人形はあたたかかった。<br>受け取ったエマの手が震える。|#0103Adv20_Narrative016| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Margo.Pensive1,ArmR2
+
+[PrintTextModified Text:おかしいわね……。|#0103Adv20_Margo004| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:"<ruby=\"つぶや\">呟</ruby>きが耳に届き、<br>エマはそちらへと目を遣る。<br>マーゴが首を傾げていた。|#0103Adv20_Narrative017|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Ema.Pensive1,ArmR3
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Margo.Pensive1,ArmR2
+
+[PrintTextModified Text:"……どうしたの？ 何かおかしいところがあった？|#0103Adv20_Ema007|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:いえ、この現場を調べても<br>まだ何もわからないのだけど、<br>……私は昨晩、ここにいたのよ。|#0103Adv20_Margo005| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Ema.Surprised1,ArmR1
+
+[PrintTextModified Text:えっ！？|#0103Adv20_Ema008| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:なんだか怪しまれてしまいそうだから、<br>あまり言いたくないのだけど……<br>魔法の儀式をここで行っていたの。|#0103Adv20_Margo006| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Ema.Normal1,ArmR1
+
+[PrintTextModified Text:儀式って、この前話してた、<br>魔女の本に書かれていたっていう……？|#0103Adv20_Ema009| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Margo.Normal1,ArmR2
+
+[PrintTextModified Text:ええ。そしてこの部屋は、<br>就寝時間前に看守の手で施錠されたはず。<br>そして私たちが火事で駆けつけた時には……。|#0103Adv20_Margo007| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Ema.Pensive1,ArmR3
+
+[PrintTextModified Text:……鍵がかかってた。|#0103Adv20_Ema010| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（まただ。また、密室殺人……！<br>　なんでこんなことばっかり……！）|#0103Adv20_Ema011|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Margo.Pensive1,ArmR2
+
+[PrintTextModified Text:ハンナちゃんの死体の状況や、<br>吊り下げられたお人形、<br>火事、密室……不可解なことだらけね。|#0103Adv20_Margo008| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:そうだね……。|#0103Adv20_Ema012| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:ひととおりの捜査を終え、<br>他には何も見つからず、エマは現場を後にした。|#0103Adv20_Narrative018| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 消化していないイベントがある＞シーン1‐3‐19
+; 全てのイベントを消化している＞シーン1‐3‐26
+; ========================================
+
+@Gosub Path:System/System_Subroutine.EndAdv
+
+@GotoModified Path:Act01_Chapter03/Act01_Chapter03_Adv19 SoftReset:true
+

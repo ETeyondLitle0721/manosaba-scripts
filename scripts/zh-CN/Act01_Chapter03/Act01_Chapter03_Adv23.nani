@@ -1,0 +1,131 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook IsDebugDirectJump:{isDebugDirectJump}
+@Gosub Path:System/System_Subroutine.BeginAdv
+
+# Scene1-3-23
+
+; ========================================
+; ●シーン１‐3-23
+; ========================================
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false AppearanceAndTransition:22_4
+@ModifyBackgroundExtended TintColor:#000000 Duration:1.2 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:1.8
+
+; ========================================
+; ＞『ゲストハウス』を選択
+; ========================================
+
+@PlayBgm BgmPath:Bgm_5_1 Volume:1 Loop:true FadeInDuration:0
+@AutoSave
+[PrintTextModified Text:监牢近处的招待所区域——<br>|#0103Adv23_Narrative001| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:最靠近监牢的【火精之室】已经不再燃烧。<br>|#0103Adv23_Narrative002| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:在火势扑灭时，幸好还未造成太大损害，<br>建筑本身并未倒塌。|#0103Adv23_Narrative003| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 写真撮影音
+@PlaySfxModified SfxPath:Sfx_28 Volume:1 Loop:false FadeInDuration:0
+
+; ========================================
+; ☆証拠品：『ゲストハウス』入手
+; ========================================
+@SpawnExtended Path:Clue Params:3-9
+@UpdateWitchBook Id:3-9 Category:Clue Version:1
+@DestroySpawnedExtended Path:Clue LogWarning:true
+
+[PrintTextModified Text:艾玛用自己的手机拍摄了建筑的外观。<br>|#0103Adv23_Narrative004| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（为什么火灾会在【火精之室】发生呢……？）<br>|#0103Adv23_Ema001| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（是有人纵火……？<br>　还是某种魔法触发了……？）|#0103Adv23_Ema002|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:正当艾玛陷入沉思时，<br>她听到有脚步声靠近。|#0103Adv23_Narrative005| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:抬头一看，<br>亚里沙站在她面前。|#0103Adv23_Narrative006| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Alisa.Pensive1,Option-ArmL-Off,ArmL2
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Ema.Pensive1,ArmR3
+
+[PrintTextModified Text:樱羽，你没事吧……？<br>那个，你的手，烫伤了吧……|#0103Adv23_Alisa001| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:……啊，完全忘记了。<br>这种程度，根本不算什么……|#0103Adv23_Ema003| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（和汉娜的痛苦相比……）|#0103Adv23_Ema004| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:艾玛摇摇头不让自己想太多，<br>转而看向正在调查的亚里沙。|#0103Adv23_Narrative007| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Alisa.Normal1,ArmL1
+
+[PrintTextModified Text:这附近有烧过的痕迹。<br>火源应该就在这里。<br>可能是有人从外面纵火。|#0103Adv23_Alisa002| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Ema.Surprised1,ArmR3
+
+[PrintTextModified Text:真的……！|#0103Adv23_Ema005| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 写真撮影音
+@PlaySfxModified SfxPath:Sfx_28 Volume:1 Loop:false FadeInDuration:0
+
+; ========================================
+; ☆証拠品：『燃えた痕跡』入手
+; ========================================
+@SpawnExtended Path:Clue Params:3-2
+@UpdateWitchBook Id:3-2 Category:Clue Version:1
+@DestroySpawnedExtended Path:Clue LogWarning:true
+
+[PrintTextModified Text:在【火精之室】建筑物旁边——<br>亚里沙指着的地方<br>留有某种可燃物燃烧过的痕迹。|#0103Adv23_Narrative008| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:30 IdAndAppearance:Ema.Pensive1,ArmR3
+
+[PrintTextModified Text:……结果还是有人纵火吗。|#0103Adv23_Ema006| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:Alisa.Pensive1,ArmL2
+
+[PrintTextModified Text:谁知道呢。不过，<br>如果是在远野被吊起来的情况下纵火的话，<br>那凶手真是太恶劣了。|#0103Adv23_Alisa003| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:是想连同远野的尸体一起烧掉吧。<br>这已经不是人能做出来的事了。|#0103Adv23_Alisa004| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（不过，我认为这应该还是人下手的）|#0103Adv23_Ema007| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（而那个人正是【魔女】——）|#0103Adv23_Ema008| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideActors ActorIds:Alisa Lazy:false
+
+[PrintTextModified Text:说完这些话的亚里沙离开了。<br>她应该是去调查其他地方了。|#0103Adv23_Narrative009| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideActors ActorIds:Ema Lazy:false
+
+[PrintTextModified Text:艾玛打算稍微再调查一下这附近，<br>于是环顾了四周。|#0103Adv23_Narrative010| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（这是什么……？）|#0103Adv23_Ema009| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@ModifyCamera Offset:-1,-5.7 Zoom:0.8 EasingTypeName:SmoothStep Duration:0.9 Lazy:false
+@Wait WaitMode:0.9
+
+; 写真撮影音
+@PlaySfxModified SfxPath:Sfx_28 Volume:1 Loop:false FadeInDuration:0
+
+; ========================================
+; ☆証拠品：『石畳の塗料』入手
+; ========================================
+@SpawnExtended Path:Clue Params:3-11
+@UpdateWitchBook Id:3-11 Category:Clue Version:1
+@DestroySpawnedExtended Path:Clue LogWarning:true
+
+[PrintTextModified Text:铺着石砖的路面上，<br>沾着一些不自然的颜料。|#0103Adv23_Narrative011| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:之前来招待所附近的时候，<br>应该不存在这些痕迹。|#0103Adv23_Narrative012| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCamera Offset:0,0 Zoom:0 EasingTypeName:SmoothStep Duration:0.9 Lazy:false
+
+[PrintTextModified Text:为了保险起见，艾玛对这些颜料拍了照，<br>结束了这里的调查。|#0103Adv23_Narrative013| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 消化していないイベントがある＞シーン1‐3‐19
+; 全てのイベントを消化している＞シーン1‐3‐26
+; ========================================
+
+@Gosub Path:System/System_Subroutine.EndAdv
+
+@GotoModified Path:Act01_Chapter03/Act01_Chapter03_Adv19 SoftReset:true
+

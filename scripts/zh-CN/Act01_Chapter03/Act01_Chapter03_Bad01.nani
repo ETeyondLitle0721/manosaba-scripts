@@ -1,0 +1,59 @@
+@BeginIf Expression:isDebugDirectJump
+    @Gosub Path:System/System_Subroutine.BeginAdv
+
+; ========================================
+; ＞『掘り出した』を選択
+; ========================================
+
+; ========================================
+; ＞シーン1-3-b1へ
+; ========================================
+
+# Scene1-3-b1
+
+; ========================================
+; ●シーン1-3-b1
+; ========================================
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false AppearanceAndTransition:19_2
+@ModifyBackgroundExtended TintColor:#000000 Duration:1.2 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:1.8
+
+@PlayBgm BgmPath:Bgm_22_1 Volume:1 Loop:true FadeInDuration:0
+
+[PrintTextModified Text:（这说不定是什么线索……）|#0103Bad01_Ema001| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:艾玛全神贯注地不停挖掘。<br>过了一会，出现了一个小小的黑色团块。|#0103Bad01_Narrative001| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Default
+
+[PrintTextModified Text:这是什么呢。|#0103Bad01_Ema002| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@StopBgm
+
+; カチリという音
+@PlaySfxModified SfxPath:Sfx_92 Volume:1 Loop:false FadeInDuration:0
+
+[PrintTextModified Text:艾玛刚轻轻拿起它，<br>黑块就发出了微弱的声响。|#0103Bad01_Narrative002| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Pensive
+
+[PrintTextModified Text:欸……？|#0103Bad01_Ema003| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+; 爆発音
+@PlaySfxModified SfxPath:Sfx_93 Volume:1 Loop:false FadeInDuration:0
+
+[PrintTextModified Text:一声震天动地的巨响过后，<br>现场只剩下了——|#0103Bad01_Narrative003| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended TintColor:#000000 Lazy:false AppearanceAndTransition:SolidColor
+
+[PrintTextModified Text:散落一地的，曾经是艾玛的残骸碎片。|#0103Bad01_Narrative004| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 『END～きぼう～』
+; ========================================
+
+@ProcessBadEnd Number:11 BadEndPartKind:Adv
+

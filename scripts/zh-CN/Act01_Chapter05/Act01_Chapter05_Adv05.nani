@@ -1,0 +1,64 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook IsDebugDirectJump:{isDebugDirectJump}
+@Gosub Path:System/System_Subroutine.BeginAdv
+
+# Scene1-5-5
+
+; ========================================
+; ●シーン1‐5-5
+; ========================================
+@AutoSave
+[PrintTextModified Text:在剩余的时间内搜索周边时——|#0105Adv05_Narrative001| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 荘厳な鐘の音
+@PlaySfxModified SfxPath:Sfx_33 Volume:1 Loop:false FadeInDuration:0
+
+@PlayBgm BgmPath:Bgm_2_1_Loop IntroBgmPath:Bgm_2_1_Intro Volume:1 Loop:true FadeInDuration:0
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false AppearanceAndTransition:13_1
+@ModifyBackgroundExtended TintColor:#000000 Duration:1.2 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:1.8
+
+[PrintTextModified Text:熟悉的钟声响起，<br>艾玛等人回到了审判庭。|#0105Adv05_Narrative002| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:奈叶香的尸体已经像亚里沙一样被处理掉了。|#0105Adv05_Narrative003| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:艾玛、可可、玛格、梅露露四人<br>静静地站在证人席前。|#0105Adv05_Narrative004| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Margo.Pensive1
+
+[PrintTextModified Text:没想到一天之内要进行两次审判呢。|#0105Adv05_Margo001| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Coco.Pensive1
+
+[PrintTextModified Text:快点结束吧～，<br>我已经累趴下啦～|#0105Adv05_Coco001| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Meruru.Pensive
+
+[PrintTextModified Text:艾玛小姐……|#0105Adv05_Meruru001| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:看到梅露露眼中流露出不安，<br>艾玛坚定地朝她点头。|#0105Adv05_Narrative005| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Ema.Determined2,ArmR3
+
+[PrintTextModified Text:"（没事的，梅露露。<br>　我已经把能做的都做了）|#0105Adv05_Ema001|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（这一定是我最后的审判了）|#0105Adv05_Ema002| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（我一定要找出【魔女】——！）|#0105Adv05_Ema003| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Warden.1
+
+[PrintTextModified Text:那么，魔女审判现在开庭！|#0105Adv05_Warden001| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; ＞議論パートへ
+; ========================================
+
+@Gosub Path:System/System_Subroutine.EndAdv
+
+@GotoModified Path:Act01_Chapter05/Act01_Chapter05_Trial00 SoftReset:true
+

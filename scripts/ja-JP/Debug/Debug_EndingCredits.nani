@@ -1,0 +1,61 @@
+@Gosub Path:System/System_Subroutine.BeginAdv
+
+; @gosub .Act1
+@Gosub Path:.Act2
+
+@Stop
+
+; ==============================================================================
+; 第 1 章
+; ==============================================================================
+
+# Act1
+
+[PrintTextModified Text:"Debug_EndingCredits # Act1|#~5b2572c2|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ProcessInput InputEnabled:false
+@ResetText
+@HidePrinter
+@ModifyBackgroundExtended TintColor:#000000 Duration:0 Lazy:false AppearanceAndTransition:SolidColor
+@ModifyBackgroundExtended TintColor:#000000 Duration:0 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@ShowCreditsUi ActNumber:1
+@Stop
+
+# ReverseCredits1
+
+@Stop
+
+# EndCredits1
+
+@HideCreditsUi
+@ProcessInput InputEnabled:true SetEnabled:Continue.true,Pause.false,Skip.true,ToggleSkip.true,SkipMovie.true,AutoPlay.false,ToggleUI.false,ShowBacklog.false,Rollback.false
+
+[PrintTextModified Text:"Debug_EndingCredits # Act1 ends.|#~3799baed|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Return
+
+; ==============================================================================
+; 第 2 章
+; ==============================================================================
+
+# Act2
+
+[PrintTextModified Text:"Debug_EndingCredits # Act2|#~409fd323|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ProcessInput InputEnabled:false
+@ResetText
+@HidePrinter
+@ModifyBackgroundExtended TintColor:#ffffff Duration:0 Lazy:false AppearanceAndTransition:SolidColor
+@ModifyBackgroundExtended TintColor:#000000 Duration:0 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@ShowCreditsUi ActNumber:2
+@Stop
+
+# EndCredits2
+
+@HideCreditsUi
+@ProcessInput InputEnabled:true SetEnabled:Continue.true,Pause.false,Skip.true,ToggleSkip.true,SkipMovie.true,AutoPlay.false,ToggleUI.false,ShowBacklog.false,Rollback.false
+
+[PrintTextModified Text:"Debug_EndingCredits # Act2 ends.|#~17671070|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Return
+

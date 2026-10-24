@@ -1,0 +1,639 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook Version:1
+
+@BeginIf Expression:isDebugDirectJump
+    @Gosub Path:Act02_Chapter06/Act02_Chapter06_TrialInit
+    @HidePerspectiveStageScreen Index:1 Duration:0 Reset:true
+    @ModifyBackgroundExtended TintColor:#000000 Duration:0 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+
+@SetTrialTimer Time:5999
+@HideUI UINames:ControlPanel AllowToggle:false
+@ShowUI UINames:DebateUI
+
+; ==============================================================================
+; MARK: 11-9: 💬 ユキの気持ち
+; ==============================================================================
+; ＠ト書き▼議論11-9ユキの気持ち
+; 議論開始カットイン
+
+; BGM変更：Guil-me N'o sinruits-Vocal有-
+@PlayBgm BgmPath:Bgm_8_2 Volume:1 Loop:true FadeInDuration:0
+; ボス演出
+
+@ResetText
+@ModifyCharacterExtended Duration:0 Lazy:false IdAndAppearance:Ema.Determined2,ArmR3,ArmL10,Angle01/Head02/Facial02/Mouth02>Mouth02_Angry_Open
+@ModifyPerspectiveStageCamera Index:1 Height:5.6 Rotation:"0,{ (0 / courtStandCount * 360)},0" Distance:12 Duration:0
+@WaitForNextFrame
+
+@ModifyPerspectiveStageCamera Index:1 Rotation:"0,{ (0.1 / courtStandCount * 360)},0" Duration:1 EaseName:OutQuad
+@ShowPerspectiveStageScreen Index:1
+@Wait WaitMode:1
+
+@ModifyCharacterExtended Duration:0 Lazy:false IdAndAppearance:Hiro.Normal1,ArmR8,ArmL4,Eyes1_Angry_Open1,Mouth1_Determined_Open2
+@ModifyPerspectiveStageCamera Index:0 Height:5.6 Rotation:"0,{ (8 / courtStandCount * 360)},0" Distance:12 Duration:0
+@WaitForNextFrame
+
+@ModifyPerspectiveStageCamera Index:0 Rotation:"0,{ (7.9 / courtStandCount * 360)},0" Duration:1 EaseName:OutQuad
+@HidePerspectiveStageScreen Index:1 Reset:true
+@Wait WaitMode:1
+@HidePerspectiveStageScreen Index:1 Reset:true
+
+@ResetText
+@ModifyCharacterExtended Duration:0 Lazy:false IdAndAppearance:Yuki.7
+@ModifyPerspectiveStageCamera Index:1 Height:4.6 Rotation:"0,{ (13 / courtStandCount * 360)},0" Distance:10 Duration:0
+@WaitForNextFrame
+
+@ModifyPerspectiveStageCamera Index:1 Height:5.6 Rotation:"0,{ (13 / courtStandCount * 360)},0" Distance:12 Duration:1 EaseName:OutQuad
+@ShowPerspectiveStageScreen Index:1
+@Wait WaitMode:1
+
+# Judge11-9-1
+
+@Gosub Path:System/System_Subroutine.BeginDebate-First
+@Gosub Path:System/System_Subroutine.BeginDebate-Effect
+@Gosub Path:System/System_Subroutine.BeginDebate-Last
+@ChangeTrialPauseMode Enable:false ProcessTimer:true
+
+@HidePerspectiveStageScreen Index:1 Reset:true
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL10,Angle01/Head01/Facial01/Eyes01>Eyes01_Thinking_Closed01,Angle01/Head01/Facial01/Mouth01>Mouth01_Pensive_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:ユキちゃん、<br>キミの行動には<br>矛盾がある……！|#0206Trial09_Ema001| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Angry_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:キミは人間の全滅なんて、<br>望んでいないんだ！|#0206Trial09_Ema002| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+; ＠備考◆ここからは感情を意図的に抑えようとしているイメージ
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.16
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:そんなことはありません。|#0206Trial09_Yuki001| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.16
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:私は人類を<br>滅ぼさなくてはいけない……。|#0206Trial09_Yuki002| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+; カットイン・アンアン／反論
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:AnAn.Default,Angle01/Option_Arms-,ArmR-Option-Off,ArmR7,ArmL11,Angle01/Head/Facial/Eyes>Eyes_Angry_Open02,Angle01/Head/Facial/Mouth>Mouth_Yell_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:<color=#9c8eff><b>【逃げるな】</b></color>！|#0206Trial09_AnAn001| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+; @char AnAn.Default
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:AnAn Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:思考停止をして、<br>自らの行動から<br>目を背けるんじゃない！|#0206Trial09_AnAn002| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+; カットイン・レイア／同意
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR3,ArmL3,Angle01/Facial/Eyes>Eyes_Pensive_Closed,Angle01/Facial/Mouth>Mouth_Yell_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:キミは盲目的に、<br>間違った結論を<br>信じているだけさ。|#0206Trial09_Leia001| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Leia.Default,ArmR10,ArmL5,ArmR10,ArmL3,Angle01/Facial/Eyes>Eyes_Normal_Open02,Angle01/Facial/Mouth>Mouth_Smile_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Leia Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:１人で目を開けるのが<br>難しいなら、<br>直視させてあげようか……<br>私の魔法でね！|#0206Trial09_Leia002| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.16
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:人間など滅ぶべき、<br>愚かな存在です……。|#0206Trial09_Yuki003| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+; カットイン・ミリア／反論
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Miria.Default,ArmR3,ArmL1,Angle01/Facial/Eyes>Eyes_Normal_Open02,Angle01/Facial/Mouth>Mouth_Surprised_Open02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Miria Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:――そんなこと<br>ないよ！|#0206Trial09_Miria001| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Miria.Default,ArmR10,ArmL4,Angle01/Facial/Eyes>Eyes_Pensive_Open02,Angle01/Facial/Mouth>Mouth_Normal_Open,Angle01/Facial/Sweat>Sweat01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Miria Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:たしかに……<br>人は間違えるし、<br>酷いことだって<br>するかもしれない。|#0206Trial09_Miria002| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Miria.Default,ArmR3,ArmL4,Angle01/Facial/Eyes>Eyes_Normal_Open02,Angle01/Facial/Mouth>Mouth_Surprised_Open02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Miria Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:でも人は罪を犯しても、<br>学び、反省し……<br>更生するんだ！|#0206Trial09_Miria003| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+; カットイン・ハンナ／同意
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hanna.Angry,ArmR2,ArmL2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hanna Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:ええ！<br>わたくしたちは弱いからこそ、<br>気高くあろうと<br>再び立ち上がることが<br>できるんです！|#0206Trial09_Hanna001| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hanna.Angry,Angle01/Head01/Facial01/Mouth01>Mouth01_Smile_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hanna Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:……あなただって、<br>それができますわ！|#0206Trial09_Hanna002| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.16
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:私はそんなこと<br>望んでいません……。|#0206Trial09_Yuki004| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.16
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:復讐は<br>私の唯一の<br>悲願なんです……。|#0206Trial09_Yuki005| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+; カットイン・ノア／反論
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR4,ArmL2,Angle01/Facial/Eyes>Eyes_Normal_Open02,Angle01/Facial/Mouth>Mouth_Surprised_Open01
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:なんで嘘つくの？|#0206Trial09_Noah001| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Default,ArmR1,Angle01/Facial/Eyes>Eyes_Normal_Open01,Angle01/Facial/Mouth>Mouth_Smile_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:本当はそんなこと、<br>もうどうだって<br>いいんだよね？|#0206Trial09_Noah002| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+; ＠備考◆笑顔
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Noah.Smile1,ArmR2,ArmL4,Angle01/Facial/Eyes>Eyes_Smile_Closed01,Angle01/Facial/Mouth>Mouth_Smile_Open02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Noah Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:もっと楽しいこと、しよ！|#0206Trial09_Noah003| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+; カットイン・ココ／同意
+; ＠備考◆次セリフとの対比で穏やかめ・優しく諭すように
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Default,ArmR3,ArmL6,Angle01/Facial/Eyes>Eyes_Normal_Closed,Angle01/Facial/Mouth>Mouth_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:そうそ。<br>【私は辛いんです～】<br>【ここまで頑張ったんです～】<br>……なんてさ。|#0206Trial09_Coco001| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+; @備考◆煽り・半笑い
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Coco.Smile,ArmL3,ArmR2,Angle01/Facial/Mouth>Mouth_Angry_Open02
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Coco Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:バーーッカじゃねーの！？<br>悲劇のヒロイン気取って<br>許されるなんて、<br>中学生まで<br>なんですけど～！？|#0206Trial09_Coco002| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.17
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:……私は今すぐにでも<br>人類を滅亡させられます。|#0206Trial09_Yuki006| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+; カットイン・マーゴ／反論
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Smile,ArmR6,ArmL5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:でも……<br>それはできないのよね？|#0206Trial09_Margo001| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,Angle01/Facial/Eyes>Eyes_Smile_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:……いいじゃない、<br>認めても。<br>本当のことなんだから。|#0206Trial09_Margo002| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Default,Angle01/Facial/Eyes>Eyes_Normal_Closed,Angle01/Facial/Mouth>Mouth_Neutral_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Margo Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:誰だって、<br>自分に嘘をつくの。<br>【私はこうあらねばならない】<br>なんてバイアスは、<br>その最たるものだわ。|#0206Trial09_Margo003| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+; カットイン・シェリー／同意
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR3,ArmL14,Angle01/Facial/Eyes>Eyes_Pensive_Open01,Angle01/Facial/Mouth>Mouth_Neutral_Closed
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:感情とは……<br>風化するものだと<br>思います。|#0206Trial09_Sherry001| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Default,ArmR12,Angle01/Facial/Eyes>Eyes_Pensive_Open02,Angle01/Facial/Mouth>Mouth_Normal_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:昨日までは<br>こだわっていたことも、<br>次の日には<br>どうでも良かったなんて<br>よくありますよね！|#0206Trial09_Sherry002| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Sherry.Smile1,ArmR8,ArmL8,Angle01/Facial/Eyes>Eyes_Normal_Open02,Angle01/Facial/Mouth>Mouth_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Sherry Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:だから<br>くよくよしてても<br>しょうがないですよ！|#0206Trial09_Sherry003| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.13
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:……それでも、私は……。|#0206Trial09_Yuki007| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+; カットイン・アリサ／反論
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,Angle01/Facial/Eyes>Eyes_Angry_Open03,ArmL10,ArmR2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:……いつまでも<br>うだうだ<br>言ってんじゃねーよ。|#0206Trial09_Alisa001| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,ArmL1,ArmR4,Angle01/Facial/Eyes>Eyes_Angry_Open04
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:おめえだって<br>気付いてんだろ？<br>【自分が間違ってる<br>かもしれない】<br>って。|#0206Trial09_Alisa002| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Alisa.Default,ArmL2,Angle01/Facial/Eyes>Eyes_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Alisa Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:……だから<br>怖くなったんだ。|#0206Trial09_Alisa003| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+; カットイン・ナノカ／同意
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.ArmR3,ArmL1,Eyes1_Normal_Open2,Mouth1_Angry_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:そうして、<br>あなたは桜羽エマに<br>魔女を殺す魔法を託した。|#0206Trial09_Nanoka001| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.ArmR2,ArmL9,Eyes1_Normal_Open3,Mouth1_Normal_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:まるでダイスに<br>運命を任せるかの<br>ように――。|#0206Trial09_Nanoka002| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Nanoka.ArmL5,Angle01/ArmR-,Eyes1_Flushed_Open1,Mouth1_Pensive_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Nanoka Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:最後の引き金を<br>引く勇気が<br>なかったのね、<br>あなたは。|#0206Trial09_Nanoka003| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.16
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:…………。|#0206Trial09_Yuki008| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+; カットイン・メルル／偽証（発話。私の話を聞いてください系）
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Meruru.Normal1,ArmR8_1,ArmL8,Eyes1_Pensive_Open1,Mouth1_Normal_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:私は……<br>大魔女様の選択を<br>尊重します。|#0206Trial09_Meruru001| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Meruru.Normal2,ArmR1_2,ArmL3,Eyes2_Normal_Open1,Mouth2_Angry_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:あなたが破滅を望むなら、<br>地獄の果てまで<br>お付き合いしましょう。|#0206Trial09_Meruru002| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Meruru.Normal1,ArmR1_1,ArmL8,Eyes1_Pensive_Open1,Mouth1_Normal_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:……でも。|#0206Trial09_Meruru003| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Meruru.Normal1,ArmR5_1,ArmL4,Eyes1_Normal_Open2,Mouth1_Angry_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:そうでなくても<br>私にとっての大魔女様は<br>大魔女様のままです。|#0206Trial09_Meruru004| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Meruru.Normal2,ArmR1_2,ArmL4,Eyes2_Cry_Closed3,Mouth2_Surprised_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:いつまでも……<br>あなたは、<br>私の大切な家族なんです！|#0206Trial09_Meruru005| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Meruru.Normal1,ArmR5_1,ArmL4,Eyes1_Normal_Open2,Mouth1_Angry_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Meruru Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:どうか……<br>本当の心に従ってください。|#0206Trial09_Meruru006| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+
+@GosubToObjectionCutIn CutInKind:Hiro Index:2 VoicePath:CommonTrial_Hiro06083 Volume:1
+@Gosub Path:System/System_Subroutine.BeginDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:……君は長い間、<br>人の中に紛れ<br>暮らしてきた。|#0206Trial09_Hiro001| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:その間に<br>気付いたんじゃないかな。|#0206Trial09_Hiro002| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:人は愚かでありつつも、<br>そうでない面もあるのだと。|#0206Trial09_Hiro003| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Angry_Open1,Mouth1_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:……私には、<br>エマといる君は<br>普通の少女に見えたよ。|#0206Trial09_Hiro004| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:それは今でも<br>勘違いではないと<br>思っている。|#0206Trial09_Hiro005| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:君は長い時間をかけて、<br>復讐の呪縛から<br>解き放たれていた……。|#0206Trial09_Hiro006| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR8,ArmL4,Eyes1_Angry_Open1,Mouth1_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:そして――<br>最後にエマと過ごした時間は<br>それを君に自覚させた！|#0206Trial09_Hiro007| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL3,Eyes2_Angry_Open1,Mouth2_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:君は自身の復讐の刃が<br>鈍っていることを知り……<br>最後の鍵を――<br>希望を、<br>エマに託したんだ！|#0206Trial09_Hiro008| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+
+
+@GosubToObjectionCutIn CutInKind:Ema Index:2 VoicePath:CommonTrial_Ema05122 Volume:1
+@Gosub Path:System/System_Subroutine.BeginDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR3,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:……ユキちゃん、<br>ボクらが<br>キミの気持ちを<br>理解してるなんて<br>そんな傲慢なことは<br>言えないけど。|#0206Trial09_Ema003| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,Angle01/Head01/Facial01/Eyes01>Eyes01_Pensive_Open02,Angle01/Head01/Facial01/Mouth01>Mouth01_Normal_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:でもボクは、<br>今またユキちゃんと会えて<br>嬉しいんだ。|#0206Trial09_Ema004| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+; @備考◆震え声
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Closed04,Angle01/Head01/Facial01/Mouth01>Mouth01_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Right RollDirection:Left ZoomLevel:3
+@PrintDebateText Text:前みたく……<br>仲良くすることは、<br>できないのかな……？|#0206Trial09_Ema005| RevealSpeed:1 ScenePosition:30,50 Roll:-4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.16
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:私は……魔女です。|#0206Trial09_Yuki009| RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.16
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Left RollDirection:Right ZoomLevel:3
+@PrintDebateText Text:"人間とは、<br><link=\"Objection_02_06_09_01\">相容れない</link>存在なんです。|#0206Trial09_Yuki010|" RevealSpeed:1 ScenePosition:70,50 Roll:4
+
+
+@Stop
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+@Gosub Path:System/System_Subroutine.EndDebate-Effect
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+; 
+; 議論終了
+; ------------------------------------------------------------------------------
+
+@ResetText
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center ZoomLevel:2
+@Wait WaitMode:0.2
+
+; ここで停止し、強制選択肢一択
+
+; 
+; 反論1
+; ------------------------------------------------------------------------------
+
+# Objection_02_06_09_01
+
+@Skip Enable:false
+@ChangeTrialPauseMode Enable:true ProcessTimer:true
+
+@AddChoice ChoiceSummary:一緒にここを出よう|#0206Trial09_Choice001| Lock:false ButtonPath:ChoiceButtons/Trial/Objection HandlerId:Trial AutoPlay:true ShowHandler:true
+    @PlaySfxModified SfxPath:Sfx_System_SaveData_001_2x Volume:1 Loop:false FadeInDuration:0
+    @GotoModified Path:.Judge11-9-2
+
+@StopForChoice Clear:false
+
+; ==============================================================================
+; MARK: 11-9-2: ⭕ 反論・一緒にここを出よう
+; ==============================================================================
+; カットイン・エマ＆ヒロ
+# Judge11-9-2
+
+@Gosub Path:System/System_Subroutine.EndDebate-First
+@ChangeTrialPauseMode Enable:false ProcessTimer:false
+@HideUI UINames:DebateUI AllowToggle:false
+@ShowUI UINames:ControlPanel
+
+@StopBgm
+@PlayVoice VoicePath:CommonTrial_Ema06197 Volume:1
+@PlayVoice VoicePath:CommonTrial_Hiro06086 Volume:1
+@GosubToObjectionCutIn CutInKind:Ema Index:2 Volume:1
+@Gosub Path:System/System_Subroutine.EndDebate-Last
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,Angle01/Head01/Facial01/Eyes01>Eyes01_Scream_Closed01,Angle01/Head01/Facial01/Mouth01>Mouth01_Scream_Open,ArmR3,ArmL7
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center ZoomLevel:3
+[PrintTextModified Text:……そんなことないよ！|#0206Trial09_Ema006| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; BGM変更：鐘楼の音
+@PlayBgm BgmPath:Bgm_39_2 Volume:1 Loop:true FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Scream_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:ボクたちとユキちゃんは友だちだった……！|#0206Trial09_Ema007| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,Angle01/Head01/Facial01/Eyes01>Eyes01_Scream_Closed01,Angle01/Head01/Facial01/Mouth01>Mouth01_Scream_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:ヒロちゃんと一緒に３人で帰ろう！|#0206Trial09_Ema008| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,ArmR8,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Surprised_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Confused_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:そして、やり直そうよ！|#0206Trial09_Ema009| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal2,ArmR6,ArmL9,Eyes2_Normal_Closed1,Mouth2_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Right
+[PrintTextModified Text:……復讐に費やした君の生涯を否定するつもりはない。|#0206Trial09_Hiro009| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,ArmR6,ArmL8,Eyes1_Normal_Open3,Mouth1_Smile_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Right
+[PrintTextModified Text:だが君が望むのであれば、<br>エマの言うようにやり直すことは可能かもしれない。|#0206Trial09_Hiro010| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Scream_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:きっとそうだよ！<br>魔女を殺す魔法なんて打ち消すような……<br>そんな未来を作ろう！|#0206Trial09_Ema010| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.16
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Left
+[PrintTextModified Text:……………。|#0206Trial09_Yuki011| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆失笑
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.19
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Left
+[PrintTextModified Text:……ふ、ふふ。|#0206Trial09_Yuki012| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆朗らかな笑い
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.19
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Left
+[PrintTextModified Text:……なんですか、それは。<br>何も解決していないじゃないですか。|#0206Trial09_Yuki013| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.19
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Left
+[PrintTextModified Text:復讐も、人類の滅亡も、<br>全部棚上げにして……。|#0206Trial09_Yuki014| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.18
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Left
+[PrintTextModified Text:……ただ、忘れただけです。|#0206Trial09_Yuki015| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Normal_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:忘れただけでも……<br>いいんじゃないかな。|#0206Trial09_Ema011| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Scream_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:曖昧で、複雑で、困難で……<br>そんな解決する糸口も掴めないような問題が<br>残ったとしても……。|#0206Trial09_Ema012| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Normal_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:それを少しずつ理解して、<br>前に進むことが大事なんだと思う。|#0206Trial09_Ema013| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Right
+[PrintTextModified Text:……前を向いて歩みを進めても、<br>魔女たちが蘇ることもないし、<br>君の憎しみが晴れることはないかもしれない。|#0206Trial09_Hiro011| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Right
+[PrintTextModified Text:それでも君の仲間は、<br>ユキの幸せを望んでいた……。|#0206Trial09_Hiro012| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Angry_Open1,Mouth1_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Right
+[PrintTextModified Text:だから君が前に進むことは、<br>仲間を忘れたわけでも、<br>逃げたわけでもない……。|#0206Trial09_Hiro013| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Angry_Open1,Mouth1_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Right
+[PrintTextModified Text:その想いを背負っていく覚悟をしたに過ぎないよ。|#0206Trial09_Hiro014| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.3
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Left
+[PrintTextModified Text:………。|#0206Trial09_Yuki016| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:人間にも……事件にも……<br>そしてもちろんユキちゃん自身も、<br>いろいろな側面があって……。|#0206Trial09_Ema014| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,Angle01/Head01/Facial01/Eyes01>Eyes01_Pensive_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:物事は見方によっては、<br>全然違う姿を見せるんだと思う。|#0206Trial09_Ema015| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open03,Angle01/Head01/Facial01/Mouth01>Mouth01_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:でもそれはとっても複雑で…<br>だからこそ、単純に理解しちゃいけないんだ。|#0206Trial09_Ema016| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,Angle01/Head01/Facial01/Eyes01>Eyes01_Pensive_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:なんにでも、問題を一気に解決できるような<br>解決策があるわけじゃないし……。|#0206Trial09_Ema017| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Normal_Closed1,Mouth1_Angry_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Right
+[PrintTextModified Text:地道であっても、<br>１つずつ紐解いていく道……。|#0206Trial09_Hiro015| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1,Arms3,Eyes1_Angry_Open1,Mouth1_Determined_Open2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Right
+[PrintTextModified Text:それが【正しい道】、なんじゃないかな。|#0206Trial09_Hiro016| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Eyes1_Normal_Closed1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Right
+[PrintTextModified Text:……もし人が愚かなだけであれば、<br>どれだけ楽だったろうか。|#0206Trial09_Hiro017| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Default,Angle01/Head01/Facial01/Eyes01>Eyes01_Pensive_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Right
+[PrintTextModified Text:私はユキの計画に賛同すらしたかもしれない。|#0206Trial09_Hiro018| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Eyes1_Angry_Open1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Right
+[PrintTextModified Text:……けど、そうではない。<br>人にも物事にも、さまざまな面がある。|#0206Trial09_Hiro019| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Hiro.Normal1
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Hiro Composition:Right
+[PrintTextModified Text:君にとって、メルルやエマは<br>これまで見てきた人類の負の側面とは<br>正反対のものだったんじゃないかな。|#0206Trial09_Hiro020| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,Angle01/Head01/Facial01/Eyes01>Eyes01_Normal_Open04,Angle01/Head01/Facial01/Mouth01>Mouth01_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:だからこそ……<br>それを理解した今の君なら、人間と共存できるはずだよ！|#0206Trial09_Ema018| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,Angle01/Head01/Facial01/Eyes01>Eyes01_Cry_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:……ユキちゃん！|#0206Trial09_Ema019| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,Angle01/Head01/Facial01/Eyes01>Eyes01_Cry_Closed03,Angle01/Head01/Facial01/Mouth01>Mouth01_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:ボクたちと一緒に……帰ろうよ！|#0206Trial09_Ema020| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.4
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:…………。|#0206Trial09_Yuki017| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@StopBgm
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.4
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:………………。|#0206Trial09_Yuki018| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.4
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:……魔女たちは、言いました。|#0206Trial09_Yuki019| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.4
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:人間は……【強い】と。|#0206Trial09_Yuki020| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+; SE・気になる音
+@PlaySfxModified SfxPath:Sfx_Common_1 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,Angle01/Head01/Facial01/Eyes01>Eyes01_Cry_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Surprised_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:………！|#0206Trial09_Ema021| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; BGM変更：燦色の檻
+@PlayBgm BgmPath:Bgm_1_1 Volume:1 Loop:true FadeInDuration:0
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.4
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:人は学び……そして成長する。|#0206Trial09_Yuki021| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.4
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:人間は……成長を止めた我々魔女よりも、<br>未来があると……。|#0206Trial09_Yuki022| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.4
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:私はそれがよくわかっていませんでした。|#0206Trial09_Yuki023| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.4
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:……けれど。|#0206Trial09_Yuki024| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:きっとみんなの言うことは正しかった。|#0206Trial09_Yuki025| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.5
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:……あなたたちを見ていると、そう思います。|#0206Trial09_Yuki026| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,Angle01/Head01/Facial01/Eyes01>Eyes01_Cry_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Normal_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:ユキちゃん……。|#0206Trial09_Ema022| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:エマ……。|#0206Trial09_Yuki027| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:今なら、わかります。|#0206Trial09_Yuki028| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.4
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:私は……迷っていた。|#0206Trial09_Yuki029| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.4
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:あなたの綺麗な魂に触れ……<br>人を滅ぼしていいのかどうか。|#0206Trial09_Yuki030| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.4
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:私には……決められなかった。|#0206Trial09_Yuki031| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.4
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:だからあなたに託したのです。|#0206Trial09_Yuki032| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.6
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:世界の行く末を……<br>自らの運命を。|#0206Trial09_Yuki033| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.18
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:きっとその時点で、<br>どちらに転んでも私の勝ちなんてものは<br>なくなっていた。|#0206Trial09_Yuki034| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.18
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:私は……放棄したのです。|#0206Trial09_Yuki035| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.18
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:決めることを……<br>そして、戦うことを。|#0206Trial09_Yuki036| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.18
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:あるのはただの、破滅のみ……。|#0206Trial09_Yuki037| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆震え声
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,Angle01/Head01/Facial01/Eyes01>Eyes01_Cry_Closed01,Angle01/Head01/Facial01/Mouth01>Mouth01_Pensive_Middle
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:そんなこと……そんなことないよ！|#0206Trial09_Ema023| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,Angle01/Head01/Facial01/Eyes01>Eyes01_Cry_Closed01,Angle01/Head01/Facial01/Mouth01>Mouth01_Confused_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:ボクたちは……戦いなんてしなくていいんだ。|#0206Trial09_Ema024| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Ema.Default,Angle01/Head01/Facial01/Eyes01>Eyes01_Cry_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Normal_Open
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Ema Composition:Center
+[PrintTextModified Text:だから……一緒に帰ろう、ユキちゃん。|#0206Trial09_Ema025| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.2
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:エマ……。|#0206Trial09_Yuki038| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆嬉しいため息
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.18
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:…………。|#0206Trial09_Yuki039| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Yuki.19
+@GosubToModifyPerspectiveStageCamera Index:0 LookCharacterId:Yuki Composition:Right
+[PrintTextModified Text:……ありがとう。|#0206Trial09_Yuki040| AuthorId:Yuki RevealSpeed:1 WaitForInput:true Wait:true]
+
+
+; @stopBgm
+
+@Gosub Path:System/System_Subroutine.EndTrial
+
+@GotoModified Path:Act02_Chapter06/Act02_Chapter06_Trial10
+

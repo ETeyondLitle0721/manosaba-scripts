@@ -1,0 +1,74 @@
+@Gosub Path:System/System_Subroutine.BeginAdv
+
+# Scene2-ex5
+
+; 建物が揺れる地震の音
+@PlayBgm BgmPath:Ambi_7_1 Volume:1 Loop:true FadeInDuration:0
+
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false AppearanceAndTransition:13_1
+@ModifyBackgroundExtended TintColor:#000000 Duration:1.2 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:1.2
+
+@PlayBgm BgmPath:Bgm_12_1_Loop IntroBgmPath:Bgm_12_1_Intro Volume:1 Loop:true FadeInDuration:0
+
+[PrintTextModified Text:――監獄島全体がアリサの魔法で炎に包まれ、<br>ハンナの魔法によって空高くへと浮上していく。|#CommonBad11_Narrative001| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:振動と地響きの音が激しい。|#CommonBad11_Narrative002| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:空に浮かび上がった監獄島は、<br>自重に耐え切れず崩壊を始めていた。|#CommonBad11_Narrative003| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:40 IdAndAppearance:Ema.Default,ArmR3,ArmL7,Angle01/Head01/Facial01/Eyes01>Eyes01_Pensive_Open01,Angle01/Head01/Facial01/Mouth01>Mouth01_Confused_Middle,Angle01/Head01/Facial01/Sweat01>Sweat01_01
+[PrintTextModified Text:ヒロちゃん……。|#CommonBad11_Ema001| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:不安そうにこちらを見つめるエマの手を、<br>私は無言でそっと握る。|#CommonBad11_Narrative004| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"魔女に堕ち、<br>暴走した少女を止めることは<ruby=\"かな\">叶</ruby>わなかった――|#CommonBad11_Narrative005|" RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:60 IdAndAppearance:CreatureHiro.12
+[PrintTextModified Text:すまない……。|#CommonBad11_Hiro001| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:私はただ、そう口にすることしかできなかった。|#CommonBad11_Narrative006| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+@ModifyBackgroundExtended TintColor:#000000 Lazy:false AppearanceAndTransition:SolidColor
+; ========================================
+
+; ========================================
+; 建物が揺れる地震の音
+@PlayBgm BgmPath:Ambi_7_1 Volume:1 Loop:true FadeInDuration:0
+; ========================================
+
+[PrintTextModified Text:やがて裁判所が崩れ、浮遊感に襲われる。<br>そこで、私の意識は途絶えた――|#CommonBad11_Narrative007| RevealSpeed:1 WaitForInput:true Wait:true]
+@StopBgm
+@Wait WaitMode:1.0
+
+; ========================================
+; 時間経過
+; ========================================
+
+; ========================================
+@ModifyBackgroundExtended TintColor:#ffffff Lazy:false AppearanceAndTransition:SolidColor
+; ========================================
+
+[PrintTextModified Text:監獄島は崩壊し、<br>巻き込まれた少女たちの行方はわからなくなった。|#CommonBad11_Narrative008| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; @char Warden.9 pos:50
+[PrintTextModified Text:これはちょっと面倒なことになりましたねえ。|#CommonBad11_Warden001| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+; @char Warden.1 pos:50
+[PrintTextModified Text:まあ、生きていても死んでいても、<br>どっちでもいいんですけど……。|#CommonBad11_Warden002| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:魔女因子を持つ者も、<br>すでに魔女と化した者も、<br>外の世界で野放しにするわけにはいかない。|#CommonBad11_Narrative009| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:見つけ出し、適切に処理する。<br>ただそれだけだ。|#CommonBad11_Narrative010| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 『END～監獄島崩壊～』
+; ========================================
+
+
+
+@ProcessBadEnd Number:11 BadEndPartKind:Trial
+

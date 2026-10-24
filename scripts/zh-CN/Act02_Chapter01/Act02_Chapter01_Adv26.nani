@@ -1,0 +1,582 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook IsDebugDirectJump:{isDebugDirectJump}
+@Gosub Path:System/System_Subroutine.BeginAdv
+
+# Scene2-1-21
+
+; ========================================
+; ●シーン2‐1-21
+; ========================================
+
+@PlayBgm BgmPath:Bgm_42_1 Volume:1 Loop:true FadeInDuration:0
+
+@ShowUI UINames:ControlPanel
+@ModifyBackgroundExtended Scale:2 Duration:0 Lazy:false ScenePosition:75,60 AppearanceAndTransition:13_1
+@Wait WaitMode:0.9
+
+@ModifyBackgroundExtended TintColor:#000000 Duration:1.8 Lazy:false ScenePosition:50,50 AppearanceAndTransition:Transparent SubId:Overlay
+@WaitForNextFrame
+
+@AnimateActorExtended ActorIds:MainBackground Loop:false ScenePositionX:25 Duration:20
+@Wait WaitMode:1.5
+
+@UpdateWitchBook Id:Margo Category:Profile Version:5
+@UpdateWitchBook Id:Meruru Category:Profile Version:7
+@AutoSave
+[PrintTextModified Text:杀害冰上梅露露的凶手，是宝生玛格。|#0201Adv26_Narrative001| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:理所当然，她被票选为【魔女】——|#0201Adv26_Narrative002| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:即便如此，聚集在审判庭上的所有人，<br>看向玛格的眼神中依然带着难以置信。|#0201Adv26_Narrative003| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:长久的沉默之后，<br>率先开口说话的是玛格本人。|#0201Adv26_Narrative004| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HidePrinter
+@ModifyBackgroundExtended Scale:1.5 Lazy:false ScenePosition:70,40 AppearanceAndTransition:14_1 SubId:Middle
+@ModifyCharacterExtended Scale:1.15 Lazy:false ScenePosition:60,30 IdAndAppearance:Margo.Pensive1 SubId:Middle
+@Wait WaitMode:0.3
+
+[PrintTextModified Text:……真不像我呢。<br>不知怎么的，头脑发热了。|#0201Adv26_Margo001| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:我很少那样情绪高涨哦。<br>不杀掉她就无法平息下来。<br>很过分吧……真的非常抱歉。|#0201Adv26_Margo002| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HidePrinter
+@SpawnExtended Path:MaskingRectangle Params:40,200,true,0.3,#000000 ScenePosition:20,50 Rotation:,,0 SubId:Front
+@ModifyBackgroundExtended Rotation:,,0 Scale:1.5 Lazy:false ScenePosition:-20,36 AppearanceAndTransition:14_1 SubId:Front
+@ModifyCharacterExtended Rotation:,,0 Scale:1.1 Lazy:false ScenePosition:20,32 IdAndAppearance:Ema.Angry1,ArmR3,ArmL7 SubId:Front
+@ChangeActorMaskability ActorIds:MainBackground-Front,Ema-Front Enable:true
+@AnimateActorExtended ActorIds:MainBackground-Front Loop:false ScenePositionY:40 EasingTypeName:EaseOutQuad Duration:0.5
+@AnimateActorExtended ActorIds:Ema-Front Loop:false ScenePositionY:45 EasingTypeName:EaseOutQuad Duration:0.5
+@Wait WaitMode:0.4
+
+[PrintTextModified Text:为、为什么？梅露露不是<br>帮助过玛格吗！|#0201Adv26_Ema001| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; @char Ema.Pensive1
+
+[PrintTextModified Text:她一直照顾重伤的玛格，<br>那么关心你，那么尽心尽力……|#0201Adv26_Ema002| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@AnimateActorExtended ActorIds:MainBackground-Front,Ema-Front Loop:false
+@HideActors ActorIds:Ema-Front Lazy:false
+@DestroySpawnedExtended Path:MaskingRectangle SubId:Front LogWarning:true
+
+@ModifyCharacterExtended Lazy:false ScenePosition:60,30 IdAndAppearance:Margo.Smile1 SubId:Middle
+
+[PrintTextModified Text:是啊……梅露露她啊，<br>对我非常非常好。|#0201Adv26_Margo003| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:我发高烧神志不清的时候，<br>她一直陪在身边握着我的手，<br>还不停地抚摸我的头……|#0201Adv26_Margo004| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:哭着说请我不要死，<br>给予了我许多爱和怜惜。|#0201Adv26_Margo005| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:60,30 IdAndAppearance:Margo.Cry1 SubId:Middle
+
+[PrintTextModified Text:我被感动了。<br>明明才刚认识不久，<br>却如此无私地为我付出……|#0201Adv26_Margo006| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:玛格轻轻擦去眼角渗出的泪水。<br>但她的动作只会令我觉得很违和。|#0201Adv26_Narrative005| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:60,30 IdAndAppearance:Margo.Smile1 SubId:Middle
+
+[PrintTextModified Text:她充满了真心，<br>我确实感受到了爱。<br>没错，我们是相爱的。|#0201Adv26_Margo007| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HidePrinter
+@SpawnExtended Path:MaskingRectangle Params:40,200,true,0.3,#000000 ScenePosition:20,50 Rotation:,,0 SubId:Front
+@ModifyBackgroundExtended Rotation:,,0 Scale:1.5 Lazy:false ScenePosition:-20,36 AppearanceAndTransition:14_1 SubId:Front
+@ModifyCharacterExtended Rotation:,,0 Scale:1.1 Lazy:false ScenePosition:20,32 IdAndAppearance:Miria.Pensive1 SubId:Front
+@ChangeActorMaskability ActorIds:MainBackground-Front,Miria-Front Enable:true
+@AnimateActorExtended ActorIds:MainBackground-Front Loop:false ScenePositionY:40 EasingTypeName:EaseOutQuad Duration:0.5
+@AnimateActorExtended ActorIds:Miria-Front Loop:false ScenePositionY:45 EasingTypeName:EaseOutQuad Duration:0.5
+@Wait WaitMode:0.4
+
+[PrintTextModified Text:相爱……？<br>那就更不明白为什么要杀她了……|#0201Adv26_Miria001| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+@AnimateActorExtended ActorIds:MainBackground-Front,Miria-Front Loop:false
+@HideActors ActorIds:Miria-Front Lazy:false
+@WaitForNextFrame
+
+@HidePrinter
+@SpawnExtended Path:MaskingRectangle Params:40,200,true,0.3,#000000 ScenePosition:20,50 Rotation:,,0 SubId:Front
+@ModifyBackgroundExtended Rotation:,,0 Scale:1.5 Lazy:false ScenePosition:-20,36 AppearanceAndTransition:14_1 SubId:Front
+@ModifyCharacterExtended Rotation:,,0 Scale:1.1 Lazy:false ScenePosition:20,32 IdAndAppearance:Coco.Pensive1 SubId:Front
+@ChangeActorMaskability ActorIds:MainBackground-Front,Coco-Front Enable:true
+@AnimateActorExtended ActorIds:MainBackground-Front Loop:false ScenePositionY:40 EasingTypeName:EaseOutQuad Duration:0.5
+@AnimateActorExtended ActorIds:Coco-Front Loop:false ScenePositionY:45 EasingTypeName:EaseOutQuad Duration:0.5
+@Wait WaitMode:0.4
+
+[PrintTextModified Text:是不是那种什么变态的癖好？不是有那种吗，<br>喜欢你就要杀掉你的那种人。|#0201Adv26_Coco001| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@AnimateActorExtended ActorIds:MainBackground-Front,Coco-Front Loop:false
+@HideActors ActorIds:Coco-Front Lazy:false
+@DestroySpawnedExtended Path:MaskingRectangle SubId:Front LogWarning:true
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Flushed1 SubId:Middle
+
+[PrintTextModified Text:呵呵，就是这样。<br>我啊，就是因为深爱着她才杀了她的。|#0201Adv26_Margo008| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Smile1 SubId:Middle
+
+[PrintTextModified Text:你们迟早也会明白的。<br>对爱最终极的回应，就是死亡呀。|#0201Adv26_Margo009| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:玛格带着陶醉的表情说出这些话，<br>我对她只感到厌恶。|#0201Adv26_Narrative006| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HidePrinter
+@SpawnExtended Path:MaskingRectangle Params:40,200,true,0.3,#000000 ScenePosition:20,50 Rotation:,,0 SubId:Front
+@ModifyBackgroundExtended Rotation:,,0 Scale:1.5 Lazy:false ScenePosition:-20,36 AppearanceAndTransition:14_1 SubId:Front
+@ModifyCharacterExtended Rotation:,,0 Scale:1.1 Lazy:false ScenePosition:20,32 IdAndAppearance:Hiro.Angry1 SubId:Front
+@ChangeActorMaskability ActorIds:MainBackground-Front,Hiro-Front Enable:true
+@AnimateActorExtended ActorIds:MainBackground-Front Loop:false ScenePositionY:40 EasingTypeName:EaseOutQuad Duration:0.5
+@AnimateActorExtended ActorIds:Hiro-Front Loop:false ScenePositionY:45 EasingTypeName:EaseOutQuad Duration:0.5
+@Wait WaitMode:0.4
+
+[PrintTextModified Text:……太扭曲了。本来这种关怀<br>应该是值得感恩的，而不是去加害他人。|#0201Adv26_Hiro001| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:你是错误的……！|#0201Adv26_Hiro002| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@AnimateActorExtended ActorIds:MainBackground-Front,Hiro-Front Loop:false
+@HideActors ActorIds:Hiro-Front Lazy:false
+@DestroySpawnedExtended Path:MaskingRectangle SubId:Front LogWarning:true
+
+@ModifyCharacterExtended Lazy:false IdAndAppearance:Margo.Smile1 SubId:Middle
+
+[PrintTextModified Text:你们可能无法理解吧。<br>这就是我爱的形式。|#0201Adv26_Margo010| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@StopBgm
+@HideAllCharacters Lazy:false
+@ModifyBackgroundExtended Rotation:,,0 Scale:3 Duration:0 Lazy:false ScenePosition:50,15 AppearanceAndTransition:14_1
+@ModifyCharacterExtended Rotation:,,0 Scale:3.8 Duration:0 Lazy:false ScenePosition:75,10 IdAndAppearance:Warden.1
+@HideActors ActorIds:MainBackground-Middle Lazy:false
+@AnimateActorExtended ActorIds:MainBackground Loop:false ScenePositionX:30 EasingTypeName:EaseOutQuad Duration:0.7
+@AnimateActorExtended ActorIds:Warden Loop:false ScenePositionX:35 EasingTypeName:EaseOutQuad Duration:0.7
+@Wait WaitMode:0.5
+
+[PrintTextModified Text:啊，你们讲完了吗？<br>时间也拖很久了，<br>是时候该继续了……|#0201Adv26_Warden001| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:现在大家的手机上应该都出现了一颗按钮，<br>只要所有人按下它，就会开始执行处刑了。|#0201Adv26_Warden002| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@AnimateActorExtended ActorIds:MainBackground,Warden Loop:false
+@ModifyBackgroundExtended Id:Stills Scale:{g_backgroundDefaultScale} Duration:0.6 Lazy:false AppearanceAndTransition:590_1 SubId:Middle
+@Wait WaitMode:0.6
+
+[PrintTextModified Text:"（处刑按钮……原来如此，<br>　是要把我们逼到无路可退啊）|#0201Adv26_Hiro003|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:只要长按这个按钮……|#0201Adv26_Warden003| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（不管动机如何，即使梅露露是幕后黑手，<br>　宝生玛格杀害冰上梅露露的罪行<br>　也是事实）|#0201Adv26_Hiro004|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（我要——制裁她！）|#0201Adv26_Hiro005| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+; TODO: ループ再生化する
+@PlaySfxModified SfxPath:Sfx_35 Volume:1 Loop:false FadeInDuration:0
+
+@ProcessInput InputEnabled:false
+@HidePrinter
+@HideUI UINames:ControlPanel,AutoToggle,WitchBookButtonUI AllowToggle:false
+@ShowUI UINames:ExecutionButton
+
+@BeginIf Expression:!enableDebugSkip
+    @Skip Enable:false
+    @Stop
+
+# ExecutionConfirmed
+
+@PlayBgm BgmPath:Bgm_31_1 Volume:1 Loop:true FadeInDuration:0
+@HideUI UINames:ExecutionButton AllowToggle:false Duration:0.6
+@HideActors ActorIds:Stills-Middle Duration:0.6 Lazy:false
+@Wait WaitMode:0.9
+
+@ProcessInput InputEnabled:true
+@ShowUI UINames:ControlPanel,AutoToggle,WitchBookButtonUI
+@EmoteJump ActorIds:Warden Loop:false Speed:1.5
+[PrintTextModified Text:好了！那么，<br>现在开始执行对魔女的刑罚～|#0201Adv26_Warden004| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} Lazy:false ScenePosition:50,50 AppearanceAndTransition:13_1 SubId:Middle
+
+; 歯車がまわる音
+@PlaySfxModified SfxPath:Sfx_36 Volume:1 Loop:false FadeInDuration:0
+
+[PrintTextModified Text:话音刚落，<br>某道机关就启动了。|#0201Adv26_Narrative007| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:随着大型齿轮的转动声传来，<br>中央的底座缓缓下降。|#0201Adv26_Narrative008| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:然后，我们面前出现了一个新的底座，<br>取代了原来底座的位置。|#0201Adv26_Narrative009| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideActors ActorIds:MainBackground-Middle Lazy:false
+
+@HidePrinter
+@AnimateActorExtended ActorIds:MainBackground,Warden Loop:false
+@HideActors ActorIds:MainBackground,Warden Duration:0 Lazy:false
+@Wait WaitMode:0.9
+
+@ModifyBackgroundExtended Id:Stills Rotation:,,-44 Scale:2.8 Duration:0 Lazy:false ScenePosition:55,100 AppearanceAndTransition:440_0
+@AnimateActorExtended ActorIds:Stills Loop:false ScenePositionX:30 EasingTypeName:EaseOutQuad Duration:1.5
+@ModifyBackgroundExtended Duration:1.2 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:2.4
+
+@AnimateActorExtended ActorIds:Stills Loop:false
+@ModifyBackgroundExtended Id:Stills Rotation:,,-44 Scale:3 Duration:0.6 Lazy:false ScenePosition:75,-20 AppearanceAndTransition:440_0 SubId:Middle
+@AnimateActorExtended ActorIds:Stills-Middle Loop:false ScenePositionX:50 EasingTypeName:EaseOutQuad Duration:1.5
+@Wait WaitMode:2.4
+
+@AnimateActorExtended ActorIds:Stills-Middle Loop:false
+@ModifyBackgroundExtended Id:Stills Rotation:,,0 Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false ScenePosition:50,50 AppearanceAndTransition:440_0 SubId:Front
+@SpawnBlur ActorId:Stills FadeDuration:0
+@AnimateActorExtended ActorIds:Stills-Front Loop:false Scale:1.15 EasingTypeName:EaseOutQuad Duration:2.4
+@SpawnBlur ActorId:Stills Intensity:0 FadeDuration:1.8
+@HideActors ActorIds:Stills-Middle Duration:0.6 Lazy:false
+@Wait WaitMode:3
+
+[PrintTextModified Text:舞台被灯光照亮，<br>上有一个巨大的靶子。|#0201Adv26_Narrative010| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:少女们预感到一场恶趣味的表演即将在眼前展开，<br>不禁吞了一口口水。|#0201Adv26_Narrative011| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:……是要搞什么马戏表演？|#0201Adv26_Alisa001| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:难道是扔飞刀……？|#0201Adv26_Sherry001| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:……相当华丽的处刑台呢。|#0201Adv26_Leia001| AuthorId:Leia RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:她到底在想什么呢。|#0201Adv26_Narrative012| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:玛格正在被押送到木制靶子的面前。<br>从她的表情读不出任何感情。|#0201Adv26_Narrative013| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:在我们屏息注视下——|#0201Adv26_Narrative014| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Duration:0 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@HideActors ActorIds:Stills-Front,Stills-Middle,Stills Lazy:false
+@ModifyBackgroundExtended Id:Stills Rotation:,,0 Scale:{g_backgroundDefaultScale} Lazy:false ScenePosition:50,50 AppearanceAndTransition:440_1
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:1
+
+[PrintTextModified Text:玛格双手双脚被用皮带固定住，<br>身体无法动弹。|#0201Adv26_Narrative015| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:也就是被束缚在靶子上的状态。<br>|#0201Adv26_Narrative016| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:哎呀呀♡品味这么低俗，真是太棒啦♡<br>让人兴奋不已呢♡|#0201Adv26_Margo011| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:即使犯下杀人罪，即使被束缚——<br>她依然保持着妖艳的微笑。|#0201Adv26_Narrative017| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（正常的飞刀表演，<br>　是不会刺中目标的）|#0201Adv26_Hiro006|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（但既然是处刑，<br>　那么刀子一定会……）|#0201Adv26_Hiro007|" AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:也许是因为恐怖的预感，<br>许多少女忍不住捂住眼睛或转过头去。|#0201Adv26_Narrative018| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ナイフが飛んでくる音
+@PlaySfxModified SfxPath:Sfx_122 Volume:1 Loop:false FadeInDuration:0
+
+[PrintTextModified Text:划破空气的声音响起的同时，<br>不知从哪里飞来了凶器。|#0201Adv26_Narrative019| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:锐利的尖端闪着寒光。|#0201Adv26_Narrative020| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ナイフが板に刺さる音
+@PlaySfxModified SfxPath:Sfx_123 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyBackgroundExtended Id:Stills Rotation:,,-45 Scale:3 Lazy:false ScenePosition:75,-40 AppearanceAndTransition:440_2 SubId:Middle
+
+; ＠備考◆恐怖に息を呑む
+
+[PrintTextModified Text:……|#0201Adv26_Margo012| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:插在靶子上的<br>不是飞刀——而是形状恶俗的箭矢。|#0201Adv26_Narrative021| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:箭矢深深地刺入了距离玛格脸颊<br>仅几厘米的地方。|#0201Adv26_Narrative022| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:从射出箭矢的速度来看，<br>如果射中了的话，一定已经贯穿了她的脸颊。|#0201Adv26_Narrative023| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ナイフが飛んでくる音・連続
+@PlaySfxModified SfxPath:Sfx_122 Volume:1 Loop:false FadeInDuration:0
+
+; ナイフが板に刺さる音・連続
+@PlaySfxModified SfxPath:Sfx_123 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyBackgroundExtended Id:Stills Rotation:,,-45 Scale:3 Lazy:false ScenePosition:75,-40 AppearanceAndTransition:440_3 SubId:Middle
+
+[PrintTextModified Text:接着又飞来许多箭矢，<br>它们同样没有射中玛格，而是插在几乎就要射中的边沿。|#0201Adv26_Narrative024| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:也许是因为凶器没有刺中自己，反而造成了更大的心理压迫，<br>刚才还在妖艳微笑的玛格，表情已经开始绷紧了。|#0201Adv26_Narrative025| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:……梅露露，<br>真的是个善良的好孩子。|#0201Adv26_Margo013| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:在无数箭矢射中标靶的间隙中，<br>玛格低声呢喃着。|#0201Adv26_Narrative026| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:简直难以相信她是魔女，<br>她那么可爱，那么惹人怜爱……|#0201Adv26_Margo014| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:我想把她的一切都占为己有。<br>那惊讶地看着我的眼神、<br>那圣洁的服装、那可爱的声音。|#0201Adv26_Margo015| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:那美丽的银发、<br>那飞溅的鲜血，还有心脏，全部、全部全部。|#0201Adv26_Margo016| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Id:Stills Rotation:,,-45 Scale:3 Lazy:false ScenePosition:75,-40 AppearanceAndTransition:440_4 SubId:Middle
+
+[PrintTextModified Text:真的太爱太爱了，<br>就把她变成了我的东西……！|#0201Adv26_Margo017| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:僵硬的笑容扭曲至极。|#0201Adv26_Narrative027| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:够了，不想再听了……！|#0201Adv26_Ema003| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:我用余光扫过泪流满面地摇头的艾玛，<br>直视玛格。|#0201Adv26_Narrative028| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:你在说谎。|#0201Adv26_Hiro008| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:我再也无法保持沉默，脱口而出，<br>随后玛格看向了我。|#0201Adv26_Narrative029| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@StopBgm
+@ModifyBackgroundExtended Id:Stills Rotation:,,-45 Scale:3 Lazy:false ScenePosition:75,-40 AppearanceAndTransition:440_5 SubId:Middle
+
+[PrintTextModified Text:很遗憾，这不是谎言。<br>这就是我真实的爱——|#0201Adv26_Margo018| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@PlayBgm BgmPath:Bgm_43_2 Volume:1 Loop:true FadeInDuration:0
+
+[PrintTextModified Text:你在说谎！！|#0201Adv26_Hiro009| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Id:Stills Rotation:,,0 Scale:{g_backgroundDefaultScale} Lazy:false ScenePosition:50,50 AppearanceAndTransition:440_5 SubId:Front
+
+[PrintTextModified Text:我再次斩钉截铁地说道。<br>玛格的眼神第一次动摇了。|#0201Adv26_Narrative030| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:你根本就不爱梅露露！！|#0201Adv26_Hiro010| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:这就是真实的爱？令人作呕。<br>你的爱是【谎言】！！|#0201Adv26_Hiro011| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:我的脑海中浮现出她的身影。|#0201Adv26_Narrative031| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:失去她的痛苦<br>无论经过多么漫长的时间也不会消失。|#0201Adv26_Narrative032| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:杀戮怎么可能是爱。|#0201Adv26_Narrative033| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:我只想一直、永远——<br>和她在一起。|#0201Adv26_Narrative034| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:那根本不是爱！！<br>你根本不懂什么是爱！！|#0201Adv26_Hiro012| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Id:Stills Rotation:,,-45 Scale:3 Lazy:false ScenePosition:75,-40 AppearanceAndTransition:440_6 SubId:Middle
+@HideActors ActorIds:Stills-Front Lazy:false
+
+[PrintTextModified Text:我发自内心的呐喊，<br>让玛格的表情大为扭曲。|#0201Adv26_Narrative035| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:不是的，不是……<br>我懂得爱，<br>这就是爱啊……|#0201Adv26_Margo019| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:嗯——我虽然也不太了解什么是爱，<br>但我更认同希罗的主张！|#0201Adv26_Sherry002| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:玛格，<br>你不是因为爱才杀人，<br>而是因为想让她消失才杀人的，对吧。|#0201Adv26_Sherry003| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆息を呑む
+
+[PrintTextModified Text:——！|#0201Adv26_Margo020| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:就是啊。<br>承认自己讨厌她不是会轻松点吗？|#0201Adv26_Coco002| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Id:Stills Rotation:,,-45 Scale:3 Lazy:false ScenePosition:75,-40 AppearanceAndTransition:440_7 SubId:Middle
+
+; ＠備考◆余裕失って
+
+[PrintTextModified Text:不对！<br>不对不对不对不对！！|#0201Adv26_Margo021| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:我懂得爱！！<br>这就是爱！！|#0201Adv26_Margo022| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:够了！！<br>不要否定我的爱！！|#0201Adv26_Margo023| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Id:Stills Rotation:,,0 Scale:{g_backgroundDefaultScale} Lazy:false ScenePosition:50,50 AppearanceAndTransition:440_7 SubId:Front
+
+[PrintTextModified Text:【不要爱我】——！|#0201Adv26_Margo024| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:尖叫过后，<br>玛格自己也惊讶地绷紧了表情。|#0201Adv26_Narrative036| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Id:Stills Rotation:,,-45 Scale:3 Lazy:false ScenePosition:75,-40 AppearanceAndTransition:440_8 SubId:Middle
+@HideActors ActorIds:Stills-Front Lazy:false
+
+[PrintTextModified Text:我、我刚才、说了什么……|#0201Adv26_Margo025| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:大概就在那时。<br>终于吐露出真心的双唇开始颤抖。|#0201Adv26_Narrative037| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:玛格被束缚着的身体，<br>开始发生变化。|#0201Adv26_Narrative038| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:脸上出现裂纹，<br>指甲肉眼可见地伸长。|#0201Adv26_Narrative039| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ナイフが飛んでくる音・連続
+@PlaySfxModified SfxPath:Sfx_122 Volume:1 Loop:false FadeInDuration:0
+
+[PrintTextModified Text:靶子上<br>已经密密麻麻地插满了箭矢，<br>几乎不见一丝间隙。|#0201Adv26_Narrative040| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Id:Stills Rotation:,,0 Scale:{g_backgroundDefaultScale} Lazy:false ScenePosition:50,50 AppearanceAndTransition:440_9 SubId:Front
+
+[PrintTextModified Text:终于，大量的箭矢如雨点般，<br>朝着玛格全身飞去。|#0201Adv26_Narrative041| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:啊——原来我，|#0201Adv26_Margo026| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@StopBgm
+@ModifyBackgroundExtended Id:Stills Rotation:,,0 Scale:{g_backgroundDefaultScale} Lazy:false ScenePosition:50,50 AppearanceAndTransition:440_10 SubId:Front
+
+
+[PrintTextModified Text:不懂什么是爱啊。|#0201Adv26_Margo027| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Id:Stills Rotation:,,-45 Scale:3 Lazy:false ScenePosition:75,-40 AppearanceAndTransition:440_11 SubId:Middle
+@HideActors ActorIds:Stills-Front Lazy:false
+
+[PrintTextModified Text:轻声吐露出的寂寞话语，<br>打开了玛格<br>封锁在内心的【禁忌】之门——|#0201Adv26_Narrative042| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; トラウマシーン
+; ========================================
+
+@ResetText
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+@HideActors ActorIds:Stills-Middle Lazy:false
+
+@PlayBgm BgmPath:Bgm_1_1 Volume:1 Loop:true FadeInDuration:0
+
+@ModifyTextPrinter Lazy:false IdAndAppearance:Normal.Simple MakeDefault:true HideOther:true
+
+[PrintTextModified Text:——一边听着“我爱你”，一边挨打。|#0201Adv26_Narrative043| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:这样的日子，是从什么时候开始的呢？<br>早就算不清了，也不想再算了。|#0201Adv26_Narrative044| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Id:Stills Rotation:,,0 Scale:3 Duration:0 Lazy:false ScenePosition:-20,120 AppearanceAndTransition:230_1
+@WaitForNextFrame
+
+@AnimateActorExtended ActorIds:Stills Loop:false ScenePositionY:0 Scale:2.8 EasingTypeName:Linear Duration:12
+
+@ModifyBackgroundExtended TintColor:#000000 Duration:0.9 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:0.9
+
+[PrintTextModified Text:在充满腐臭、堆满垃圾的房间里。|#0201Adv26_Narrative045| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:和垃圾一同被扔在房间的玛格，<br>不知从何时起，已经放弃了思考。|#0201Adv26_Narrative046| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:母亲本就不是个像样的人。<br>偶尔回家看一眼玛格的情况，<br>留下食物和一点钱后便匆匆离开。|#0201Adv26_Narrative047| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:某天，母亲带了一个男人回家。<br>母亲说，她也【爱】那个男人。|#0201Adv26_Narrative048| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:在四张半榻榻米大的狭窄房间门后，<br>母亲每天都对那个男人说【我爱你】。|#0201Adv26_Narrative049| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:取而代之的，<br>是她不再对玛格说【我爱你】了。|#0201Adv26_Narrative050| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:男人回应了母亲的爱。|#0201Adv26_Narrative051| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:回应是不断堆积的垃圾。<br>是充斥耳膜的怒吼。<br>是对母亲施暴。|#0201Adv26_Narrative052| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:终于有一天，<br>那男人来到玛格藏身的小房间，拉开隔扇。|#0201Adv26_Narrative053| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Id:Stills Rotation:,,0 Scale:3 Duration:0.8 Lazy:false ScenePosition:50,120 AppearanceAndTransition:230_1 SubId:Front
+@Wait WaitMode:0.5
+@AnimateActorExtended ActorIds:Stills-Front Loop:false ScenePositionY:20 Scale:2 EasingTypeName:Linear Duration:15
+
+[PrintTextModified Text:他对玛格施暴了。|#0201Adv26_Narrative054| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:被打、被骂、被踩。|#0201Adv26_Narrative055| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:被揍、被辱骂、<br>被揪住头发、被扔东西到身上。|#0201Adv26_Narrative056| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:被打、被打、被打。<br>被揍、被揍、被揍。<br>被伤害、被伤害、被伤害。|#0201Adv26_Narrative057| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:某天，满身瘀青的玛格，<br>在断断续续的意识中，注意到了母亲的目光。<br>母亲只是冷冷地俯视着她。|#0201Adv26_Narrative058| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:玛格用目光请求着，救救我。<br>可母亲表情中流露出的却是——|#0201Adv26_Narrative059| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Id:Stills Rotation:,,0 Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false ScenePosition:50,50 AppearanceAndTransition:230_1
+@HideActors ActorIds:Stills-Middle,Stills-Front Lazy:false
+
+[PrintTextModified Text:轻蔑。|#0201Adv26_Narrative060| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:聪明的玛格明白了。<br>因为我夺走了那男人的爱。|#0201Adv26_Narrative061| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:母亲恨我。|#0201Adv26_Narrative062| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:我得到了爱，所以她嫉妒。<br>我年轻，我美丽，我得到了注视。|#0201Adv26_Narrative063| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:玛格流着泪，<br>领悟了爱的模样。|#0201Adv26_Narrative064| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@StopBgm
+
+[PrintTextModified Text:但是……|#0201Adv26_Narrative065| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+@HideActors ActorIds:Stills Lazy:false
+
+[PrintTextModified Text:母亲离开了，男人也离开了，<br>只留下玛格独自一人，在被褥上。<br>玛格用轻得几乎听不见的声音，喃喃着。|#0201Adv26_Narrative066| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:……明明……<br>我真的、真的，很讨厌这一切啊。|#0201Adv26_Narrative067| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; トラウマシーンここまで
+; ========================================
+@ResetText
+@ModifyBackgroundExtended Id:Stills Rotation:,,0 Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false ScenePosition:50,50 AppearanceAndTransition:440_12 SubId:Middle
+@ModifyBackgroundExtended TintColor:#000000 Duration:0.9 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:0.9
+
+@ModifyTextPrinter Lazy:false IdAndAppearance:Normal.Default MakeDefault:true HideOther:true
+
+@PlayBgm BgmPath:Bgm_44_1 Volume:1 Loop:true FadeInDuration:0
+
+[PrintTextModified Text:玛格的身体<br>被无数箭矢刺穿。|#0201Adv26_Narrative068| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆吐き気
+
+[PrintTextModified Text:呃……|#0201Adv26_AnAn001| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆拒絶
+
+[PrintTextModified Text:呜呜！|#0201Adv26_Hanna001| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:数不清的箭矢一根一根刺入玛格体内，<br>她如野兽般低吼、痛苦挣扎——|#0201Adv26_Narrative069| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:咆哮着，化作了异形。|#0201Adv26_Narrative070| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:由于她已顺利变成魔女的残骸，<br>接下来她会被关进永恒的囚牢之中。|#0201Adv26_Warden005| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:典狱长平静地说道。<br>紧接着是一阵机械运转声。|#0201Adv26_Narrative071| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Rotation:,,0 Scale:{g_backgroundDefaultScale} Lazy:false ScenePosition:50,50 AppearanceAndTransition:13_1 SubId:Middle
+@HideActors ActorIds:Stills-Middle Lazy:false
+
+; 歯車がまわる音
+@PlaySfxModified SfxPath:Sfx_36 Volume:1 Loop:false FadeInDuration:0
+
+[PrintTextModified Text:这时机关开始运作，<br>将处刑台降至地下，移出了现场。|#0201Adv26_Narrative072| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:异形的咆哮声仍持续回荡了一阵子，<br>直到地板关闭，一切恢复沉寂。|#0201Adv26_Narrative073| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:中央恢复成了原来的底座，<br>只有如同残香般的——<br>一只赤红的蝴蝶在轻盈飞舞。|#0201Adv26_Narrative074| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（这就是……魔女的处刑……）|#0201Adv26_Hiro013| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:亲眼目睹了如此惨烈的处刑，<br>我们失去了言语。|#0201Adv26_Narrative075| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:目睹了如此可怕又悲伤的场面，<br>想必艾玛一定在哭泣吧，<br>我不由自主地看向她。|#0201Adv26_Narrative076| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HidePrinter
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} TintColor:#000000 Duration:0 Lazy:false ScenePosition:50,50 AppearanceAndTransition:13_1 SubId:Middle
+@ModifyCharacterExtended Rotation:,,0 Scale:3 Duration:0 Lazy:false ScenePosition:70,61 IdAndAppearance:Ema.Normal1,ArmR3 SubId:Middle
+@Wait WaitMode:0.9
+
+[PrintTextModified Text:但映入我眼帘的艾玛，竟然——<br>……在笑。|#0201Adv26_Narrative077| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（艾玛……你果然……）|#0201Adv26_Hiro014| AuthorId:Hiro RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:我无言地握紧了颤抖的拳头。|#0201Adv26_Narrative078| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@HideActors ActorIds:Ema-Middle Duration:0 Lazy:false
+@ModifyBackgroundExtended Scale:{g_backgroundDefaultScale} TintColor:#FFFFFF Lazy:false ScenePosition:50,50 AppearanceAndTransition:13_1 SubId:Middle
+@Wait WaitMode:0.9
+
+[PrintTextModified Text:审判庭陷入死寂。<br>一时间，没有任何人说话。|#0201Adv26_Narrative079| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:打破这令人窒息的沉默的<br>是典狱长。|#0201Adv26_Narrative080| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:50 IdAndAppearance:Warden.1 SubId:Front
+
+[PrintTextModified Text:能顺利结束真是太好了呢。<br>如果之后再发生凶杀案的话，<br>就会开展魔女审判。|#0201Adv26_Warden006| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:在下次审判到来之前，请大家跟往常一样，<br>老实规矩地作为囚犯生活下去吧。|#0201Adv26_Warden007| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:魔女审判，就此闭庭。<br>哎呀呀，真是辛苦大家了……|#0201Adv26_Warden008| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideAllCharacters Lazy:false
+
+[PrintTextModified Text:在我们心中留下无法抹去的深深伤痕后——<br>审判结束了。|#0201Adv26_Narrative081| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Gosub Path:System/System_Subroutine.EndAdv
+
+@GotoModified Path:Act02_Chapter01/Act02_Chapter01_Adv27 SoftReset:true
+

@@ -1,0 +1,808 @@
+@GosubResetWitchBook Path:System/System_ResetWitchBook IsDebugDirectJump:{isDebugDirectJump}
+@Gosub Path:System/System_Subroutine.BeginAdv
+
+# Scene1-2-27
+
+; ========================================
+; ●シーン1‐2‐27
+; ========================================
+
+@PlayBgm BgmPath:Bgm_42_1 Volume:1 Loop:true FadeInDuration:0
+
+@ShowUI UINames:ControlPanel
+@ModifyBackgroundExtended Scale:2 Duration:0 Lazy:false ScenePosition:75,60 AppearanceAndTransition:13_1
+@Wait WaitMode:0.9
+
+@ModifyBackgroundExtended TintColor:#000000 Duration:1.8 Lazy:false ScenePosition:50,50 AppearanceAndTransition:Transparent SubId:Overlay
+@WaitForNextFrame
+
+@AnimateActorExtended ActorIds:MainBackground Loop:false ScenePositionX:25 Duration:20
+@Wait WaitMode:1.5
+@AutoSave
+[PrintTextModified Text:夏目安安承认了<br>杀害佐伯米莉亚的罪行——|#0102Adv27_Narrative001| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:当然，这场魔女审判中，<br>所有少女全都一致把票投给了安安。|#0102Adv27_Narrative002| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:她那恐怖的魔法和死气沉沉的眼神<br>让少女们害怕得颤抖不已。|#0102Adv27_Narrative003| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HidePrinter
+@ModifyBackgroundExtended Scale:2.2 Lazy:false ScenePosition:52,28 AppearanceAndTransition:14_1 SubId:Middle
+@ModifyCharacterExtended Scale:1.6 Lazy:false ScenePosition:50,55 IdAndAppearance:AnAn.Normal1,Angle01/Option_Arms- SubId:Middle
+
+[PrintTextModified Text:快、快点处刑她！<br>谁知道她会对我们做什么！|#0102Adv27_Coco001| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:冷静点。她的魔法只是【轻度洗脑】。<br>只要意志坚定就不会被蛊惑。|#0102Adv27_Nanoka001| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:而且，安安想杀的是米莉亚。<br>|#0102Adv27_Margo001| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:她对我们并没有杀意。<br>对吧？|#0102Adv27_Margo002| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:安安默不作声地点点头。<br>现场的气氛一下子缓和了起来。|#0102Adv27_Narrative004| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（大家变得有些不太对劲啊。<br>　马上就要处刑安安了，<br>　为什么反而松了口气呢……）|#0102Adv27_Ema001|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:上次处刑的惨状<br>让在场所有人都被吓得面无血色。|#0102Adv27_Narrative005| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:但即便如此，<br>安安看起来依旧非常镇静。|#0102Adv27_Narrative006| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HidePrinter
+@AnimateActorExtended ActorIds:MainBackground-Middle,AnAn-Middle Loop:false
+@ModifyBackgroundExtended Rotation:,,0 Scale:3 Duration:0 Lazy:false ScenePosition:50,15 AppearanceAndTransition:14_1
+@ModifyCharacterExtended Rotation:,,0 Scale:3.8 Duration:0 Lazy:false ScenePosition:75,10 IdAndAppearance:Warden.1
+@HideActors ActorIds:MainBackground-Middle,AnAn-Middle Lazy:false
+@AnimateActorExtended ActorIds:MainBackground Loop:false ScenePositionX:30 EasingTypeName:EaseOutQuad Duration:0.7
+@AnimateActorExtended ActorIds:Warden Loop:false ScenePositionX:35 EasingTypeName:EaseOutQuad Duration:0.7
+@Wait WaitMode:0.5
+
+@StopBgm
+@AnimateActorExtended ActorIds:MainBackground,Warden Loop:false
+@WaitForNextFrame
+
+@EmoteJump ActorIds:Warden Loop:false Speed:1.5
+[PrintTextModified Text:现在不属于我的正常上班时间，请一切从速吧。<br>非常不好意思，请各位<br>尽快按下处刑按钮。|#0102Adv27_Warden001| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ResetText
+@AnimateActorExtended ActorIds:MainBackground,Warden Loop:false
+@ModifyBackgroundExtended Id:Stills Scale:{g_backgroundDefaultScale} Duration:0.6 Lazy:false AppearanceAndTransition:580_2 SubId:Middle
+@Wait WaitMode:0.6
+
+[PrintTextModified Text:"（又到了这个时候……<br>　竟然让我们按下<br>　给安安执行处刑的按钮……）|#0102Adv27_Ema002|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+; TODO: ループ再生化する
+@PlaySfxModified SfxPath:Sfx_35 Volume:1 Loop:false FadeInDuration:0
+
+@ProcessInput InputEnabled:false
+@HidePrinter
+@HideUI UINames:ControlPanel,AutoToggle,WitchBookButtonUI AllowToggle:false
+@ShowUI UINames:ExecutionButton
+
+@BeginIf Expression:!enableDebugSkip
+    @Skip Enable:false
+    @Stop
+
+# ExecutionConfirmed
+
+@PlayBgm BgmPath:Bgm_31_1 Volume:1 Loop:true FadeInDuration:0
+@HideUI UINames:ExecutionButton AllowToggle:false Duration:0.6
+@HideActors ActorIds:Stills-Middle Duration:0.6 Lazy:false
+@Wait WaitMode:0.9
+
+@ProcessInput InputEnabled:true
+@ShowUI UINames:ControlPanel,AutoToggle,WitchBookButtonUI
+@EmoteJump ActorIds:Warden Loop:false Speed:1
+[PrintTextModified Text:好，让我们开始吧！<br>现在开始执行对魔女的刑罚～！|#0102Adv27_Warden002| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:啊，其他人请不要动哦。<br>如果有人妨碍或者介入，看守将对其同样定罪。|#0102Adv27_Warden003| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 歯車がまわる音
+@PlaySfxModified SfxPath:Sfx_36 Volume:1 Loop:false FadeInDuration:0
+@HidePrinter
+@AnimateActorExtended ActorIds:Warden Loop:false
+@WaitForNextFrame
+
+@AnimateActorExtended ActorIds:MainBackground Loop:false ScenePositionY:-5 EasingTypeName:EaseInQuad Duration:0.9
+@AnimateActorExtended ActorIds:Warden Loop:false ScenePositionY:-30 EasingTypeName:EaseInQuad Duration:0.9
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.1
+
+[PrintTextModified Text:齿轮开始旋转，<br>中央的底座被缓缓替换。|#0102Adv27_Narrative007| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HidePrinter
+@AnimateActorExtended ActorIds:MainBackground,Warden Loop:false
+@HideActors ActorIds:MainBackground,Warden Duration:0 Lazy:false
+@Wait WaitMode:0.9
+
+@ModifyBackgroundExtended Id:Stills Scale:2.5 Duration:0 Lazy:false ScenePosition:85,85 AppearanceAndTransition:420_3
+@AnimateActorExtended ActorIds:Stills Loop:false ScenePositionX:60 EasingTypeName:EaseOutQuad Duration:1.5
+@ModifyBackgroundExtended Duration:1.2 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:2.4
+
+@AnimateActorExtended ActorIds:Stills Loop:false
+@ModifyBackgroundExtended Id:Stills Scale:3 Duration:0.6 Lazy:false ScenePosition:5,-30 AppearanceAndTransition:420_3 SubId:Middle
+@AnimateActorExtended ActorIds:Stills-Middle Loop:false ScenePositionX:30 EasingTypeName:EaseOutQuad Duration:1.5
+@Wait WaitMode:2.4
+
+@AnimateActorExtended ActorIds:Stills-Middle Loop:false
+@ModifyBackgroundExtended Id:Stills Scale:1.5 Duration:0 Lazy:false ScenePosition:50,50 AppearanceAndTransition:420_3
+@SpawnBlur ActorId:Stills FadeDuration:0
+@AnimateActorExtended ActorIds:Stills Loop:false Scale:1.15 EasingTypeName:EaseOutQuad Duration:2.4
+@SpawnBlur ActorId:Stills Intensity:0 FadeDuration:1.8
+@HideActors ActorIds:Stills-Middle Duration:0.6 Lazy:false
+@Wait WaitMode:3
+
+[PrintTextModified Text:哇……这可太华丽了！|#0102Adv27_Sherry001| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:这是要上演人偶剧吗？|#0102Adv27_Hanna001| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:处刑台上，矗立着一座人偶剧风格的<br>巨大舞台装置。|#0102Adv27_Narrative008| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:精致装点的华丽布景之上，<br>挂着鲜红的幕帘。|#0102Adv27_Narrative009| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:安安被看守<br>押送至处刑台。|#0102Adv27_Narrative010| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HidePrinter
+@AnimateActorExtended ActorIds:MainBackground Loop:false
+@SpawnExtended Path:MaskingRectangle Params:1000,30,true,0.3,#000000 ScenePosition:20,60 Rotation:,,0 SubId:Front
+@ModifyBackgroundExtended Rotation:,,0 Scale:1.75 Lazy:false ScenePosition:28,36 AppearanceAndTransition:14_1 SubId:Front
+@SpawnBlur ActorId:MainBackground-Front FadeDuration:0
+@ModifyCharacterExtended Rotation:,,0 Scale:1.5 Duration:0 Lazy:false ScenePosition:65,50 IdAndAppearance:Jailer.1 SubId:Front
+@ModifyCharacterExtended Rotation:,,0 Scale:1.5 Duration:0 Lazy:false ScenePosition:40,40 IdAndAppearance:AnAn.Pensive1 SubId:Front
+@ChangeActorMaskability ActorIds:MainBackground-Front,AnAn-Front,Jailer-Front Enable:true
+@AnimateActorExtended ActorIds:MainBackground-Front Loop:false ScenePositionX:25 EasingTypeName:EaseOutQuad Duration:0.4
+@AnimateActorExtended ActorIds:AnAn-Front Loop:false ScenePositionX:35 EasingTypeName:EaseOutQuad Duration:0.4
+@AnimateActorExtended ActorIds:Jailer-Front Loop:false ScenePositionX:60 EasingTypeName:EaseOutQuad Duration:0.4
+@Wait WaitMode:0.4
+
+[PrintTextModified Text:她侧眼瞥了一眼艾玛。|#0102Adv27_Narrative011| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:为什么……？<br>吾辈可是把你当作朋友看待的。|#0102Adv27_AnAn001| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（什么……？）|#0102Adv27_Ema003| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:原以为我们终于可以回到当初了。|#0102Adv27_AnAn002| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:那哀伤的眼神，仿佛在倾诉发自内心的痛苦。|#0102Adv27_Narrative012| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（为什么看着我……？<br>　安安和我，<br>　应该还没要好到那个地步，才对……）|#0102Adv27_Ema004|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:我们不是约好了<br>再一起看电影吗。|#0102Adv27_AnAn003| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HideActors ActorIds:AnAn-Front,MainBackground-Front Lazy:false
+@SpawnBlur ActorId:MainBackground-Front Intensity:0 FadeDuration:0
+@DestroySpawnedExtended Path:MaskingRectangle SubId:Front LogWarning:true
+@Wait WaitMode:0.3
+
+[PrintTextModified Text:——！|#0102Adv27_Ema005| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:真相在艾玛的脑海里翻涌而上。|#0102Adv27_Narrative013| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:那过于残酷的真相<br>狠狠剜开了她的心。|#0102Adv27_Narrative014| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:随后，安安被带到人偶剧的舞台上。|#0102Adv27_Narrative015| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 高速で糸が巻きつく音
+@PlaySfxModified SfxPath:Sfx_56 Volume:1 Loop:false FadeInDuration:0
+
+@ModifyBackgroundExtended Id:Stills Scale:{g_backgroundDefaultScale} Lazy:false AppearanceAndTransition:420_1
+
+[PrintTextModified Text:垂下的丝线<br>迅速缠绕在安安的身上。|#0102Adv27_Narrative016| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:哎呀呀，真是讽刺。<br>操纵别人的你也有被当作人偶操纵的那一天。|#0102Adv27_Margo003| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:你操纵大家杀死了大叔，<br>这是理所当然的报应啊。|#0102Adv27_Coco002| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:为什么要杀了大叔！为什么！|#0102Adv27_Coco003| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:不是米莉亚……|#0102Adv27_Ema006| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:艾玛的低语<br>引来了众人的注视。|#0102Adv27_Narrative017| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:安安你想杀的人<br>是我吧……|#0102Adv27_Ema007| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Id:Stills Scale:{g_backgroundDefaultScale} Lazy:false AppearanceAndTransition:421_1
+
+[PrintTextModified Text:？你在说什么？<br>你不是佐伯米莉亚的灵魂吗……？|#0102Adv27_AnAn004| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:那时，你不是说过吗。<br>你们交换了……身体……|#0102Adv27_AnAn005| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@AnimateActorExtended ActorIds:Stills Loop:false
+@ModifyBackgroundExtended Id:Stills Rotation:,,35 Scale:3 Duration:0.6 Lazy:false ScenePosition:25,-15 AppearanceAndTransition:421_1 SubId:Middle
+@AnimateActorExtended ActorIds:Stills-Middle Loop:false ScenePositionX:35 EasingTypeName:EaseOutQuad Duration:1.5
+@Wait WaitMode:2.4
+
+[PrintTextModified Text:她嘟哝了一会，<br>忽然惊愕地睁大双眼。|#0102Adv27_Narrative018| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:她也明白了这个真相。|#0102Adv27_Narrative019| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@StopBgm
+
+@ModifyBackgroundExtended Id:Stills Rotation:,,35 Scale:3 Duration:0.6 Lazy:false ScenePosition:35,-15 AppearanceAndTransition:421_2 SubId:Middle
+
+[PrintTextModified Text:啊、啊啊、啊——！|#0102Adv27_AnAn006| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:原来，那时米莉亚<br>骗了吾辈吗——！|#0102Adv27_AnAn007| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; ◎回想
+; ========================================
+
+@HidePrinter
+@ModifyBackgroundExtended Duration:0 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@HideActors ActorIds:Stills-Middle,Stills Lazy:false
+@Wait WaitMode:0.5
+
+@ModifyBackgroundExtended Scale:1.8 Lazy:false ScenePosition:50,70 AppearanceAndTransition:3_1
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+
+@PlayBgm BgmPath:Bgm_42_2 Volume:1 Loop:true FadeInDuration:0
+
+@ModifyCharacterExtended Scale:1.8 Lazy:false ScenePosition:70 IdAndAppearance:AnAn.Normal1,Angle01/Option_Arms-
+
+[PrintTextModified Text:那天晚上，安安站在惩罚室门前。<br>确认过道上没有人以后，<br>她看向惩罚室的小窗。|#0102Adv27_Narrative020| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HidePrinter
+@SpawnExtended Path:MaskingRectangle Params:40,200,true,0.3,#000000 ScenePosition:20,50 Rotation:,,0 SubId:Front
+@ModifyBackgroundExtended Rotation:,,0 Scale:1.8 Lazy:false ScenePosition:-20,36 AppearanceAndTransition:21_1 SubId:Front
+@ModifyCharacterExtended Rotation:,,0 Scale:1.8 Lazy:false ScenePosition:20,22 IdAndAppearance:Miria.Pensive1 SubId:Front
+@ChangeActorMaskability ActorIds:MainBackground-Front,Miria-Front Enable:true
+@AnimateActorExtended ActorIds:MainBackground-Front Loop:false ScenePositionY:40 EasingTypeName:EaseOutQuad Duration:0.5
+@AnimateActorExtended ActorIds:Miria-Front Loop:false ScenePositionY:25 EasingTypeName:EaseOutQuad Duration:0.5
+@Wait WaitMode:0.4
+
+[PrintTextModified Text:米莉亚被五花大绑在里面，<br>折磨得精疲力竭。|#0102Adv27_Narrative021| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:……对不起，<br>吾辈不该撒娇，拜托你弄坏热气球。|#0102Adv27_AnAn008| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:由于无法通过素描本交流，<br>安安只好开口说话。|#0102Adv27_Narrative022| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:看来，是吾辈的【洗脑】魔法<br>发动了……|#0102Adv27_AnAn009| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:米莉亚无力地笑了笑。|#0102Adv27_Narrative023| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:嗯，我多少也感觉到了……<br>大概是因为你对我说想弄坏热气球，<br>我才产生了那样的想法。|#0102Adv27_Miria001| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:但这并不是你的错啦。<br>实际去做的人是大叔我啊。|#0102Adv27_Miria002| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:而且，大叔我也……|#0102Adv27_Miria003| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:AnAn.Angry1,Angle01/Option_Arms-
+
+[PrintTextModified Text:——都是那家伙的错！|#0102Adv27_AnAn010| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:你是指……？|#0102Adv27_Miria004| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:……樱羽艾玛。|#0102Adv27_AnAn011| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:安安的眼里含着几分阴郁的杀意。|#0102Adv27_Narrative024| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:都怪她一直喊着要出去要出去！<br>大家才转变了主意！|#0102Adv27_AnAn012| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:她总是要给吾辈添堵！<br>蕾雅的死也是，都怪她大吵大闹蕾雅是凶手，<br>就是她害死了蕾雅！|#0102Adv27_AnAn013| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:蕾雅是多么善良的一个人！|#0102Adv27_AnAn014| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:20 IdAndAppearance:Miria.Pensive1 SubId:Front
+
+[PrintTextModified Text:安安，冷静点……|#0102Adv27_Miria005| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:吾辈准备杀死她。|#0102Adv27_AnAn015| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:听到这句话，<br>米莉亚渐渐睁大了眼。|#0102Adv27_Narrative025| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:20 IdAndAppearance:Miria.Surprised1 SubId:Front
+
+[PrintTextModified Text:——！|#0102Adv27_Miria006| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:计划已经制定好了。吾辈不会再容忍她。<br>不杀了她我咽不下这口气。|#0102Adv27_AnAn016| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:20 IdAndAppearance:Miria.Pensive1 SubId:Front
+
+[PrintTextModified Text:安安，这……|#0102Adv27_Miria007| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:对吾辈而言轻而易举！<br>只要能【洗脑】某人，<br>就可以不留下一丝痕迹地杀害她！|#0102Adv27_AnAn017| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:只要她去死的话！只要她去死！<br>去死……！|#0102Adv27_AnAn018| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:…………|#0102Adv27_Miria008| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:米莉亚低下头，而后又抬起头说。|#0102Adv27_Narrative026| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:20 IdAndAppearance:Miria.Smile1 SubId:Front
+
+[PrintTextModified Text:……噗，啊哈哈！你真是太可笑了安安！|#0102Adv27_Miria009| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:AnAn.Pensive1,Angle01/Option_Arms-
+
+[PrintTextModified Text:米莉亚……？你怎么了……？|#0102Adv27_AnAn019| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:你的计划已经失败了。<br>因为，我就是【樱羽艾玛】啊。|#0102Adv27_Miria010| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:AnAn.Surprised1,Angle01/Option_Arms-
+
+[PrintTextModified Text:……樱羽艾玛……！？|#0102Adv27_AnAn020| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:20 IdAndAppearance:Miria.Smile SubId:Front
+
+[PrintTextModified Text:你也知道吧？<br>佐伯米莉亚的魔法是【互换】。<br>被看守抓走的时候，她用了这个魔法。|#0102Adv27_Miria011| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:现在这具身体里装的是樱羽艾玛的灵魂。<br>而樱羽艾玛的身体里装的是——|#0102Adv27_Miria012| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:大叔的灵魂。<br>所以，你就算杀了她也毫无意义。|#0102Adv27_Miria013| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:既然你那么恨我，那你得杀了我啊。|#0102Adv27_Miria014| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:20 IdAndAppearance:Miria.Default SubId:Front
+
+[PrintTextModified Text:啊，对了。被看守抓走的时候，<br>我马上把钥匙藏在嘴里了。|#0102Adv27_Miria015| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:反正我不需要这玩意，就吞了它吧。|#0102Adv27_Miria016| AuthorId:Miria RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:米莉亚的喉咙响起吞咽声。|#0102Adv27_Narrative027| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ＠備考◆衝撃で息を呑む
+
+@StopBgm
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:AnAn.Surprised1,Angle01/Option_Arms-
+
+[PrintTextModified Text:——！|#0102Adv27_AnAn021| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyCharacterExtended Lazy:false ScenePosition:70 IdAndAppearance:AnAn.Angry1,Angle01/Option_Arms-
+
+[PrintTextModified Text:樱羽、艾玛……！|#0102Adv27_AnAn022| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:安安惊愕得浑身发抖……<br>接着，她用满含憎恶的眼神，看向眼前的少女。|#0102Adv27_Narrative028| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HidePrinter
+@AnimateActorExtended ActorIds:MainBackground-Front,Miria-Front Loop:false
+@WaitForNextFrame
+@AnimateActorExtended ActorIds:MainBackground-Front Loop:false ScenePositionY:44 EasingTypeName:EaseOutQuad Duration:0.5
+@AnimateActorExtended ActorIds:Miria-Front Loop:false ScenePositionY:48 EasingTypeName:EaseOutQuad Duration:0.5
+@HideActors ActorIds:MainBackground-Front,Miria-Front Lazy:false
+@DestroySpawnedExtended Path:MaskingRectangle SubId:Front LogWarning:true
+
+@HideAllCharacters Lazy:false
+
+; ========================================
+; 回想ここまで
+; ========================================
+
+@HidePrinter
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+
+@PlayBgm BgmPath:Bgm_43_1 Volume:1 Loop:true FadeInDuration:0
+
+@ModifyBackgroundExtended Id:Stills Rotation:,,0 Scale:{g_backgroundDefaultScale} Lazy:false AppearanceAndTransition:421_3
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:0.9
+
+[PrintTextModified Text:怎么、怎么会这样！！|#0102Adv27_AnAn023| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:不对！吾辈想杀的<br>不是米莉亚！是艾玛！|#0102Adv27_AnAn024| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:她可是吞了收纳柜的钥匙！<br>毁掉了我们珍贵的回忆！|#0102Adv27_AnAn025| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HidePrinter
+@AnimateActorExtended ActorIds:Stills Loop:false
+@ModifyBackgroundExtended Id:Stills Rotation:,,35 Scale:3 Duration:0.6 Lazy:false ScenePosition:25,-15 AppearanceAndTransition:421_3 SubId:Middle
+@AnimateActorExtended ActorIds:Stills-Middle Loop:false ScenePositionX:35 EasingTypeName:EaseOutQuad Duration:1.5
+@Wait WaitMode:2.4
+
+[PrintTextModified Text:吾辈无法原谅她！！<br>哪怕剖开她的肚子，吾辈也要把<br>钥匙拿出来！！|#0102Adv27_AnAn026| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:难道你就是为了这个才捅了她的肚子……|#0102Adv27_Alisa001| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:结果……樱羽艾玛还活着，<br>那岂不是没有任何意义！！|#0102Adv27_AnAn027| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:悲痛的吼叫<br>深深剜开艾玛的心。|#0102Adv27_Narrative029| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:原来，<br>米莉亚保护了我……|#0102Adv27_Ema008| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:热气球被破坏的那次，艾玛没有坚信米莉亚，<br>没能维护她。|#0102Adv27_Narrative030| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:然而——<br>她却保护了艾玛免受憎恨的戕害。|#0102Adv27_Narrative031| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（这、这实在是太残酷了……<br>　我究竟该怎样赎罪才好……？）|#0102Adv27_Ema009|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:艾玛心痛得不能自已，<br>眼泪止不住地往外流。|#0102Adv27_Narrative032| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:可是为什么？<br>安安你为什么想杀我……|#0102Adv27_Ema010| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Id:Stills Rotation:,,35 Scale:3 Duration:0.6 Lazy:false ScenePosition:35,-15 AppearanceAndTransition:421_4 SubId:Middle
+@Wait WaitMode:0.6
+
+[PrintTextModified Text:我不想听，不想听，<br>不想听……！|#0102Adv27_AnAn028| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:你不准再说话。去死吧。<br>去死，去死，你去死吧！！|#0102Adv27_AnAn029| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HidePrinter
+@ModifyBackgroundExtended Id:Stills Rotation:,,35 Scale:3 Duration:0.6 Lazy:false ScenePosition:35,-15 AppearanceAndTransition:421_4 SubId:Middle
+@AnimateActorExtended ActorIds:Stills-Middle Loop:false ScenePositionX:15 EasingTypeName:Linear Duration:1.5
+
+[PrintTextModified Text:安安每下一句诅咒，她的指甲就变得愈发尖长，<br>脸上生出一道道裂痕。<br>那恶毒的外表，正是成为魔女的证明。|#0102Adv27_Narrative033| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:艾玛的心近乎崩溃。|#0102Adv27_Narrative034| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（如果死的是我该有多好。<br>　如果死的是不受待见的我就好了）|#0102Adv27_Ema011|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:安安小姐……不要，再说下去了……|#0102Adv27_Meruru001| AuthorId:Meruru RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:艾玛，你可不要胡思乱想。<br>犯下杀人罪的魔女是安安。|#0102Adv27_Sherry002| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:是啊。艾玛你没有任何错！|#0102Adv27_Hanna002| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:安安，你这么做可有点不像话吧？<br>事到如今才在这里大喊大叫杀错人了。|#0102Adv27_Sherry003| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HidePrinter
+@ModifyBackgroundExtended Id:Stills Rotation:,,35 Scale:3 Duration:0.6 Lazy:false ScenePosition:15,-15 AppearanceAndTransition:421_5 SubId:Middle
+@AnimateActorExtended ActorIds:Stills-Middle Loop:false ScenePositionX:35 EasingTypeName:EaseOutQuad Duration:1.5
+@Wait WaitMode:2.4
+
+[PrintTextModified Text:闭嘴！闭嘴闭嘴闭嘴闭嘴……|#0102Adv27_AnAn030| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:毫无说服力。谁要听你的命令。|#0102Adv27_Nanoka002| AuthorId:Nanoka RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:请告诉我，我也很好奇，<br>为什么你想杀害艾玛？|#0102Adv27_Sherry004| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:就算知道你想杀的是艾玛，<br>我也实在想不通你的动机。|#0102Adv27_Sherry005| AuthorId:Sherry RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:是啊，究竟是为什么！？<br>为了让大家逃出这里，<br>艾玛比任何人都要努力不是吗！|#0102Adv27_Hanna003| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HidePrinter
+@ModifyBackgroundExtended Id:Stills Rotation:,,0 Scale:{g_backgroundDefaultScale} Duration:0.6 Lazy:false ScenePosition:50,50 AppearanceAndTransition:421_6 SubId:Front
+@Wait WaitMode:0.8
+
+[PrintTextModified Text:……吾辈不想出去！|#0102Adv27_AnAn031| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:吾辈不想离开这里！|#0102Adv27_AnAn032| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:……不想……离开这里……？<br>为什么……你不想离开这种鬼地方……！|#0102Adv27_Ema012| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:——吾辈是不可以得到满足的那种人。<br>环境恶劣的监牢<br>对吾辈来说反而是理想的居所。|#0102Adv27_AnAn033| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:吾辈想永远生活在这里。<br>而且……|#0102Adv27_AnAn034| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:来这里以前，从来没有人陪在吾辈的身边。<br>但在这里，第一次有人愿意陪着我。|#0102Adv27_AnAn035| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:就算不说话，<br>也有人愿意做我的朋友……！|#0102Adv27_AnAn036| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:对吾辈而言，这里的生活<br>变得更加美好了！|#0102Adv27_AnAn037| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:（是吗……原来是这样）|#0102Adv27_Ema013| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:安安平时看着艾玛的时候，<br>眼里总是带着一丝冷漠。|#0102Adv27_Narrative035| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:在越狱计划的推动下，少女们团结一心，<br>而艾玛一直是团队的中心。|#0102Adv27_Narrative036| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:对于【不想离开这里的少女】而言，<br>樱羽艾玛只是个妨碍者。|#0102Adv27_Narrative037| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:哪怕毁坏了为越狱准备的热气球，<br>艾玛仍旧没有放弃，<br>这导致安安对她的憎恶越来越深。|#0102Adv27_Narrative038| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:安安恨她恨得一拳又一拳地捶打地面，<br>打到没力气动弹。|#0102Adv27_Narrative039| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:喂，我听不懂你在说什么，<br>能老老实实地接受处刑吗？|#0102Adv27_Coco004| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:你是犯下杀人罪的魔女这点<br>可是事实。|#0102Adv27_Coco005| AuthorId:Coco RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:真是烦死人了。<br>喂典狱长！要处刑就快点动手啊！|#0102Adv27_Alisa002| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:不要！吾辈想杀的是樱羽艾玛！！<br>不要处刑我！！|#0102Adv27_AnAn038| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:怎么会是米莉亚替她死掉，骗人！！|#0102Adv27_AnAn039| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:——噗的一下，<br>玛格笑出了声。|#0102Adv27_Narrative040| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HidePrinter
+@AnimateActorExtended ActorIds:Stills Loop:false
+@SpawnExtended Path:MaskingRectangle Params:40,200,true,0.3,#000000 ScenePosition:20,50 Rotation:,,0 SubId:Forefront
+@ModifyBackgroundExtended Rotation:,,0 Scale:1.5 Lazy:false ScenePosition:-20,36 AppearanceAndTransition:14_1 SubId:Forefront
+@ModifyCharacterExtended Rotation:,,0 Scale:1.1 Lazy:false ScenePosition:20,32 IdAndAppearance:Margo.Normal1 SubId:Forefront
+@ChangeActorMaskability ActorIds:MainBackground-Forefront,Margo-Forefront Enable:true
+@AnimateActorExtended ActorIds:MainBackground-Forefront Loop:false ScenePositionY:40 EasingTypeName:EaseOutQuad Duration:0.5
+@AnimateActorExtended ActorIds:Margo-Forefront Loop:false ScenePositionY:45 EasingTypeName:EaseOutQuad Duration:0.5
+@Wait WaitMode:0.4
+
+[PrintTextModified Text:什么叫“不可以得到满足的那种人”，<br>你只是自私罢了。|#0102Adv27_Margo004| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:因为，<br>你不是很满足于这里的生活吗？|#0102Adv27_Margo005| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:你为了过上幸福的生活，<br>自私地杀死了佐伯米莉亚。|#0102Adv27_Margo006| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:这就是真相。你也差不多该承认了。|#0102Adv27_Margo007| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+@AnimateActorExtended ActorIds:MainBackground-Forefront,Margo-Forefront Loop:false
+@WaitForNextFrame
+
+@AnimateActorExtended ActorIds:MainBackground-Forefront Loop:false ScenePositionY:36 EasingTypeName:EaseOutQuad Duration:0.5
+@AnimateActorExtended ActorIds:Margo-Forefront Loop:false ScenePositionY:22 EasingTypeName:EaseOutQuad Duration:0.5
+@HideActors ActorIds:MainBackground-Forefront,Margo-Forefront Lazy:false
+@DestroySpawnedExtended Path:MaskingRectangle SubId:Forefront LogWarning:true
+
+@HidePrinter
+@ModifyBackgroundExtended Id:Stills Rotation:,,35 Scale:3 Duration:0.6 Lazy:false ScenePosition:25,-15 AppearanceAndTransition:421_7 SubId:Forefront
+@AnimateActorExtended ActorIds:Stills-Forefront Loop:false ScenePositionX:35 EasingTypeName:EaseOutQuad Duration:1.5
+@Wait WaitMode:2.4
+
+[PrintTextModified Text:——|#0102Adv27_AnAn040| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@StopBgm
+
+[PrintTextModified Text:刚才还在看守的束缚下<br>拼命挣扎惊慌失措的安安，现在突然静止不动了。|#0102Adv27_Narrative041| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:她一脸茫然若失的表情。|#0102Adv27_Narrative042| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:——艾玛她们<br>触碰了夏目安安的禁忌。|#0102Adv27_Narrative043| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:那是她锁在内心深层的<br>不可触及之处。|#0102Adv27_Narrative044| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:这样啊……<br>原来，吾辈很幸福啊。|#0102Adv27_AnAn041| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:为了满足自己，吾辈又做了错事——|#0102Adv27_AnAn042| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; トラウマシーン
+; ========================================
+
+@HidePrinter
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:1.2
+
+@ModifyBackgroundExtended Id:Stills Scale:3 Duration:0 Lazy:false ScenePosition:80,40 AppearanceAndTransition:190_1
+@HideActors ActorIds:Stills-Forefront,Stills-Front,Stills-Middle Duration:0 Lazy:false
+@WaitForNextFrame
+
+@AnimateActorExtended ActorIds:Stills Loop:false ScenePositionX:80 ScenePositionY:20 Scale:2.5 EasingTypeName:Linear Duration:12
+
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:1
+
+@ModifyTextPrinter Lazy:false IdAndAppearance:Normal.Simple MakeDefault:true HideOther:true
+
+@PlayBgm BgmPath:Bgm_1_1 Volume:1 Loop:true FadeInDuration:0
+
+[PrintTextModified Text:安安的父母原本很宠溺她。|#0102Adv27_Narrative045| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:安安从小体弱多病、性格内向，<br>父母对她可以说有求必应。|#0102Adv27_Narrative046| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:给我买多多的玩具。<br>给我买游戏。|#0102Adv27_Narrative047| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:买蛋糕。<br>买这个房子。|#0102Adv27_Narrative048| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:多买点。<br>我想要更多，更多。|#0102Adv27_Narrative049| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Id:Stills Rotation:,,0 Scale:3 Duration:0.8 Lazy:false ScenePosition:20,80 AppearanceAndTransition:190_1 SubId:Middle
+@Wait WaitMode:0.5
+@AnimateActorExtended ActorIds:Stills-Middle Loop:false ScenePositionX:0 ScenePositionY:80 Scale:2 EasingTypeName:Linear Duration:15
+
+[PrintTextModified Text:那只是一个小女孩<br>理所当然的愿望、理所当然的撒娇。|#0102Adv27_Narrative050| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:不知不觉中，安安发现了。|#0102Adv27_Narrative051| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:她所有的要求<br>爸爸妈妈全都会听。|#0102Adv27_Narrative052| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:那些撩拨耳畔的悄悄话<br>如同甜美的点心一般。|#0102Adv27_Narrative053| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:把我当作公主一样宠爱。<br>绝对不准责骂我。|#0102Adv27_Narrative054| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:永远耐心地陪在我身边。<br>不要睡去，要陪着我。|#0102Adv27_Narrative055| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:陪着我。<br>永远，永远陪着我。|#0102Adv27_Narrative056| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:安安继续说着甜蜜的低语。|#0102Adv27_Narrative057| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:渐渐地，<br>安安的父母注意到了她那奇妙的魔法。|#0102Adv27_Narrative058| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Id:Stills Rotation:,,0 Scale:2 Duration:0.8 Lazy:false ScenePosition:0,80 AppearanceAndTransition:190_1 SubId:Front
+@Wait WaitMode:0.5
+@AnimateActorExtended ActorIds:Stills-Front Loop:false ScenePositionX:10 ScenePositionY:15 Scale:2 EasingTypeName:Linear Duration:8
+
+[PrintTextModified Text:再这样下去，<br>他们就会变成提线木偶。|#0102Adv27_Narrative059| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:变成内心崩坏，<br>丧失灵魂的废人。|#0102Adv27_Narrative060| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:为了杜绝这样的后果，<br>父亲保护母亲，母亲保护父亲。|#0102Adv27_Narrative061| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:爸爸说，要撒娇只准找爸爸。<br>妈妈说，要撒娇只准找妈妈。|#0102Adv27_Narrative062| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:就这样，在他们都没有意识到，<br>甚至安安自己也没有意识到的一天天里。|#0102Adv27_Narrative063| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:作为幸福的代价，她终究亲手摧毁了自己的父母——|#0102Adv27_Narrative064| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Id:Stills Scale:{g_backgroundDefaultScale} Duration:0 Lazy:false ScenePosition:50,50 AppearanceAndTransition:190_1
+@HideActors ActorIds:Stills-Middle,Stills-Front Lazy:false
+
+[PrintTextModified Text:她无法再祈愿幸福了。|#0102Adv27_Narrative065| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:在那以后安安一直躲在家里，<br>和人偶父母生活在一起。|#0102Adv27_Narrative066| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HidePrinter
+@ModifyBackgroundExtended Duration:0.6 Lazy:false AppearanceAndTransition:SolidColor SubId:Middle
+@Wait WaitMode:0.6
+
+[PrintTextModified Text:背上魔女的罪名被逮捕进监狱以后，<br>这群少女成了她第一次交到的朋友。|#0102Adv27_Narrative067| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:她想和这些女孩<br>永远在一起。|#0102Adv27_Narrative068| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:一旦离开这里，<br>就要回到与坏掉的人偶相伴的生活。|#0102Adv27_Narrative069| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:她好不容易得到了渴望已久的生活。<br>然而此时却出现了一名碍事者。|#0102Adv27_Narrative070| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HidePrinter
+@ModifyBackgroundExtended Rotation:,,0 Scale:1 TintColor:#000000 Duration:0 Lazy:false ScenePosition:50,50 AppearanceAndTransition:SolidColor SubId:Middle
+@ModifyCharacterExtended Rotation:,,-5 Scale:1.9 Duration:0.9 Lazy:false ScenePosition:40,42 IdAndAppearance:Ema.Normal1 SubId:Middle
+@WaitForNextFrame
+
+@AnimateActorExtended ActorIds:Ema-Middle Loop:false ScenePositionX:60 EasingTypeName:Linear Duration:10
+@Wait WaitMode:0.8
+
+[PrintTextModified Text:她就是，樱羽艾玛。|#0102Adv27_Narrative071| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@StopBgm
+
+[PrintTextModified Text:——不知何人，对安安悄声说道。|#0102Adv27_Narrative072| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:你根本不想出去，她为什么要来破坏你的生活？<br>明明她才是碍事的那个。|#0102Adv27_Narrative073| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HidePrinter
+@ModifyBackgroundExtended Rotation:,,0 Scale:1 TintColor:#ff0000 Duration:0 Lazy:false ScenePosition:50,50 AppearanceAndTransition:SolidColor
+@HideActors ActorIds:Stills Duration:0 Lazy:false
+@HideActors ActorIds:MainBackground-Middle,Ema-Middle Duration:0.9 Lazy:false
+@Wait WaitMode:1.2
+
+[PrintTextModified Text:就这样，安安<br>对樱羽艾玛的杀意越来越重。|#0102Adv27_Narrative074| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HidePrinter
+@Wait WaitMode:1.8
+
+@ModifyTextPrinter Lazy:false IdAndAppearance:Normal.Default MakeDefault:true HideOther:true
+@ModifyBackgroundExtended Id:Stills Rotation:,,35 Scale:3 Duration:0.9 Lazy:false ScenePosition:40,-3 AppearanceAndTransition:421_8 SubId:Middle
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:0.9
+@SpawnBlur ActorId:Stills-Middle Intensity:1 FadeDuration:0
+@WaitForNextFrame
+
+@SpawnBlur ActorId:Stills-Middle Intensity:0 FadeDuration:2.4
+@Wait WaitMode:3
+
+@PlayBgm BgmPath:Bgm_44_1 Volume:1 Loop:true FadeInDuration:0
+
+[PrintTextModified Text:一滴泪，从安安的眼角滑落。<br>那是饱含悔意的泪。|#0102Adv27_Narrative075| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:诺亚、蕾雅、米莉亚和梅露露，<br>吾辈很喜欢和你们在一起的时光。|#0102Adv27_AnAn043| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:然而，吾辈却亲手毁了它。<br>吾辈总是，对幸福发现得太晚。|#0102Adv27_AnAn044| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Id:Stills Rotation:,,10 Scale:2.5 Duration:0.9 Lazy:false ScenePosition:38,10 AppearanceAndTransition:421_9 SubId:Front
+
+[PrintTextModified Text:化作提线木偶的安安<br>发现自己的手里不知何时多了一把锋利的刀。|#0102Adv27_Narrative076| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:对不起，吾辈不该奢求幸福——|#0102Adv27_AnAn045| AuthorId:AnAn RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Id:Stills Rotation:,,0 Scale:2 Duration:0.9 Lazy:false ScenePosition:50,50 AppearanceAndTransition:420_2 SubId:Forefront
+
+; 切り裂かれる音
+@PlaySfxModified SfxPath:Sfx_53 Volume:1 Loop:false FadeInDuration:0
+
+[PrintTextModified Text:她用刀一把刺向自己，而赤蝶亦随之飞舞。<br>悲痛欲绝的惨叫回荡在整个大厅。|#0102Adv27_Narrative077| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@AnimateActorExtended ActorIds:Stills-Forefront Loop:false ScenePositionX:50 ScenePositionY:50 Scale:{g_backgroundDefaultScale} EasingTypeName:Linear Duration:20
+
+[PrintTextModified Text:精美亮堂的盒子里上演了一出<br>与之毫不相称的凄惨人偶剧。|#0102Adv27_Narrative078| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:玛格恍然回过神来，<br>开口说道。|#0102Adv27_Narrative079| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:以防万一，大家最好捂住耳朵。<br>她的魔女化程度好像越来越深了。|#0102Adv27_Margo008| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:魔女化程度越深，魔法能力就会越强。<br>就她而言，<br>想必她的洗脑强制力会变强。|#0102Adv27_Margo009| AuthorId:Margo RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:听到玛格的话，<br>少女们纷纷慌忙捂住耳朵。|#0102Adv27_Narrative080| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:然而，唯独艾玛一人<br>没有捂住耳朵，站在原地。|#0102Adv27_Narrative081| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:喂樱羽！快捂住耳朵啊！<br>你可是最危险的！|#0102Adv27_Alisa003| AuthorId:Alisa RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:是啊！<br>说不定她会命令谁去杀你……|#0102Adv27_Hanna004| AuthorId:Hanna RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:艾玛摇了摇头。|#0102Adv27_Narrative082| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:安安她<br>不会再做那种事了。|#0102Adv27_Ema014| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（我很震惊，她竟然如此憎恨我……<br>　可是……）|#0102Adv27_Ema015|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（最理解她想法的人，<br>　一定是我）|#0102Adv27_Ema016|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:艾玛曾经被孤立过，<br>后来连学校都不敢去。|#0102Adv27_Narrative083| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:在这座监狱里，她结识了一众可以称得上朋友和伙伴的少女。<br>这让她得到了些许救赎。|#0102Adv27_Narrative084| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（对不起，安安。<br>　我夺走了你的一切……）|#0102Adv27_Ema017|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:安安尖叫着，<br>不断地复活与再生。|#0102Adv27_Narrative085| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:到最后，玛格也松开了捂着耳朵的手。|#0102Adv27_Narrative086| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@ModifyBackgroundExtended Id:Stills Scale:{g_backgroundDefaultScale} Lazy:false AppearanceAndTransition:420_4 SubId:Forefront
+
+[PrintTextModified Text:鲜红的幕帘渐渐合拢，<br>将异形的怪物——化作【残骸】的安安<br>隐藏在幕后。|#0102Adv27_Narrative087| RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:这就是最后一幕，<br>接下来她会被关进永恒的囚牢之中。|#0102Adv27_Warden004| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+; 歯車がまわる音
+@PlaySfxModified SfxPath:Sfx_36 Volume:1 Loop:false FadeInDuration:0
+
+[PrintTextModified Text:机关开始运作，<br>将处刑台的底座替换走。|#0102Adv27_Narrative088| RevealSpeed:1 WaitForInput:true Wait:true]
+
+; ========================================
+; 演出：BGM切る・黒画面・UIも消す・ささやきのみ
+; ========================================
+
+@HidePrinter
+@AnimateActorExtended ActorIds:Stills-Forefront Loop:false
+@HideActors ActorIds:Stills-Forefront,Stills-Front,Stills-Middle Duration:0 Lazy:false
+@ModifyBackgroundExtended TintColor:#000000 Duration:0 Lazy:false AppearanceAndTransition:SolidColor
+@ModifyBackgroundExtended Duration:0.9 Lazy:false AppearanceAndTransition:Transparent SubId:Overlay
+@Wait WaitMode:0.9
+
+@StopBgm
+
+@HidePrinter
+@ModifyTextPrinter Lazy:false IdAndAppearance:Normal.Simple MakeDefault:true HideOther:true
+@Wait WaitMode:1.2
+
+; 立ち絵・話者名の表示なし
+; @月代ユキ
+
+@PrintTextModified Text:——做得好。|#0102Adv27_Narrative089| RevealSpeed:0.05 WaitForInput:true Wait:true
+
+; ========================================
+; 演出ここまで
+; ========================================
+
+@HidePrinter
+@ModifyBackgroundExtended Duration:1.8 Lazy:false AppearanceAndTransition:SolidColor SubId:Overlay
+@Wait WaitMode:3
+
+@ModifyBackgroundExtended Scale:2 TintColor:white Duration:0 Lazy:false ScenePosition:75,60 AppearanceAndTransition:13_1
+@ModifyBackgroundExtended TintColor:#000000 Duration:1.8 Lazy:false ScenePosition:50,50 AppearanceAndTransition:Transparent SubId:Overlay
+@WaitForNextFrame
+
+@AnimateActorExtended ActorIds:MainBackground Loop:false ScenePositionX:25 Duration:20
+@Wait WaitMode:1.5
+@ModifyTextPrinter Lazy:false IdAndAppearance:Normal.Default MakeDefault:true HideOther:true
+
+[PrintTextModified Text:（……这样的审判究竟要持续到什么时候）|#0102Adv27_Ema018| AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+[PrintTextModified Text:"（直到所有人死去，不，<br>　直到所有人都变成魔女为止……？）|#0102Adv27_Ema019|" AuthorId:Ema RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HidePrinter
+@SpawnExtended Path:MaskingRectangle Params:60,200,true,0.5,#000000cc ScenePosition:75,50 Rotation:,,0 SubId:Middle
+@ModifyBackgroundExtended Visible:false Rotation:,,0 Scale:1.3 TintColor:white Duration:0 Lazy:false ScenePosition:75,55 AppearanceAndTransition:14_1 SubId:Middle
+@ModifyCharacterExtended Rotation:,,0 Scale:1.2 Lazy:false ScenePosition:75,55 IdAndAppearance:Warden.1 SubId:Middle
+@ChangeActorMaskability ActorIds:MainBackground-Middle,Warden-Middle Enable:true
+
+@ModifyBackgroundExtended Visible:true Lazy:false AppearanceAndTransition:14_1 SubId:Middle
+@WaitForNextFrame
+
+@AnimateActorExtended ActorIds:MainBackground-Middle Loop:false ScenePositionY:50 EasingTypeName:EaseOutQuad Duration:0.6
+@AnimateActorExtended ActorIds:Warden-Middle Loop:false ScenePositionY:50 EasingTypeName:EaseOutQuad Duration:0.6
+@Wait WaitMode:0.3
+
+[PrintTextModified Text:哎呀呀，总算能下班了……<br>魔女审判，就此闭庭！|#0102Adv27_Warden005| AuthorId:Warden RevealSpeed:1 WaitForInput:true Wait:true]
+
+@HidePrinter
+@AnimateActorExtended ActorIds:MainBackground-Middle,Warden-Middle Loop:false
+@WaitForNextFrame
+
+@AnimateActorExtended ActorIds:MainBackground-Middle Loop:false ScenePositionY:45 EasingTypeName:EaseOutQuad Duration:0.6
+@AnimateActorExtended ActorIds:Warden-Middle Loop:false ScenePositionY:45 EasingTypeName:EaseOutQuad Duration:0.6
+@HideActors ActorIds:MainBackground-Middle,Warden-Middle Lazy:false
+@DestroySpawnedExtended Path:MaskingRectangle SubId:Middle LogWarning:true
+@Wait WaitMode:0.3
+
+[PrintTextModified Text:所有人都疲惫不堪。<br>审判结束后好一阵子，所有人都一动不动。|#0102Adv27_Narrative090| RevealSpeed:1 WaitForInput:true Wait:true]
+
+@Gosub Path:System/System_Subroutine.EndAdv
+
+@GotoModified Path:Act01_Chapter02/Act01_Chapter02_Adv28 SoftReset:true
+
