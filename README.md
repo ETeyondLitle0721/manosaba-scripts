@@ -4,7 +4,10 @@
 
 当前实现包含针对 Manosaba 项目自定义命令的处理与别名提取逻辑。还原结果适合剧情整理、本地化分析和脚本结构研究；能否直接在 Unity / Naninovel 中运行，仍取决于对应版本、自定义命令、资源及项目配置。
 
-此外，项目提供一个剧情文本抽取脚本 `extract-nani-text.cjs`，用于从 `.nani` 脚本中批量抽取纯文本剧情（含说话者标注），输出为便于阅读与比对的 `.txt` 文件。
+此外，项目提供两个独立的文本处理脚本：
+
+- **`extract-nani-text.cjs`**：用于从 `.nani` 脚本中批量抽取纯文本剧情（含说话者标注），输出为便于阅读与比对的 `.txt` 文件。
+- **`concat-text-files.ps1`**：用于将指定目录下的所有文本文件拼接为单一文本文件，便于合并、归档与人工查阅。
 
 ## 通用性说明
 
@@ -12,6 +15,7 @@
 - **`extract-aliases.mjs` 是特化的**。其提取逻辑限定了 Manosaba 项目所使用的命名空间，并额外包含 Manosaba 自身追加的自定义命令，以及该游戏依赖的 **GigaCreation** 插件中的命令与参数。若用于其他游戏，需要按目标项目的 `dump.cs` 命名空间、命令类与参数字段自行调整提取规则，或手工维护 `aliases.json`。
 - **`localization.mjs` 同样是特化的**：其本地化 TextAsset 解析逻辑针对 Manosaba 的文本组织方式定制，按 TextAsset 对象边界读取多行 `m_Script`、从文档头取得完整脚本路径并解析 `# 文本ID` 分段。迁移到其他游戏时，需按目标项目的本地化资源结构相应调整解析规则。
 - **`extract-aliases.mjs` 读取的 `dump.cs` 仅兼容 IL2CppDumper 的输出文件**：其内容结构（类型、字段、命名空间等声明形式）需与 IL2CppDumper 生成的结果一致，其他工具产出的 `dump.cs` 可能无法被正确解析。
+- **`concat-text-files.ps1` 与 Naninovel / Unity 无关**，是一个通用的 PowerShell 文本拼接脚本，可用于任何目录下的文本文件合并。
 - 即使不重新提取别名，也可直接提供手写的 `aliases.json` 使用转换器；未匹配到别名时转换器回退到序列化类名与字段名，仍可产出 `.nani`，只是命令与参数名可能与目标游戏习惯不一致。
 
 ## 编写来源
@@ -23,6 +27,7 @@
 | `parse-unity-dump.mjs` | DeepSeek |
 | `converts/ja-JP.ps1` | DeepSeek |
 | `extract-nani-text.cjs` | DeepSeek |
+| `concat-text-files.ps1` | DeepSeek |
 | 其余代码文件，包括转换、本地化、别名提取、中文批处理及测试脚本 | ChatGPT |
 
 本 README 由 ChatGPT 重写，DeepSeek 参与修改。以上为工具代码的编写来源说明，游戏原有剧情文本与资源不属于 AI 编写内容。
@@ -35,16 +40,16 @@
 - 按「完整脚本路径 + 文本 ID」匹配本地化文本，避免跨章节同名 ID 误替换。
 - 输出 JSON 转换报告，记录命令数量、翻译统计、语音关联线索及转换问题。
 - 递归抽取 `.nani` 中的剧情文本，标注说话者并输出为 `.txt`，便于剧情整理与人工校对。
+- 将指定目录下的文本文件按「文件名 + 内容」为块、块间以两个换行符分隔的方式拼接为单一 `.txt`，输出到上级目录。
 - 提供 Windows PowerShell 批处理脚本，串联 bundle 导出与 Node.js 转换。
 
 ## 环境与输入
 
 - **Node.js 18 或更高版本**：使用原生 ES Modules 和 Node.js 内置模块，无第三方依赖，无需 `npm install`。
+- **PowerShell 7**（`concat-text-files.ps1` 使用 `utf8NoBOM` 编码，需 pwsh 6+）；批量处理脚本面向 Windows PowerShell 5.1 / PowerShell 7。
 - **UnityDataTool**：从 `.bundle` 导出文本时需要；已有 dump 文本则可直接使用 Node.js。
-- **PowerShell**：仅批量处理需要。中文批处理面向 Windows PowerShell 5.1 / PowerShell 7。
-- **输入文件**：剧情 bundle 的 UnityDataTool 文本 dump；应用翻译时另需本地化 TextAsset dump；提取别名时另需 `dump.cs`；文本抽取时另需 `.nani` 脚本目录。
-
-本包未附带 UnityDataTool、原始 bundle、原始 dump 或 `dump.cs`，需自行准备。Node.js 转换器本身不直接读取 bundle。
+- **输入文件**：剧情 bundle 的 UnityDataTool 文本 dump；应用翻译时另需本地化 TextAsset dump；提取别名时另需 `dump.cs`；文本抽取时另需 `.nani` 脚本目录；文本拼接时另需目标目录。
+- 本包未附带 UnityDataTool、原始 bundle、原始 dump 或 `dump.cs`，需自行准备。Node.js 转换器本身不直接读取 bundle。
 
 ## 文件说明
 
@@ -55,6 +60,7 @@
 | `localization.mjs` | 读取本地化 TextAsset，合并与校验翻译 |
 | `extract-aliases.mjs` | 从 `dump.cs` 提取命令、参数别名及继承关系（针对 Manosaba + GigaCreation 特化，迁移需调整） |
 | `extract-nani-text.cjs` | 递归抽取 `.nani` 剧情文本，标注说话者并输出 `.txt` |
+| `concat-text-files.ps1` | 非递归拼接指定目录下所有文本文件，输出到上级目录的 `<目录名>.txt` |
 | `aliases.example.json` | 别名配置格式示例，含占位内容，不宜直接作为完整配置 |
 | `aliases.json` | 当前默认别名配置；本包中为空对象 `{}` |
 | `aliases.new.json` | 已有的另一份别名映射，使用前应核对与目标版本是否一致 |
@@ -128,6 +134,26 @@ node ./extract-nani-text.cjs
 - 去除文本末尾形如 `|#0101Adv02_Ema001|` 的 ID 标识符，并对每行结果 `trim`。
 - 不含任何可提取行的 `.nani` 文件**不输出**对应 `.txt`，在终端记为「跳过(无内容)」。
 - 文本中的 `<ruby="...">...</ruby>` 与 `<br>` 等标记默认保留，便于人工对照原文。
+
+### 5. 拼接文本文件
+
+将某个目录下的所有文本文件合并为单一文本文件，便于归档与比对：
+
+```powershell
+pwsh ./concat-text-files.ps1 ./output/ja-JP
+```
+
+行为说明：
+
+- **非递归**：仅处理指定目录下一层的文件，不进入子目录。
+- 每个文件的内容前添加「文件名 + 换行」，文件之间以两个换行符分隔。
+- 输出到该目录的**上级目录**下，文件名为 `<目录名>.txt`。例如 `./output/ja-JP` 会输出到 `./output/ja-JP.txt`。
+- 以 UTF-8（无 BOM）写出；读取时自动识别编码。
+- 内容末尾的多余换行会被裁剪，避免与分隔符叠加产生过多空行。
+- 无法读取的文件会被跳过并在终端给出警告，不影响其余文件。
+- 文件按名称排序，保证输出稳定。
+
+> **注意**：脚本会把目录下**所有文件**当作文本读取。若目录中混有二进制文件（如图片、音频），可能产生乱码。如需限定扩展名，可在脚本中的 `Get-ChildItem` 后追加过滤，例如 `| Where-Object { $_.Extension -in '.txt','.md','.log' }`。
 
 ## 转换器参数
 
@@ -203,6 +229,7 @@ node convert-to-nani.mjs <dump.txt> [选项]
 - 保留 `|#文本ID|` 和行位置有助于维持自动语音关联，但报告中的线索不是已验证的音频路径，播放仍依赖原项目资源与配置。
 - 还原不保证与原始源码逐字一致，也不保证所有自定义命令可直接运行。`zh-CN` 文件夹名不会自动向 Unity 注册语言包。
 - 文本抽取脚本只做纯文本提取与说话者标注，不校验脚本语义或命令合法性；`AuthorId: Unknown` 一律映射为 `UNK`，不会尝试推断真实角色。
+- 文本拼接脚本按目录内文件逐一合并，不解析内容、不区分语言或剧本，也不对文件顺序之外的结构做任何语义处理；对二进制文件不做检测。
 
 ## 查看 AST 与运行测试
 
